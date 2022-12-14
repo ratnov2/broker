@@ -39,8 +39,10 @@ const Cards = () => {
 	const [hiddenNCard, setHiddenNCard] = useState(true) //later
 
 	/// Side Effects- useHooks
+
 	return (
 		<Layout title='Dashboard'>
+			<h1 className={style.head}>Cards</h1>
 			<div className={style.cardList}>
 				<div className={style.leftCardList}>
 					<SliderCard data={data} idx={idx} current={currentCard} />

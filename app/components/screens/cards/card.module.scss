@@ -1,9 +1,11 @@
+.head{
+	@apply text-xl font-bold my-8
+}
 .cardList {
 	@apply bg-white p-5 rounded-3xl flex  ;
 	
 	.leftCardList {
 		@apply border-r-2 border-purple pr-4 mx-5 w-5/12 max-w-xl;
-		 //// later change
 		.sliderCard {
 			@apply flex align-middle ;
 		}
