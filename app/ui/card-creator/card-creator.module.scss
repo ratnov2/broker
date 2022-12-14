@@ -1,0 +1,51 @@
+.card {
+	@apply relative h-80 w-cardDefault overflow-hidden rounded-cardDefault  text-white;
+	.balance {
+		@apply absolute top-10 ml-10;
+		p{
+			@apply font-bold text-2xl
+		}
+	}
+	.NCard {
+		@apply absolute right-10 top-32 text-xl;
+	}
+	.valid,
+	.holder {
+		@apply absolute bottom-5 text-center;
+	}
+	.holder {
+		@apply ml-10;
+	}
+	.valid {
+		@apply ml-32;
+	}
+}
+
+.rectangleGroup {
+	@apply flex justify-end;
+	.rectangle {
+		@apply h-72 w-24 rounded-full;
+
+		&:first-child {
+			@apply absolute top-28 -right-5;
+		}
+
+		&:last-child {
+			@apply absolute top-40 right-7 bg-opacity-50;
+		}
+	}
+}
+.circleGroup {
+	@apply flex justify-end;
+	.circle {
+		@apply top-5 right-10 h-14 w-14 rounded-full bg-light-gray bg-opacity-50;
+
+		&:first-child {
+			@apply absolute;
+		}
+
+		&:last-child {
+			@apply absolute right-20 bg-opacity-50;
+		}
+	}
+}

@@ -1,0 +1,30 @@
+
+export interface TypesSlider{
+  data:{
+    balance:string
+    holder:string
+    valid:{
+      month:number,
+      year:number
+    }
+    NCard:string
+    bg:string
+    bank:string
+    name:string
+    type:string
+  }[],
+  idx:number,
+  current:{
+    balance:string
+    holder:string
+    valid:{
+      month:number,
+      year:number
+    }
+    NCard:string
+    bg:string
+    bank:string
+    name:string
+    type:string
+  }
+}

@@ -1,0 +1,28 @@
+
+
+.operations{
+  @apply flex justify-center ;
+ 
+
+  .top,.withdraw{
+    @apply w-full h-44 text-white relative ;
+    h1{
+      @apply absolute text-xl font-bold left-5 top-6;
+    }
+    p{
+      @apply absolute text-sm font-light w-3/5 left-5 bottom-3;
+    }
+    img{
+      @apply absolute right-6 top-2;
+    }
+  }
+
+  .top{
+    @apply  bg-light-blue rounded-l-3xl ;
+   
+  }
+  .withdraw{
+    @apply  mr-5 bg-purple rounded-r-2xl;
+    
+  }
+}

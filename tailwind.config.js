@@ -35,7 +35,14 @@ module.exports = {
 				'6xl': '4.3rem',
 				'7xl': '5.17rem',
 				'8xl': '6.9rem',
-				'9xl': '9.2rem'
+				'9xl': '9.2rem',
+				'default':'496px'
+			},
+			width:{
+				'cardDefault':'496px'
+			},
+			borderRadius:{
+				'cardDefault':'20px'
 			}
 		}
 	},

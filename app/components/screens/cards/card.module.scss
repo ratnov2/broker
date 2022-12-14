@@ -1,0 +1,26 @@
+.cardList {
+	@apply bg-white p-5 rounded-3xl flex  ;
+	
+	.leftCardList {
+		@apply border-r-2 border-purple pr-4 mx-5 w-5/12 max-w-xl;
+		 //// later change
+		.sliderCard {
+			@apply flex align-middle ;
+		}
+	}
+	.rightCardList{
+		@apply  w-7/12 max-w-xl pr-5;
+	}
+  .bottomPlace{
+    @apply flex justify-between;
+  }
+	.newCard{
+		@apply flex align-text-top mt-5 transition-all duration-100 ease-in;
+		&:hover{
+			@apply text-green
+		}
+		svg{
+			@apply text-2xl;
+		}
+	}
+}
