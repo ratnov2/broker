@@ -2,13 +2,13 @@ import { FC } from 'react'
 
 import Layout from '@/layout/Layout'
 
+import AddNewInvoice from '@/../pages/add-new-invoice'
+
 const Dashboard: FC = () => {
 	return (
 		<Layout title='Dashboard'>
-			<div className='flex h-screen w-full items-center justify-center'>
-				<h1 className='text-center text-7xl font-bold text-red'>
-					RED Project
-				</h1>
+			<div>
+				<AddNewInvoice />
 			</div>
 		</Layout>
 	)
