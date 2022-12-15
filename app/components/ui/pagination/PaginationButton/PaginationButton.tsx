@@ -1,0 +1,30 @@
+import cn from 'clsx'
+import { FC } from 'react'
+
+import styles from './PaginateButton.module.scss'
+
+interface IPaginationButton {
+	id: number
+	currentPage: number
+	onChangePage: (id: number) => void
+}
+
+const PaginationButton: FC<IPaginationButton> = ({
+	id,
+	currentPage,
+	onChangePage
+}) => {
+	return (
+		<button
+			onClick={() => onChangePage(id)}
+			className={cn(
+				styles.paginateButton,
+				currentPage === id ? 'bg-purple text-white' : 'text-gray'
+			)}
+		>
+			{id + 1}
+		</button>
+	)
+}
+
+export default PaginationButton
