@@ -1,21 +1,20 @@
-import React from 'react'
-import styles from './style.module.scss'
+import styles from './card.module.scss'
 
 function card() {
 	return (
 		<div>
 			<section className={styles.card__container}>
-				<h1 className={styles.card__title}>
+				<h1 className={styles.title}>
 					<span>My Balance</span>
 					$12,345,789
 				</h1>
-				<div className={styles.card__number}>•••• •••• •••• 1234</div>
-				<div className={styles.card__data}>
-					<div className={styles.card__holder}>
+				<div className={styles.number}>•••• •••• •••• 1234</div>
+				<div className={styles.data}>
+					<div className={styles.holder}>
 						<span>Card Holder</span>
 						Rara Avis
 					</div>
-					<div className={styles.card__thru}>
+					<div className={styles.thru}>
 						<span>Valid Thru</span>
 						03/21
 					</div>

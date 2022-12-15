@@ -1,14 +1,6 @@
-@import './card/style.module.scss';
+@import './card/card.module.scss';
 
 .dashboard {
-	&__container {
-		margin-left: 50px;
-		margin-top: 50px;
-		padding-left: 50px;
-
-		// border-top: 1px solid #0070f3;
-		// border-left: 1px solid #0070f3;
-	}
 	padding-left: 50px;
 	padding-bottom: 40px;
 	font-family: 'Inter';
@@ -17,11 +9,16 @@
 	font-size: 36px;
 	line-height: 44px;
 	color: #22242c;
-	&__inner {
-		display: flex;
-		// justify-content: center;
-		align-items: center;
+}
+.container {
+	margin-left: 50px;
+	margin-top: 50px;
+	padding-left: 50px;
+}
+.inner {
+	display: flex;
+	// justify-content: center;
+	align-items: center;
 
-		gap: 40px;
-	}
+	gap: 40px;
 }
