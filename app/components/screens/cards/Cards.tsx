@@ -45,9 +45,7 @@ const Cards = () => {
 			<h1 className={style.head}>Cards</h1>
 			<div className={style.cardList}>
 				<div className={style.leftCardList}>
-					<SliderCard data={data} idx={idx} current={currentCard} />
-					<button onClick={prev}>Prev</button>
-					<button onClick={next}>Next</button>
+					<SliderCard data={data} idx={idx} current={currentCard} prev={prev} next={next}/>
 					<div className={style.bottomPlace}>
 						<LimitCard />
 						<div>

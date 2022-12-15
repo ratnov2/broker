@@ -5,9 +5,9 @@
 	@apply bg-white p-5 rounded-3xl flex  ;
 	
 	.leftCardList {
-		@apply border-r-2 border-purple pr-4 mx-5 w-5/12 max-w-xl;
+		@apply border-r-2 border-r-light-gray pr-4 mx-5 w-5/12 max-w-xl;
 		.sliderCard {
-			@apply flex align-middle ;
+			@apply flex align-middle relative;
 		}
 	}
 	.rightCardList{

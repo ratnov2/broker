@@ -27,4 +27,6 @@ export interface TypesSlider{
     name:string
     type:string
   }
+  prev:()=>void,
+  next:()=>void
 }
