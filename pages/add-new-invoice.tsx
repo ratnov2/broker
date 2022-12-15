@@ -2,6 +2,7 @@ import { FC } from 'react'
 import { FiArrowLeft } from 'react-icons/fi'
 
 import ClientContact from '@/components/add-new-invoice/ClientContact'
+import ItemDescription from '@/components/add-new-invoice/ItemDescription'
 
 const AddNewInvoice: FC = () => {
 	return (
@@ -12,7 +13,14 @@ const AddNewInvoice: FC = () => {
 					<FiArrowLeft className='text-2xl font-bold' />
 					<h3 className='text-xl font-bold ml-8'>New Invoices</h3>
 				</div>
-				<ClientContact />
+				<div className='flex'>
+					<div className='w-2/5'>
+						<ClientContact />
+					</div>
+					<div className='w-3/5'>
+						<ItemDescription />
+					</div>
+				</div>
 			</div>
 		</>
 	)
