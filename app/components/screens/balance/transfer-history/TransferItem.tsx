@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { FC } from 'react'
 
-import { convertDate } from '@/utils/convertDate'
+import { convertDate } from '@/utils/convert-date'
 
 import Menu from './Menu/Menu'
 import Status from './Status/Status'
@@ -23,7 +23,7 @@ const TransferItem: FC<{ transfer: ITransfer }> = ({
 						draggable={false}
 					/>
 				) : (
-					<div className='w-12 h-12 bg-gray rounded-[50%]'></div>
+					<div className='shrink-0 w-12 h-12 bg-gray rounded-[50%]'></div>
 				)}
 				<span>{name}</span>
 			</div>
@@ -33,11 +33,8 @@ const TransferItem: FC<{ transfer: ITransfer }> = ({
 			<span className={styles.amount}>{`$ ${amount}`}</span>
 
 			<div className={styles.date}>
-				{/* В песочнице все ок, а тут функции convertDate не нравятся методы строк */}
-				{/* <p>{convertDate(date)[0]}</p> */}
-				{/* <span>{convertDate(date)[1]}</span> */}
-				<p>25 Jan, 2021</p>
-				<span>04:34:45 AM</span>
+				<p>{convertDate(date)[0]}</p>
+				<span>{convertDate(date)[1]}</span>
 			</div>
 
 			<Status status={status} />

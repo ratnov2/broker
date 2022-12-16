@@ -1,21 +1,21 @@
 import cn from 'clsx'
 import { FC } from 'react'
 
+import { TypeStatus } from '../transfer.interface'
+
 import styles from './Status.module.scss'
 
-const Status: FC<{ status: 'pending' | 'completed' | 'canceled' }> = ({
-	status
-}) => {
+const Status: FC<{ status: TypeStatus }> = ({ status }) => {
 	return (
 		<div
 			className={cn(
 				styles.status,
 				status === 'pending'
-					? 'bg-gray/[0.25] text-gray'
+					? styles.pending
 					: status === 'completed'
-					? 'bg-green/[0.1] text-green'
+					? styles.completed
 					: status === 'canceled'
-					? 'bg-red/[0.1] text-red'
+					? styles.canceled
 					: ''
 			)}
 		>

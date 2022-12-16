@@ -17,10 +17,7 @@ const PaginationButton: FC<IPaginationButton> = ({
 	return (
 		<button
 			onClick={() => onChangePage(id)}
-			className={cn(
-				styles.paginateButton,
-				currentPage === id && styles.active
-			)}
+			className={cn(styles.paginateButton, currentPage === id && styles.active)}
 		>
 			{id + 1}
 		</button>

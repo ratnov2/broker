@@ -1,19 +1,23 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 
 import Layout from '@/layout/Layout'
 
 import TransferHistory from './transfer-history/TransferHistory'
-import { fakeData } from './transfer-history/transfer.data'
-import { ITransfer } from './transfer-history/transfer.interface'
+import { useBalance } from './useBalance'
 
 const Balance: FC = () => {
+	const [currentPage, setCurrentPage] = useState(0)
+	const { isLoading, transfers } = useBalance(currentPage)
+
 	return (
 		<Layout title='Balance'>
 			<div className='h-screen w-full'>
 				<div className='flex space-x-10'>
-					{/* Не разобрался, почему ругается на типизацию */}
 					<TransferHistory
-						transfers={fakeData.slice(0, 5) as ITransfer[]}
+						isLoading={isLoading}
+						currentPage={currentPage}
+						setCurrentPage={setCurrentPage}
+						transfers={transfers}
 					/>
 				</div>
 			</div>

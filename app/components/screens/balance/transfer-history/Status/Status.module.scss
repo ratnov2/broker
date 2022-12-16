@@ -1,3 +1,15 @@
 .status {
 	@apply w-[124px] rounded-[20px] py-2.5 text-center text-[14px];
+
+	&.pending {
+		@apply bg-gray/[0.25] text-gray;
+	}
+
+	&.completed {
+		@apply bg-green/[0.1] text-green;
+	}
+
+	&.canceled {
+		@apply bg-red/[0.1] text-red;
+	}
 }
