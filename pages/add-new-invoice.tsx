@@ -2,6 +2,7 @@ import { FC } from 'react'
 import { FiArrowLeft } from 'react-icons/fi'
 
 import ClientContact from '@/components/add-new-invoice/ClientContact'
+import InvoiceData from '@/components/add-new-invoice/InvoiceData'
 import ItemDescription from '@/components/add-new-invoice/ItemDescription'
 
 const AddNewInvoice: FC = () => {
@@ -18,6 +19,7 @@ const AddNewInvoice: FC = () => {
 						<ClientContact />
 					</div>
 					<div className='w-3/5'>
+						<InvoiceData />
 						<ItemDescription />
 					</div>
 				</div>
