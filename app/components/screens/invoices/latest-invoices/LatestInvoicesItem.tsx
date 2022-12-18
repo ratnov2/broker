@@ -1,11 +1,14 @@
-import Image from 'next/image'
-import { FC } from 'react'
+import Image from 'next/image';
+import { FC, useState } from 'react';
 
-import styles from './LatestInvoices.module.scss'
+
+
+import styles from './LatestInvoices.module.scss';
 //import { convertDate } from '@/utils/convertDate';
-import Menu from './actions/Actions'
-import { ILatestInvoice } from './latestInvoices.interface'
-import Status from './status/Status'
+import Menu from './actions/Actions';
+import { ILatestInvoice } from './latestInvoices.interface';
+import Status from './status/Status';
+
 
 const InvoiceItem: FC<{ latestInvoice: ILatestInvoice }> = ({
 	latestInvoice: {
@@ -18,8 +21,24 @@ const InvoiceItem: FC<{ latestInvoice: ILatestInvoice }> = ({
 		email
 	}
 }) => {
+	const [checked, setChecked] = useState(false)
+
+	const handleChange = () => {
+		setChecked(!checked)
+	}
 	return (
-		<div className={styles.latestInvoiceRow}>
+		<div
+			className={styles.latestInvoiceRow}
+			style = {checked ? { borderLeft: '4px solid blue' }: {}}
+		>
+			<input
+				key={invoiceNum}
+				type='checkbox'
+				className='invoiceNum'
+				style={{ height: '20px', width: '20px' }}
+				checked={checked}
+				onSelect={handleChange}
+			/>
 			<div className={styles.recipient}>
 				{recipientAvatar ? (
 					<Image

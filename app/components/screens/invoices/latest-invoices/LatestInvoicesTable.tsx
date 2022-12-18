@@ -1,25 +1,30 @@
-import { FC, useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react';
 
-import Pagination from '@/ui/pagination/Pagination'
 
-import styles from './LatestInvoices.module.scss'
-import LatestInvoicesItem from './LatestInvoicesItem'
-import LatestInvoiceTableHeader from './LatestInvoicesTableHeader'
-import { fakeLatestInvoices } from './latestInvoices.data'
-import { ILatestInvoice } from './latestInvoices.interface'
+
+import Pagination from '@/ui/pagination/Pagination';
+
+
+
+import styles from './LatestInvoices.module.scss';
+import LatestInvoicesItem from './LatestInvoicesItem';
+import LatestInvoiceTableHeader from './LatestInvoicesTableHeader';
+import { fakeLatestInvoices } from './latestInvoices.data';
+import { ILatestInvoice } from './latestInvoices.interface';
+
 
 const LatestInvoices: FC = () => {
 	const [latestInvoices, setLatestInvoices] = useState<ILatestInvoice[]>([])
-	const [loadingLatestInvoices, setLoadingLatestInvoices] = useState(false)
+	const [isLoadingLatestInvoices, setIsLoadingLatestInvoices] = useState(false)
 	const [currentPage, setCurrentPage] = useState(1)
 	const [invoicesPerPage] = useState(5)
 
 	useEffect(() => {
 		const fetchLatestInvoices = async () => {
-			setLoadingLatestInvoices(true)
+			setIsLoadingLatestInvoices(true)
 			const res = fakeLatestInvoices as ILatestInvoice[] //await axios.get('https://??????/latest-invoices/)
 			setLatestInvoices(res)
-			setLoadingLatestInvoices(false)
+			setIsLoadingLatestInvoices(false)
 		}
 
 		fetchLatestInvoices()
@@ -33,7 +38,7 @@ const LatestInvoices: FC = () => {
 		indexOfLastInvoice
 	)
 
-	if (loadingLatestInvoices) {
+	if (isLoadingLatestInvoices) {
 		return (
 			<div className='h-[601px] flex items-center justify-center'>
 				Loading invoices..

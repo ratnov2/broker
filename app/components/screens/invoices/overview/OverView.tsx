@@ -1,20 +1,43 @@
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react';
 
-import OverViewElement from './OverViewElement'
-import { IOverViewElement } from './Overview.interface'
+
+
+import OverViewElement from './OverViewElement';
+import { IOverViewElement } from './overview.interface';
+import { overViewFakeData } from './overviewInvoices.data';
 
 
 interface IOverView {
-	overViewElements: IOverViewElement[]
-	isLoading: boolean
 	period: string
 }
 
 const OverView: FC<IOverView> = ({
-	overViewElements,
-	isLoading,
 	period // Не разобрался, как прокинуть период дальше в OverViewElement вместе с overViewItem
 }) => {
+	const [overViewElements, setOverViewElements] = useState<IOverViewElement[]>(
+		[]
+	)
+	const [isLoadingOverViewInvoices, setIsLoadingOverViewInvoices] =
+		useState(false)
+
+	useEffect(() => {
+		const fetchOverViewInvoices = async () => {
+			setIsLoadingOverViewInvoices(true)
+			const res = overViewFakeData as IOverViewElement[] //await axios.get('https://??????/overview-invoices/)
+			setOverViewElements(res)
+			setIsLoadingOverViewInvoices(false)
+		}
+
+		fetchOverViewInvoices()
+	}, [])
+	
+	if (isLoadingOverViewInvoices) {
+		return (
+			<div className='h-[225px] flex items-center justify-center'>
+				Loading overview invoices..
+			</div>
+		)
+	}
 	return (
 		<div style={{ display: 'flex', justifyContent: 'space-between' }}>
 			{overViewElements.length ? (
@@ -28,7 +51,7 @@ const OverView: FC<IOverView> = ({
 				</>
 			) : (
 				<div className='h-[225px] flex items-center justify-center'>
-					Invoices not found
+					Invoices for overview not found
 				</div>
 			)}
 		</div>
