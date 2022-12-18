@@ -18,17 +18,35 @@ const OverViewElement: FC<{ overViewElement: IOverViewElement }> = ({
 }) => {
 	return (
 		<div className={styles.divContainer}>
-			<div>
+			<div style={{
+						display: 'flex',
+						justifyContent: 'space-between'
+					}}>
 				<div
 					style={{
-						width: '70%',
-						float: 'left',
-						fontSize: '22px',
-						color: 'grey'
+						display: 'flex',
+						flexDirection: 'column',
+						flex: '1 1 auto'
 					}}
 				>
-					{overViewType}
+					<div
+						style={{
+							fontSize: '22px',
+							color: 'grey'
+						}}
+					>
+						{overViewType}
+					</div>
+					<div
+						style={{
+							fontSize: '36px',
+							fontWeight: 'bold'
+						}}
+					>
+						{amount}
+					</div>
 				</div>
+
 				{overViewType === 'Invoice Sent' ? (
 					<AiOutlineHistory
 						style={{
@@ -90,17 +108,6 @@ const OverViewElement: FC<{ overViewElement: IOverViewElement }> = ({
 						}}
 					/>
 				)}
-				<div
-					style={{
-						width: '70%',
-						float: 'left',
-						clear: 'left',
-						fontSize: '36px',
-						fontWeight: 'bold'
-					}}
-				>
-					{amount}
-				</div>
 			</div>
 			<div style={{ width: '100%' }}>
 				<div style={{ float: 'left' }}>

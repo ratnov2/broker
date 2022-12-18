@@ -1,5 +1,5 @@
 .divContainer {
-	@apply p-5 rounded-[40px] bg-white w-1/5
+	@apply p-5 rounded-[40px] bg-white w-1/5 max-w-xs min-w-max
 }
 .latestInvoicesSection {
 	@apply mt-8 w-[100%] rounded-[40px] bg-white py-8;
