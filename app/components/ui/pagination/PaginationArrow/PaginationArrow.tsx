@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai'
+import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai'
 
 import styles from './PaginationArrow.module.scss'
 
@@ -37,9 +37,9 @@ const PaginationArrow: FC<IPageArrow> = ({
 			className={styles.paginationArrow}
 		>
 			{type === 'prev' ? (
-				<AiOutlineArrowLeft size={30} />
+				<AiFillCaretLeft size={30} color='#8E8EA1' />
 			) : (
-				<AiOutlineArrowRight size={30} />
+				<AiFillCaretRight size={30} color='#8E8EA1' />
 			)}
 		</button>
 	)

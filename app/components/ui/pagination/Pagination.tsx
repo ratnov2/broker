@@ -15,6 +15,19 @@ const Pagination: FC<IPaginationProps> = ({
 	setCurrentPage,
 	itemsLimit
 }) => {
+	const getSlicedArray = (currentPage: number) => {
+		let array = []
+		for (let i = 0; i < Math.ceil((itemsLimit || 0) / 5); i++) {
+			array.push(i)
+		}
+
+		return currentPage + 1 === Math.ceil((itemsLimit || 0) / 5)
+			? array.slice(currentPage - 2, currentPage + 1)
+			: currentPage > 0
+			? array.slice(currentPage - 1, currentPage + 2)
+			: array.slice(0, currentPage + 3)
+	}
+
 	const onChangePage = (id: number) => {
 		setCurrentPage(id)
 	}
@@ -24,9 +37,9 @@ const Pagination: FC<IPaginationProps> = ({
 			{itemsLimit && (
 				<>
 					<p>
-						Showing{' '}
-						<span>{`${5 * currentPage + 1} - ${5 * currentPage + 5}`}</span>{' '}
-						from <span>{itemsLimit ? itemsLimit : '...'}</span> data
+						Showing
+						<span>{` ${5 * currentPage + 1} - ${5 * currentPage + 5} `}</span>
+						from <span>{itemsLimit}</span> data
 					</p>
 					<div>
 						<PaginationArrow
@@ -36,10 +49,10 @@ const Pagination: FC<IPaginationProps> = ({
 							onChangePage={onChangePage}
 						/>
 						{itemsLimit &&
-							[...new Array(Math.ceil(itemsLimit / 5))].map((item, index) => (
+							getSlicedArray(currentPage).map(item => (
 								<PaginationButton
-									key={index}
-									id={index}
+									key={item}
+									id={item}
 									currentPage={currentPage}
 									onChangePage={onChangePage}
 								/>

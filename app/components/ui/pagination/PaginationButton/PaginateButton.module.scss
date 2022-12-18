@@ -1,7 +1,7 @@
 .paginateButton {
-	@apply h-[50px] w-[50px] rounded-[50%] border border-gray text-[18px] text-gray hover:bg-purple/[0.1];
+	@apply h-[50px] w-[50px] rounded-[50%] border-2 border-gray text-[18px] text-gray hover:bg-purple/[0.1];
 
 	&.active {
-		@apply border-0 bg-purple text-white;
+		@apply border-0 bg-purple text-white shadow-[0_7px_16px_rgba(0,0,0,0.14)];
 	}
 }

@@ -10,7 +10,7 @@ const constants = {
 	white: '#ffffff',
 	red: '#FF4A55',
 	gray: '#8E8EA1',
-	'light-gray': '#E5E5E5',
+	'light-gray': '#F9F9F9',
 	'gray-2': '#F5F5F5'
 }
 

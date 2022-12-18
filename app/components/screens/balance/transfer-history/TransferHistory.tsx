@@ -29,7 +29,7 @@ const TransferHistory: FC<ITransferHistoryProps> = ({
 			) : transfers?.length ? (
 				<div className='h-[520px]'>
 					{transfers
-						?.slice(5 * currentPage, 5 * currentPage + 5)
+						.slice(5 * currentPage, 5 * currentPage + 5)
 						.map(transfer => (
 							<TransferItem key={transfer.id} transfer={transfer} />
 						))}

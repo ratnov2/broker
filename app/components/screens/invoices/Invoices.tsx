@@ -2,9 +2,9 @@ import { FC } from 'react'
 
 import Layout from '@/layout/Layout'
 
-const Dashboard: FC = () => {
+const Invoices: FC = () => {
 	return (
-		<Layout title='Dashboard'>
+		<Layout title='Invoices'>
 			<div className='flex h-screen w-full items-center justify-center'>
 				<h1 className='text-center text-7xl font-bold text-red'>RED Project</h1>
 			</div>
@@ -12,4 +12,4 @@ const Dashboard: FC = () => {
 	)
 }
 
-export default Dashboard
+export default Invoices
