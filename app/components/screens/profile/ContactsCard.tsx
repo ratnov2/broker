@@ -18,7 +18,7 @@ const ContactsCard: FC<{ user: IUserCard }> = ({ user }) => {
 						className='rounded-3xl border p-[19px]'
 						placeholder='Search here...'
 					/>
-					<div className='bg-purple w-[60px] h-[60px] rounded-full ml-8 flex justify-center items-center cursor-pointer'>
+					<div className='bg-purple w-[60px] h-[60px] rounded-full ml-8 flex justify-center items-center cursor-pointer text-white hover:opacity-90'>
 						<TbPlus size='2em' />
 					</div>
 				</div>
