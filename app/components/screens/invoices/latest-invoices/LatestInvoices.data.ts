@@ -1,4 +1,3 @@
-//test
 export const fakeLatestInvoices = [
 	{
 		recipientAvatar: '',

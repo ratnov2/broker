@@ -1,4 +1,3 @@
-//test
 export interface ILatestInvoice {
 	recipientAvatar: string
 	name: string
