@@ -4,8 +4,8 @@ import Layout from '@/layout/Layout'
 
 import LatestInvoicesTable from './latest-invoices/LatestInvoicesTable'
 import OverView from './overview/OverView'
-import { overViewFakeData } from './overview/OvervieInvoices.data'
-import { IOverViewElement } from './overview/Overview.interface'
+import { overViewFakeData } from './overview/overviewInvoices.data'
+import { IOverViewElement } from './overview/overview.interface'
 
 const Balance: FC = () => {
 	return (
