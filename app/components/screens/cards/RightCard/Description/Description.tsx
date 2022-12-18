@@ -1,15 +1,17 @@
 import React, { FC } from 'react'
 
-import { descriptionData } from './description-data'
-import { TypesDescription } from './description-data.interface'
+import { convertToHiddenNumber } from '@/utils/get-hidden-card'
+
+import { PropsDescription } from './description-data.interface'
 import style from './description.module.scss'
 
-const Description: FC<TypesDescription> = ({
+const Description: FC<PropsDescription> = ({
 	type,
-	NCard,
+	number,
 	valid,
 	name,
-	bank
+	bank,
+	visibleNumberCard
 }) => {
 	return (
 		<div className={style.description}>
@@ -21,7 +23,11 @@ const Description: FC<TypesDescription> = ({
 				</div>
 				<div>
 					<h3>Card Number</h3>
-					<p>{NCard}</p>
+					<p>
+						{!visibleNumberCard
+							? number
+							: convertToHiddenNumber(number)}
+					</p>
 				</div>
 				<div>
 					<h3>Bank</h3>

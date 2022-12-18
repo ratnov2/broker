@@ -1,27 +1,27 @@
-.head{
-	@apply text-xl font-bold my-8
+.head {
+	@apply my-8 text-xl font-bold;
 }
 .cardList {
-	@apply bg-white p-5 rounded-3xl flex  ;
-	
+	@apply flex rounded-3xl bg-white p-5;
+
 	.leftCardList {
-		@apply border-r-2 border-r-light-gray pr-4 mx-5 w-5/12 max-w-xl;
+		@apply mx-5 w-5/12 max-w-xl border-r-2 border-r-light-gray pr-4;
 		.sliderCard {
-			@apply flex align-middle relative;
+			@apply relative flex align-middle;
 		}
 	}
-	.rightCardList{
-		@apply  w-7/12 max-w-xl pr-5;
+	.rightCardList {
+		@apply w-7/12 max-w-xl pr-5;
 	}
-  .bottomPlace{
-    @apply flex justify-between;
-  }
-	.newCard{
-		@apply flex align-text-top mt-5 transition-all duration-100 ease-in;
-		&:hover{
-			@apply text-green
+	.bottomPlace {
+		@apply flex justify-between;
+	}
+	.newCard {
+		@apply mt-5 flex align-text-top transition-all duration-100 ease-in;
+		&:hover {
+			@apply text-green;
 		}
-		svg{
+		svg {
 			@apply text-2xl;
 		}
 	}

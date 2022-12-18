@@ -1,6 +1,4 @@
-
-
 export interface TypesLimitCard {
-  now:string,
-  all:string
+	now: string
+	all: string
 }

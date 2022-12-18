@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import { makeMoney } from '@/utils/makeMoney'
+import { convertMoneyToNormalize } from '@/utils/convertMoneyToNormalize'
 
 import { LimitData } from './limit-data'
 
@@ -17,8 +17,11 @@ const LimitCard = () => {
 				></div>
 			</div>
 			<div>
-				<span>${makeMoney(String(LimitData.now))}</span>
-				<span className='text-purple'> / from ${makeMoney(String(LimitData.all))}</span>
+				<span>${convertMoneyToNormalize(String(LimitData.now))}</span>
+				<span className='text-purple'>
+					{' '}
+					/ from ${convertMoneyToNormalize(String(LimitData.all))}
+				</span>
 			</div>
 		</div>
 	)

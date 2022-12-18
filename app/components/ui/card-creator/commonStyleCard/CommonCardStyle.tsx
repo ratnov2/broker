@@ -1,11 +1,11 @@
-import React from 'react'
+import cn from 'clsx'
 
-import style from '../card-creator.module.scss'
-import cn from 'classnames'
 import Circle from './Circle'
 import Rectangle from './Rectangle'
+import style from './common-style-card.module.scss'
+import { FC } from 'react'
 
-const CommonCardStyle = () => {
+const CommonCardStyle:FC = () => {
 	return (
 		<>
 			<div className={cn(style.rectangleGroup)}>

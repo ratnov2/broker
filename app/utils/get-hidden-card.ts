@@ -1,6 +1,6 @@
-export const getHiddenCard = (str:string, x = 4) => {
-  let basestr = str.slice(12, 17);
-  let newstr = str.slice(0, 12);
-  let secondwstr = newstr.replace(newstr, '*'.repeat(5));
-  return secondwstr + basestr;
+export const convertToHiddenNumber = (string?:string, x = 4) => {
+  const baseString = string.slice(12, 17);
+  const newString = string.slice(0, 12);
+  const secondWString = newString.replace(newString, '*'.repeat(5));
+  return secondWString + baseString;
 }
