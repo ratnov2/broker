@@ -1,11 +1,8 @@
-import { FC, useState } from 'react';
+import { FC } from 'react'
 
-
-
-import styles from './Pagination.module.scss';
-import PaginationArrow from './PaginationArrow/PaginationArrow';
-import PaginationButton from './PaginationButton/PaginationButton';
-
+import styles from './Pagination.module.scss'
+import PaginationArrow from './pagination-arrow/PaginationArrow'
+import PaginationButton from './pagination-button/PaginationButton'
 
 interface IPagination {
 	itemsPerPage: number
@@ -23,10 +20,6 @@ const Pagination: FC<IPagination> = ({
 	for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
 		pageNumbers.push(i)
 	}
-	//const [currentPage, setCurrentPage] = useState<number>(0)
-	// const onChangePage = (id: number) => {
-	// 	setCurrentPage(id)
-	// }
 
 	return (
 		<div className={styles.pagination}>

@@ -1,21 +1,13 @@
-import { FC, useEffect, useState } from 'react';
+import { FC } from 'react'
 
+import Layout from '@/layout/Layout'
 
-
-import Layout from '@/layout/Layout';
-
-
-
-import { ILatestInvoice } from './latest-invoices/LatestInvoices.interface';
-import LatestInvoicesTable from './latest-invoices/LatestInvoicesTable';
-import OverView from './overview/OverView';
-import { overViewFakeData } from './overview/OvervieInvoices.data';
-import { IOverViewElement } from './overview/Overview.interface';
-
+import LatestInvoicesTable from './latest-invoices/LatestInvoicesTable'
+import OverView from './overview/OverView'
+import { overViewFakeData } from './overview/OvervieInvoices.data'
+import { IOverViewElement } from './overview/Overview.interface'
 
 const Balance: FC = () => {
-	
-
 	return (
 		<Layout title='Invoices'>
 			<div className='h-screen w-full'>

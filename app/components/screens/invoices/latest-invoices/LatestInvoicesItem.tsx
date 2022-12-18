@@ -2,10 +2,10 @@ import Image from 'next/image'
 import { FC } from 'react'
 
 //import { convertDate } from '@/utils/convertDate';
-import Menu from './Actions/Actions'
+import Menu from './actions/Actions'
 import { ILatestInvoice } from './LatestInvoices.interface'
 import styles from './LatestInvoices.module.scss'
-import Status from './Status/Status'
+import Status from './status/Status'
 
 
 const InvoiceItem: FC<{ latestInvoice: ILatestInvoice }> = ({

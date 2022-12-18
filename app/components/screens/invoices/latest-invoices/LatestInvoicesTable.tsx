@@ -1,17 +1,12 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react'
 
+import Pagination from '@/ui/pagination/Pagination'
 
-
-import Pagination from '@/ui/pagination/Pagination';
-
-
-
-import { fakeLatestInvoices } from './LatestInvoices.data';
-import { ILatestInvoice } from './LatestInvoices.interface';
-import styles from './LatestInvoices.module.scss';
-import LatestInvoicesItem from './LatestInvoicesItem';
-import LatestInvoiceTableHeader from './LatestInvoicesTableHeader';
-
+import { fakeLatestInvoices } from './LatestInvoices.data'
+import { ILatestInvoice } from './LatestInvoices.interface'
+import styles from './LatestInvoices.module.scss'
+import LatestInvoicesItem from './LatestInvoicesItem'
+import LatestInvoiceTableHeader from './LatestInvoicesTableHeader'
 
 const LatestInvoices: FC = () => {
 	const [latestInvoices, setLatestInvoices] = useState<ILatestInvoice[]>([])
