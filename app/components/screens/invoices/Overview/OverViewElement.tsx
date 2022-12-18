@@ -33,7 +33,7 @@ const OverViewElement: FC<{ overViewElement: IOverViewElement }> = ({
 					<AiOutlineHistory
 						style={{
 							alignSelf: 'center',
-							backgroundColor: '#6160dc', //purple почему-то другой цвет, а не тот, что в _variables.scss
+							backgroundColor: '#6160dc', //purple почему-то другой цвет, а не тот, что в _variables
 							width: '75px',
 							height: '75px',
 							padding: '16px',

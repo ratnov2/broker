@@ -31,6 +31,7 @@ const Pagination: FC<IPagination> = ({
 					type='prev'
 					currentPage={currentPage}
 					onChangePage={onChangePage}
+					totalPages={pageNumbers.length}
 				/>
 				{pageNumbers.map(number => (
 					<PaginationButton
@@ -44,6 +45,7 @@ const Pagination: FC<IPagination> = ({
 					type='next'
 					currentPage={currentPage}
 					onChangePage={onChangePage}
+					totalPages={pageNumbers.length}
 				/>
 			</div>
 		</div>
