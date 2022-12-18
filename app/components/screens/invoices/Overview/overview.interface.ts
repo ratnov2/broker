@@ -1,11 +1,10 @@
-import { IconType } from 'react-icons';
-
-
-export interface IItem {
-	_id: string
-	items: string[]
-}
-
-export interface IOverViewItems {
-	overViewItem: IItem
+export interface IOverViewElement {
+	overViewType:
+		| 'Invoice Sent'
+		| 'Paid Invoice'
+		| 'Pending Invoice'
+		| 'Unpaid Invoice'
+	amount: number
+	compare: number
+	period: string
 }

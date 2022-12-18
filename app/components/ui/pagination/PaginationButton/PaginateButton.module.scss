@@ -1,0 +1,7 @@
+.paginateButton {
+	@apply h-[50px] w-[50px] rounded-[50%] border border-gray text-[18px] text-gray;
+
+	&.active {
+		@apply bg-purple text-white;
+	}
+}
