@@ -10,8 +10,8 @@ import {
 } from 'react-icons/ai'
 import { FaCheckDouble } from 'react-icons/fa'
 
-import { IOverViewElement } from './Overview.interface'
 import styles from './Overview.module.scss'
+import { IOverViewElement } from './overview.interface'
 
 const OverViewElement: FC<{ overViewElement: IOverViewElement }> = ({
 	overViewElement: { overViewType, amount, compare, period }
