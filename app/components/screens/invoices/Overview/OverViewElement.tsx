@@ -1,17 +1,17 @@
-import cn from 'clsx';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { FC } from 'react';
-import { IconType } from 'react-icons';
-import { AiFillCaretDown, AiFillCaretUp, AiOutlineCheckCircle, AiOutlineExclamationCircle, AiOutlineQuestionCircle } from 'react-icons/ai';
-import { FaCheckDouble } from 'react-icons/fa';
-import { IOverViewElement } from './Overview.interface';
+import { FC } from 'react'
+import {
+	AiFillCaretDown,
+	AiFillCaretUp,
+	AiOutlineCheckCircle,
+	AiOutlineExclamationCircle,
+	AiOutlineFileUnknown,
+	AiOutlineHistory,
+	AiOutlineQuestionCircle
+} from 'react-icons/ai'
+import { FaCheckDouble } from 'react-icons/fa'
 
-
-
-import styles from './Overview.module.scss';
-
-
+import { IOverViewElement } from './Overview.interface'
+import styles from './Overview.module.scss'
 
 const OverViewElement: FC<{ overViewElement: IOverViewElement }> = ({
 	overViewElement: { overViewType, amount, compare, period }
@@ -30,13 +30,13 @@ const OverViewElement: FC<{ overViewElement: IOverViewElement }> = ({
 					{overViewType}
 				</div>
 				{overViewType === 'Invoice Sent' ? (
-					<FaCheckDouble
+					<AiOutlineHistory
 						style={{
 							alignSelf: 'center',
-							backgroundColor: '#6160DC',
+							backgroundColor: '#6160dc', //purple почему-то другой цвет, а не тот, что в _variables.scss
 							width: '75px',
 							height: '75px',
-							padding: '22px',
+							padding: '16px',
 							borderRadius: '50px',
 							color: 'white'
 						}}
@@ -45,7 +45,7 @@ const OverViewElement: FC<{ overViewElement: IOverViewElement }> = ({
 					<AiOutlineCheckCircle
 						style={{
 							alignSelf: 'center',
-							backgroundColor: '#54C5EB',
+							backgroundColor: '#54C5EB', //light-blue почему-то не работает
 							width: '75px',
 							height: '75px',
 							padding: '16px',
@@ -57,7 +57,7 @@ const OverViewElement: FC<{ overViewElement: IOverViewElement }> = ({
 					<AiOutlineQuestionCircle
 						style={{
 							alignSelf: 'center',
-							backgroundColor: '#FFB74A',
+							backgroundColor: 'orange',
 							width: '75px',
 							height: '75px',
 							padding: '16px',
@@ -69,7 +69,7 @@ const OverViewElement: FC<{ overViewElement: IOverViewElement }> = ({
 					<AiOutlineExclamationCircle
 						style={{
 							alignSelf: 'center',
-							backgroundColor: '#FF4A55',
+							backgroundColor: 'red',
 							width: '75px',
 							height: '75px',
 							padding: '16px',
@@ -78,13 +78,13 @@ const OverViewElement: FC<{ overViewElement: IOverViewElement }> = ({
 						}}
 					/>
 				) : (
-					<FaCheckDouble
+					<AiOutlineFileUnknown
 						style={{
 							alignSelf: 'center',
 							backgroundColor: 'gray',
 							width: '75px',
 							height: '75px',
-							padding: '22px',
+							padding: '16px',
 							borderRadius: '50px',
 							color: 'white'
 						}}
@@ -107,13 +107,13 @@ const OverViewElement: FC<{ overViewElement: IOverViewElement }> = ({
 					{compare >= 0 ? (
 						<AiFillCaretUp
 							style={{
-								color: '#00A389'
+								color: 'green'
 							}}
 						/>
 					) : (
 						<AiFillCaretDown
 							style={{
-								color: '#FF4A55'
+								color: 'red'
 							}}
 						/>
 					)}
@@ -122,7 +122,7 @@ const OverViewElement: FC<{ overViewElement: IOverViewElement }> = ({
 							style={{
 								fontSize: '22px',
 								fontWeight: 'bold',
-								color: compare >= 0 ? '#00A389' : '#FF4A55'
+								color: compare >= 0 ? 'green' : 'red'
 							}}
 						>
 							{compare}%

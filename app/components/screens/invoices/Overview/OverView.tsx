@@ -1,19 +1,7 @@
-import { FC } from 'react';
+import { FC } from 'react'
 
-
-
-import Pagination from '@/ui/pagination/Pagination';
-
-
-
-import LatestInvoicesItem from '../latest-invoices/LatestInvoicesItem';
-
-
-
-import OverViewElement from './OverViewElement';
-import { IOverViewElement } from './Overview.interface';
-import styles from './Overview.module.scss';
-
+import OverViewElement from './OverViewElement'
+import { IOverViewElement } from './Overview.interface'
 
 interface IOverView {
 	overViewElements: IOverViewElement[]
