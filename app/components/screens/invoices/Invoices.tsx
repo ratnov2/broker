@@ -1,15 +1,21 @@
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react';
 
-import Layout from '@/layout/Layout'
 
-import { fakeLatestInvoices } from './latest-invoices/LatestInvoices.data'
-import { ILatestInvoice } from './latest-invoices/LatestInvoices.interface'
-import LatestInvoicesTable from './latest-invoices/LatestInvoicesTable'
-import OverView from './overview/OverView'
-import { overViewFakeData } from './overview/OvervieInvoices.data'
-import { IOverViewElement } from './overview/Overview.interface'
+
+import Layout from '@/layout/Layout';
+
+
+
+import { ILatestInvoice } from './latest-invoices/LatestInvoices.interface';
+import LatestInvoicesTable from './latest-invoices/LatestInvoicesTable';
+import OverView from './overview/OverView';
+import { overViewFakeData } from './overview/OvervieInvoices.data';
+import { IOverViewElement } from './overview/Overview.interface';
+
 
 const Balance: FC = () => {
+	
+
 	return (
 		<Layout title='Invoices'>
 			<div className='h-screen w-full'>
@@ -21,12 +27,7 @@ const Balance: FC = () => {
 					isLoading={false}
 					period={'month'}
 				/>
-				<LatestInvoicesTable
-					latestInvoices={
-						fakeLatestInvoices.slice(0, 5) as ILatestInvoice[]
-					}
-					isLoading={false}
-				/>
+				<LatestInvoicesTable />
 			</div>
 		</Layout>
 	)

@@ -5,5 +5,5 @@ export interface ILatestInvoice {
 	invoiceNum: string
 	service: string
 	date: string
-	status: 'Sent' | 'Unpaid' | 'Paid' | 'Pending'
+	status: string
 }

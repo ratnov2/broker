@@ -1,19 +1,37 @@
-import { FC, useState } from 'react'
+import { FC, useState } from 'react';
 
-import styles from './Pagination.module.scss'
-import PaginationArrow from './PaginationArrow/PaginationArrow'
-import PaginationButton from './PaginationButton/PaginationButton'
 
-const Pagination: FC = () => {
-	const [currentPage, setCurrentPage] = useState<number>(0)
-	const onChangePage = (id: number) => {
-		setCurrentPage(id)
+
+import styles from './Pagination.module.scss';
+import PaginationArrow from './PaginationArrow/PaginationArrow';
+import PaginationButton from './PaginationButton/PaginationButton';
+
+
+interface IPagination {
+	itemsPerPage: number
+	totalItems: number
+	currentPage: number
+	onChangePage: (id: number) => void
+}
+const Pagination: FC<IPagination> = ({
+	itemsPerPage,
+	totalItems,
+	currentPage,
+	onChangePage
+}) => {
+	const pageNumbers = []
+	for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
+		pageNumbers.push(i)
 	}
+	//const [currentPage, setCurrentPage] = useState<number>(0)
+	// const onChangePage = (id: number) => {
+	// 	setCurrentPage(id)
+	// }
 
 	return (
 		<div className={styles.pagination}>
 			<p>
-				Showing <span>1-5</span> from <span>100</span> data
+				Showing <span>1-5</span> from <span>{totalItems}</span> invoices
 			</p>
 			<div>
 				<PaginationArrow
@@ -21,10 +39,10 @@ const Pagination: FC = () => {
 					currentPage={currentPage}
 					onChangePage={onChangePage}
 				/>
-				{[...new Array(3)].map((item, index) => (
+				{pageNumbers.map(number => (
 					<PaginationButton
-						key={index}
-						id={index}
+						key={number}
+						id={number}
 						currentPage={currentPage}
 						onChangePage={onChangePage}
 					/>

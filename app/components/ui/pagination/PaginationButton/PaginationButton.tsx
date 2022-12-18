@@ -22,7 +22,7 @@ const PaginationButton: FC<IPaginationButton> = ({
 				currentPage === id && styles.active
 			)}
 		>
-			{id + 1}
+			{id}
 		</button>
 	)
 }
