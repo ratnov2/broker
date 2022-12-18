@@ -5,8 +5,8 @@ import Pagination from '@/ui/pagination/Pagination'
 import styles from './LatestInvoices.module.scss'
 import LatestInvoicesItem from './LatestInvoicesItem'
 import LatestInvoiceTableHeader from './LatestInvoicesTableHeader'
-import { fakeLatestInvoices } from './latestInvoices2.data'
-import { ILatestInvoice } from './latestInvoices2.interface'
+import { fakeLatestInvoices } from './latestInvoices.data'
+import { ILatestInvoice } from './latestInvoices.interface'
 
 const LatestInvoices: FC = () => {
 	const [latestInvoices, setLatestInvoices] = useState<ILatestInvoice[]>([])
