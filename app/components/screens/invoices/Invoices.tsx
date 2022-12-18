@@ -3,9 +3,9 @@ import { FC } from 'react'
 import Layout from '@/layout/Layout'
 
 import LatestInvoicesTable from './latest-invoices/LatestInvoicesTable'
-import OverView from './overview/OverView'
-import { overViewFakeData } from './overview/overviewInvoices.data'
-import { IOverViewElement } from './overview/overview.interface'
+import OverView from './overview2/OverView'
+import { overViewFakeData } from './overview2/overviewInvoices.data'
+import { IOverViewElement } from './overview2/overview.interface'
 
 const Balance: FC = () => {
 	return (
