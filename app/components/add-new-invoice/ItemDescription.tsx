@@ -4,7 +4,7 @@ const ItemDescription = () => {
 	return (
 		<div>
 			<h2 className='mb-11 text-xl font-bold'>Item Desription</h2>
-			<table className='w-full'>
+			<table className='w-full mb-11'>
 				<thead>
 					<tr>
 						<th className='font-normal text-gray text-xs text-left'>
