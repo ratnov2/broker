@@ -5,7 +5,7 @@ import PaginationArrow from './PaginationArrow/PaginationArrow'
 import PaginationButton from './PaginationButton/PaginationButton'
 
 interface IPaginationProps {
-	itemsLimit: number | undefined
+	itemsLimit?: number
 	currentPage: number
 	setCurrentPage: Dispatch<SetStateAction<number>>
 }

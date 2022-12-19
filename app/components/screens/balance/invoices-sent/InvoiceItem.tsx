@@ -1,12 +1,12 @@
 import Image from 'next/image'
 import { FC } from 'react'
 
-import InvoiceStatus from './InvoiceStatus/InvoiceStatus'
+import InvoiceStatus from './invoice-status/InvoiceStatus'
 import styles from './Invoices.module.scss'
 import { formatDate } from './format-date'
-import { IInvoices } from './invoices.interface'
+import { IInvoice } from './invoices.interface'
 
-const InvoiceItem: FC<{ invoice: IInvoices }> = ({
+const InvoiceItem: FC<{ invoice: IInvoice }> = ({
 	invoice: { image, name, date, status }
 }) => {
 	return (

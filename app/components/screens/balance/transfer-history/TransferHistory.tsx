@@ -11,7 +11,7 @@ interface ITransferHistoryProps {
 	isLoading: boolean
 	currentPage: number
 	setCurrentPage: Dispatch<SetStateAction<number>>
-	transfers: ITransfer[] | undefined
+	transfers?: ITransfer[]
 }
 
 const TransferHistory: FC<ITransferHistoryProps> = ({

@@ -39,12 +39,12 @@ const Menu: FC = () => {
 
 			<div
 				onClick={e => {
+					const _element = e?.target as HTMLDivElement
 					setIsActive(false)
 					alert(
-						// @ts-ignore
-						e?.target.innerHTML === 'Delete' // @ts-ignore
-							? e?.target.innerHTML + 'd' // @ts-ignore
-							: e?.target.innerHTML + 'ed'
+						_element.innerHTML === 'Delete'
+							? _element.innerHTML + 'd'
+							: _element.innerHTML + 'ed'
 					)
 				}}
 				className={cn(

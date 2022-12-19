@@ -15,13 +15,7 @@ const InvoiceStatus: FC<{ status: TypeStatus }> = ({ status }) => {
 		<div
 			className={cn(
 				styles.status,
-				status === 'pending'
-					? styles.pending
-					: status === 'completed'
-					? styles.completed
-					: status === 'canceled'
-					? styles.canceled
-					: ''
+				styles[status]
 			)}
 		>
 			{status === 'pending' ? (

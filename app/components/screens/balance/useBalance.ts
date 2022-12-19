@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useQuery } from 'react-query'
 
-import { IInvoices } from './invoices-sent/invoices.interface'
+import { IInvoice } from './invoices-sent/invoices.interface'
 import { ITransfer } from './transfer-history/transfer.interface'
 
 export const useBalance = (currentPage: number) => {
@@ -19,7 +19,7 @@ export const useBalance = (currentPage: number) => {
 	const { isLoading: isLoadingInvoices, data: invoices } = useQuery(
 		'invoicesSent',
 		() =>
-			axios.get<IInvoices[]>(
+			axios.get<IInvoice[]>(
 				'https://639b978b31877e43d68f9e9e.mockapi.io/invoices'
 			),
 		{

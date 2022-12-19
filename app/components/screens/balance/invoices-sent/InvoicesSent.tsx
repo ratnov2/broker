@@ -5,11 +5,11 @@ import Loader from '@/ui/loader/Loader'
 
 import InvoiceItem from './InvoiceItem'
 import styles from './Invoices.module.scss'
-import { IInvoices } from './invoices.interface'
+import { IInvoice } from './invoices.interface'
 
 interface IInvoicesSentProps {
 	isLoading: boolean
-	invoices: IInvoices[] | undefined
+	invoices?: IInvoice[]
 }
 
 const InvoicesSent: FC<IInvoicesSentProps> = ({ isLoading, invoices }) => {

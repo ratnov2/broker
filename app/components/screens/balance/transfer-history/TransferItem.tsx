@@ -3,8 +3,8 @@ import { FC } from 'react'
 
 import { convertDate } from '@/utils/convert-date'
 
-import Menu from './Menu/Menu'
-import Status from './Status/Status'
+import Menu from './menu/Menu'
+import Status from './status/Status'
 import styles from './Transfer.module.scss'
 import { ITransfer } from './transfer.interface'
 
