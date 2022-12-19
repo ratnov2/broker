@@ -3,7 +3,7 @@ import Image from 'next/image'
 const AttachFile = () => {
 	return (
 		<>
-			<h2 className='mb-11 text-xl font-bold mb-16'>Attach File</h2>
+			<h2 className='mb-11 text-xl font-bold'>Attach File</h2>
 			<div>
 				<div className='flex bg-light-gray w-[337px] border border-dashed p-3.5 rounded-[40px]'>
 					<div className='bg-[#6160DC] w-12 h-12 rounded-full p-3 mr-4'>
