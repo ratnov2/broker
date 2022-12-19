@@ -1,0 +1,22 @@
+.tableHeader {
+	@apply flex  items-center  justify-between border-b  border-light-gray  py-4 px-8 text-[20px] font-semibold text-black;
+
+	.status {
+		@apply w-[124px];
+	}
+	.recipient {
+		@apply flex w-1/6;
+	}
+	.invoiceNum {
+		@apply w-1/6;
+	}
+	.service {
+		@apply w-1/6;
+	}
+	.date {
+		@apply w-1/6;
+	}
+	.actions {
+		@apply flex;
+	}
+}
