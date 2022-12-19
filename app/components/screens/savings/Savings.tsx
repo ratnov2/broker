@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 
 import Layout from '@/layout/Layout'
 
@@ -8,15 +8,20 @@ import { ISavingsData } from '@/screens/savings/savings.interface'
 import SavingsTable from '@/screens/savings/table/SavingsTable'
 
 const Savings: FC = () => {
-	let [data, setData] = useState<ISavingsData[]>(savingsData)
+	let [data, setData] = useState(savingsData)
 	const [state, setState] = useState(1)
 
 	function onFormChange(newSavingsData: ISavingsData) {
 		savingsData.push(newSavingsData)
-		setData(data => savingsData)
+
+		setState([...data, newSavingsData])
 
 		console.log(data)
 	}
+
+	useEffect(() => {
+		console.log(123)
+	}, [data])
 
 	return (
 		<Layout title='Savings'>
@@ -31,7 +36,7 @@ const Savings: FC = () => {
 				></SavingsTable>
 				<SavingsForm
 					onFormChange={onFormChange}
-					savingsData={data}
+					savingsData={savingsData}
 					key={state}
 				></SavingsForm>
 			</div>

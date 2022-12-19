@@ -11,7 +11,6 @@ const SavingsRow: FC<ISavingsData> = ({
 	color,
 	backgroundColor
 }) => {
-	console.log(id)
 	return (
 		<tr className='h-24' style={{ backgroundColor: backgroundColor }}>
 			<td className='px-6 py-4 whitespace-nowrap w-6 pl-8'>

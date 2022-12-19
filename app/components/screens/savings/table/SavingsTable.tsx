@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 
 import styles from './SavingsTable.module.scss'
 import SavingsRow from '@/screens/savings/row/SavingsRow'
