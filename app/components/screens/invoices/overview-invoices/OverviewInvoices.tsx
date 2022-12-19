@@ -1,46 +1,60 @@
-import { FC, useEffect, useState } from 'react'
+import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
 
-import OverviewElement from './OverviewInvoicesElement'
-import { overviewFakeData } from './overview-invoices.data'
-import { IOverviewInvoice } from './overview-invoices.interface'
+
+
+import OverviewElement from './OverviewInvoicesElement';
+import { overviewFakeData } from './overview-invoices.data';
+import { IOverviewInvoice } from './overview-invoices.interface';
+import Loader from '@/ui/pagination/loader/Loader';
+
 
 interface IOverview {
 	period: string
+	isLoading: boolean
+	// currentPage: number
+	// setCurrentPage: Dispatch<SetStateAction<number>>
+	overviewInvoices?: IOverviewInvoice[]
 }
 
-const OverviewInvoices: FC<IOverview> = ({ period }) => {
-	const [overviewElements, setOverviewElements] = useState<
-		IOverviewInvoice[]
-	>([])
-	const [isLoadingOverviewInvoices, setIsLoadingOverviewInvoices] =
-		useState(false)
+const OverviewInvoices: FC<IOverview> = ({
+	period,
+	isLoading,
+	overviewInvoices
+}) => {
+	// const [overviewElements, setOverviewElements] = useState<
+	// 	IOverviewInvoice[]
+	// >([])
+	// const [isLoadingOverviewInvoices, setIsLoadingOverviewInvoices] =
+	// 	useState(false)
 
-	useEffect(() => {
-		const fetchOverviewInvoices = async () => {
-			setIsLoadingOverviewInvoices(true)
-			const res = overviewFakeData as IOverviewInvoice[] //await axios.get('https://??????/overview-invoices/)
-			setOverviewElements(res)
-			setIsLoadingOverviewInvoices(false)
-		}
+	// useEffect(() => {
+	// 	const fetchOverviewInvoices = async () => {
+	// 		setIsLoadingOverviewInvoices(true)
+	// 		const res = overviewFakeData as IOverviewInvoice[] //await axios.get('https://??????/overview-invoices/)
+	// 		setOverviewElements(res)
+	// 		setIsLoadingOverviewInvoices(false)
+	// 	}
 
-		fetchOverviewInvoices()
-	}, [])
+	// 	fetchOverviewInvoices()
+	// }, [])
 
-	if (isLoadingOverviewInvoices) {
-		return (
-			<div className='h-[225px] flex items-center justify-center'>
-				Loading overview invoices..
-			</div>
-		)
-	}
+	// if (isLoadingOverviewInvoices) {
+	// 	return (
+	// 		<div className='h-[225px] flex items-center justify-center'>
+	// 			Loading overview invoices..
+	// 		</div>
+	// 	)
+	// }
 	return (
 		<div className='flex justify-between'>
-			{overviewElements.length ? (
+			{isLoading ? (
+				<Loader />
+			) : overviewInvoices?.length ? (
 				<>
-					{overviewElements.map(overviewElement => (
+					{overviewInvoices.map(overviewInvoice => (
 						<OverviewElement
-							key={overviewElement.overviewType}
-							overviewInvoice={overviewElement}
+							key={overviewInvoice.overviewType}
+							overviewInvoice={overviewInvoice}
 							period={period}
 						/>
 					))}

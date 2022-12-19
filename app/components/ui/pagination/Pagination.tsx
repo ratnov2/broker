@@ -1,70 +1,76 @@
-import { FC, useEffect } from 'react';
+import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 
+import styles from './Pagination.module.scss'
+import PaginationArrow from './pagination-arrow/PaginationArrow'
+import PaginationButton from './pagination-button/PaginationButton'
 
-
-import styles from './Pagination.module.scss';
-import PaginationArrow from './pagination-arrow/PaginationArrow';
-import PaginationButton from './pagination-button/PaginationButton';
-
-
-interface IPagination {
-	itemsPerPage: number
-	totalItems: number
+interface IPaginationProps {
+	itemsLimit?: number
 	currentPage: number
-	onChangePage: (id: number) => void
+	setCurrentPage: Dispatch<SetStateAction<number>>
 }
-const Pagination: FC<IPagination> = ({
-	itemsPerPage,
-	totalItems,
+
+const Pagination: FC<IPaginationProps> = ({
 	currentPage,
-	onChangePage
+	setCurrentPage,
+	itemsLimit = 0
 }) => {
+	const itemsPerPage = 5
 	const pageNumbers = []
-	for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
+	for (let i = 1; i <= Math.ceil(itemsLimit / itemsPerPage); i++) {
 		pageNumbers.push(i)
 	}
 
 	const showingMax =
-		currentPage * itemsPerPage > totalItems
-			? totalItems
+		currentPage * itemsPerPage > (itemsLimit || 0)
+			? itemsLimit
 			: currentPage * itemsPerPage < itemsPerPage
 			? itemsPerPage
 			: currentPage * itemsPerPage
 
-	const showingMin = currentPage * itemsPerPage - (itemsPerPage - 1) //1.6.11.16
+	const showingMin = currentPage * itemsPerPage - (itemsPerPage - 1)
 
-	
+	const onChangePage = (id: number) => {
+		setCurrentPage(id)
+	}
+
 	return (
 		<div className={styles.pagination}>
-			<p>
-				Showing{' '}
-				<span>
-					{showingMin}-{showingMax}
-				</span>{' '}
-				from <span>{totalItems}</span> invoices
-			</p>
-			<div>
-				<PaginationArrow
-					type='prev'
-					currentPage={currentPage}
-					onChangePage={onChangePage}
-					totalPages={pageNumbers.length}
-				/>
-				{pageNumbers.map(number => (
-					<PaginationButton
-						key={number}
-						id={number}
-						currentPage={currentPage}
-						onChangePage={onChangePage}
-					/>
-				))}
-				<PaginationArrow
-					type='next'
-					currentPage={currentPage}
-					onChangePage={onChangePage}
-					totalPages={pageNumbers.length}
-				/>
-			</div>
+			{itemsLimit && (
+				<>
+					<p>
+						Showing
+						<span>
+							{showingMin} - {showingMax}
+						</span>
+						{' '} from <span>{itemsLimit}</span> data
+					</p>
+					<div>
+						<PaginationArrow
+							itemsLimit={itemsLimit}
+							type='prev'
+							currentPage={currentPage}
+							onChangePage={onChangePage}
+							itemsPerPage={itemsPerPage}
+						/>
+						{pageNumbers.map(number => (
+							<PaginationButton
+								key={number}
+								id={number}
+								currentPage={currentPage}
+								onChangePage={onChangePage}
+							/>
+						))}
+						<PaginationArrow
+							itemsLimit={itemsLimit}
+							type='next'
+							currentPage={currentPage}
+							onChangePage={onChangePage}
+							itemsPerPage={itemsPerPage}
+						/>
+					</div>
+				</>
+			)}
 		</div>
 	)
 }

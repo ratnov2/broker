@@ -10,16 +10,17 @@ interface IPageArrow {
 	type: 'prev' | 'next'
 	currentPage: number
 	onChangePage: (id: number) => void
-	totalPages: number
+	itemsLimit: number
+	itemsPerPage: number
 }
 
 const PaginationArrow: FC<IPageArrow> = ({
 	type,
 	currentPage,
 	onChangePage,
-	totalPages
+	itemsLimit,
+	itemsPerPage
 }) => {
-	console.log(totalPages)
 	return (
 		<button className={styles.paginationArrow}>
 			{type === 'prev' ? (
@@ -32,8 +33,8 @@ const PaginationArrow: FC<IPageArrow> = ({
 				<AiFillCaretRight
 					onClick={() =>
 						onChangePage(
-							currentPage === totalPages
-								? totalPages
+							currentPage === itemsLimit / itemsPerPage
+								? currentPage
 								: currentPage + 1
 						)
 					}

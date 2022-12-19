@@ -1,3 +1,6 @@
+import { Dispatch, SetStateAction } from "react";
+
+
 export interface ILatestInvoice {
 	_id: number
 	recipientAvatar: string
@@ -9,6 +12,9 @@ export interface ILatestInvoice {
 	status: string
 }
 
-export interface IInvoiceItem {
-	latestInvoice: ILatestInvoice
+export interface ILatestInvoices {
+	latestInvoices?: ILatestInvoice[]
+	isLoading: boolean
+	currentPage: number
+	setCurrentPage: Dispatch<SetStateAction<number>>
 }

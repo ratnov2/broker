@@ -1,64 +1,47 @@
 import { FC, useEffect, useState } from 'react'
 
 import Pagination from '@/ui/pagination/Pagination'
+import Loader from '@/ui/pagination/loader/Loader'
 
 import styles from './LatestInvoices.module.scss'
 import LatestInvoicesItem from './LatestInvoicesItem'
 import LatestInvoiceTableHeader from './LatestInvoicesTableHeader'
-import { fakeLatestInvoices } from './latest-invoices.data'
-import { ILatestInvoice } from './latest-invoices.interface'
+import { ILatestInvoices } from './rows/latest-invoices.interface'
 
-const LatestInvoices: FC = () => {
-	const [latestInvoices, setLatestInvoices] = useState<ILatestInvoice[]>([])
-	const [isLoadingLatestInvoices, setIsLoadingLatestInvoices] =
-		useState(false)
-	const [currentPage, setCurrentPage] = useState(1)
+const LatestInvoices: FC<ILatestInvoices> = ({
+	latestInvoices,
+	isLoading,
+	currentPage,
+	setCurrentPage
+}) => {
 	const [invoicesPerPage] = useState(5)
-
-	useEffect(() => {
-		const fetchLatestInvoices = async () => {
-			setIsLoadingLatestInvoices(true)
-			const res = fakeLatestInvoices as ILatestInvoice[] //await axios.get('https://??????/latest-invoices/)
-			setLatestInvoices(res)
-			setIsLoadingLatestInvoices(false)
-		}
-
-		fetchLatestInvoices()
-	}, [])
 
 	//Get Current invoices on Page
 	const indexOfLastInvoice = currentPage * invoicesPerPage
 	const indexOfFirstInvoice = indexOfLastInvoice - invoicesPerPage
-	const currentInvoices = latestInvoices.slice(
+	const currentInvoices = latestInvoices?.slice(
 		indexOfFirstInvoice,
 		indexOfLastInvoice
 	)
-
-	if (isLoadingLatestInvoices) {
-		return (
-			<div className='h-[501px]  flex items-center justify-center '>
-				Loading invoices..
-			</div>
-		)
-	}
 
 	return (
 		<div className={styles.latestInvoicesSection}>
 			<h2>Latest Invoices</h2>
 			<LatestInvoiceTableHeader />
-			{currentInvoices.length ? (
+			{isLoading ? (
+				<Loader />
+			) : currentInvoices?.length ? (
 				<>
-					{currentInvoices.map(currentInvoice => (
+					{currentInvoices.map(latestInvoice => (
 						<LatestInvoicesItem
-							key={currentInvoice._id}
-							latestInvoice={currentInvoice}
+							key={latestInvoice._id}
+							latestInvoice={latestInvoice}
 						/>
 					))}
 					<Pagination
-						itemsPerPage={invoicesPerPage}
-						totalItems={latestInvoices.length}
+						itemsLimit={latestInvoices?.length}
 						currentPage={currentPage}
-						onChangePage={setCurrentPage}
+						setCurrentPage={setCurrentPage}
 					/>
 				</>
 			) : (

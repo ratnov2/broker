@@ -1,10 +1,6 @@
 export interface IOverviewInvoice {
-	overviewType:
-		| 'Invoice Sent'
-		| 'Paid Invoice'
-		| 'Pending Invoice'
-		| 'Unpaid Invoice'
+	_id: number,
+	overviewType: string
 	amount: number
 	compare: number
-	period: string
 }
