@@ -1,5 +1,5 @@
-export interface IOverViewElement {
-	overViewType:
+export interface IOverviewInvoice {
+	overviewType:
 		| 'Invoice Sent'
 		| 'Paid Invoice'
 		| 'Pending Invoice'

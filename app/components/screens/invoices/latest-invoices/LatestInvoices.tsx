@@ -1,21 +1,17 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react'
 
+import Pagination from '@/ui/pagination/Pagination'
 
-
-import Pagination from '@/ui/pagination/Pagination';
-
-
-
-import styles from './LatestInvoices.module.scss';
-import LatestInvoicesItem from './LatestInvoicesItem';
-import LatestInvoiceTableHeader from './LatestInvoicesTableHeader';
-import { fakeLatestInvoices } from './latestInvoices.data';
-import { ILatestInvoice } from './latestInvoices.interface';
-
+import styles from './LatestInvoices.module.scss'
+import LatestInvoicesItem from './LatestInvoicesItem'
+import LatestInvoiceTableHeader from './LatestInvoicesTableHeader'
+import { fakeLatestInvoices } from './latest-invoices.data'
+import { ILatestInvoice } from './latest-invoices.interface'
 
 const LatestInvoices: FC = () => {
 	const [latestInvoices, setLatestInvoices] = useState<ILatestInvoice[]>([])
-	const [isLoadingLatestInvoices, setIsLoadingLatestInvoices] = useState(false)
+	const [isLoadingLatestInvoices, setIsLoadingLatestInvoices] =
+		useState(false)
 	const [currentPage, setCurrentPage] = useState(1)
 	const [invoicesPerPage] = useState(5)
 
@@ -40,7 +36,7 @@ const LatestInvoices: FC = () => {
 
 	if (isLoadingLatestInvoices) {
 		return (
-			<div className='h-[601px] flex items-center justify-center'>
+			<div className='h-[501px]  flex items-center justify-center '>
 				Loading invoices..
 			</div>
 		)
@@ -54,7 +50,7 @@ const LatestInvoices: FC = () => {
 				<>
 					{currentInvoices.map(currentInvoice => (
 						<LatestInvoicesItem
-							key={currentInvoice.invoiceNum}
+							key={currentInvoice._id}
 							latestInvoice={currentInvoice}
 						/>
 					))}
@@ -66,7 +62,7 @@ const LatestInvoices: FC = () => {
 					/>
 				</>
 			) : (
-				<div className='h-[601px] flex items-center justify-center'>
+				<div className='h-[501px] flex items-center justify-center'>
 					Invoices not found
 				</div>
 			)}

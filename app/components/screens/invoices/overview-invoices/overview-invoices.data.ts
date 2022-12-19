@@ -1,24 +1,24 @@
-export const overViewFakeData = [
+export const overviewFakeData = [
 	{
-		overViewType: 'Invoice Sent',
+		overviewType: 'Invoice Sent',
 		amount: 1234.0,
 		compare: 2.01,
 		period: 'month'
 	},
 	{
-		overViewType: 'Paid Invoice',
+		overviewType: 'Paid Invoice',
 		amount: 932.0,
 		compare: -2.01,
 		period: 'month'
 	},
 	{
-		overViewType: 'Pending Invoice',
+		overviewType: 'Pending Invoice',
 		amount: 1256.0,
 		compare: 2.01,
 		period: 'month'
 	},
 	{
-		overViewType: 'Unpaid Invoice',
+		overviewType: 'Unpaid Invoice',
 		amount: 1932.0,
 		compare: -2.01,
 		period: 'month'

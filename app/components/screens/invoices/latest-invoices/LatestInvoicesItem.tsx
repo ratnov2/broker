@@ -1,17 +1,19 @@
-import Image from 'next/image';
-import { FC, useState } from 'react';
+import Image from 'next/image'
+import { FC, useState } from 'react'
 
-
-
-import styles from './LatestInvoices.module.scss';
+import styles from './LatestInvoices.module.scss'
 //import { convertDate } from '@/utils/convertDate';
-import Menu from './actions/Actions';
-import { ILatestInvoice } from './latestInvoices.interface';
-import Status from './status/Status';
+import Menu from './actions/Actions'
+import { ILatestInvoice } from './latest-invoices.interface'
+import Status from './status/Status'
 
+interface IInvoiceItem {
+	latestInvoice: ILatestInvoice
+}
 
-const InvoiceItem: FC<{ latestInvoice: ILatestInvoice }> = ({
+const InvoiceItem: FC<IInvoiceItem> = ({
 	latestInvoice: {
+		_id,
 		recipientAvatar,
 		name,
 		invoiceNum,
@@ -28,8 +30,9 @@ const InvoiceItem: FC<{ latestInvoice: ILatestInvoice }> = ({
 	}
 	return (
 		<div
+			id={_id.toString()}
 			className={styles.latestInvoiceRow}
-			style = {checked ? { borderLeft: '4px solid blue' }: {}}
+			style={checked ? { borderLeft: '4px solid blue' } : {}}
 		>
 			<input
 				key={invoiceNum}
