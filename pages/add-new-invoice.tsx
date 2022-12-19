@@ -6,6 +6,7 @@ import AttachFile from '@/components/add-new-invoice/AttachFile'
 import ClientContact from '@/components/add-new-invoice/ClientContact'
 import InvoiceData from '@/components/add-new-invoice/InvoiceData'
 import ItemDescription from '@/components/add-new-invoice/ItemDescription'
+import SelectClient from '@/components/add-new-invoice/SelectClient/SelectClient'
 
 const AddNewInvoice: FC = () => {
 	return (
@@ -16,8 +17,10 @@ const AddNewInvoice: FC = () => {
 					<FiArrowLeft className='text-2xl font-bold' />
 					<h3 className='text-xl font-bold ml-8'>New Invoices</h3>
 				</div>
+
 				<div className='flex'>
 					<div className='w-2/5'>
+						<SelectClient />
 						<ClientContact />
 					</div>
 					<div className='w-3/5'>
