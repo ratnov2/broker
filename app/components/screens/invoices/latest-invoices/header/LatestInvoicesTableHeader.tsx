@@ -5,11 +5,6 @@ import styles from './LatestInvoicesHeader.module.scss'
 const LatestInvoiceTableHeader: FC = ({}) => {
 	return (
 		<div className={styles.tableHeader}>
-			<input
-				type='checkbox'
-				className=''
-				style={{ height: '20px', width: '20px' }}
-			/>
 			<div className={styles.recipient}>Recipient</div>
 			<div className={styles.invoiceNum}>Invoice</div>
 			<div className={styles.status}>Status</div>

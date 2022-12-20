@@ -4,8 +4,8 @@ import Pagination from '@/ui/pagination/Pagination'
 import Loader from '@/ui/pagination/loader/Loader'
 
 import styles from './LatestInvoices.module.scss'
-import LatestInvoicesItem from './LatestInvoicesItem'
 import LatestInvoiceTableHeader from './LatestInvoicesTableHeader'
+import LatestInvoicesItem from './rows/LatestInvoicesItem'
 import { ILatestInvoices } from './rows/latest-invoices.interface'
 
 const LatestInvoices: FC<ILatestInvoices> = ({

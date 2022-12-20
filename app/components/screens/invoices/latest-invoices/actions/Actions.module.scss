@@ -1,8 +1,8 @@
 .menu {
-	@apply relative;
+	@apply relative flex;
 
 	> button {
-		@apply ml-10 flex h-6 w-6 items-center transition-all duration-300;
+		@apply ml-4 flex h-6 w-6 items-center transition-all duration-300;
 
 		span {
 			@apply mr-[3px] h-[6px] w-[6px] shrink-0 grow-0 rounded-[50%] bg-gray last:mr-0;

@@ -2,7 +2,7 @@ import cn from 'clsx'
 import { FC } from 'react'
 import { BsCheckCircle } from 'react-icons/bs'
 
-import styles from '../LatestInvoices.module.scss'
+import styles from '../rows/LatestInvoicesItem.module.scss'
 
 const Status: FC<{ status: string }> = ({
 	status
