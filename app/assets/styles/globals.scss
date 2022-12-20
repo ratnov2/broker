@@ -1,5 +1,6 @@
 @import 'app/assets/styles/variables';
 
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,14 +11,21 @@ body {
 
 @layer components {
 	.balance-card {
-		@apply bg-white p-5;
-		flex-basis: 45%;
+		@apply bg-white py-7 px-5;
+		flex-basis: 49%;
 		border-radius: 40px;
 		box-shadow: 0 20px 50px rgba(191, 21, 108, 0.05);
 	}
 	
-	.balance-stats {
-		@apply flex flex-wrap items-center border-2 border-[#8E8EA1] rounded-lg;
-		flex-basis: 48%;
+	.card-details__value {
+		@apply font-bold;
+	}
+	
+	.card-details__title {
+		@apply text-[14px] text-[#8E8EA1];
+	}
+	
+	.balance-card__subtitle {
+		@apply mb-7 font-semibold;
 	}
 }
