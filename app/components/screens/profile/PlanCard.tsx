@@ -3,7 +3,7 @@ import { BiDotsHorizontalRounded } from 'react-icons/bi'
 
 const PlanCard = () => {
 	return (
-		<div className='p-8 bg-gradient-to-b from-blue to-cyan w-96 h-96 rounded-3xl text-white'>
+		<div className='p-8 bg-gradient-to-b from-light-blue to-purple w-96 h-96 rounded-3xl text-white'>
 			<div className='flex flex-row justify-between'>
 				<p className='text-base font-normal'>Your Plan</p>
 				<button>

@@ -10,9 +10,7 @@ const constants = {
 	white: '#ffffff',
 	red: '#FF4A55',
 	gray: '#8E8EA1',
-	'light-gray': '#F5F5F5',
-	blue: '#363B64',
-	cyan: '#54C5EB'
+	'light-gray': '#F5F5F5'
 }
 
 module.exports = {

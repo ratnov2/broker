@@ -48,8 +48,11 @@ const UserCard: FC<{ user: IUserCard }> = ({ user }) => {
 										</div>
 									</div>
 									<div className='flex flex-row items-center pt-4 gap-10 flex-wrap'>
-										{userInfo.map(user => (
-											<div className='flex items-center max-w-[260px]'>
+										{userInfo.map((user, i) => (
+											<div
+												className='flex items-center max-w-[260px]'
+												key={i}
+											>
 												<div className='flex items-center gap-3'>
 													<div className='rounded-full bg-purple flex justify-center items-center w-12 h-12 shrink-0'>
 														{user.icon}

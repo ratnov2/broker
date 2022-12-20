@@ -5,12 +5,12 @@ import { IUserCard } from './profile.interface'
 
 const MessagesCard: FC<{ user: IUserCard }> = ({ user }) => {
 	return (
-		<div className='flex bg-white mt-[54px] rounded-3xl p-8'>
+		<div className='flex bg-white w-[475px] mt-[54px] rounded-3xl p-8'>
 			<div className='flex flex-col'>
 				<h1 className='font-bold text-2xl'>Messages</h1>
 				<div className='flex flex-row mt-8 h-[60px]'>
 					<input
-						className='rounded-3xl border p-[19px]'
+						className='rounded-3xl border w-[304px] p-[19px]'
 						placeholder='Search here...'
 					/>
 					<div className='bg-purple hover:opacity-90 w-[60px] h-[60px] rounded-full ml-8 flex justify-center items-center cursor-pointer text-white'>
