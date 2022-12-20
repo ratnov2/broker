@@ -1,29 +1,44 @@
-import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
+import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
 
-import styles from './Pagination.module.scss'
-import PaginationArrow from './pagination-arrow/PaginationArrow'
-import PaginationButton from './pagination-button/PaginationButton'
+
+
+import styles from './Pagination.module.scss';
+import PaginationArrow from './pagination-arrow/PaginationArrow';
+import PaginationButton from './pagination-button/PaginationButton';
+
 
 interface IPaginationProps {
-	itemsLimit?: number
+	maxItems: number
 	currentPage: number
 	setCurrentPage: Dispatch<SetStateAction<number>>
+	itemsPerPage: number
 }
 
 const Pagination: FC<IPaginationProps> = ({
 	currentPage,
 	setCurrentPage,
-	itemsLimit = 0
+	maxItems,
+	itemsPerPage
 }) => {
-	const itemsPerPage = 5
-	const pageNumbers = []
-	for (let i = 1; i <= Math.ceil(itemsLimit / itemsPerPage); i++) {
-		pageNumbers.push(i)
+	const maxPagesCount = Math.ceil(maxItems / itemsPerPage)
+	const maxShownPages = 3
+
+	const getPageNumbers = (currentPage: number) => {
+		const pageNumbers = []
+		for (let i = 1; i <= maxPagesCount; i++) {
+			pageNumbers.push(i)
+		}
+
+		return currentPage === maxPagesCount
+			? pageNumbers.slice(currentPage - maxShownPages, currentPage + 1)
+			: currentPage > 1
+			? pageNumbers.slice(currentPage - (maxShownPages -1), currentPage + 1)
+			: pageNumbers.slice(0, currentPage + (maxShownPages -1))
 	}
 
 	const showingMax =
-		currentPage * itemsPerPage > (itemsLimit || 0)
-			? itemsLimit
+		currentPage * itemsPerPage > maxItems
+			? maxItems
 			: currentPage * itemsPerPage < itemsPerPage
 			? itemsPerPage
 			: currentPage * itemsPerPage
@@ -36,24 +51,24 @@ const Pagination: FC<IPaginationProps> = ({
 
 	return (
 		<div className={styles.pagination}>
-			{itemsLimit && (
+			{maxItems && (
 				<>
 					<p>
 						Showing
 						<span>
-							{showingMin} - {showingMax}
-						</span>
-						{' '} from <span>{itemsLimit}</span> data
+							{' '}{showingMin} - {showingMax}
+						</span>{' '}
+						from <span>{maxItems}</span> data
 					</p>
 					<div>
 						<PaginationArrow
-							itemsLimit={itemsLimit}
+							itemsLimit={maxItems}
 							type='prev'
 							currentPage={currentPage}
 							onChangePage={onChangePage}
 							itemsPerPage={itemsPerPage}
 						/>
-						{pageNumbers.map(number => (
+						{getPageNumbers(currentPage).map(number => (
 							<PaginationButton
 								key={number}
 								id={number}
@@ -62,7 +77,7 @@ const Pagination: FC<IPaginationProps> = ({
 							/>
 						))}
 						<PaginationArrow
-							itemsLimit={itemsLimit}
+							itemsLimit={maxItems}
 							type='next'
 							currentPage={currentPage}
 							onChangePage={onChangePage}

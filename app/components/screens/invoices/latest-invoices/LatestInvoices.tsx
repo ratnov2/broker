@@ -38,11 +38,14 @@ const LatestInvoices: FC<ILatestInvoices> = ({
 							latestInvoice={latestInvoice}
 						/>
 					))}
-					<Pagination
-						itemsLimit={latestInvoices?.length}
-						currentPage={currentPage}
-						setCurrentPage={setCurrentPage}
-					/>
+					{latestInvoices && (
+						<Pagination
+							currentPage={currentPage}
+							setCurrentPage={setCurrentPage}
+							maxItems={latestInvoices.length}
+							itemsPerPage={invoicesPerPage}
+						/>
+					)}
 				</>
 			) : (
 				<div className='h-[501px] flex items-center justify-center'>
