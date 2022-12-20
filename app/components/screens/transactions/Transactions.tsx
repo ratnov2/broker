@@ -1,11 +1,22 @@
 import { FC } from 'react'
-
 import Layout from '@/layout/Layout'
 
 import NewTransactionForm from './new-transaction-form/NewTransactionForm'
-import RecentRecipient from './recent-recipient/RecentRecipient'
+import RecipientRecent from './recipient-recent/RecipientRecent'
+
+const defaultFormData = {
+	number: '',
+	date: '',
+	recipient: '',
+	dueDate: ''
+}
 
 const Transactions: FC = () => {
+	const test = defaultFormData
+
+	const onSubmitForm = (data: TransactionFormData) =>
+		alert(JSON.stringify(data))
+
 	return (
 		<Layout title='Transactions'>
 			<div className='mt-10 sm:mt-0 w-full h-screen'>
@@ -14,15 +25,18 @@ const Transactions: FC = () => {
 						Add New Transaction
 					</h1>
 
-					<div className='flex space-x-6'>
-						<div className='w-2/3'>
-							<NewTransactionForm />
+					<div className='flex space-x-10'>
+						<div className='w-3/4'>
+							<NewTransactionForm
+								defaultData={test}
+								onSubmit={onSubmitForm}
+							/>
 						</div>
-						<div className='w-1/3'>
-							<RecentRecipient />
+						<div className='w-1/4'>
+							<RecipientRecent />
 						</div>
 					</div>
-				</div>
+				</div> 
 			</div>
 		</Layout>
 	)

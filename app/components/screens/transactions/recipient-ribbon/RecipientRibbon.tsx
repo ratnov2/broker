@@ -15,7 +15,7 @@ const RecipientRibbon: FC = () => {
 				</div>
 				<div className='flex flex-col items-center'>
 					<div className='rounded-full w-16 h-16 bg-purple'></div>
-					<div>Karen</div>
+					<div>Karen</div>Trans
 				</div>
 			</div>
 		</div>
