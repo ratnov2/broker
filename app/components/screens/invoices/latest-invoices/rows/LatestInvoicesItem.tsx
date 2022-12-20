@@ -1,23 +1,19 @@
-import Image from 'next/image';
-import { FC, useState } from 'react';
+import Image from 'next/image'
+import { FC, useState } from 'react'
 
-
-
-import styles from './LatestInvoicesItem.module.scss';
-//import { convertDate } from '@/utils/convertDate';
-import Menu from './actions/Actions';
-import { ILatestInvoice } from './latest-invoices.interface';
-import Status from './status/Status';
-
+import styles from './LatestInvoicesItem.module.scss'
+import Menu from './actions/Actions'
+import { ILatestInvoice } from './latest-invoices.interface'
+import Status from './status/Status'
 
 const InvoiceItem: FC<ILatestInvoice> = ({
-		_id,
-		recipientAvatar,
-		name,
-		invoiceNum,
-		service,
-		status,
-		email
+	_id,
+	recipientAvatar,
+	name,
+	invoiceNum,
+	service,
+	status,
+	email
 }) => {
 	const [checked, setChecked] = useState(false)
 

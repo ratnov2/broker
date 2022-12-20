@@ -1,10 +1,7 @@
-import { FC } from 'react';
-import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai';
+import { FC } from 'react'
+import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai'
 
-
-
-import styles from './PaginationArrow.module.scss';
-
+import styles from './PaginationArrow.module.scss'
 
 interface IPageArrow {
 	type: 'prev' | 'next'

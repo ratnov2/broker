@@ -1,6 +1,11 @@
-import { FC } from 'react';
-import { AiFillCaretDown, AiFillCaretUp, AiOutlineCheckCircle, AiOutlineExclamationCircle, AiOutlineFileUnknown, AiOutlineHistory, AiOutlineQuestionCircle } from 'react-icons/ai';
-
+import { FC } from 'react'
+import {
+	AiOutlineCheckCircle,
+	AiOutlineExclamationCircle,
+	AiOutlineFileUnknown,
+	AiOutlineHistory,
+	AiOutlineQuestionCircle
+} from 'react-icons/ai'
 
 interface IRoundedIcon {
 	overviewInvoiceType: string
@@ -15,45 +20,44 @@ const getStyle = {
 	color: 'white'
 }
 
-const RoundedIcon: FC<IRoundedIcon> = ({ overviewInvoiceType
-}) => {
+const RoundedIcon: FC<IRoundedIcon> = ({ overviewInvoiceType }) => {
 	return (
 		<div>
-				{overviewInvoiceType === 'Invoice Sent' ? (
-					<AiOutlineHistory
-						style={{
-							...getStyle,
-							backgroundColor: '#6160dc'
-						}}
-					/>
-				) : overviewInvoiceType === 'Paid Invoice' ? (
-					<AiOutlineCheckCircle
-						style={{
-							...getStyle,
-							backgroundColor: '#54C5EB'
-						}}
-					/>
-				) : overviewInvoiceType === 'Pending Invoice' ? (
-					<AiOutlineQuestionCircle
-						style={{
-							...getStyle,
-							backgroundColor: 'orange'
-						}}
-					/>
-				) : overviewInvoiceType === 'Unpaid Invoice' ? (
-					<AiOutlineExclamationCircle
-						style={{
-							...getStyle,
-							backgroundColor: 'red'
-						}}
-					/>
-				) : (
-					<AiOutlineFileUnknown
-						style={{
-							...getStyle,
-							backgroundColor: 'gray'
-						}}
-					/>
+			{overviewInvoiceType === 'Invoice Sent' ? (
+				<AiOutlineHistory
+					style={{
+						...getStyle,
+						backgroundColor: '#6160dc'
+					}}
+				/>
+			) : overviewInvoiceType === 'Paid Invoice' ? (
+				<AiOutlineCheckCircle
+					style={{
+						...getStyle,
+						backgroundColor: '#54C5EB'
+					}}
+				/>
+			) : overviewInvoiceType === 'Pending Invoice' ? (
+				<AiOutlineQuestionCircle
+					style={{
+						...getStyle,
+						backgroundColor: 'orange'
+					}}
+				/>
+			) : overviewInvoiceType === 'Unpaid Invoice' ? (
+				<AiOutlineExclamationCircle
+					style={{
+						...getStyle,
+						backgroundColor: 'red'
+					}}
+				/>
+			) : (
+				<AiOutlineFileUnknown
+					style={{
+						...getStyle,
+						backgroundColor: 'gray'
+					}}
+				/>
 			)}
 		</div>
 	)

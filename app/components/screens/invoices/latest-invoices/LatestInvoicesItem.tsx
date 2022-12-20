@@ -4,7 +4,7 @@ import { FC, useState } from 'react'
 import styles from './LatestInvoices.module.scss'
 //import { convertDate } from '@/utils/convertDate';
 import Menu from './actions/Actions'
-import { ILatestInvoice } from './latest-invoices.interface'
+import { ILatestInvoice } from './rows/latest-invoices.interface'
 import Status from './status/Status'
 
 interface IInvoiceItem {

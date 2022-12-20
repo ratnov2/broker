@@ -9,7 +9,7 @@ const Actions: FC = () => {
 
 	return (
 		<div style={{ display: 'flex' }}>
-			<AiOutlinePrinter onClick={() => window.print()} size='24px'/>
+			<AiOutlinePrinter onClick={() => window.print()} size='24px' />
 			<button
 				onClick={() => setIsActive(!isActive)}
 				className={cn(styles.actions, isActive && 'rotate-90')}

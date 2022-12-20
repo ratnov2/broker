@@ -1,11 +1,8 @@
-import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
+import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 
-
-
-import styles from './Pagination.module.scss';
-import PaginationArrow from './pagination-arrow/PaginationArrow';
-import PaginationButton from './pagination-button/PaginationButton';
-
+import styles from './Pagination.module.scss'
+import PaginationArrow from './pagination-arrow/PaginationArrow'
+import PaginationButton from './pagination-button/PaginationButton'
 
 interface IPaginationProps {
 	maxItems: number
@@ -32,8 +29,11 @@ const Pagination: FC<IPaginationProps> = ({
 		return currentPage === maxPagesCount
 			? pageNumbers.slice(currentPage - maxShownPages, currentPage + 1)
 			: currentPage > 1
-			? pageNumbers.slice(currentPage - (maxShownPages -1), currentPage + 1)
-			: pageNumbers.slice(0, currentPage + (maxShownPages -1))
+			? pageNumbers.slice(
+					currentPage - (maxShownPages - 1),
+					currentPage + 1
+			  )
+			: pageNumbers.slice(0, currentPage + (maxShownPages - 1))
 	}
 
 	const showingMax =
@@ -56,7 +56,8 @@ const Pagination: FC<IPaginationProps> = ({
 					<p>
 						Showing
 						<span>
-							{' '}{showingMin} - {showingMax}
+							{' '}
+							{showingMin} - {showingMax}
 						</span>{' '}
 						from <span>{maxItems}</span> data
 					</p>

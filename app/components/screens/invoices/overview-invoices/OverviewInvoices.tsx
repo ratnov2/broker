@@ -1,18 +1,13 @@
-import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
+import { FC } from 'react'
 
+import Loader from '@/ui/pagination/loader/Loader'
 
-
-import OverviewElement from './OverviewInvoicesElement';
-import { overviewFakeData } from './overview-invoices.data';
-import { IOverviewInvoice } from './overview-invoices.interface';
-import Loader from '@/ui/pagination/loader/Loader';
-
+import OverviewElement from './OverviewInvoicesElement'
+import { IOverviewInvoice } from './overview-invoices.interface'
 
 interface IOverview {
 	period: string
 	isLoading: boolean
-	// currentPage: number
-	// setCurrentPage: Dispatch<SetStateAction<number>>
 	overviewInvoices?: IOverviewInvoice[]
 }
 
@@ -21,30 +16,6 @@ const OverviewInvoices: FC<IOverview> = ({
 	isLoading,
 	overviewInvoices
 }) => {
-	// const [overviewElements, setOverviewElements] = useState<
-	// 	IOverviewInvoice[]
-	// >([])
-	// const [isLoadingOverviewInvoices, setIsLoadingOverviewInvoices] =
-	// 	useState(false)
-
-	// useEffect(() => {
-	// 	const fetchOverviewInvoices = async () => {
-	// 		setIsLoadingOverviewInvoices(true)
-	// 		const res = overviewFakeData as IOverviewInvoice[] //await axios.get('https://??????/overview-invoices/)
-	// 		setOverviewElements(res)
-	// 		setIsLoadingOverviewInvoices(false)
-	// 	}
-
-	// 	fetchOverviewInvoices()
-	// }, [])
-
-	// if (isLoadingOverviewInvoices) {
-	// 	return (
-	// 		<div className='h-[225px] flex items-center justify-center'>
-	// 			Loading overview invoices..
-	// 		</div>
-	// 	)
-	// }
 	return (
 		<div className='flex justify-between'>
 			{isLoading ? (

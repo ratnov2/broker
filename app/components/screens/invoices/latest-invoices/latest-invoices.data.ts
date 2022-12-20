@@ -1,5 +1,4 @@
-import { ILatestInvoice } from "./rows/latest-invoices.interface";
-
+import { ILatestInvoice } from './rows/latest-invoices.interface'
 
 export const fakeLatestInvoices: ILatestInvoice[] = [
 	{

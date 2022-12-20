@@ -1,4 +1,3 @@
-import cn from 'clsx'
 import { FC } from 'react'
 
 import styles from './LatestInvoicesHeader.module.scss'
@@ -9,7 +8,7 @@ const LatestInvoiceTableHeader: FC = ({}) => {
 			<input
 				type='checkbox'
 				className=''
-				style={{height: '20px',width: '20px'}}
+				style={{ height: '20px', width: '20px' }}
 			/>
 			<div className={styles.recipient}>Recipient</div>
 			<div className={styles.invoiceNum}>Invoice</div>

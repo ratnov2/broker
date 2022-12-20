@@ -1,13 +1,5 @@
 import { FC } from 'react'
-import {
-	AiFillCaretDown,
-	AiFillCaretUp,
-	AiOutlineCheckCircle,
-	AiOutlineExclamationCircle,
-	AiOutlineFileUnknown,
-	AiOutlineHistory,
-	AiOutlineQuestionCircle
-} from 'react-icons/ai'
+import { AiFillCaretDown, AiFillCaretUp } from 'react-icons/ai'
 
 import styles from './OverviewInvoices.module.scss'
 import RoundedIcon from './RoundedIcon'

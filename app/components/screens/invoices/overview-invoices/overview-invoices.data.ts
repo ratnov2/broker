@@ -1,4 +1,4 @@
-import { IOverviewInvoice } from "./overview-invoices.interface";
+import { IOverviewInvoice } from './overview-invoices.interface'
 
 export const overviewFakeData: IOverviewInvoice[] = [
 	{
