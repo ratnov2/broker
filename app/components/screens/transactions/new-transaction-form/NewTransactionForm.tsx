@@ -8,8 +8,8 @@ const NewTransactionForm: FC = () => {
 			className='bg-white px-6 py-7 overflow-hidden shadow rounded-xl'
 		>
 			<h3 className='mb-4 block text-xl font-bold'>Transaction</h3>
-			<div className='rounded-md grid grid-cols-6 gap-6'>
-				<div className='col-span-6 sm:col-span-3'>
+			<div className='grid grid-cols-2 gap-8 rounded-md'>
+				<div>
 					<label
 						htmlFor='transactionNumber'
 						className='block text-sm text-gray font-thin'
@@ -25,7 +25,7 @@ const NewTransactionForm: FC = () => {
 					/>
 				</div>
 
-				<div className='col-span-6 sm:col-span-3'>
+				<div>
 					<label
 						htmlFor='date'
 						className='block text-sm text-gray font-thin'
@@ -41,7 +41,7 @@ const NewTransactionForm: FC = () => {
 					/>
 				</div>
 
-				<div className='col-span-6 sm:col-span-3'>
+				<div>
 					<label
 						htmlFor='recipient'
 						className='block text-sm text-gray font-thin'
@@ -57,7 +57,7 @@ const NewTransactionForm: FC = () => {
 					/>
 				</div>
 
-				<div className='col-span-6 sm:col-span-3'>
+				<div>
 					<label
 						htmlFor='email'
 						className='block text-sm text-gray font-thin'
@@ -73,7 +73,7 @@ const NewTransactionForm: FC = () => {
 					/>
 				</div>
 
-				<div className='col-span-6 sm:col-span-3'>
+				<div>
 					<label
 						htmlFor='amount'
 						className='block text-sm text-gray font-thin'
@@ -89,7 +89,7 @@ const NewTransactionForm: FC = () => {
 					/>
 				</div>
 
-				<div className='col-span-6 sm:col-span-3'>
+				<div>
 					<label
 						htmlFor='services'
 						className='block text-sm text-gray font-thin'
@@ -105,7 +105,7 @@ const NewTransactionForm: FC = () => {
 					/>
 				</div>
 
-				<div className='col-span-6 sm:col-span-3'>
+				<div>
 					<label
 						htmlFor='dueDate'
 						className='block text-sm text-gray font-thin'
@@ -121,7 +121,7 @@ const NewTransactionForm: FC = () => {
 					/>
 				</div>
 
-				<div className='col-span-6 sm:col-span-3'>
+				<div>
 					<label
 						htmlFor='pin'
 						className='block text-sm text-gray font-thin'
@@ -135,22 +135,17 @@ const NewTransactionForm: FC = () => {
 						autoComplete='pin'
 						className='mt-1 block w-full rounded-full text-sm font-semibold border border-gray px-4 py-3'
 					/>
-				</div> 
-				<div className='col-span-6 sm:col-span-3'>
-					<label
-						htmlFor='pin'
-						className='block text-sm text-gray font-thin'
-					>
-						Pin
-					</label>
-					<input
-						type='password'
-						name='pin'
-						id='pin'
-						autoComplete='pin'
-						className='mt-1 block w-full rounded-full text-sm font-semibold border border-gray px-4 py-3'
-					/>
-				</div> 
+				</div>
+
+				<div className='col-span-2 flex justify-end gap-3 text-right'>
+					<div className="w-[300px]">
+						<input type='checkbox' name='checkbox' id='checkbox' className="mr-3" />
+						<label for="checkbox">Lorem ipsum dolor sit amet, consectetur adipiscing elit</label>
+					</div>
+					<button className='py-2 px-6 w-[40%] bg-purple text-white rounded-full'>
+						Submit
+					</button>
+				</div>
 			</div>
 		</form>
 	)
