@@ -1,4 +1,5 @@
 import { FC } from 'react'
+
 import Layout from '@/layout/Layout'
 
 import NewTransactionForm from './new-transaction-form/NewTransactionForm'
@@ -8,7 +9,11 @@ const defaultFormData = {
 	number: '',
 	date: '',
 	recipient: '',
-	dueDate: ''
+	email: '',
+	amount: '',
+	services: '',
+	dueDate: '',
+	pin: ''
 }
 
 const Transactions: FC = () => {
@@ -36,7 +41,7 @@ const Transactions: FC = () => {
 							<RecipientRecent />
 						</div>
 					</div>
-				</div> 
+				</div>
 			</div>
 		</Layout>
 	)
