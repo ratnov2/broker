@@ -11,6 +11,7 @@
 	&__inner {
 		display: flex;
 		flex-direction: column;
+		gap: 50px;
 	}
 
 	&__top {
@@ -83,4 +84,9 @@
 			background-position: center;
 		}
 	}
+}
+.chart__container {
+	margin: 0px auto;
+	max-height: 180px;
+	width: 400px;
 }
