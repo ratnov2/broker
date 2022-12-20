@@ -1,4 +1,5 @@
-import { Dispatch, SetStateAction } from 'react'
+import { Dispatch, SetStateAction } from 'react';
+
 
 export interface ILatestInvoice {
 	_id: number
@@ -6,6 +7,7 @@ export interface ILatestInvoice {
 	name: string
 	email: string
 	invoiceNum: string
+	invoiceDate: string
 	service: string
 	date: string
 	status: string

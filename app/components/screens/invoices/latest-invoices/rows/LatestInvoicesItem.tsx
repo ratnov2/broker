@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import { FC, useState } from 'react'
 
+import { convertDate } from '@/utils/convert-date'
+
 import styles from './LatestInvoicesItem.module.scss'
 import Menu from './actions/Actions'
 import { ILatestInvoice } from './latest-invoices.interface'
@@ -11,6 +13,7 @@ const InvoiceItem: FC<ILatestInvoice> = ({
 	recipientAvatar,
 	name,
 	invoiceNum,
+	invoiceDate,
 	service,
 	status,
 	email
@@ -57,11 +60,8 @@ const InvoiceItem: FC<ILatestInvoice> = ({
 			<Status status={status} />
 
 			<div className={styles.date}>
-				{/* В песочнице все ок, а тут функции convertDate не нравятся методы строк */}
-				{/* <p>{convertDate(date)[0]}</p> */}
-				{/* <span>{convertDate(date)[1]}</span> */}
-				<p>25 Jan, 2021</p>
-				<span>04:34:45 AM</span>
+				<p>{convertDate(invoiceDate)[0]}</p>
+				<span>{convertDate(invoiceDate)[1]}</span>
 			</div>
 
 			<span className={styles.service}>{service}</span>
