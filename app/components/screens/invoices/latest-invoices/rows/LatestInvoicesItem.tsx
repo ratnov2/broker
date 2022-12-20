@@ -62,6 +62,7 @@ const InvoiceItem: FC<IInvoiceItem> = ({
 						width={48}
 						height={48}
 						draggable={false}
+						style={{ borderRadius: '50px' }}
 					/>
 				) : (
 					<div className='w-12 h-12 bg-gray rounded-[50%]'></div>
