@@ -1,7 +1,7 @@
 import {FC} from 'react'
 import CardButton from "@/ui/CardButton"
 
-type CardRowType = {
+type CardRowPropsType = {
     type: 'Primary' | 'Secondary',
     bankName: string,
     holderName: string,
@@ -10,7 +10,7 @@ type CardRowType = {
     active: boolean
 }
 
-const CardRow: FC<CardRowType> = (props) => {
+const CardRow: FC<CardRowPropsType> = (props) => {
 
     return (
         <div className={'flex items-center py-[16px] pl-[32px] h-112px border-y odd:border-0 border-black/10'}>
