@@ -50,43 +50,47 @@ const Pagination: FC<IPaginationProps> = ({
 	}
 
 	return (
-		<div className={styles.pagination} style={{}}>
-			{maxItems && (
-				<>
-					<p>
-						Showing
-						<span>
-							{' '}
-							{showingMin} - {showingMax}
-						</span>{' '}
-						from <span>{maxItems}</span> data
-					</p>
-					<div>
-						<PaginationArrow
-							itemsLimit={maxItems}
-							type='prev'
-							currentPage={currentPage}
-							onChangePage={onChangePage}
-							itemsPerPage={itemsPerPage}
-						/>
-						{getPageNumbers(currentPage).map(number => (
-							<PaginationButton
-								key={number}
-								id={number}
+		<div className={styles.pagination}>
+			<div className={styles.paginationItems} >
+				{maxItems && (
+					<>
+						<div className={styles.showing}>
+							<p>
+								Showing
+								<span>
+									{' '}
+									{showingMin} - {showingMax}
+								</span>{' '}
+								from <span>{maxItems}</span> data
+							</p>
+						</div>
+						<div className={styles.pages}>
+							<PaginationArrow
+								itemsLimit={maxItems}
+								type='prev'
 								currentPage={currentPage}
 								onChangePage={onChangePage}
+								itemsPerPage={itemsPerPage}
 							/>
-						))}
-						<PaginationArrow
-							itemsLimit={maxItems}
-							type='next'
-							currentPage={currentPage}
-							onChangePage={onChangePage}
-							itemsPerPage={itemsPerPage}
-						/>
-					</div>
-				</>
-			)}
+							{getPageNumbers(currentPage).map(number => (
+								<PaginationButton
+									key={number}
+									id={number}
+									currentPage={currentPage}
+									onChangePage={onChangePage}
+								/>
+							))}
+							<PaginationArrow
+								itemsLimit={maxItems}
+								type='next'
+								currentPage={currentPage}
+								onChangePage={onChangePage}
+								itemsPerPage={itemsPerPage}
+							/>
+						</div>
+					</>
+				)}
+			</div>
 		</div>
 	)
 }
