@@ -22,12 +22,14 @@ const PaginationArrow: FC<IPageArrow> = ({
 		<button className={styles.paginationArrow}>
 			{type === 'prev' ? (
 				<AiFillCaretLeft
+					size={'30px'}
 					onClick={() =>
 						onChangePage(currentPage === 1 ? 1 : currentPage - 1)
 					}
 				/>
 			) : (
 				<AiFillCaretRight
+					size={'30px'}
 					onClick={() =>
 						onChangePage(
 							currentPage === itemsLimit / itemsPerPage

@@ -50,7 +50,7 @@ const Pagination: FC<IPaginationProps> = ({
 	}
 
 	return (
-		<div className={styles.pagination}>
+		<div className={styles.pagination} style={{}}>
 			{maxItems && (
 				<>
 					<p>
