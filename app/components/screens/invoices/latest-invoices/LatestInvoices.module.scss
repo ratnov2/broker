@@ -1,5 +1,5 @@
 .latestInvoicesSection {
-	@apply mt-6 w-[100%]  rounded-[40px] bg-white py-4 min-h-[750px];
+	@apply mt-6 w-[100%]  rounded-[40px] bg-white py-4 min-h-[750px] relative;
 
 	> h2 {
 		@apply mb-0 px-8 text-[24px] font-bold leading-[120%] text-black;

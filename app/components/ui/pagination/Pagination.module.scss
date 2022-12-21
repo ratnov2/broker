@@ -12,4 +12,14 @@
 	div {
 		@apply flex shrink-0 items-center space-x-4;
 	}
+
+	.paginationItems {
+		@apply flex items-center justify-between;
+	}
+	.showing{
+		@apply left-9  absolute bottom-16;
+	}
+	.pages {
+		@apply right-9 absolute bottom-11;
+	}
 }
