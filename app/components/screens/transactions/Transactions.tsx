@@ -1,17 +1,11 @@
-import { FC, SetStateAction, useState } from 'react';
+import { FC, SetStateAction, useState } from 'react'
 
-
-
-import Layout from '@/layout/Layout';
-
-
+import Layout from '@/layout/Layout'
 
 import { useTransactions } from '@/hooks/useTransactions'
 
-
-
-import TransactionHistory from './transaction-history/TransactionHistory';
-
+import FilterOption from './transaction-filter/TransactionFilter'
+import TransactionHistory from './transaction-history/TransactionHistory'
 
 const Transactions: FC = () => {
 	const [currentPage, setCurrentPage] = useState(1)
@@ -20,9 +14,7 @@ const Transactions: FC = () => {
 	return (
 		<Layout title='TransactionHistory'>
 			<div className='h-screen w-full'>
-				<h1 className='text-top text-3xl font-bold text-black mb-10'>
-					Transaction History
-				</h1>
+				<FilterOption />
 				<TransactionHistory
 					transactions={transactions}
 					isLoading={isLoadingTransactions}
