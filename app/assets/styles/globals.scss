@@ -7,3 +7,6 @@
 body {
 	@apply text-base text-black;
 }
+
+@import 'app/components/screens/transactions/transaction-top-title/transaction-filter/FilterOption.module.scss';
+@import 'app/components/screens/transactions/transaction-top-title/download-action/DownloadAction.module.scss';
