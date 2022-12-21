@@ -51,7 +51,6 @@ const Pagination: FC<IPaginationProps> = ({
 
 	return (
 		<div className={styles.pagination}>
-			<div className={styles.paginationItems} >
 				{maxItems && (
 					<>
 						<div className={styles.showing}>
@@ -91,7 +90,6 @@ const Pagination: FC<IPaginationProps> = ({
 					</>
 				)}
 			</div>
-		</div>
 	)
 }
 

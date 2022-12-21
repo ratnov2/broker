@@ -26,7 +26,7 @@ const TransactionHistory: FC<ITransactionHistory> = ({
 	)
 
 	return (
-		<div className={styles.transactionHistorySection} style={{ position: 'relative'}}>
+		<div className={styles.transactionHistorySection} >
 			<h2>Transaction History</h2>
 			<TransactionHistoryTableHeader />
 			{isLoading ? (

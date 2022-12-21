@@ -1,5 +1,5 @@
 .pagination {
-	@apply mt-[30px] w-full  pl-8 pr-10;
+	@apply mt-[30px] flex items-center justify-between pl-8 pr-10;
 
 	p {
 		@apply text-[14px] leading-[120%] text-gray;
