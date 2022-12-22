@@ -1,40 +1,9 @@
+import cn from 'classnames'
 import Image from 'next/image'
 import { useState } from 'react'
 
 import style from './SelectClient.module.scss'
-
-const clients = [
-	{
-		id: 0,
-		name: 'Double Red',
-		type: 'Fashion'
-	},
-	{
-		id: 1,
-		name: 'Infinite Studio',
-		type: 'Creative Agency'
-	},
-	{
-		id: 2,
-		name: 'Refrix',
-		type: 'CarWash'
-	},
-	{
-		id: 3,
-		name: 'Wezeo',
-		type: 'Hybrid Development'
-	},
-	{
-		id: 4,
-		name: 'Craft',
-		type: 'Build'
-	},
-	{
-		id: 5,
-		name: 'Focus',
-		type: 'Sport'
-	}
-]
+import { clients } from './select-client-data'
 
 const SelectClient = () => {
 	const [isActive, setIsActive] = useState(false)
@@ -75,14 +44,14 @@ const SelectClient = () => {
 						height={13}
 						alt='address'
 						onClick={openDropDown}
-						className={`cursor-pointer ${
-							isActive ? 'origin-center rotate-180' : ''
-						}`}
+						className={cn('cursor-pointer', 'origin-center', {
+							'rotate-180': isActive === true
+						})}
 					/>
 				</div>
-				{isActive ? (
+				{isActive && (
 					<div
-						className={`absolute left-0 top-[105%] w-full bg-white border rounded-[40px] overflow-auto max-h-[200px] ${style.dropMenu}`}
+						className={`absolute left-0 top-[110%] w-full bg-white border rounded-[40px] overflow-auto ${style.dropMenu}`}
 					>
 						<ul>
 							{clients.map(client => (
@@ -102,7 +71,7 @@ const SelectClient = () => {
 							))}
 						</ul>
 					</div>
-				) : null}
+				)}
 			</div>
 		</>
 	)

@@ -1,4 +1,4 @@
-const InvoiceData = () => {
+const InvoiceInputs = () => {
 	return (
 		<div className='flex justify-between mb-8'>
 			<div>
@@ -19,4 +19,4 @@ const InvoiceData = () => {
 	)
 }
 
-export default InvoiceData
+export default InvoiceInputs

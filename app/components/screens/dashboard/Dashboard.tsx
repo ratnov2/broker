@@ -1,14 +1,14 @@
 import { FC } from 'react'
 
-import Layout from '@/layout/Layout'
+import AddNewInvoice from '@/components/add-new-invoice/AddNewInvoice'
 
-import AddNewInvoice from '@/../pages/add-new-invoice'
+import Layout from '@/layout/Layout'
 
 const Dashboard: FC = () => {
 	return (
 		<Layout title='Dashboard'>
 			<div>
-				<AddNewInvoice />
+				<h1 className='tex-5xl'>Red Project</h1>
 			</div>
 		</Layout>
 	)
