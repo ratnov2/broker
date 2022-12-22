@@ -1,8 +1,6 @@
 import cn from 'clsx'
-import  { FC } from 'react'
+import { FC } from 'react'
 import { EffectCoverflow } from 'swiper'
-import 'swiper/css'
-import 'swiper/css/effect-cards'
 import { Swiper } from 'swiper/react'
 import { SwiperSlide } from 'swiper/react'
 
@@ -13,19 +11,19 @@ import {
 	initialStyleTransformIsActive,
 	initialStyleTransformIsNext,
 	initialStyleTransformIsPrev
-} from './slider-initial-style'
+} from './slider-initial.style'
 import { PropsSlider } from './slider.interface'
 import { useSlider } from './useSlider'
 
 const Slider: FC<PropsSlider> = ({
 	data,
-	setIdx,
+	setIndex,
 	sliderPerView,
 	initialIdx,
 	visibleNumberCard,
 	setVisibleNumberCard
 }) => {
-	const { sliderRef, handleNext, handlePrev } = useSlider({ setIdx })
+	const { sliderRef, handleNext, handlePrev } = useSlider({ setIndex })
 
 	return (
 		<div className='relative'>
@@ -34,6 +32,7 @@ const Slider: FC<PropsSlider> = ({
 				centeredSlides={true}
 				slidesPerView={sliderPerView}
 				initialSlide={initialIdx}
+				simulateTouch={false}
 				effect={'coverflow'}
 				coverflowEffect={{
 					rotate: 0,
@@ -62,9 +61,9 @@ const Slider: FC<PropsSlider> = ({
 												initialStyleTransformIsNext[
 													sliderPerView - 1
 												],
-											`${data[key].bg}`
+											`${data[key].background}`
 										)}
-										widthBlock={sliderPerView * 88.8}
+										widthCard={sliderPerView * 88.8}
 										{...el}
 										styleFigure={!isActive}
 										visibleNumberCard={visibleNumberCard}

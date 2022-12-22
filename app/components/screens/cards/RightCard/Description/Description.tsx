@@ -1,9 +1,9 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 
 import { convertToHiddenNumber } from '@/utils/get-hidden-card'
 
 import { PropsDescription } from './description-data.interface'
-import style from './description.module.scss'
+import style from './Description.module.scss'
 
 const Description: FC<PropsDescription> = ({
 	type,

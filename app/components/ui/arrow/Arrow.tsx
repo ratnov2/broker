@@ -1,11 +1,11 @@
 import cn from 'clsx'
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { BsArrowRightShort } from 'react-icons/bs'
 
-import { TypesArrow } from './arrow-inteface'
-import style from './arrow.module.scss'
+import { PropsArrow } from './arrow-inteface'
+import style from './Arrow.module.scss'
 
-const Arrow: FC<TypesArrow> = ({ className, ...rest }) => {
+const Arrow: FC<PropsArrow> = ({ className, ...rest }) => {
 	return (
 		<span className={cn(style.arrow, className)} {...rest}>
 			<BsArrowRightShort />

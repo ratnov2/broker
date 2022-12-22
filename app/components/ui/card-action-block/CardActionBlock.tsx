@@ -8,22 +8,22 @@ import pointsImg from '@/assets/cardPoints.png'
 import Arrow from '../arrow/Arrow'
 
 import { PropsCardActionsBlock } from './card-action-block.interface'
-import style from './card-action-block.module.scss'
+import style from './CardActionBlock.module.scss'
 
 const CardActionBlock: FC<PropsCardActionsBlock> = ({
 	className,
-	textH1,
-	textP,
-	classArrow,
+	title,
+	description,
+	arrowDirection,
 	link
 }) => {
 	return (
 		<div className={cn(style.cardAction, className)}>
 			<Image src={pointsImg} alt='points' width={30} height={30} />
-			<h1>{textH1}</h1>
-			<p>{textP}</p>
+			<h1>{title}</h1>
+			<p>{description}</p>
 			<Link href={link}>
-				<Arrow className={classArrow} />
+				<Arrow className={arrowDirection==='left' ? 'rotate-90' : arrowDirection==='right' ? '-rotate-90':''} />
 			</Link>
 		</div>
 	)

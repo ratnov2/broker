@@ -1,15 +1,15 @@
-import { CSSProperties, Dispatch, SetStateAction } from 'react'
+import { Dispatch, SetStateAction } from 'react'
 
-export interface TypesCardCreator {
-	balance?: string
+export interface PropsCardCreator {
+	balance: number
 	holder?: string
 	valid?: {
 		month: number
 		year: number
 	}
-	number?: string
+	number: string
 	bg?: number | string
-	widthBlock: number
+	widthCard: number
 	styleFigure?: boolean
 	className?: string
 	visibleNumberCard: boolean

@@ -1,10 +1,12 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 
-import { convertMoneyToNormalize } from '@/utils/convertMoneyToNormalize'
+import { convertMoneyToNormalize } from '@/utils/convert-money-to-normalize'
 
-import { LimitData } from './limit-data'
+import { PropsLimitCard } from './limit-card.interface'
 
-const LimitCard = () => {
+const LimitCard: FC<PropsLimitCard> = ({ limit }) => {
+	const { all, now } = limit
+
 	return (
 		<div>
 			<h3>Limit</h3>
@@ -12,15 +14,15 @@ const LimitCard = () => {
 				<div
 					className={`bg-purple h-4 rounded-full`}
 					style={{
-						width: `calc(${(LimitData.now / LimitData.all) * 100}%)`
+						width: `calc(${(now / all) * 100}%)`
 					}}
 				></div>
 			</div>
 			<div>
-				<span>${convertMoneyToNormalize(String(LimitData.now))}</span>
+				<span>${convertMoneyToNormalize(now)}</span>
 				<span className='text-purple'>
 					{' '}
-					/ from ${convertMoneyToNormalize(String(LimitData.all))}
+					/ from ${convertMoneyToNormalize(all)}
 				</span>
 			</div>
 		</div>

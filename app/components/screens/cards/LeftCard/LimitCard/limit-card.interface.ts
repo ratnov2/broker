@@ -1,4 +1,6 @@
-export interface TypesLimitCard {
-	now: string
-	all: string
+export interface PropsLimitCard {
+	limit: {
+		now: number
+		all: number
+	}
 }

@@ -1,7 +1,7 @@
 export interface PropsCardActionsBlock {
 	className?: string
-	classArrow?: string
-	textH1?: string
-	textP?: string
+	arrowDirection?: 'left'|'right'
+	title?: string
+	description?: string
 	link: string
 }

@@ -1,28 +1,28 @@
-import cn from 'classnames'
-import React, { FC, useState } from 'react'
+import cn from 'clsx'
+import { FC } from 'react'
 
 import { convertToHiddenNumber } from '@/utils/get-hidden-card'
-import { convertMoneyToNormalize } from '@/utils/convertMoneyToNormalize'
+import { convertMoneyToNormalize } from '@/utils/convert-money-to-normalize'
 
-import { TypesCardCreator } from './card-creator.interface'
-import style from './card-creator.module.scss'
-import CommonCardStyle from './commonStyleCard/CommonCardStyle'
+import { PropsCardCreator } from './card-creator.interface'
+import style from './Card.module.scss'
+import CommonCardStyle from './common-style-card/CommonCardStyle'
 
-const Card: FC<TypesCardCreator> = ({
+const Card: FC<PropsCardCreator> = ({
 	balance,
 	holder,
 	valid,
 	number,
 	styleFigure,
 	className,
-	widthBlock,
+	widthCard,
 	visibleNumberCard,
 	setVisibleNumberCard
 }) => {
 	return (
 		<div
-			className={cn(style.shareCard, className)}
-			style={{ width: `calc(${widthBlock}%)` }}
+			className={cn(style.shareCard, className, styleFigure && 'pointer-events-none')}
+			style={{ width: `calc(${widthCard}%)` }}
 		>
 			<div className={cn(style.card)}>
 				{!styleFigure && (

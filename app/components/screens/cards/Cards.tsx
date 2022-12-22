@@ -6,50 +6,45 @@ import Layout from '@/layout/Layout'
 
 import Slider from '@/ui/slider/Slider'
 
-import { sliderInitialIdx } from '@/utils/slider/slider-initial-idx'
+import { sliderInitialIdx } from '@/utils/slider/slider-initial-index'
 import { setSliderPerView } from '@/utils/slider/slider-per-view'
 
-import { CardDataTimes } from './CardsTimerData'
-import LimitCard from './LeftCard/LimitCard/LimitCard'
-import Operations from './RightCard/CardActions/CardActions'
-import Description from './RightCard/Description/Description'
-import style from './card.module.scss'
+import LimitCard from './leftCard/limitCard/LimitCard'
+import Operations from './rightCard/cardActions/CardActions'
+import Description from './rightCard/description/Description'
+import style from './Cards.module.scss'
+import { CardDataTimes, LimitData } from './cards-timer-data'
 
 const Cards: FC = () => {
 	const sliderPerView = setSliderPerView(CardDataTimes.length)
 	const initialIdx = sliderInitialIdx(setSliderPerView(sliderPerView))
 
 	const [data, setData] = useState(CardDataTimes)
-	const [idx, setIdx] = useState(initialIdx)
-	const [currentCard, setCurrentCard] = useState(data[idx])
-	const [visibleNumberCard, setVisibleNumberCard] = useState(false) //later
+	const [index, setIndex] = useState(initialIdx)
+	const [currentCard, setCurrentCard] = useState(data[index])
+	const [visibleNumberCard, setVisibleNumberCard] = useState(false) 
 
 	useEffect(() => {
-		setCurrentCard(data[idx])
-	}, [idx])
-	useEffect(() => {
-		console.log(visibleNumberCard)
-	}, [visibleNumberCard])
+		setCurrentCard(data[index])
+	}, [index])
 
 	/// Side Effects- useHooks
 
 	return (
-		<Layout title='Dashboard'>
+		<Layout title='Cards'>
 			<h1 className={style.head}>Cards</h1>
 			<div className={style.cardList}>
 				<div className={style.leftCardList}>
 					<Slider
 						data={data}
-						currentCard={currentCard}
-						idx={idx}
-						setIdx={setIdx}
+						setIndex={setIndex}
 						sliderPerView={sliderPerView}
 						initialIdx={initialIdx}
 						visibleNumberCard={visibleNumberCard}
 						setVisibleNumberCard={setVisibleNumberCard}
 					/>
 					<div className={style.bottomPlace}>
-						<LimitCard />
+						<LimitCard limit={LimitData}/>
 						<div>
 							<Link href={'/'} className={style.newCard}>
 								<CgAdd />

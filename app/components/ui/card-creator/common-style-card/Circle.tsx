@@ -1,8 +1,8 @@
-
 import { FC } from 'react'
-import style from './common-style-card.module.scss'
 
-const Circle:FC = () => {
+import style from './CommonCardStyle.module.scss'
+
+const Circle: FC = () => {
 	return <div className={style.circle}></div>
 }
 
