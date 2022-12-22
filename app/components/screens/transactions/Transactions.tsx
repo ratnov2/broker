@@ -18,7 +18,7 @@ const Transactions: FC = () => {
 
 	return (
 		<Layout title='TransactionHistory'>
-			<div className='h-screen w-full mt-10'>
+			<div className='h-full w-full mt-2'>
 				<TransactionTopTitle />
 				<TransactionHistory
 					transactions={transactions}

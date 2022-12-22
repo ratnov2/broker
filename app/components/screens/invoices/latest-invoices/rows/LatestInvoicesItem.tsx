@@ -1,20 +1,14 @@
-import Image from 'next/image';
-import { FC, LegacyRef, MutableRefObject, RefObject, useState } from 'react';
+import Image from 'next/image'
+import { FC, LegacyRef, MutableRefObject, RefObject, useState } from 'react'
 
+import { convertDate } from '@/utils/convert-date'
 
+import Actions from './actions/Actions'
+import Status from './status/Status'
 
-import { convertDate } from '@/utils/convert-date';
-
-
-
-import Menu from '../actions/Actions';
-import Status from '../status/Status';
-
-
-
-import styles from './LatestInvoicesItem.module.scss';
-import { ILatestInvoice } from './latest-invoices.interface';
-
+import styles from './LatestInvoicesItem.module.scss'
+import { ILatestInvoice } from './latest-invoices.interface'
+import Recipient from './recipient/Recipient'
 
 interface IInvoiceItem {
 	latestInvoice: ILatestInvoice
@@ -54,24 +48,7 @@ const InvoiceItem: FC<IInvoiceItem> = ({
 					setIsChecked(!isChecked)
 				}}
 			/>
-			<div className={styles.recipient}>
-				{recipientAvatar ? (
-					<Image
-						alt={name}
-						src={recipientAvatar}
-						width={48}
-						height={48}
-						draggable={false}
-						style={{ borderRadius: '50px' }}
-					/>
-				) : (
-					<div className='w-12 h-12 bg-gray rounded-[50%]'></div>
-				)}
-				<div className='flex-col'>
-					<p>{name}</p>
-					<span>{email}</span>
-				</div>
-			</div>
+			<Recipient avatar={recipientAvatar} name={name} email={email} />
 
 			<span className={styles.invoiceNum}>{invoiceNum}</span>
 
@@ -84,7 +61,7 @@ const InvoiceItem: FC<IInvoiceItem> = ({
 
 			<span className={styles.service}>{service}</span>
 
-			<Menu />
+			<Actions />
 		</div>
 	)
 }
