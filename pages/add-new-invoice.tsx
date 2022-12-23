@@ -1,5 +1,5 @@
-import AddNewInvoicePage from '@/screens/add-new-invoice-page/AddNewInvoicePage'
+import AddNewInvoice from '@/screens/add-new-invoice/AddNewInvoice'
 
 export default function Home() {
-	return <AddNewInvoicePage />
+	return <AddNewInvoice />
 }

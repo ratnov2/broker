@@ -1,8 +1,8 @@
 import { FC } from 'react'
 
-import AddNewInvoice from '@/components/add-new-invoice/AddNewInvoice'
-
 import Layout from '@/layout/Layout'
+
+import AddNewInvoice from '@/screens/add-new-invoice/AddNewInvoice'
 
 const Dashboard: FC = () => {
 	return (
