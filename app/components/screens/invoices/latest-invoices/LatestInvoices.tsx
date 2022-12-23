@@ -43,7 +43,7 @@ const LatestInvoices: FC<ILatestInvoices> = ({
 							key={latestInvoice._id}
 							latestInvoice={latestInvoice}
 							selectedInvoiceId={selectedInvoicesId.find(i => {
-								i === latestInvoice._id 
+								i === latestInvoice._id
 							})}
 						/>
 					))}
