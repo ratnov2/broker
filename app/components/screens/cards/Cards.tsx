@@ -9,9 +9,9 @@ import Slider from '@/ui/slider/Slider'
 import { sliderInitialIdx } from '@/utils/slider/slider-initial-index'
 import { setSliderPerView } from '@/utils/slider/slider-per-view'
 
-import LimitCard from './leftCard/limitCard/LimitCard'
-import Operations from './rightCard/cardActions/CardActions'
-import Description from './rightCard/description/Description'
+import LimitCard from './left-card/limitCard/LimitCard'
+import Operations from './right-card/card-actions/CardActions'
+import Description from './right-card/description/Description'
 import style from './Cards.module.scss'
 import { CardDataTimes, LimitData } from './cards-timer-data'
 

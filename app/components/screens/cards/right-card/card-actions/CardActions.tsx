@@ -2,8 +2,8 @@ import { FC } from 'react'
 
 import CardActionBlock from '@/ui/card-action-block/CardActionBlock'
 
-import { cardActionsData } from './card-actions.data'
 import style from './CardActions.module.scss'
+import { cardActionsData } from './card-actions.data'
 
 const CardActions: FC = () => {
 	return (

@@ -1,4 +1,4 @@
-export const cardActionsData:TypesActionsData = [
+export const cardActionsData: TypesActionsData = [
 	{
 		className: 'rounded-l-3xl bg-light-blue',
 		title: 'Top Up',
@@ -16,9 +16,9 @@ export const cardActionsData:TypesActionsData = [
 ]
 
 export type TypesActionsData = {
-	className:string,
-	title:string,
-	description:string,
-	link:string,
-	arrowDirection:'left'|'right'
+	className: string
+	title: string
+	description: string
+	link: string
+	arrowDirection: 'left' | 'right'
 }[]
