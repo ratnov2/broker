@@ -32,7 +32,7 @@ const PaginationArrow: FC<IPageArrow> = ({
 					size={'30px'}
 					onClick={() =>
 						onChangePage(
-							currentPage === itemsLimit / itemsPerPage
+							currentPage === Math.ceil(itemsLimit / itemsPerPage)
 								? currentPage
 								: currentPage + 1
 						)
