@@ -28,7 +28,6 @@ export const useBalanceSummaryTopChart = ({
 		Title,
 		Tooltip,
 		Filler,
-		Legend
 	)
 
 	const [gradientStyle, setGradientStyle] = useState<{
@@ -43,9 +42,7 @@ export const useBalanceSummaryTopChart = ({
 		responsive: true,
 		plugins: {
 			legend: {
-				labels: {
-					usePointStyle: true
-				}
+				display:false
 			},
 		},
 		layout: {
@@ -79,14 +76,14 @@ export const useBalanceSummaryTopChart = ({
 		datasets: [
 			{
 				fill: true,
-				label: 'thisMonth',
+				//label: 'thisMonth',
 				data: balanceSummaryGeneralData.expiresToYear,
 				backgroundColor: gradientStyle.gradient1,
 				borderColor: tailwindColors['light-blue']
 			},
 			{
 				fill: true,
-				label: 'lastMonth',
+				//label: 'lastMonth',
 				data: balanceSummaryGeneralData.incomeToYear,
 				backgroundColor: gradientStyle.gradient2,
 				borderColor: tailwindColors.purple

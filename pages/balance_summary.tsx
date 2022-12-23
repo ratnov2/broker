@@ -1,4 +1,5 @@
-import BalanceSummary from "@/screens/balance-summary/balanceSummary"
+
+import BalanceSummary from "@/screens/balance-summary/BalanceSummary"
 import { NextPage } from "next"
 
 

@@ -1,7 +1,7 @@
 import Layout from "@/layout/Layout"
-import BalanceStatisticsSummary from "./balanceSummaryBottomSection/BalanceStatisticsSummary"
-import BalanceSummaryBottomSection from "./balanceSummaryBottomSection/BalanceSummaryBottomSection"
-import BalanceSummaryTopSection from "./balanceSummaryTopSection/BalanceSummaryTopSection"
+//import BalanceStatisticsSummary from "./balance-summary-bottom-section/BalanceStatisticsSummary"
+import BalanceSummaryBottomSection from "./balance-summary-bottom-section/BalanceSummaryBottomSection"
+import BalanceSummaryTopSection from "./balance-summary-top-section/BalanceSummaryTopSection"
 
 
 const BalanceSummary = () => {
