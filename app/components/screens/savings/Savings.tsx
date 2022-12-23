@@ -1,4 +1,5 @@
-import { FC, useEffect, useState } from 'react'
+import { any } from 'prop-types'
+import { FC, MouseEventHandler, useEffect, useState } from 'react'
 
 import Layout from '@/layout/Layout'
 
@@ -7,37 +8,43 @@ import { savingsData } from '@/screens/savings/savings.data'
 import { ISavingsData } from '@/screens/savings/savings.interface'
 import SavingsTable from '@/screens/savings/table/SavingsTable'
 
-const Savings: FC = () => {
-	let [data, setData] = useState(savingsData)
-	const [state, setState] = useState(1)
+interface ISavingForm {
+	saving?: ISavingsData
+}
+
+const Savings: FC<ISavingForm> = ({ saving }) => {
+	const [currentPage, setCurrentPage] = useState(1)
+	const [data, setData] = useState(savingsData)
+	const [currentFilterOption, serCurrentFilterOption] = useState('newest')
 
 	function onFormChange(newSavingsData: ISavingsData) {
-		savingsData.push(newSavingsData)
-
-		setState([...data, newSavingsData])
-
-		console.log(data)
+		//savingsData.push(newSavingsData)
+		setData(prev => [...prev, newSavingsData])
 	}
 
-	useEffect(() => {
-		console.log(123)
-	}, [data])
+	function deleteItem(event: any, index: number) {
+		setData(data.filter((v, i) => i !== index))
+	}
+
+	const onChange = (newValue: any) => {
+		serCurrentFilterOption(newValue.value)
+	}
 
 	return (
 		<Layout title='Savings'>
 			<div className='flex justify-left items-center mt-5 mb-5'>
 				<h1 className='text-4xl font-bold'>Savings</h1>
 			</div>
-			<div className='flex justify-between h-screen'>
+			<div className='flex justify-between h-screen relative'>
 				<SavingsTable
-					perPage={3}
-					activePage={1}
+					deleteItem={deleteItem}
+					currentPage={currentPage}
+					setCurrentPage={setCurrentPage}
 					savingsData={data}
 				></SavingsTable>
 				<SavingsForm
 					onFormChange={onFormChange}
-					savingsData={savingsData}
-					key={state}
+					savingData={saving}
 				></SavingsForm>
 			</div>
 		</Layout>

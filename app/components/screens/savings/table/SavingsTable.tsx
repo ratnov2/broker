@@ -1,4 +1,14 @@
-import { FC, useEffect, useState } from 'react'
+import {
+	Dispatch,
+	FC,
+	MouseEvent,
+	MouseEventHandler,
+	SetStateAction,
+	useEffect,
+	useState
+} from 'react'
+
+import Pagination from '@/ui/pagination/Pagination'
 
 import styles from './SavingsTable.module.scss'
 import SavingsRow from '@/screens/savings/row/SavingsRow'
@@ -8,16 +18,25 @@ import { backgrounds } from '@/screens/savings/table/savingsTable.data'
 let backGroundFlag = true
 
 interface ISavingsTable {
-	perPage: number
-	activePage: number
+	currentPage: number
 	savingsData: ISavingsData[]
+	setCurrentPage: Dispatch<SetStateAction<number>>
+	deleteItem: (
+		event: MouseEventHandler<HTMLTableDataCellElement>,
+		index: number
+	) => void
 }
 
 const SavingsTable: FC<ISavingsTable> = ({
-	perPage,
-	activePage,
-	savingsData
+	currentPage,
+	setCurrentPage,
+	savingsData,
+	deleteItem
 }) => {
+	function deleteRow(event: any, index: number) {
+		deleteItem(event, index)
+	}
+
 	return (
 		<div className={styles.wrapper}>
 			<div className='overflow-x-auto sm:-mx-6 lg:-mx-8'>
@@ -28,27 +47,31 @@ const SavingsTable: FC<ISavingsTable> = ({
 					<div className='overflow-hidden'>
 						<table className='min-w-full'>
 							<tbody>
-								{savingsData.map(saving => {
+								{savingsData.map((saving, index) => {
 									backGroundFlag = !backGroundFlag
 									const backgroundColor = backgrounds[+backGroundFlag]
 
 									return (
 										<SavingsRow
-											id={saving.id}
-											name={saving.name}
-											amount={saving.amount}
-											topUp={saving.topUp}
-											purpose={saving.purpose}
-											color={saving.color}
-											backgroundColor={backgroundColor}
-											key={saving.id + saving.name + Math.random()}
-										></SavingsRow>
+											saving={saving}
+											id={index}
+											key={index}
+											deleteItem={e => deleteRow(e, index)}
+										/>
 									)
 								})}
 							</tbody>
 						</table>
 					</div>
 				</div>
+				{savingsData && (
+					<Pagination
+						currentPage={1}
+						setCurrentPage={setCurrentPage}
+						maxItems={savingsData.length}
+						itemsPerPage={5}
+					/>
+				)}
 			</div>
 		</div>
 	)

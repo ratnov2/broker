@@ -1,7 +1,7 @@
-export interface ISavingsData {
+export interface ISavingForm {
 	id: number | string
 	name: string
-	target: number
+	amount: number
 	topUp: number
 	purpose: number
 	color: string

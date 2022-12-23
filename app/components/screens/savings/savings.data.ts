@@ -4,7 +4,7 @@ export const savingsData: ISavingsData[] = [
 	{
 		id: 1234,
 		name: 'Healthcare',
-		amount: 50000,
+		target: 50000,
 		topUp: 1000,
 		purpose: 100000,
 		color: '#54C5EB',
@@ -13,7 +13,7 @@ export const savingsData: ISavingsData[] = [
 	{
 		id: 1235,
 		name: 'Healthcare 2',
-		amount: 50000,
+		target: 50000,
 		topUp: 1000,
 		purpose: 100000,
 		color: '#6160DC',
@@ -22,7 +22,7 @@ export const savingsData: ISavingsData[] = [
 	{
 		id: 123555,
 		name: 'Healthcare 3',
-		amount: 54000,
+		target: 54000,
 		topUp: 10040,
 		purpose: 1040000,
 		color: '#FFB74A',

@@ -1,7 +1,12 @@
+import { FieldErrors, FieldPath, UseFormRegisterReturn } from 'react-hook-form'
+
+import { ISavingsData } from '@/screens/savings/savings.interface'
+
 export interface ISavingsInput {
 	label: string
+	name: string
 	placeholder: string
 	type: string
-	value: string
-	onInputChange: any
+	register: UseFormRegisterReturn
+	errors: any
 }

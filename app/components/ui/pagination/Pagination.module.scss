@@ -1,0 +1,25 @@
+.pagination {
+	@apply mt-[30px] flex items-end justify-between pl-8 pr-10 absolute w-3/4 bottom-4;
+
+	p {
+		@apply text-[14px] leading-[120%] text-gray;
+
+		span {
+			@apply text-[14px] leading-[120%] text-black;
+		}
+	}
+
+	div {
+		@apply flex shrink-0 items-center space-x-4;
+	}
+
+	.paginationItems {
+		@apply flex items-center justify-between ;
+	}
+	.showing{
+		@apply left-16 absolute;
+	}
+	.pages {
+		@apply right-4 absolute;
+	}
+}
