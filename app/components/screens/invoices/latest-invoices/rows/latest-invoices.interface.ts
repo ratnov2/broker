@@ -14,7 +14,7 @@ export interface ILatestInvoice {
 }
 
 export interface ILatestInvoices {
-	latestInvoices?: ILatestInvoice[]
+	latestInvoices: ILatestInvoice[]
 	isLoading: boolean
 	currentPage: number
 	setCurrentPage: Dispatch<SetStateAction<number>>

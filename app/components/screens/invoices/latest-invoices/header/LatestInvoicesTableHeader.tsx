@@ -13,7 +13,7 @@ const LatestInvoiceTableHeader: FC<IHeader> = ({ toggleCheckboxes }) => {
 				type='checkbox'
 				className=''
 				style={{ height: '20px', width: '20px' }}
-				onClick={toggleCheckboxes}
+				onChange={toggleCheckboxes}
 			/>
 			<div className={styles.recipient}>Recipient</div>
 			<div className={styles.invoiceNum}>Invoice</div>

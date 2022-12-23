@@ -1,17 +1,22 @@
-import Image from 'next/image'
-import { FC, LegacyRef, MutableRefObject, RefObject, useState } from 'react'
+import Image from 'next/image';
+import { FC, LegacyRef, MutableRefObject, RefObject, useState } from 'react';
 
-import { convertDate } from '@/utils/convert-date'
 
-import Actions from './actions/Actions'
-import Status from './status/Status'
 
-import styles from './LatestInvoicesItem.module.scss'
-import { ILatestInvoice } from './latest-invoices.interface'
-import Recipient from './recipient/Recipient'
+import { convertDate } from '@/utils/convert-date';
+
+
+
+import styles from './LatestInvoicesItem.module.scss';
+import Actions from './actions/Actions';
+import { ILatestInvoice } from './latest-invoices.interface';
+import Recipient from './recipient/Recipient';
+import Status from './status/Status';
+
 
 interface IInvoiceItem {
 	latestInvoice: ILatestInvoice
+	selectedInvoiceId: number | undefined
 }
 
 const InvoiceItem: FC<IInvoiceItem> = ({
@@ -24,7 +29,8 @@ const InvoiceItem: FC<IInvoiceItem> = ({
 		date,
 		status,
 		email
-	}
+	},
+	selectedInvoiceId
 }) => {
 	const [isChecked, setIsChecked] = useState(false)
 
@@ -33,7 +39,7 @@ const InvoiceItem: FC<IInvoiceItem> = ({
 			id={_id.toString()}
 			className={styles.latestInvoiceRow}
 			style={
-				isChecked
+				selectedInvoiceId?.toString() === _id.toString()
 					? { borderLeft: '4px solid blue' }
 					: { borderLeft: '4px solid white' }
 			}
@@ -43,7 +49,7 @@ const InvoiceItem: FC<IInvoiceItem> = ({
 				type='checkbox'
 				className='invoiceNum'
 				style={{ height: '20px', width: '20px' }}
-				checked={isChecked}
+				checked={isChecked || selectedInvoiceId?.toString() === _id.toString()} //Не работает :((((
 				onClick={() => {
 					setIsChecked(!isChecked)
 				}}
