@@ -10,7 +10,7 @@ import { IButtonSize } from '@/ui/button/button.interface'
 
 import { tailwindColorsType } from '@/utils/tailwindColors'
 
-const btnColors: tailwindColorsType[] = [
+const colors: tailwindColorsType[] = [
 	'black',
 	'gray',
 	'green',
@@ -21,7 +21,7 @@ const btnColors: tailwindColorsType[] = [
 	'red'
 ]
 
-const btnSizes: IButtonSize[] = ['xs', 'sm', 'base', 'lg', 'xl']
+const sizes: IButtonSize[] = ['xs', 'sm', 'base', 'lg', 'xl']
 
 const Buttons: FC = () => {
 	return (
@@ -33,58 +33,66 @@ const Buttons: FC = () => {
 					</h3>
 					{/* buttons */}
 					<div className='px-14 py-20 border border-gray bg-white flex flex-col flex-wrap gap-3'>
-						<div>btnType</div>
+						<div>
+							<span className='font-bold'>Default Button</span>{' '}
+							without props ( default values are -&gt;{' '}
+							<span className='font-bold'>
+								variant? = 'primary', color? = 'purple', size? =
+								'sm' ){' '}
+							</span>
+						</div>
+						<div>
+							<Button>Primary purple sm</Button>
+						</div>
+						<div className='font-bold'>variant?</div>
 						<div className='grid grid-cols-3 gap-3'>
 							<div>
-								<Button btnType='primary'>Primary</Button>
+								<Button>Primary</Button>
 							</div>
 							<div>
-								<Button btnType='secondary'>Secondary</Button>
+								<Button variant='secondary'>Secondary</Button>
 							</div>
 							<div>
-								<Button btnType='tertiary'>Tertiary</Button>
+								<Button variant='tertiary'>Tertiary</Button>
 							</div>
 						</div>
 
-						<div>btnColor?</div>
-						{btnColors.map(color => (
+						<div className='font-bold'>color?</div>
+						{colors.map(color => (
 							<div className='grid grid-cols-3 gap-3' key={color}>
 								<div>
-									<Button btnType='primary' btnColor={color}>
+									<Button variant='primary' color={color}>
 										Primary {color}
 									</Button>
 								</div>
 								<div>
-									<Button
-										btnType='secondary'
-										btnColor={color}
-									>
+									<Button variant='secondary' color={color}>
 										Secondary {color}
 									</Button>
 								</div>
 								<div>
-									<Button btnType='tertiary' btnColor={color}>
+									<Button variant='tertiary' color={color}>
 										Tertiary {color}
 									</Button>
 								</div>
 							</div>
 						))}
 
-						<div>btnSize?</div>
-						{btnSizes.map(size => (
+						<div className='font-bold'>size?</div>
+						{sizes.map(size => (
 							<div className='grid grid-cols-3 gap-3' key={size}>
 								<div>
-									<Button btnType='primary' btnSize={size}>
+									<Button variant='primary' size={size}>
 										Primary {size}
 									</Button>
 								</div>
 								<div>
-									<Button btnType='secondary' btnSize={size}>
+									<Button variant='secondary' size={size}>
 										Secondary {size}
 									</Button>
 								</div>
 								<div>
-									<Button btnType='tertiary' btnSize={size}>
+									<Button variant='tertiary' size={size}>
 										Tertiary {size}
 									</Button>
 								</div>

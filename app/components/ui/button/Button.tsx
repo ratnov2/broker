@@ -6,9 +6,9 @@ import { IButton } from '@/ui/button/button.interface'
 import styles from './Button.module.scss'
 
 const Button: FC<IButton> = ({
-	btnType = 'primary',
-	btnSize = 'small',
-	btnColor = 'purple',
+	variant = 'primary',
+	size = 'sm',
+	color = 'purple',
 	className,
 	children,
 	...rest
@@ -16,14 +16,14 @@ const Button: FC<IButton> = ({
 	return (
 		<button
 			className={cn(
-				'rounded-full text-sm border py-[0.3em] px-[1em] transition-all',
-				{ '!text-xs': btnSize === 'xs' },
-				{ '!text-sm': btnSize === 'sm' },
-				{ '!text-base': btnSize === 'base' },
-				{ '!text-lg': btnSize === 'lg' },
-				{ '!text-xl': btnSize === 'xl' },
-				styles[btnType],
-				styles[btnColor],
+				'rounded-full border py-[0.3em] px-[1em] transition-all',
+				{ 'text-xs': size === 'xs' },
+				{ 'text-sm': size === 'sm' },
+				{ 'text-base': size === 'base' },
+				{ 'text-lg': size === 'lg' },
+				{ 'text-xl': size === 'xl' },
+				styles[variant],
+				styles[color],
 				className
 			)}
 			{...rest}
