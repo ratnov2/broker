@@ -1,12 +1,13 @@
 /**
  * This is only for test purposes to show ui buttons
  */
-import { FC } from 'react'
+import { ChangeEventHandler, FC, useEffect, useState } from 'react'
 
 import Layout from '@/layout/Layout'
 
 import Button from '@/ui/button/Button'
 import { IButtonSize } from '@/ui/button/button.interface'
+import Field from '@/ui/field/Field'
 
 import { tailwindColorsType } from '@/utils/tailwindColors'
 
@@ -59,7 +60,7 @@ const Buttons: FC = () => {
 
 						<div className='font-bold'>color?</div>
 						{colors.map(color => (
-							<div className='grid grid-cols-3 gap-3' key={color}>
+							<div className='grid grid-cols-4 gap-3' key={color}>
 								<div>
 									<Button variant='primary' color={color}>
 										Primary {color}
@@ -75,12 +76,20 @@ const Buttons: FC = () => {
 										Tertiary {color}
 									</Button>
 								</div>
+								<div className='flex items-center'>
+									<Field
+										key={color}
+										type='checkbox'
+										color={color}
+										withText={true}
+									/>
+								</div>
 							</div>
 						))}
 
 						<div className='font-bold'>size?</div>
 						{sizes.map(size => (
-							<div className='grid grid-cols-3 gap-3' key={size}>
+							<div className='grid grid-cols-4 gap-3' key={size}>
 								<div>
 									<Button variant='primary' size={size}>
 										Primary {size}
@@ -96,8 +105,23 @@ const Buttons: FC = () => {
 										Tertiary {size}
 									</Button>
 								</div>
+								<div className='flex items-center'>
+									<Field
+										key={size}
+										type='checkbox'
+										dimension={size}
+										withText={true}
+									/>
+								</div>
 							</div>
 						))}
+					</div>
+					{/* checkbox */}
+					<h3 className='bg-purple text-2xl p-10 pl-20 text-white font-bold'>
+						Checkbox
+					</h3>
+					<div className='px-14 py-20 border border-gray bg-white flex flex-col flex-wrap gap-3'>
+						<Field type='checkbox' />
 					</div>
 				</div>
 			</div>
