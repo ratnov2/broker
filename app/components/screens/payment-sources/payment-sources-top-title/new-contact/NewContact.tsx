@@ -9,10 +9,10 @@ const NewContact: FC = ({}) => {
 	}
 
 	return (
-		<div className={styles.button} onClick={onClick}>
+		<button className={styles.button} onClick={onClick}>
 			<span className={'ml-2'}>New Contact</span>
 			<AiOutlinePlus className={'mx-2 font-bold'} />
-		</div>
+		</button>
 	)
 }
 

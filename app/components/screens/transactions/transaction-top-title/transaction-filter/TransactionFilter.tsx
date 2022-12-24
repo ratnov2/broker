@@ -31,14 +31,20 @@ const FilterOption: FC = ({}) => {
 	}
 
 	return (
-			<div className={'mr-10'}>
-				<Select
-					classNamePrefix={'custom-select'}
-					options={options}
-					value={getValue()}
-					onChange={onChange}
-				/>
-			</div>
+		<div className={'mr-10'}>
+			<Select
+				classNamePrefix={'custom-select'}
+				options={options}
+				value={getValue()}
+				onChange={onChange}
+				styles={{
+					control: styles => ({
+						...styles,
+						cursor: 'pointer'
+					})
+				}}
+			/>
+		</div>
 	)
 }
 

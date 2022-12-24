@@ -33,6 +33,12 @@ const FilterOption: FC = ({}) => {
 				options={options}
 				value={getValue()}
 				onChange={onChange}
+				styles={{
+					control: (styles) => ({
+						...styles,
+						cursor: 'pointer',
+					})
+				}}
 			/>
 		</div>
 	)

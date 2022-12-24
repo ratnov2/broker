@@ -43,6 +43,12 @@ const DownloadAction: FC = ({}) => {
 				value={options[0]}
 				onChange={onChange}
 				hideSelectedOptions={true}
+				styles={{
+					control: (styles) => ({
+						...styles,
+						cursor: 'pointer',
+					})
+				}}
 			/>
 		</div>
 	)

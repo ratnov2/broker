@@ -50,6 +50,8 @@
 	}
 	&__option {
 		cursor: pointer !important;
+		padding-top: 16px !important;
+		padding-bottom: 16px !important;
 
 		&--is-selected {
 			background-color: transparent !important;
@@ -68,5 +70,8 @@
 		&:last-child {
 			border-radius: 0px 0px 20px 20px;
 		}
+	}
+	&__menu-list {
+		padding: 0 !important;
 	}
 }
