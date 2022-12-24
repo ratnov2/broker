@@ -1,28 +1,15 @@
 /**
  * This is only for test purposes to show ui buttons
  */
-import { ChangeEventHandler, FC, useEffect, useState } from 'react'
+import { FC } from 'react'
 
 import Layout from '@/layout/Layout'
 
 import Button from '@/ui/button/Button'
-import { IButtonSize } from '@/ui/button/button.interface'
-import Field from '@/ui/field/Field'
+import Switch from '@/ui/switch/Switch'
+import { fontSizes, tailwindColors } from '@/ui/ui.data'
 
-import { tailwindColorsType } from '@/utils/tailwindColors'
-
-const colors: tailwindColorsType[] = [
-	'black',
-	'gray',
-	'green',
-	'light-blue',
-	// 'light-gray',
-	'orange',
-	'purple',
-	'red'
-]
-
-const sizes: IButtonSize[] = ['xs', 'sm', 'base', 'lg', 'xl']
+import { getKeys } from '@/utils/object'
 
 const Buttons: FC = () => {
 	return (
@@ -45,8 +32,19 @@ const Buttons: FC = () => {
 						<div>
 							<Button>Primary purple sm</Button>
 						</div>
+						<div>
+							<span className='font-bold'>Default Switch</span>{' '}
+							without props ( default values are -&gt;{' '}
+							<span className='font-bold'>
+								withText? = true , color? = 'purple', size? =
+								'sm'){' '}
+							</span>
+						</div>
+						<div>
+							<Switch />
+						</div>
 						<div className='font-bold'>variant?</div>
-						<div className='grid grid-cols-3 gap-3'>
+						<div className='grid grid-cols-4 gap-3'>
 							<div>
 								<Button>Primary</Button>
 							</div>
@@ -59,7 +57,7 @@ const Buttons: FC = () => {
 						</div>
 
 						<div className='font-bold'>color?</div>
-						{colors.map(color => (
+						{getKeys(tailwindColors).map(color => (
 							<div className='grid grid-cols-4 gap-3' key={color}>
 								<div>
 									<Button variant='primary' color={color}>
@@ -77,18 +75,13 @@ const Buttons: FC = () => {
 									</Button>
 								</div>
 								<div className='flex items-center'>
-									<Field
-										key={color}
-										type='checkbox'
-										color={color}
-										withText={true}
-									/>
+									<Switch key={color} color={color} />
 								</div>
 							</div>
 						))}
 
 						<div className='font-bold'>size?</div>
-						{sizes.map(size => (
+						{getKeys(fontSizes).map(size => (
 							<div className='grid grid-cols-4 gap-3' key={size}>
 								<div>
 									<Button variant='primary' size={size}>
@@ -106,22 +99,10 @@ const Buttons: FC = () => {
 									</Button>
 								</div>
 								<div className='flex items-center'>
-									<Field
-										key={size}
-										type='checkbox'
-										dimension={size}
-										withText={true}
-									/>
+									<Switch key={size} dimension={size} />
 								</div>
 							</div>
 						))}
-					</div>
-					{/* checkbox */}
-					<h3 className='bg-purple text-2xl p-10 pl-20 text-white font-bold'>
-						Checkbox
-					</h3>
-					<div className='px-14 py-20 border border-gray bg-white flex flex-col flex-wrap gap-3'>
-						<Field type='checkbox' />
 					</div>
 				</div>
 			</div>
