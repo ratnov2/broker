@@ -6,7 +6,6 @@ import { FC } from 'react'
 import Layout from '@/layout/Layout'
 
 import Button from '@/ui/button/Button'
-import Switch from '@/ui/switch/Switch'
 import { fontSizes, tailwindColors } from '@/ui/ui.data'
 
 import { getKeys } from '@/utils/object'
@@ -32,19 +31,9 @@ const Buttons: FC = () => {
 						<div>
 							<Button>Primary purple sm</Button>
 						</div>
-						<div>
-							<span className='font-bold'>Default Switch</span>{' '}
-							without props ( default values are -&gt;{' '}
-							<span className='font-bold'>
-								withText? = true , color? = 'purple', size? =
-								'sm'){' '}
-							</span>
-						</div>
-						<div>
-							<Switch />
-						</div>
+
 						<div className='font-bold'>variant?</div>
-						<div className='grid grid-cols-4 gap-3'>
+						<div className='grid grid-cols-3 gap-3'>
 							<div>
 								<Button>Primary</Button>
 							</div>
@@ -58,7 +47,7 @@ const Buttons: FC = () => {
 
 						<div className='font-bold'>color?</div>
 						{getKeys(tailwindColors).map(color => (
-							<div className='grid grid-cols-4 gap-3' key={color}>
+							<div className='grid grid-cols-3 gap-3' key={color}>
 								<div>
 									<Button variant='primary' color={color}>
 										Primary {color}
@@ -74,15 +63,12 @@ const Buttons: FC = () => {
 										Tertiary {color}
 									</Button>
 								</div>
-								<div className='flex items-center'>
-									<Switch key={color} color={color} />
-								</div>
 							</div>
 						))}
 
 						<div className='font-bold'>size?</div>
 						{getKeys(fontSizes).map(size => (
-							<div className='grid grid-cols-4 gap-3' key={size}>
+							<div className='grid grid-cols-3 gap-3' key={size}>
 								<div>
 									<Button variant='primary' size={size}>
 										Primary {size}
@@ -97,9 +83,6 @@ const Buttons: FC = () => {
 									<Button variant='tertiary' size={size}>
 										Tertiary {size}
 									</Button>
-								</div>
-								<div className='flex items-center'>
-									<Switch key={size} dimension={size} />
 								</div>
 							</div>
 						))}
