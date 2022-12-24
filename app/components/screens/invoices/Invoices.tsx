@@ -18,8 +18,8 @@ const Invoices: FC = () => {
 
 	return (
 		<Layout title='Invoices'>
-			<div className='h-full w-full'>
-				<h1 className='text-top text-3xl font-bold text-black mb-2'>
+			<div className='h-full w-full mt-12'>
+				<h1 className='text-top text-4xl font-bold text-black mb-10'>
 					Invoices
 				</h1>
 				<OverviewInvoices

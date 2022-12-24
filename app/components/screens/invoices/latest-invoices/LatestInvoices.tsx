@@ -1,4 +1,4 @@
-import { FC, MutableRefObject, useRef, useState } from 'react'
+import { FC, MutableRefObject, useEffect, useRef, useState } from 'react'
 
 import Pagination from '@/ui/pagination/Pagination'
 import Loader from '@/ui/pagination/loader/Loader'
@@ -25,9 +25,28 @@ const LatestInvoices: FC<ILatestInvoices> = ({
 	)
 
 	const [selectedInvoicesId, setSelectedInvoicesId] = useState<number[]>([])
+	const [isCheckedHeader, setIsCheckedHeader] = useState(false)
 
-	const toggleCheckboxes = () => {
-		setSelectedInvoicesId(currentInvoices.map(item => item._id))
+	const toggleCheckboxes = (id?: number) => {
+		if (id) {
+			if (selectedInvoicesId.find(a => a === id)) {
+				setSelectedInvoicesId(
+					selectedInvoicesId.filter(function (item) {
+						return item !== id
+					})
+				)
+			} else {
+				setSelectedInvoicesId([...selectedInvoicesId, id])
+			}
+		} else {
+			if (isCheckedHeader) {
+				setSelectedInvoicesId([])
+			} else {
+				latestInvoices &&
+					setSelectedInvoicesId(latestInvoices.map(item => item._id))
+			}
+			setIsCheckedHeader(!isCheckedHeader)
+		}
 	}
 
 	return (
@@ -43,8 +62,9 @@ const LatestInvoices: FC<ILatestInvoices> = ({
 							key={latestInvoice._id}
 							latestInvoice={latestInvoice}
 							selectedInvoiceId={selectedInvoicesId.find(i => {
-								i === latestInvoice._id
+								return i === latestInvoice._id
 							})}
+							toggleCheckboxes={toggleCheckboxes}
 						/>
 					))}
 					{latestInvoices && (

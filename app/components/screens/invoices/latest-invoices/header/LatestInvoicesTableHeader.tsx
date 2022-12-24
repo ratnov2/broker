@@ -3,8 +3,17 @@ import { FC } from 'react'
 import styles from './LatestInvoicesHeader.module.scss'
 
 interface IHeader {
-	toggleCheckboxes: () => void
+	toggleCheckboxes: (id?: number) => void
 }
+
+const columnNames = [
+	'Recipient',
+	'Invoice',
+	'Status',
+	'Date',
+	'Service',
+	'Action'
+]
 
 const LatestInvoiceTableHeader: FC<IHeader> = ({ toggleCheckboxes }) => {
 	return (
@@ -13,14 +22,13 @@ const LatestInvoiceTableHeader: FC<IHeader> = ({ toggleCheckboxes }) => {
 				type='checkbox'
 				className=''
 				style={{ height: '20px', width: '20px' }}
-				onChange={toggleCheckboxes}
+				onChange={() => {
+					toggleCheckboxes()
+				}}
 			/>
-			<div className={styles.recipient}>Recipient</div>
-			<div className={styles.invoiceNum}>Invoice</div>
-			<div className={styles.status}>Status</div>
-			<div className={styles.date}>Date</div>
-			<div className={styles.service}>Service</div>
-			<div className={styles.actions}>Action</div>
+			{columnNames.map(columnName => (
+				<div className={styles[columnName]}>{columnName}</div>
+			))}
 		</div>
 	)
 }

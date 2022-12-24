@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 
 import { convertDate } from '@/utils/convert-date'
 
@@ -11,6 +11,7 @@ import Status from './status/Status'
 interface IInvoiceItem {
 	latestInvoice: ILatestInvoice
 	selectedInvoiceId: number | undefined
+	toggleCheckboxes: (id?: number) => void
 }
 
 const InvoiceItem: FC<IInvoiceItem> = ({
@@ -24,10 +25,9 @@ const InvoiceItem: FC<IInvoiceItem> = ({
 		status,
 		email
 	},
-	selectedInvoiceId
+	selectedInvoiceId,
+	toggleCheckboxes
 }) => {
-	const [isChecked, setIsChecked] = useState(false)
-
 	return (
 		<div
 			id={_id.toString()}
@@ -43,12 +43,9 @@ const InvoiceItem: FC<IInvoiceItem> = ({
 				type='checkbox'
 				className='invoiceNum'
 				style={{ height: '20px', width: '20px' }}
-				checked={
-					isChecked ||
-					selectedInvoiceId?.toString() === _id.toString()
-				} //Не работает :((((
-				onClick={() => {
-					setIsChecked(!isChecked)
+				checked={selectedInvoiceId?.toString() === _id.toString()}
+				onChange={() => {
+					toggleCheckboxes(_id)
 				}}
 			/>
 			<Recipient avatar={recipientAvatar} name={name} email={email} />
@@ -58,8 +55,7 @@ const InvoiceItem: FC<IInvoiceItem> = ({
 			<Status status={status} />
 
 			<div className={styles.date}>
-				<p>{convertDate(date)[0]}</p>
-				<span>{convertDate(date)[1]}</span>
+				<span>{convertDate(date)[0]}</span>
 			</div>
 
 			<span className={styles.service}>{service}</span>

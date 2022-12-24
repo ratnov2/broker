@@ -1,22 +1,19 @@
 .tableHeader {
-	@apply flex  items-center  justify-between border-b  border-light-gray  py-4 px-9 text-[20px] font-semibold text-black;
+	@apply flex  items-center  justify-between border-b  border-light-gray mt-10 py-4 px-9 text-[20px] font-semibold text-black;
 
-	.status {
+	.Status {
 		@apply w-[124px];
 	}
-	.recipient {
-		@apply flex w-1/6;
-	}
-	.invoiceNum {
+	.Recipient {
 		@apply w-1/6;
 	}
-	.service {
+	.Invoice {
 		@apply w-1/6;
 	}
-	.date {
+	.Service {
 		@apply w-1/6;
 	}
-	.actions {
-		@apply flex;
+	.Date {
+		@apply w-1/6 pl-20;
 	}
 }
