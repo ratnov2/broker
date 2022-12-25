@@ -111,14 +111,15 @@ const BalanceTransfer: FC = () => {
 				))}
 
 				<div className={'flex items-center justify-between mt-2'}>
-					<div onClick={() => onCheckboxClick()}>
+					<div>
 						<input
-							className={'card-checkbox'}
+							className={'test card-checkbox'}
 							id={'card-checkbox'}
 							type='checkbox'
 						/>
 						<label
-							className={'text-sm text-[#8E8EA1]'}
+							onClick={onCheckboxClick}
+							className={'test text-sm text-[#8E8EA1]'}
 							htmlFor='card-checkbox'
 						>
 							I accept privacy policy
