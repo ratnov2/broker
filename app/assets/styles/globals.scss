@@ -1,6 +1,5 @@
 @import 'app/assets/styles/variables';
 
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,16 +15,94 @@ body {
 		border-radius: 40px;
 		box-shadow: 0 20px 50px rgba(191, 21, 108, 0.05);
 	}
-	
+
 	.card-details__value {
 		@apply font-bold;
 	}
-	
+
 	.card-details__title {
 		@apply text-[14px] text-[#8E8EA1];
 	}
-	
+
 	.balance-card__subtitle {
 		@apply mb-7 font-semibold;
 	}
+
+	.transfer-btn {
+		@apply flex h-full items-center justify-center px-[18px] text-xs duration-150 hover:bg-[#6160DC] hover:text-[#fff];
+
+		&.active {
+			background: #6160dc;
+			color: #fff;
+		}
+	}
+}
+
+svg {
+	max-width: 100%;
+	vertical-align: middle;
+}
+
+/*
+ * General utitlities
+ *
+ * Add general utilities like layout, type, and more to
+ * support the demonstration.
+ *
+ * @since 06/07/22
+ */
+
+.container {
+	display: flex;
+	flex-direction: column;
+
+	min-height: 100vh;
+
+	align-items: center;
+	justify-content: center;
+}
+
+.colophon {
+	margin-top: 1em;
+	text-align: center;
+}
+
+.colophon h2 + h4 {
+	margin-top: -1em;
+	color: #888;
+	font-weight: normal;
+}
+
+.svg-pi {
+	width: 80px;
+	height: 80px;
+	transform: rotate(-90deg);
+}
+
+.svg-pi-track {
+	stroke: #f5f5f5;
+}
+
+.svg-pi-indicator {
+	stroke: #6160dc;
+	stroke-dasharray: 251.2px; /* DashArray = Track's or indicator's Circumference */
+	stroke-linecap: round;
+}
+
+.svg-pi-track,
+.svg-pi-indicator {
+	cx: 30px;
+	cy: 30px;
+	r: 30px;
+	fill: transparent;
+	stroke-width: 10px;
+}
+
+/* Progress: 25% */
+.svg-pi-25 .svg-pi-indicator {
+	stroke-dashoffset: 185.4px; /* DashOffset = DashArray * ((100 - progress)/100) */
+}
+
+.disabledBtn {
+	pointer-events: none;
 }
