@@ -80,7 +80,7 @@ const SavingsForm: FC<ISavingForm> = ({ onFormChange, savingData }) => {
 						placeholder={'1000'}
 						type={'text'}
 						register={register('target', {
-							required: 'Targer is required field',
+							required: 'Target is required field',
 							pattern: {
 								value: /[0-9]{1,25}/,
 								message: 'Please enter valid target. Target must be a number'
