@@ -23,7 +23,7 @@ const options = [
 const TransactionTopTitle: FC = ({}) => {
 	return (
 		<div className='flex justify-between items-center mb-4 flex-wrap'>
-			<h1 className='text-2xl font-bold text-black'>Transaction History</h1>
+			<h1 className='text-4xl font-bold text-black'>Transaction History</h1>
 			<div className='flex justify-between mb-4'>
 				<FilterOption />
 				<DownloadAction />
