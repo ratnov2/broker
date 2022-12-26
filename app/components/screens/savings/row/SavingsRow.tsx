@@ -45,7 +45,7 @@ const SavingsRow: FC<ISavingsRow> = ({ saving, id, deleteItem }) => {
 					height={'40px'}
 					width={'100px'}
 					onButtonClick={buttonAction}
-				></SavingsButton>
+				/>
 			</td>
 			<td>
 				<SavingsButton
@@ -55,7 +55,7 @@ const SavingsRow: FC<ISavingsRow> = ({ saving, id, deleteItem }) => {
 					height={'40px'}
 					width={'140px'}
 					onButtonClick={buttonAction}
-				></SavingsButton>
+				/>
 			</td>
 			<td className='w-20 text-center font-bold'>
 				<img

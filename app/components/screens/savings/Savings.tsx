@@ -41,11 +41,8 @@ const Savings: FC<ISavingForm> = ({ saving }) => {
 					currentPage={currentPage}
 					setCurrentPage={setCurrentPage}
 					savingsData={data}
-				></SavingsTable>
-				<SavingsForm
-					onFormChange={onFormChange}
-					savingData={saving}
-				></SavingsForm>
+				/>
+				<SavingsForm onFormChange={onFormChange} savingData={saving} />
 			</div>
 		</Layout>
 	)

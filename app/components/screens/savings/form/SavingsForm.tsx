@@ -57,7 +57,7 @@ const SavingsForm: FC<ISavingForm> = ({ onFormChange, savingData }) => {
 							}
 						})}
 						errors={errors}
-					></SavingsInput>
+					/>
 
 					<SavingsInput
 						label={'Saving purpose'}
@@ -72,7 +72,7 @@ const SavingsForm: FC<ISavingForm> = ({ onFormChange, savingData }) => {
 							}
 						})}
 						errors={errors}
-					></SavingsInput>
+					/>
 
 					<SavingsInput
 						label={'Saving target'}
@@ -87,7 +87,7 @@ const SavingsForm: FC<ISavingForm> = ({ onFormChange, savingData }) => {
 							}
 						})}
 						errors={errors}
-					></SavingsInput>
+					/>
 					<SavingsInput
 						label={'First Top-Up'}
 						name={'topUp'}
@@ -101,7 +101,7 @@ const SavingsForm: FC<ISavingForm> = ({ onFormChange, savingData }) => {
 							}
 						})}
 						errors={errors}
-					></SavingsInput>
+					/>
 
 					<button
 						type='submit'
