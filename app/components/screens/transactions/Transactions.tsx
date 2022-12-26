@@ -1,22 +1,18 @@
 import { FC } from 'react'
-import { SubmitErrorHandler, SubmitHandler } from 'react-hook-form'
 
+//import { SubmitErrorHandler, SubmitHandler } from 'react-hook-form'
 import Layout from '@/layout/Layout'
 
-import { ITransaction } from './TransactionType'
-import { TransactionFormDefault } from './data'
 import RecipientRecent from './recipient-recent/RecipientRecent'
-import NewTransactionForm from './transaction-form/TransactionForm'
+import TransactionForm from './transaction-form/TransactionForm'
+import { TransactionType } from './transaction-type/TransactionType'
 
 const Transactions: FC = () => {
-	const onSubmitForm = (
-		onValid: SubmitHandler<ITransaction>,
-		onInvalid: SubmitErrorHandler<ITransaction>
-	) => {
-		console.log(onValid)
-		console.log(onInvalid)
+	const onSubmit = (data: TransactionType) => {
+		console.log(123)
+		console.log(data)
+		console.log(321)
 	}
-
 	return (
 		<Layout title='Transactions'>
 			<div className='mt-10 sm:mt-0 w-full h-screen'>
@@ -26,13 +22,10 @@ const Transactions: FC = () => {
 					</h1>
 
 					<div className='flex space-x-10'>
-						<div className='w-3/4'>
-							<NewTransactionForm
-								defaultData={TransactionFormDefault}
-								onSubmit={onSubmitForm}
-							/>
+						<div className='w-2/3'>
+							<TransactionForm onSubmit={onSubmit} />
 						</div>
-						<div className='w-1/4'>
+						<div className='w-1/3'>
 							<RecipientRecent />
 						</div>
 					</div>

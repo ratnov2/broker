@@ -1,20 +1,17 @@
-import { ITransaction } from './../TransactionType'
-
-export const TransactionFormDefault: ITransaction = {
-	number: '',
-	date: '',
-	recipient: '',
-	email: '',
-	amount: 0,
-	services: '',
-	dueDate: '',
-	pin: ''
-}
-
 export type TransactionInputType = {
 	title?: string
-	name: any
+	name:
+		| 'number'
+		| 'date'
+		| 'recipient'
+		| 'email'
+		| 'amount'
+		| 'dueDate'
+		| 'services'
+		| 'pin'
 	options?: any
+	placeholder?: string
+	type?: string
 }
 
 export const TransactionInputs: TransactionInputType[] = [
@@ -22,25 +19,39 @@ export const TransactionInputs: TransactionInputType[] = [
 		title: 'Transaction number',
 		name: 'number',
 		options: {
-			required: 'Number required',
-			disabled: true
-		}
+			required: {
+				value: true,
+				message: 'Transaction number required'
+			},
+			disabled: true,
+			value: '123456789'
+		},
+		placeholder: 'Transaction number'
 	},
 	{
 		title: 'Date',
 		name: 'date',
 		options: {
-			required: 'Date required',
-			disabled: true
-		}
+			required: {
+				value: true,
+				message: 'Date number required'
+			},
+			disabled: true,
+			value: '10.11.2022'
+		},
+		placeholder: 'Date'
 	},
 	{
 		title: 'Recipient',
 		name: 'recipient',
 		options: {
-			required: 'Recipient required',
+			required: {
+				value: true,
+				message: 'Recipient number required!'
+			},
 			minLength: 1
-		}
+		},
+		placeholder: 'Recipient'
 	},
 	{
 		title: 'Email',
@@ -71,15 +82,18 @@ export const TransactionInputs: TransactionInputType[] = [
 		name: 'dueDate',
 		options: {
 			required: 'Due date required',
-			minLength: 6
-		}
+			minLength: 6,
+			value: '11.12.2022'
+		},
+		type: 'date'
 	},
 	{
-		title: 'Due date',
+		title: 'Pin',
 		name: 'pin',
 		options: {
 			required: 'Pin required',
 			minLength: 3
-		}
+		},
+		type: 'password'
 	}
 ]

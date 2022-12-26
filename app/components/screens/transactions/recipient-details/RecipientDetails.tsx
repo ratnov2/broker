@@ -5,8 +5,6 @@ import {
 	HiOutlinePhone
 } from 'react-icons/hi'
 
-import styles from './RecipientDetails.module.scss'
-
 const RecipientDetails = () => {
 	return (
 		<div>
@@ -24,10 +22,12 @@ const RecipientDetails = () => {
 					</div>
 				</div>
 
-				<div className='flex space-x-4'>
-					<span className='flex items-center justify-center rounded-full bg-purple w-11 h-11'>
-						<HiOutlineLocationMarker size={32} color='white' />
-					</span>
+				<div className='flex space-x-4 overflow-hidden'>
+					<HiOutlineLocationMarker
+						size={32}
+						color='white'
+						className='bg-purple rounded-full w-11 h-11 min-w-11 min-h-11 p-2'
+					/>
 					<div>
 						<div>Address</div>
 						<div>
@@ -36,19 +36,25 @@ const RecipientDetails = () => {
 						</div>
 					</div>
 				</div>
-				<div className='flex space-x-4'>
-					<span className='flex items-center justify-center rounded-full bg-purple w-11 h-11'>
-						<HiOutlineMail size={32} color='white' />
-					</span>
+
+				<div className='flex space-x-4 overflow-hidden'>
+					<HiOutlineMail
+						size={32}
+						color='white'
+						className='bg-purple rounded-full w-11 h-11 min-w-11 min-h-11 p-2'
+					/>
 					<div>
 						<div>Ebigwindadmin@mail.com</div>
-						<div>bigwindadmin@bigwindadmin@mail.com.com</div>
+						<div>bigwindadmin@mail.com</div>
 					</div>
 				</div>
+
 				<div className='flex space-x-4'>
-					<span className='flex items-center justify-center rounded-full bg-purple w-11 h-11'>
-						<HiOutlinePhone size={32} color='white' />
-					</span>
+					<HiOutlinePhone
+						size={32}
+						color='white'
+						className='bg-purple rounded-full w-11 h-11 min-w-11 min-h-11 p-2'
+					/>
 					<div>
 						<div>Telephone</div>
 						<div>(012) 3456 789</div>

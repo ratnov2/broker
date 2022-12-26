@@ -1,5 +1,4 @@
-
-export type ITransaction = {
+export type TransactionType = {
 	number: string
 	date: string
 	recipient: string
@@ -8,4 +7,5 @@ export type ITransaction = {
 	services: string
 	dueDate: string
 	pin: string
+	agreement: boolean
 }
