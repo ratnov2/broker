@@ -1,8 +1,6 @@
 import { FC, useState } from 'react'
 import Select from 'react-select'
 
-import styles from './FilterOption.module.scss'
-
 const options = [
 	{
 		value: 'newest',
@@ -16,6 +14,7 @@ const options = [
 
 const FilterOption: FC = ({}) => {
 	const [currentFilterOption, serCurrentFilterOption] = useState('newest')
+	
 	const getValue = () => {
 		return currentFilterOption
 			? options.find(o => o.value === currentFilterOption)

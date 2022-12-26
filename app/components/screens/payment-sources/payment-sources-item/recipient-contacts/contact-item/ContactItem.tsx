@@ -1,27 +1,32 @@
-import { FC } from 'react'
-import { FiCalendar, FiPhone } from 'react-icons/fi'
-import { TbMail } from 'react-icons/tb'
+import { FC } from 'react';
+import { FiCalendar, FiPhone } from 'react-icons/fi';
+import { TbMail } from 'react-icons/tb';
 
-import styles from './ContactItem.module.scss'
+
+
+import styles from './ContactItem.module.scss';
+
 
 interface IContactItem {
 	text: string
 	type: 'email' | 'phone' | 'dueDate'
 }
 
-const ContactItem: FC<IContactItem> = ({ text, type }) => {
-	const switchIcon = (param: string) => {
-		switch (param) {
-			case 'email':
-				return <TbMail className={styles.icon} />
-			case 'phone':
-				return <FiPhone className={styles.icon} />
-			case 'dueDate':
-				return <FiCalendar className={styles.icon} />
-			default:
-				return <div className={styles.icon} />
-		}
+const switchIcon = (param: string) => {
+	switch (param) {
+		case 'email':
+			return <TbMail className={styles.icon} />
+		case 'phone':
+			return <FiPhone className={styles.icon} />
+		case 'dueDate':
+			return <FiCalendar className={styles.icon} />
+		default:
+			return <div className={styles.icon} />
 	}
+}
+
+const ContactItem: FC<IContactItem> = ({ text, type }) => {
+	
 
 	return (
 		<>

@@ -1,5 +1,4 @@
 import { FC } from 'react'
-import { AiOutlineHistory } from 'react-icons/ai'
 
 import { convertDate } from '@/utils/convert-date'
 
@@ -12,14 +11,6 @@ interface IRecipient {
 	paymentDue: string
 }
 
-const roundedStyle = {
-	alignSelf: 'center',
-	width: '40px',
-	height: '40px',
-	padding: '1px',
-	borderRadius: '50px',
-	color: 'white'
-}
 
 const RecipientContact: FC<IRecipient> = ({ phone, email, paymentDue }) => {
 	return (

@@ -1,4 +1,4 @@
-import { FC, SetStateAction, useState } from 'react'
+import { FC, useState } from 'react'
 
 import Layout from '@/layout/Layout'
 
@@ -10,15 +10,10 @@ import TransactionTopTitle from './transaction-top-title/TransactionTopTitle'
 const Transactions: FC = () => {
 	const [currentPage, setCurrentPage] = useState(1)
 	const { isLoadingTransactions, transactions } = useTransactions(currentPage)
-	const [currentFilterOption, serCurrentFilterOption] = useState('newest')
-
-	const onChange = (newValue: any) => {
-		serCurrentFilterOption(newValue.value)
-	}
 
 	return (
 		<Layout title='TransactionHistory'>
-			<div className='h-full w-full mt-2'>
+			<div className='h-full w-full mt-12'>
 				<TransactionTopTitle />
 				<TransactionHistory
 					transactions={transactions}

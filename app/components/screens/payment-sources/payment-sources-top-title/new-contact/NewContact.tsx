@@ -1,10 +1,10 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import { AiOutlinePlus } from 'react-icons/ai'
 
 import styles from './NewContact.module.scss'
 
 const NewContact: FC = ({}) => {
-	const onClick = (newValue: any) => {
+	const onClick = () => {
 		alert('Not developed yet')
 	}
 

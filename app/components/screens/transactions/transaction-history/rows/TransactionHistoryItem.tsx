@@ -3,7 +3,7 @@ import { FC, useState } from 'react'
 
 import { convertDate } from '@/utils/convert-date'
 
-import Actions from '../actions/Actions'
+import Actions from './actions/Actions'
 import Status from '../rows/status/Status'
 
 import styles from './TransactionHistoryItem.module.scss'

@@ -22,14 +22,6 @@ const options = [
 ]
 
 const DownloadAction: FC = ({}) => {
-	const [currentFilterOption, serCurrentFilterOption] =
-		useState('download-as')
-	
-	const getValue = () => {
-		return currentFilterOption
-			? options.find(o => o.value === "")
-			: ''
-	}
 
 	const onChange = (newValue: any) => {
 		alert("Downloaded as " + newValue.label)

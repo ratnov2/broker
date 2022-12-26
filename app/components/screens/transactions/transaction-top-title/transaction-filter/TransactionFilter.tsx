@@ -1,8 +1,6 @@
 import { FC, useState } from 'react'
 import Select from 'react-select'
 
-import styles from './FilterOption.module.scss'
-
 const options = [
 	{
 		value: 'newest',

@@ -9,13 +9,11 @@ import PaymentSourcesTopTitle from './payment-sources-top-title/PaymentSourcesTo
 import Loader from '@/ui/pagination/loader/Loader'
 
 const PaymentSources: FC = () => {
-	const [currentFilterOption, serCurrentFilterOption] = useState('newest')
+	const [currentFilterOption] = useState('newest')
 
 	const { isLoadingPaymentSources, paymentSources } =
 		usePaymentSources(currentFilterOption)
-	const onChange = (newValue: any) => {
-		serCurrentFilterOption(newValue.value)
-	}
+
 
 	return (
 		<Layout title='Payment Sources'>
