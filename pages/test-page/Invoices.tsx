@@ -20,8 +20,8 @@ const Invoices: FC = () => {
 				</div>
 			) : (
 				invoices?.map(invoice => (
-					<div className='flex h-screen w-full'>
-						{invoice.invoiceNum}
+					<div key={invoice.id.toString()} className='flex h-screen w-full'>
+						invoice id: {invoice.id} invoice.amount: {invoice.amount}
 					</div>
 				))
 			)}

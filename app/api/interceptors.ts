@@ -54,9 +54,4 @@ instance.interceptors.request.use(config => {
 
 export default instance
 
-export const axiosClassic = axios.create({
-	baseURL: API_URL,
-	headers: {
-		'Content-Type': 'application/json'
-	}
-})
+export const axiosClassic = instance
