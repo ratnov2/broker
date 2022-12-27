@@ -1,14 +1,14 @@
 import { FC, useId } from 'react'
 import ReactSelect from 'react-select'
 
-import { SelectClassNames } from '@/ui/select/select.class-names'
+import { selectClassNames } from '@/ui/select/select.class-names'
 import { ISelect, ISelectOption } from '@/ui/select/select.interface'
 
 const Select: FC<ISelect<ISelectOption, boolean>> = ({
 	variant = 'primary',
 	color = 'purple',
 	size = 'sm',
-	classNames = SelectClassNames(variant, color, size),
+	classNames = selectClassNames(variant, color, size),
 	...rest
 }) => {
 	return (

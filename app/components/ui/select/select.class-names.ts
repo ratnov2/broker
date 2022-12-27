@@ -4,7 +4,7 @@ import { ISelectClassNames } from '@/ui/select/select.interface'
 
 import styles from './Select.module.scss'
 
-export const SelectClassNames: ISelectClassNames = (variant, color, size) => ({
+export const selectClassNames: ISelectClassNames = (variant, color, size) => ({
 	control: state =>
 		cn(
 			state.isFocused ? styles.control__focused : styles.control,
