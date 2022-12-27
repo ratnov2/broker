@@ -1,30 +1,4 @@
-@import 'app/assets/styles/variables';
-
-$base_width_xs: 45;
-$base_width_sm: 50;
-$base_width_base: 60;
-$base_width_lg: 65;
-$base_width_xl: 70;
-
-$class_size: (
-	'xs': $base_width_xs,
-	'sm': $base_width_sm,
-	'base': $base_width_base,
-	'lg': $base_width_lg,
-	'xl': $base_width_xl
-);
-
-$class_color: (
-	'purple': $purple,
-	'orange': $orange,
-	'green': $green,
-	'black': $black,
-	'red': $red,
-	'gray': $gray,
-	'white': $white,
-	'light-blue': $light-blue,
-	'light-gray': $light-gray
-);
+@import '../ui.module';
 
 @function size($base_width, $property: 0, $extra_width: 18, $extra_height: 8) {
 	$offset: 5;
@@ -54,7 +28,7 @@ $class_color: (
 }
 
 @mixin parent_classes {
-	@each $class, $size in $class_size {
+	@each $class, $size in $class_size_switch {
 		&.#{$class} {
 			height: size($size, 'parent');
 			width: size($size);
@@ -62,7 +36,7 @@ $class_color: (
 	}
 }
 @mixin child_classes {
-	@each $class, $size in $class_size {
+	@each $class, $size in $class_size_switch {
 		&.#{$class}::before {
 			bottom: size($size, 'child-offset');
 			height: size($size, 'child-dimension');
@@ -72,7 +46,7 @@ $class_color: (
 	}
 }
 @mixin translate_classes {
-	@each $class, $size in $class_size {
+	@each $class, $size in $class_size_switch {
 		&.#{$class}::before {
 			transform: translateX(size($size, 'child-translate'));
 		}
@@ -102,28 +76,7 @@ $class_color: (
 	display: inline-block;
 	position: relative;
 
-	@include parent_classes; // <- this mixin generate code like below
-	// &.xs {
-	// 	height: size($base_width_xs, 'parent');
-	// 	width: size($base_width_xs);
-	// }
-	// &.sm {
-	// 	height: size($base_width_sm, 'parent');
-	// 	width: size($base_width_sm);
-	// }
-	// &.base {
-	// 	height: size($base_width_base, 'parent');
-	// 	width: size($base_width_base);
-	// }
-	// &.lg {
-	// 	height: size($base_width_lg, 'parent');
-	// 	width: size($base_width_lg);
-	// }
-	// &.xl {
-	// 	height: size($base_width_xl, 'parent');
-	// 	width: size($base_width_xl);
-	// }
-	// .......
+	@include parent_classes;
 
 	// needed to simulate new fake_input ( real input is hidden )
 	.fake_input {
@@ -145,38 +98,7 @@ $class_color: (
 			border-radius: 50%;
 		}
 
-		@include child_classes; // <- this mixin generate code like below
-		// &.xs::before {
-		// 	bottom: size($base_width_xs, 'child-offset');
-		// 	height: size($base_width_xs, 'child-dimension');
-		// 	left: size($base_width_xs, 'child-offset');
-		// 	width: size($base_width_xs, 'child-dimension');
-		// }
-		// &.sm::before {
-		// 	bottom: size($base_width_sm, 'child-offset');
-		// 	height: size($base_width_sm, 'child-dimension');
-		// 	left: size($base_width_sm, 'child-offset');
-		// 	width: size($base_width_sm, 'child-dimension');
-		// }
-		// &.base::before {
-		// 	bottom: size($base_width_base, 'child-offset');
-		// 	height: size($base_width_base, 'child-dimension');
-		// 	left: size($base_width_base, 'child-offset');
-		// 	width: size($base_width_base, 'child-dimension');
-		// }
-		// &.lg::before {
-		// 	bottom: size($base_width_lg, 'child-offset');
-		// 	height: size($base_width_lg, 'child-dimension');
-		// 	left: size($base_width_lg, 'child-offset');
-		// 	width: size($base_width_lg, 'child-dimension');
-		// }
-		// &.xl::before {
-		// 	bottom: size($base_width_xl, 'child-offset');
-		// 	height: size($base_width_xl, 'child-dimension');
-		// 	left: size($base_width_xl, 'child-offset');
-		// 	width: size($base_width_xl, 'child-dimension');
-		// }
-		// .......
+		@include child_classes;
 	}
 
 	input {
@@ -192,50 +114,8 @@ $class_color: (
 					}
 				}
 
-				@include color_classes; // <- this mixin generate code like below
-				// &.purple {
-				// 	background-color: $purple;
-				// }
-				// &.orange {
-				// 	background-color: $orange;
-				// }
-				// &.green {
-				// 	background-color: $green;
-				// }
-				// &.black {
-				// 	background-color: $black;
-				// }
-				// &.red {
-				// 	background-color: $red;
-				// }
-				// &.gray {
-				// 	background-color: $gray;
-				// }
-				// &.light-blue {
-				// 	background-color: $light-blue;
-				// }
-				// &.light-gray {
-				// 	background-color: $light-gray;
-				// }
-				// .......
-
-				@include translate_classes; // <- this mixin generate code like below
-				// &.xs::before {
-				// 	transform: translateX(size($base_width_xs, 'child-translate'));
-				// }
-				// &.sm::before {
-				// 	transform: translateX(size($base_width_sm, 'child-translate'));
-				// }
-				// &.base::before {
-				// 	transform: translateX(size($base_width_base, 'child-translate'));
-				// }
-				// &.lg::before {
-				// 	transform: translateX(size($base_width_lg, 'child-translate'));
-				// }
-				// &.xl::before {
-				// 	transform: translateX(size($base_width_xl, 'child-translate'));
-				// }
-				// .......
+				@include color_classes;
+				@include translate_classes;
 			}
 		}
 	}

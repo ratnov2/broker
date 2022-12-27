@@ -1,33 +1,7 @@
-@import 'app/assets/styles/variables';
-
-$class_color: (
-	'purple': $purple,
-	'orange': $orange,
-	'green': $green,
-	'black': $black,
-	'red': $red,
-	'gray': $gray,
-	'white': $white,
-	'light-blue': $light-blue,
-	'light-gray': $light-gray
-);
-
-$font_size_xs: 0.82rem;
-$font_size_sm: 0.98rem;
-$font_size_base: 1.15rem;
-$font_size_lg: 1.22rem;
-$font_size_xl: 1.36rem;
-
-$class_size: (
-	'xs': $font_size_xs,
-	'sm': $font_size_sm,
-	'base': $font_size_base,
-	'lg': $font_size_lg,
-	'xl': $font_size_xl
-);
+@import '../ui.module';
 
 @mixin control_size_classes {
-	@each $class, $size in $class_size {
+	@each $class, $size in $class_font_size {
 		&.#{$class} {
 			font-size: #{$size} !important;
 		}
@@ -39,7 +13,7 @@ $class_size: (
 	}
 }
 @mixin menu_size_classes {
-	@each $class, $size in $class_size {
+	@each $class, $size in $class_font_size {
 		&.#{$class} {
 			.Option {
 				font-size: #{$size};
@@ -230,6 +204,7 @@ $class_size: (
 	}
 }
 
+// dropdown indicator
 .dropdownIndicator {
 	padding: 0 !important;
 	margin: 0 !important;
@@ -276,7 +251,6 @@ $class_size: (
 		}
 	}
 }
-
 .primary {
 	&.menu {
 		@include menu_size_classes;
