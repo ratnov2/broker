@@ -22,7 +22,7 @@ const PaymentSources: FC = () => {
 				{isLoadingPaymentSources ? (
 					<Loader />
 				) : paymentSources?.length ? (
-					<div className='flex flex-wrap justify-between'>
+					<div className=''>
 						{paymentSources.map(paymentContact => (
 							<PaymentContact paymentContact={paymentContact} />
 						))}
