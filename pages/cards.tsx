@@ -5,6 +5,7 @@ import Cards from '@/screens/cards/Cards'
 import "swiper/css/bundle";
 
 const CardsPage = () => {
+  
   return <Cards />
 }
 

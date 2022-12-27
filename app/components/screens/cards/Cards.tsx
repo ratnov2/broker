@@ -14,6 +14,7 @@ import Operations from './right-card/card-actions/CardActions'
 import Description from './right-card/description/Description'
 import style from './Cards.module.scss'
 import { CardDataTimes, LimitData } from './cards-timer-data'
+import { AuthHostData, InvoicesHostData } from '@/axios/request.data'
 
 const Cards: FC = () => {
 	const sliderPerView = setSliderPerView(CardDataTimes.length)
@@ -64,6 +65,12 @@ const Cards: FC = () => {
 						visibleNumberCard={visibleNumberCard}
 					/>
 				</div>
+			</div>
+			<div>
+				<button onClick={()=>AuthHostData.login({email:'anton.ratnov@yandex.ru',password:'12345678'})}>
+					Login
+				</button>
+				<button onClick={()=>InvoicesHostData.all()}>Invoices</button>
 			</div>
 		</Layout>
 	)
