@@ -2,8 +2,8 @@ import Cookies from 'js-cookie'
 
 import { IAuthResponse, ITokens } from '@/shared/types/auth.interface'
 
-export const getAccessToken = async () => {
-	const accessToken = await Cookies.get('accessToken')
+export const getAccessToken = () => {
+	const accessToken = Cookies.get('accessToken')
 	return accessToken || null
 }
 

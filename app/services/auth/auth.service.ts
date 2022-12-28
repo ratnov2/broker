@@ -22,7 +22,7 @@ export const AuthService = {
 	},
 
 	async logout() {
-		removeTokensStorage()
+		await removeTokensStorage()
 		localStorage.removeItem('user')
 	}
 }
