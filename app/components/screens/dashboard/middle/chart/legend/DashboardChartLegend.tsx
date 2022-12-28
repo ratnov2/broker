@@ -1,5 +1,7 @@
 import { FC } from 'react'
 
+import Select from '@/ui/select/Select'
+
 import styles from './DashboardChartLegend.module.scss'
 import { timeRangeOptions } from '@/screens/dashboard/middle/overview/overview.data'
 import { IChartLegend } from '@/screens/dashboard/middle/overview/overview.interface'
@@ -34,19 +36,18 @@ const DashboardChartLegend: FC<IChartLegend> = ({
 							</span>
 						</span>
 					</div>
-					<select
+					<Select
+						variant='secondary'
+						defaultValue={{
+							label: timeRangeOptions[0],
+							value: '0'
+						}}
 						onChange={changeData}
-						className='px-6 py-2 rounded-full bg-light-gray outline-none border-none text-purple text-sm capitalize'
-					>
-						{timeRangeOptions.map(timeRangeOption => (
-							<option
-								value={timeRangeOption}
-								key={timeRangeOption}
-							>
-								{timeRangeOption}
-							</option>
-						))}
-					</select>
+						options={timeRangeOptions.map((label, value) => ({
+							value: value.toString(),
+							label: label
+						}))}
+					/>
 				</div>
 			)}
 		</div>

@@ -1,4 +1,11 @@
-import { ClassNamesConfig, GroupBase, Props } from 'react-select'
+import {
+	ActionMeta,
+	ClassNamesConfig,
+	GroupBase,
+	MultiValue,
+	Props,
+	SingleValue
+} from 'react-select'
 
 import { ISize, ITailwindColors, IVariant } from '@/ui/ui.interface'
 
@@ -25,3 +32,11 @@ export type ISelectClassNames = (
 ) =>
 	| ClassNamesConfig<ISelectOption, boolean, GroupBase<ISelectOption>>
 	| undefined
+
+export type ISelectSingleValue = SingleValue<ISelectOption>
+export type ISelectMultiValue = MultiValue<ISelectOption>
+
+export type ISelectOnChange = (
+	newValue: ISelectSingleValue | ISelectMultiValue,
+	actionMeta: ActionMeta<ISelectOption>
+) => void

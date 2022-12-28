@@ -1,4 +1,4 @@
-import { ChangeEventHandler } from 'react'
+import { ISelectOnChange } from '@/ui/select/select.interface'
 
 type timeRangeDateType = {
 	date: Date
@@ -16,7 +16,7 @@ export type timeLapsType = 'week' | 'year'
 export interface IChartOverview {
 	title: string
 	timeLaps?: timeLapsType
-	changeData?: ChangeEventHandler<HTMLSelectElement>
+	changeData?: ISelectOnChange
 	timeRangeData: timeRangeType[]
 }
 

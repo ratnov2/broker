@@ -1,28 +1,11 @@
-import { ChangeEventHandler, FC, useState } from 'react'
+import { FC } from 'react'
+
+import { useOverview } from '@/hooks/dashboard/middle/useOverview'
 
 import ChartOverview from '@/screens/dashboard/middle/overview/chart-bar/ChartOverview'
-import {
-	timeRangeData,
-	timeRangeOptions
-} from '@/screens/dashboard/middle/overview/overview.data'
-import { timeLapsType } from '@/screens/dashboard/middle/overview/overview.interface'
-
-const initialTimeRangeData = timeRangeData('week')
 
 const Overview: FC = () => {
-	const [timeLaps, setTimeLaps] = useState<timeLapsType>('week')
-
-	const [data, setData] = useState(initialTimeRangeData)
-
-	const changeData: ChangeEventHandler<HTMLSelectElement> = e => {
-		e.preventDefault()
-		const newTimeLaps = e.target.value as timeLapsType
-
-		if (timeRangeOptions.includes(newTimeLaps)) {
-			setTimeLaps(newTimeLaps)
-			setData(timeRangeData(newTimeLaps))
-		}
-	}
+	const { timeLaps, data, changeData } = useOverview()
 
 	return (
 		<ChartOverview
