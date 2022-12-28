@@ -10,7 +10,7 @@ import {
 } from 'react'
 
 import { IContext, TypeUserState } from './auth-provider.interface'
-import { checkAuth } from './checkAuth'
+import { checkAuth } from './check-auth'
 import { getUserFromStorage } from '@/services/auth/auth.helper'
 import { AuthService } from '@/services/auth/auth.service'
 
