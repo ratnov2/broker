@@ -17,7 +17,7 @@ export const removeTokensStorage = () => {
 	Cookies.remove('refreshToken')
 }
 
-export const getUserFromStorage = async () => {
+export const getUserFromStorage = () => {
 	try {
 		return JSON.parse(localStorage.getItem('user') || '{}')
 	} catch (error) {

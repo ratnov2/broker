@@ -11,6 +11,7 @@ import {
 
 import { IContext, TypeUserState } from './auth-provider.interface'
 import { checkAuth } from './checkAuth'
+import { getUserFromStorage } from '@/services/auth/auth.helper'
 import { AuthService } from '@/services/auth/auth.service'
 
 const DynamicCheckRole = dynamic(() => import('./CheckRole'), {
@@ -20,7 +21,7 @@ const DynamicCheckRole = dynamic(() => import('./CheckRole'), {
 export const AuthContext = createContext({} as IContext)
 
 const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
-	const [user, setUser] = useState<TypeUserState>(null)
+	const [user, setUser] = useState<TypeUserState>(getUserFromStorage() || null)
 	const { pathname } = useRouter()
 
 	useEffect(() => {
