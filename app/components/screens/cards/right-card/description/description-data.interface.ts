@@ -1,11 +1,6 @@
+import { IUserCard } from "@/shared/types/bank-accounts.interface"
+
 export interface PropsDescription {
-	type: string
-	number: string
-	bank: string
-	name: string
-	valid: {
-		month: number
-		year: number
-	}
+	userCard:IUserCard
 	visibleNumberCard: boolean
 }

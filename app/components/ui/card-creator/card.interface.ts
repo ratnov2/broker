@@ -1,14 +1,8 @@
 import { Dispatch, SetStateAction } from 'react'
+import { TypeUserCardForSlider } from '../slider/slider.interface'
 
-export interface PropsCardCreator {
-	balance: number
-	holder?: string
-	valid?: {
-		month: number
-		year: number
-	}
-	number: string
-	bg?: number | string
+export interface PropsCard {
+	userCard:TypeUserCardForSlider
 	widthCard: number
 	styleFigure?: boolean
 	className?: string

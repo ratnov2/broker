@@ -16,10 +16,10 @@ import { PropsSlider } from './slider.interface'
 import { useSlider } from './useSlider'
 
 const Slider: FC<PropsSlider> = ({
-	data,
+	userCards,
 	setIndex,
 	sliderPerView,
-	initialIdx,
+	initialIndex,
 	visibleNumberCard,
 	setVisibleNumberCard
 }) => {
@@ -31,7 +31,7 @@ const Slider: FC<PropsSlider> = ({
 				ref={sliderRef}
 				centeredSlides={true}
 				slidesPerView={sliderPerView}
-				initialSlide={initialIdx}
+				initialSlide={initialIndex}
 				simulateTouch={false}
 				effect={'coverflow'}
 				coverflowEffect={{
@@ -42,7 +42,7 @@ const Slider: FC<PropsSlider> = ({
 				}}
 				modules={[EffectCoverflow]}
 			>
-				{data.map((el, key) => {
+				{userCards.map((el, key) => {
 					return (
 						<SwiperSlide key={el.number}>
 							{({ isActive, isNext, isPrev }) => {
@@ -61,10 +61,10 @@ const Slider: FC<PropsSlider> = ({
 												initialStyleTransformIsNext[
 													sliderPerView - 1
 												],
-											`${data[key].background}`
+											`${userCards[key].background}`
 										)}
 										widthCard={sliderPerView * 88.8}
-										{...el}
+										userCard={el}
 										styleFigure={!isActive}
 										visibleNumberCard={visibleNumberCard}
 										setVisibleNumberCard={

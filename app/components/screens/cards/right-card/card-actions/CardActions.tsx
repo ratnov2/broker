@@ -6,6 +6,7 @@ import style from './CardActions.module.scss'
 import { cardActionsData } from './card-actions.data'
 
 const CardActions: FC = () => {
+	
 	return (
 		<div className={style.cardActions}>
 			{cardActionsData.map(el => {

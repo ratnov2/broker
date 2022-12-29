@@ -4,27 +4,25 @@ import { FC } from 'react'
 import { convertToHiddenNumber } from '@/utils/get-hidden-card'
 import { convertMoneyToNormalize } from '@/utils/convert-money-to-normalize'
 
-import { PropsCardCreator } from './card-creator.interface'
+import { PropsCard } from './card.interface'
 import style from './Card.module.scss'
 import CommonCardStyle from './common-style-card/CommonCardStyle'
 
-const Card: FC<PropsCardCreator> = ({
-	balance,
-	holder,
-	valid,
-	number,
+const Card: FC<PropsCard> = ({
+	userCard,
 	styleFigure,
 	className,
 	widthCard,
 	visibleNumberCard,
 	setVisibleNumberCard
 }) => {
+	const {background,balance,expireDate,number} = userCard
 	return (
 		<div
 			className={cn(style.shareCard, className, styleFigure && 'pointer-events-none')}
 			style={{ width: `calc(${widthCard}%)` }}
 		>
-			<div className={cn(style.card)}>
+			<div className={cn(style.card)} style={{background:background}}>
 				{!styleFigure && (
 					<>
 						<CommonCardStyle />
@@ -45,12 +43,12 @@ const Card: FC<PropsCardCreator> = ({
 						</div>
 						<div className={style.holder}>
 							<h3>holder</h3>
-							<p>{holder}</p>
+							<p>Holder</p>
 						</div>
 						<div className={style.valid}>
 							<h3>Valid Thru</h3>
 							<p>
-								{valid?.month}/{valid?.year}
+								{expireDate}
 							</p>
 						</div>
 					</>

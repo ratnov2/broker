@@ -11,18 +11,9 @@
 		}
 	}
 	.rightCardList {
-		@apply w-7/12 max-w-xl pr-5;
+		@apply w-7/12 ;
 	}
 	.bottomPlace {
-		@apply flex justify-between;
-	}
-	.newCard {
-		@apply mt-5 flex align-text-top transition-all duration-100 ease-in;
-		&:hover {
-			@apply text-green;
-		}
-		svg {
-			@apply text-2xl;
-		}
+		@apply flex justify-between mt-10 mb-2;
 	}
 }

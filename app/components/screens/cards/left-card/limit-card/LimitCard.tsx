@@ -11,7 +11,7 @@ const LimitCard: FC<PropsLimitCard> = ({ limit }) => {
 	return (
 		<div>
 			<h3>Limit</h3>
-			<div className='w-52 bg-gray h-4 rounded-full'>
+			<div className='w-52 bg-light-gray h-4 rounded-full my-3'>
 				<div
 					className={`bg-purple h-4 rounded-full`}
 					style={{

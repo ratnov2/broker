@@ -2,17 +2,15 @@ import { FC } from 'react'
 
 import { convertToHiddenNumber } from '@/utils/get-hidden-card'
 
-import { PropsDescription } from './Description-data.interface'
+import { PropsDescription } from './description-data.interface'
 import style from './Description.module.scss'
 
 const Description: FC<PropsDescription> = ({
-	type,
-	number,
-	valid,
-	name,
-	bank,
+	userCard,
 	visibleNumberCard
 }) => {
+	
+	const {bankName,expireDate,number,type} = userCard
 	return (
 		<div className={style.description}>
 			<h2>Card Information</h2>
@@ -31,16 +29,16 @@ const Description: FC<PropsDescription> = ({
 				</div>
 				<div>
 					<h3>Bank</h3>
-					<p>{bank}</p>
+					<p>{bankName}</p>
 				</div>
 				<div>
 					<h3>Name</h3>
-					<p>{name}</p>
+					<p>holder</p>
 				</div>
 				<div>
 					<h3>Valid Thru</h3>
 					<p>
-						{valid.month}/{valid.year}
+						{expireDate}
 					</p>
 				</div>
 			</div>

@@ -1,77 +1,110 @@
 import Link from 'next/link'
 import { FC, useEffect, useState } from 'react'
 import { CgAdd } from 'react-icons/cg'
+import { useMutation, useQuery } from 'react-query'
 
 import Layout from '@/layout/Layout'
 
 import Slider from '@/ui/slider/Slider'
+import { TypeUserCardAndStyle } from '@/ui/slider/slider.interface'
 
-import { sliderInitialIdx } from '@/utils/slider/slider-initial-index'
-import { setSliderPerView } from '@/utils/slider/slider-per-view'
+import { IUserCard } from '@/shared/types/bank-accounts.interface'
 
-import LimitCard from './left-card/limitCard/LimitCard'
-import Operations from './right-card/card-actions/CardActions'
-import Description from './right-card/description/Description'
+import { BackgroundColorBank } from '@/utils/background-color-bank'
+import { SliderInitialIdx } from '@/utils/slider/slider-initial-index'
+import { SliderPerView } from '@/utils/slider/slider-per-view'
+
 import style from './Cards.module.scss'
 import { CardDataTimes, LimitData } from './cards-timer-data'
+import AddNewCard from './left-card/add-new-card/AddNewCard'
+import LimitCard from './left-card/limit-card/LimitCard'
+import Operations from './right-card/card-actions/CardActions'
+import Description from './right-card/description/Description'
 import { AuthHostData, InvoicesHostData } from '@/axios/request.data'
+import { BankAccount } from '@/services/card/bank-account.service'
+import { NormalizeNumberCard } from '@/utils/normalize-number-card'
 
 const Cards: FC = () => {
-	const sliderPerView = setSliderPerView(CardDataTimes.length)
-	const initialIdx = sliderInitialIdx(setSliderPerView(sliderPerView))
+	const bankAccount = useQuery('get-accounts-bank', () =>
+		BankAccount.getAllBankAccounts()
+	)
 
-	const [data, setData] = useState(CardDataTimes)
-	const [index, setIndex] = useState(initialIdx)
-	const [currentCard, setCurrentCard] = useState(data[index])
-	const [visibleNumberCard, setVisibleNumberCard] = useState(false) 
+	const userCards = useQuery(
+		'get-user-cards',
+		() => BankAccount.getAllUserCards(),
+		{
+			select: ({ data }) =>
+				data.map(el => ({
+					...el,
+					number:NormalizeNumberCard(el.number),
+					background: BackgroundColorBank(el.bankName)
+				}))
+		}
+	)
+	const newCard = useMutation('create-card', () => BankAccount.createCard(), {
+		onSuccess: () => userCards.refetch()
+	})
+
+	const [sliderPerView, setSliderPerView] = useState<number>(1)
+	const [initialIndex, setInitialIndex] = useState<number>(1)
+
+	const [index, setIndex] = useState(0)
+	const [currentCard, setCurrentCard] = useState<TypeUserCardAndStyle>()
+	const [visibleNumberCard, setVisibleNumberCard] = useState(false)
 
 	useEffect(() => {
-		setCurrentCard(data[index])
+		if (userCards.data) {
+			setCurrentCard(userCards.data[index])
+		}
 	}, [index])
 
+	useEffect(() => {
+		if (userCards.data) {
+			setSliderPerView(SliderPerView(userCards.data.length))
+			setInitialIndex(SliderInitialIdx(SliderPerView(userCards.data.length)))
+			setCurrentCard(userCards.data[index])
+		}
+	}, [userCards.data])
 	/// Side Effects- useHooks
 
 	return (
 		<Layout title='Cards'>
 			<h1 className={style.head}>Cards</h1>
-			<div className={style.cardList}>
-				<div className={style.leftCardList}>
-					<Slider
-						data={data}
-						setIndex={setIndex}
-						sliderPerView={sliderPerView}
-						initialIdx={initialIdx}
-						visibleNumberCard={visibleNumberCard}
-						setVisibleNumberCard={setVisibleNumberCard}
-					/>
-					<div className={style.bottomPlace}>
-						<LimitCard limit={LimitData}/>
-						<div>
-							<Link href={'/'} className={style.newCard}>
-								<CgAdd />
-								<span>Add new card</span>
-							</Link>
+			{userCards.data ? (
+				<>
+					<div className={style.cardList}>
+						<div className={style.leftCardList}>
+							<Slider
+								userCards={userCards.data}
+								setIndex={setIndex}
+								sliderPerView={sliderPerView}
+								initialIndex={initialIndex}
+								visibleNumberCard={visibleNumberCard}
+								setVisibleNumberCard={setVisibleNumberCard}
+							/>
+							<div className={style.bottomPlace}>
+								<LimitCard limit={LimitData} />
+								<div>
+									<AddNewCard createCard={newCard}/>
+								</div>
+							</div>
+						</div>
+						<div className={style.rightCardList}>
+							{currentCard && (
+								<>
+									<Operations />
+									<Description
+										userCard={currentCard}
+										visibleNumberCard={visibleNumberCard}
+									/>
+								</>
+							)}
 						</div>
 					</div>
-				</div>
-				<div className={style.rightCardList}>
-					<Operations />
-					<Description
-						type={currentCard.type}
-						number={currentCard.number}
-						valid={currentCard.valid}
-						name={currentCard.name}
-						bank={currentCard.bank}
-						visibleNumberCard={visibleNumberCard}
-					/>
-				</div>
-			</div>
-			<div>
-				<button onClick={()=>AuthHostData.login({email:'anton.ratnov@yandex.ru',password:'12345678'})}>
-					Login
-				</button>
-				<button onClick={()=>InvoicesHostData.all()}>Invoices</button>
-			</div>
+				</>
+			) : (
+				<span>Loading</span>
+			)}
 		</Layout>
 	)
 }
