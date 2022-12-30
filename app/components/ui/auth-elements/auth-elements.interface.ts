@@ -10,7 +10,8 @@ export interface IAuthFieldProps {
 	error?: FieldError | Merge<FieldError, FieldErrorsImpl<any>>
 }
 
-type TypeInputPropsField = InputHTMLAttributes<HTMLInputElement> &
+export type TypeInputPropsField = InputHTMLAttributes<HTMLInputElement> &
 	IAuthFieldProps
 
 export interface IAuthField extends TypeInputPropsField {}
+	

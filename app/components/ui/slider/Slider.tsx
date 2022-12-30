@@ -5,7 +5,7 @@ import { Swiper } from 'swiper/react'
 import { SwiperSlide } from 'swiper/react'
 
 import Arrow from '../arrow/Arrow'
-import Card from '../card-creator/Card'
+import Card from '../card/Card'
 
 import {
 	initialStyleTransformIsActive,
@@ -78,16 +78,17 @@ const Slider: FC<PropsSlider> = ({
 				})}
 			</Swiper>
 
-			{!sliderRef.current?.swiper.isBeginning && (
-				<Arrow
-					className='rotate-180 -left-4 top-32 absolute z-50'
-					onClick={handlePrev}
-				/>
-			)}
-			{!sliderRef.current?.swiper.isEnd && (
+			
+			{!sliderRef.current?.swiper.isEnd  && (
 				<Arrow
 					className='-right-4 top-32 absolute z-50'
 					onClick={handleNext}
+				/>
+			)}
+			{!sliderRef.current?.swiper.isBeginning &&  (
+				<Arrow
+					className='rotate-180 -left-4 top-32 absolute z-50'
+					onClick={handlePrev}
 				/>
 			)}
 		</div>

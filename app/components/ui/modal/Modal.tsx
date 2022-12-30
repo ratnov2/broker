@@ -5,18 +5,27 @@ import Button from '../button/Button'
 
 import { PropsModal } from './Modal.interface'
 import style from './Modal.module.scss'
+import OperationFields from './field/OperationFields'
+import { useModalForm } from './useModalForm'
 
-const Modal: FC<PropsModal> = ({ show, onClose, children, title }) => {
+const Modal: FC<PropsModal> = ({
+	show,
+	onClose,
+	children,
+	title,
+	accountNumber,
+	operation
+}) => {
+	const { handleSubmit, onSubmit, registerInput, formState, handleCloseClick } =
+		useModalForm({ onClose, accountNumber, operation })
+
 	const [isBrowser, setIsBrowser] = useState(false)
-
+	useEffect(() => {
+		if (operation?.isSuccess) onClose()
+	}, [operation])
 	useEffect(() => {
 		setIsBrowser(true)
 	}, [])
-
-	const handleCloseClick = (e: any) => {
-		e.preventDefault()
-		onClose()
-	}
 
 	const modalContent = show ? (
 		<div className={style.modal}>
@@ -25,17 +34,23 @@ const Modal: FC<PropsModal> = ({ show, onClose, children, title }) => {
 					<h4 className={style.modalTitle}>{title}</h4>
 				</div>
 				<div className={style.modalBody}>{children}</div>
+
 				<div className={style.modalFooter}>
-					<Button
-						color='red'
-						onClick={handleCloseClick}
-						className={style.close}
+					<form
+						onSubmit={handleSubmit(onSubmit)}
+						className='flex flex-col w-full'
 					>
-						Close
-					</Button>
-					<Button onClick={handleCloseClick} className={style.make}>
-						make a {title}
-					</Button>
+						<OperationFields formState={formState} register={registerInput} />
+						<Button
+							color='red'
+							className={style.close}
+							disabled={operation?.isLoading}
+							onClick={handleCloseClick}
+						>
+							Close
+						</Button>
+						<Button className={style.make} disabled={operation?.isLoading}>make a {title}</Button>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -51,34 +66,5 @@ const Modal: FC<PropsModal> = ({ show, onClose, children, title }) => {
 		return null
 	}
 }
-
-// const StyledModalBody = styled.div`
-//   padding-top: 10px;
-// `;
-
-// const StyledModalHeader = styled.div`
-//   display: flex;
-//   justify-content: flex-end;
-//   font-size: 25px;
-// `;
-
-// const StyledModal = styled.div`
-//   background: white;
-//   width: 500px;
-//   height: 600px;
-//   border-radius: 15px;
-//   padding: 15px;
-// `;
-// const StyledModalOverlay = styled.div`
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   background-color: rgba(0, 0, 0, 0.5);
-// `;
 
 export default Modal

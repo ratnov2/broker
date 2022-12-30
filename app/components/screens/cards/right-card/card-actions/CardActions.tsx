@@ -4,9 +4,17 @@ import CardActionBlock from '@/ui/card-action-block/CardActionBlock'
 
 import style from './CardActions.module.scss'
 import { cardActionsData } from './card-actions.data'
+import { PropsCardActions } from './card-actions.interface'
 
-const CardActions: FC = () => {
-	
+const CardActions: FC<PropsCardActions> = ({ topUp, withdrawal,accountNumber }) => {
+	const helperFunc = (title: string) => {
+		switch (title) {
+			case 'Top Up':
+				return topUp
+			case 'Withdraw':
+				return withdrawal
+		}
+	}
 	return (
 		<div className={style.cardActions}>
 			{cardActionsData.map(el => {
@@ -16,8 +24,9 @@ const CardActions: FC = () => {
 						arrowDirection={el.arrowDirection}
 						description={el.description}
 						title={el.title}
-						link={el.link}
 						key={el.title}
+						accountNumber={accountNumber}
+						operation={helperFunc(el.title)}
 					/>
 				)
 			})}

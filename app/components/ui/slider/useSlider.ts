@@ -4,6 +4,7 @@ import { SwiperRef } from 'swiper/react'
 import { PropsUseSlider } from './slider.interface'
 
 export const useSlider = ({ setIndex }: PropsUseSlider) => {
+	
 	const sliderRef = useRef<SwiperRef>(null)
 
 	const handlePrev = useCallback(() => {

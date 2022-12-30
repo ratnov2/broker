@@ -1,7 +1,7 @@
 
 export type IOperations = {
   amount:number,
-  accountNumber:'string'
+  accountNumber:string
 }
 export interface IUserCard {
   balance: number,
@@ -26,6 +26,6 @@ export interface IUserCardAndStyles{
   paymentSystem: string,
   type: string,
   bankName: string,
-  bankAccountId: string,
-  
+  bankAccountId: string, 
 }
+

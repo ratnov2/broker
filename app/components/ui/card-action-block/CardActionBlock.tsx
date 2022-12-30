@@ -16,7 +16,8 @@ const CardActionBlock: FC<PropsCardActionsBlock> = ({
 	title,
 	description,
 	arrowDirection,
-	link
+	accountNumber,
+	operation
 }) => {
 	const [showModal, setShowModal] = useState(false)
 	return (
@@ -36,8 +37,14 @@ const CardActionBlock: FC<PropsCardActionsBlock> = ({
 					}
 				/>
 			</button>
-			<Modal title={title} onClose={() => setShowModal(false)} show={showModal}>
-				<span>Top up from account {title}</span>
+			<Modal
+				title={title}
+				onClose={() => setShowModal(false)}
+				show={showModal}
+				operation={operation}
+				accountNumber={accountNumber}
+			>
+				<span>Top up for an account <b>{accountNumber}</b></span>
 			</Modal>
 		</div>
 	)

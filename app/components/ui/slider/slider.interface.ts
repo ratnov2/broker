@@ -11,7 +11,7 @@ export interface PropsSlider {
 	setVisibleNumberCard: Dispatch<SetStateAction<boolean>>
 }
 export interface PropsUseSlider {
-	setIndex: Dispatch<SetStateAction<number>>
+	setIndex?: Dispatch<SetStateAction<number>>
 }
 
 export type TypeStyleCard = {
