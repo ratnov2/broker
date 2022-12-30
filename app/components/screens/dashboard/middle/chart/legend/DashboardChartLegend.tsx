@@ -37,6 +37,7 @@ const DashboardChartLegend: FC<IChartLegend> = ({
 						</span>
 					</div>
 					<Select
+						className='min-w-[100px]'
 						variant='secondary'
 						defaultValue={{
 							label: timeRangeOptions[0],

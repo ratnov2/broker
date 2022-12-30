@@ -41,24 +41,24 @@ const ChartOverview: FC<IChartOverview> = ({
 	title,
 	timeLaps,
 	changeData,
-	timeRangeData
+	chartBarData
 }) => {
 	const chartData: ChartData<'bar'> = {
 		// x-axis naming
-		labels: timeRangeData.map(item => item.name),
+		labels: chartBarData.labels,
 		// chart bars
 		datasets: [
-			// left chart bar ( lastData income )
+			// left chart bar
 			{
 				label: `Last ${timeLaps}`,
-				data: timeRangeData.map(item => item.lastData.income),
+				data: chartBarData.leftBar,
 				backgroundColor: '#03DAF2',
 				...datasetCommonOptions
 			},
 			{
-				// right chart bar ( thisData income )
+				// right chart bar
 				label: `This ${timeLaps}`,
-				data: timeRangeData.map(item => item.thisData.income),
+				data: chartBarData.rightBar,
 				backgroundColor: '#6160DC',
 				...datasetCommonOptions
 			}

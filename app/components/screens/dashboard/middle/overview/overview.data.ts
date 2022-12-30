@@ -1,9 +1,14 @@
-import randomNumber from '@/utils/randomNumber'
+import { getKeys } from '@/utils/object'
 
 import {
-	timeLapsType,
-	timeRangeType
+	chartBarDataType,
+	timeLapsType
 } from '@/screens/dashboard/middle/overview/overview.interface'
+import { IIncomeByDynamicQueryParam } from '@/services/statistics/statistics.interface'
+
+type timeRangeType = {
+	localeShortDate: string
+}
 
 const generateDaysRange = (numberOfDays = 7) => {
 	const date = new Date()
@@ -15,18 +20,18 @@ const generateDaysRange = (numberOfDays = 7) => {
 			date.getDate() - index - (lastWeek ? 7 : 0)
 		)
 	for (let index = 0; index < numberOfDays; index++) {
-		days[numberOfDays - index - 1] = {
-			name: day(index).toLocaleDateString('en', {
+		days[index] = {
+			localeShortDate: day(index).toLocaleDateString('en', {
 				weekday: 'short'
-			}),
-			thisData: {
-				date: day(index),
-				income: randomNumber(0, 100)
-			},
-			lastData: {
-				date: day(index, true),
-				income: randomNumber(0, 100)
-			}
+			})
+			// thisData: {
+			// 	date: day(index),
+			// 	income: randomNumber(0, 100)
+			// },
+			// lastData: {
+			// 	date: day(index, true),
+			// 	income: randomNumber(0, 100)
+			// }
 		}
 	}
 	return days
@@ -36,31 +41,34 @@ const generateMonthsRange = (numberOfMonths = 7) => {
 	const date = new Date()
 	const months: timeRangeType[] = []
 	const month = (index: number, lastYear = false) =>
-		new Date(
-			date.getFullYear() - (lastYear ? 1 : 0),
-			date.getMonth() - index
-		)
+		new Date(date.getFullYear() - (lastYear ? 1 : 0), date.getMonth() - index)
 	for (let index = 0; index < numberOfMonths; index++) {
-		months[numberOfMonths - index - 1] = {
-			name: month(index).toLocaleDateString('en', {
+		months[index] = {
+			localeShortDate: month(index).toLocaleDateString('en', {
 				month: 'short'
-			}),
-			thisData: {
-				date: month(index),
-				income: randomNumber(0, 100)
-			},
-			lastData: {
-				date: month(index, true),
-				income: randomNumber(0, 100)
-			}
+			})
+			// thisData: {
+			// 	date: month(index),
+			// 	income: randomNumber(0, 100)
+			// },
+			// lastData: {
+			// 	date: month(index, true),
+			// 	income: randomNumber(0, 100)
+			// }
 		}
 	}
 	return months
 }
 
-export const timeRangeOptions: timeLapsType[] = ['week', 'year']
+export const timeRangeOptions = getKeys(IIncomeByDynamicQueryParam)
 
 export const timeRangeData = (timeLaps: timeLapsType): timeRangeType[] => {
-	if (timeLaps === 'year') return generateMonthsRange()
-	return generateDaysRange()
+	if (timeLaps === 'week') return generateDaysRange()
+	return generateMonthsRange()
+}
+
+export const defaultChartBarData: chartBarDataType = {
+	labels: [],
+	leftBar: [],
+	rightBar: []
 }
