@@ -1,9 +1,9 @@
-import { tailwindColorsType } from '@/utils/tailwindColors'
+import { ITailwindColorsFiltered } from '@/utils/tailwindColors'
 
 export interface categoriesDataType {
-	_id: number
+	_id: string
 	name: string
 	data: number
 	transactions: number
-	color: tailwindColorsType
+	color: ITailwindColorsFiltered
 }

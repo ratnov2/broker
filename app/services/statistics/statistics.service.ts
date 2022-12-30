@@ -1,9 +1,13 @@
-import { getIncomeByDynamicUrl } from '@/config/api.config'
+import {
+	getExpenseCategoriesUrl,
+	getIncomeByDynamicUrl
+} from '@/config/api.config'
 
 import { request } from '@/api/request.api'
 
 import { timeLapsType } from '@/screens/dashboard/middle/overview/overview.interface'
 import {
+	IExpenseCategories,
 	IIncomeByDynamic,
 	IIncomeByDynamicQueryParam
 } from '@/services/statistics/statistics.interface'
@@ -15,6 +19,12 @@ export const StatisticsService = {
 			params: {
 				type: IIncomeByDynamicQueryParam[type]
 			}
+		})
+	},
+
+	async getExpenseCategories() {
+		return await request<IExpenseCategories>({
+			url: getExpenseCategoriesUrl
 		})
 	}
 }

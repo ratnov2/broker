@@ -1,6 +1,7 @@
 import { FC } from 'react'
 
-import { tailwindColors } from '@/utils/tailwindColors'
+import { onlyText } from '@/utils/clear-text'
+import { tailwindColorsFiltered } from '@/utils/tailwindColors'
 
 import { categoriesDataType } from '@/screens/dashboard/middle/outcome-categories/outcome-categories.interface'
 
@@ -15,11 +16,13 @@ const ChartOutcomeItem: FC<ChartOutcomeItemProps> = ({ data }) => {
 				<div
 					className='h-4 w-4 rounded-full'
 					style={{
-						backgroundColor: tailwindColors[data.color]
+						backgroundColor: tailwindColorsFiltered[data.color]
 					}}
 				/>
 				<div>
-					<span>{data.name}</span>
+					<span>
+						{data.name.length < 15 ? data.name : onlyText(data.name, 12)}
+					</span>
 					<span>
 						{' '}
 						({data.data}

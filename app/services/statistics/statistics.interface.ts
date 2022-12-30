@@ -8,3 +8,7 @@ export enum IIncomeByDynamicQueryParam {
 	'week' = 'day',
 	'year' = 'month'
 }
+
+export interface IExpenseCategories {
+	[key: string]: number
+}
