@@ -15,7 +15,7 @@ const TransactionHistoryTableHeader: FC = ({}) => {
 	return (
 		<div className={styles.tableHeader}>
 			{columnNames.map(columnName => (
-				<div className={styles[columnName === '' ? 'Actions' : columnName]}>
+				<div key={columnName} className={styles[columnName === '' ? 'Actions' : columnName]}>
 					{columnName}
 				</div>
 			))}

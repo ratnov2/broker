@@ -33,7 +33,7 @@ const PaymentSources: FC = () => {
 				) : userContacts?.length ? (
 					<div className=''>
 						{userContacts.map(paymentContact => (
-							<PaymentContact paymentContact={paymentContact} />
+							<PaymentContact key={ paymentContact.id } paymentContact={paymentContact} />
 						))}
 					</div>
 				) : (

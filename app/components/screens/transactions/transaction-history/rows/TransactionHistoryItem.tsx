@@ -35,7 +35,7 @@ const TransactionHistoryItem: FC<IInvoiceItem> = ({
 				className='invoiceNum'
 				style={{ height: '20px', width: '20px' }}
 				checked={isChecked}
-				onClick={() => {
+				onChange={() => {
 					setIsChecked(!isChecked)
 				}}
 			/>
