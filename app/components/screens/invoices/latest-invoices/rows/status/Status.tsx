@@ -1,8 +1,23 @@
 import cn from 'clsx'
 import { FC } from 'react'
-import { BsCheckCircle } from 'react-icons/bs'
+import { AiOutlineQuestionCircle } from 'react-icons/ai'
+import { BsCheckCircle, BsExclamationCircle } from 'react-icons/bs'
 
 import styles from './Status.module.scss'
+
+const GetIcon: FC<{ status: string }> = ({ status }) => {
+	return status === 'Sent' ? (
+		<BsCheckCircle size='24px' />
+	) : status === 'Unpaid' ? (
+		<BsExclamationCircle size='24px' />
+	) : status === 'Paid' ? (
+		<BsCheckCircle size='24px' />
+	) : status === 'Pending' ? (
+		<AiOutlineQuestionCircle size='24px' />
+	) : (
+		<BsExclamationCircle size='24px' />
+	)
+}
 
 const Status: FC<{ status: string }> = ({ status }) => {
 	return (
@@ -17,12 +32,10 @@ const Status: FC<{ status: string }> = ({ status }) => {
 					? 'bg-light-blue text-white'
 					: status === 'Pending'
 					? 'bg-orange text-white'
-					: ''
+					: 'bg-red text-white'
 			)}
 		>
-			<div>
-				<BsCheckCircle size='24px' />
-			</div>
+			<GetIcon status={status} />
 			<div className='pl-2'>{status}</div>
 		</div>
 	)

@@ -9,12 +9,10 @@ import OverviewInvoices from './overview-invoices/OverviewInvoices'
 
 const Invoices: FC = () => {
 	const [currentPage, setCurrentPage] = useState(1)
-	const {
-		isLoadingOverviewInvoices,
-		overviewInvoices,
-		isLoadingLatestInvoices,
-		latestInvoices
-	} = useInvoices(currentPage)
+	const { isLoadingOverviewInvoices, overviewInvoices } =
+		useInvoices(currentPage)
+
+	const { latestInvoices, isLoadingLatestInvoices } = useInvoices()
 
 	return (
 		<Layout title='Invoices'>

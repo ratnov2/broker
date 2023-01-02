@@ -3,11 +3,16 @@ import { useQuery } from 'react-query';
 
 
 
-import { ILatestInvoice } from '@/screens/invoices/latest-invoices/rows/latest-invoices.interface';
+import { ILatestInvoice } from '@/shared/types/invoice.types';
+
+
+
+//import { ILatestInvoice } from '@/screens/invoices/latest-invoices/rows/latest-invoices.interface';
 import { IOverviewInvoice } from '@/screens/invoices/overview-invoices/overview-invoices.interface';
+import { InvoiceService } from '@/services/invoices/invoice.service';
 
 
-export const useInvoices = (currentPage: number) => {
+export const useInvoices = (currentPage?: number) => {
 	const { isLoading: isLoadingOverviewInvoices, data: overviewInvoices } =
 		useQuery(
 			'overviewInvoices',
@@ -21,30 +26,27 @@ export const useInvoices = (currentPage: number) => {
 		)
 
 	const { isLoading: isLoadingLatestInvoices, data: latestInvoices } = useQuery(
-		'latestInvoices',
-		() =>
-			axios.get<ILatestInvoice[]>(
-				'https://63a0724d24d74f9fe8387afc.mockapi.io/api/latest-invoices'
-			),
-		{
-			select: ({ data }) => data //.slice(currentPage, 5)
-		}
-	)
-
-	const { isLoading: isLoadingInvoices, data: invoices } = useQuery(
 		'invoices',
 		() => InvoiceService.getAll(),
 		{
 			select: ({ data }) => data
 		}
 	)
+
+	// const { isLoading: isLoadingOverviewInvoices, data: overviewInvoices } =
+	// 	useQuery(
+	// 		'overviewInvoices',
+	// 		() =>
+	// 			InvoiceService.getStatistics(),
+	// 		{
+	// 			select: ({ data }) => data
+	// 		}
+	// 	)
 	
 	return {
 		isLoadingOverviewInvoices,
 		overviewInvoices,
 		isLoadingLatestInvoices,
-		latestInvoices,
-		isLoadingInvoices,
-		invoices
+		latestInvoices
 	}
 }

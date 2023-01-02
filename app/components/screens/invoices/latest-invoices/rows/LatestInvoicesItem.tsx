@@ -1,10 +1,12 @@
 import { FC } from 'react'
 
+import { ILatestInvoice } from '@/shared/types/invoice.types'
+
 import { convertDate } from '@/utils/convert-date'
 
 import styles from './LatestInvoicesItem.module.scss'
 import Actions from './actions/Actions'
-import { ILatestInvoice } from './latest-invoices.interface'
+//import { ILatestInvoice } from './latest-invoices.interface'
 import Recipient from './recipient/Recipient'
 import Status from './status/Status'
 
@@ -15,50 +17,47 @@ interface IInvoiceItem {
 }
 
 const InvoiceItem: FC<IInvoiceItem> = ({
-	latestInvoice: {
-		_id,
-		recipientAvatar,
-		name,
-		invoiceNum,
-		service,
-		date,
-		status,
-		email
-	},
+	latestInvoice: { id, recipient, service, updatedAt },
 	selectedInvoiceId,
 	toggleCheckboxes
 }) => {
 	return (
 		<div
-			id={_id.toString()}
+			id={id.toString()}
 			className={styles.latestInvoiceRow}
 			style={
-				selectedInvoiceId?.toString() === _id.toString()
+				selectedInvoiceId?.toString() === id.toString()
 					? { borderLeft: '4px solid blue' }
 					: { borderLeft: '4px solid white' }
 			}
 		>
 			<input
-				key={invoiceNum}
+				key={id}
 				type='checkbox'
 				className='invoiceNum'
 				style={{ height: '20px', width: '20px' }}
-				checked={selectedInvoiceId?.toString() === _id.toString()}
+				checked={selectedInvoiceId?.toString() === id.toString()}
 				onChange={() => {
-					toggleCheckboxes(_id)
+					toggleCheckboxes(id)
 				}}
 			/>
-			<Recipient avatar={recipientAvatar} name={name} email={email} />
+			<Recipient
+				avatar={recipient.avatarPath}
+				name={recipient.name}
+				email={recipient.email}
+			/>
 
-			<span className={styles.invoiceNum}>{invoiceNum}</span>
+			<span className={styles.invoiceNum}>#{id}</span>
 
-			<Status status={status} />
+			<Status status={'Undefined'} />
 
 			<div className={styles.date}>
-				<span>{convertDate(date)[0]}</span>
+				<span>{convertDate(updatedAt)[0]}</span>
 			</div>
 
-			<span className={styles.service}>{service}</span>
+			<span className={styles.service}>
+				{service === undefined ? 'Service undefined' : service}
+			</span>
 
 			<Actions />
 		</div>

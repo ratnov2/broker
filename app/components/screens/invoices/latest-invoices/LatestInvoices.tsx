@@ -43,7 +43,7 @@ const LatestInvoices: FC<ILatestInvoices> = ({
 				setSelectedInvoicesId([])
 			} else {
 				latestInvoices &&
-					setSelectedInvoicesId(latestInvoices.map(item => item._id))
+					setSelectedInvoicesId(latestInvoices.map(item => item.id))
 			}
 			setIsCheckedHeader(!isCheckedHeader)
 		}
@@ -59,10 +59,10 @@ const LatestInvoices: FC<ILatestInvoices> = ({
 				<>
 					{currentInvoices.map(latestInvoice => (
 						<LatestInvoicesItem
-							key={latestInvoice._id}
+							key={latestInvoice.id}
 							latestInvoice={latestInvoice}
 							selectedInvoiceId={selectedInvoicesId.find(i => {
-								return i === latestInvoice._id
+								return i === latestInvoice.id
 							})}
 							toggleCheckboxes={toggleCheckboxes}
 						/>

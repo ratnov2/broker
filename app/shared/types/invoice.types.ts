@@ -1,3 +1,5 @@
+
+
 export interface ILatestInvoice {
 	id: number
 	createdAt: string
@@ -6,7 +8,6 @@ export interface ILatestInvoice {
 	senderId: number
 	recipientId: number
 	service: string
-	date: string
 	items: IItem[]
 	files: IFiles[]
 	recipient: IRecipient
@@ -41,4 +42,11 @@ export interface IRecipient {
 	name: string
 	avatarPath: string
 	address: string
+}
+
+export interface IOverviewStatistic {
+	sent: number
+	paid: number
+	pending: number
+	unpaid: number
 }
