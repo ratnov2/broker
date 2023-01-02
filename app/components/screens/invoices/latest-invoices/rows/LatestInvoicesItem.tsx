@@ -40,16 +40,15 @@ const InvoiceItem: FC<IInvoiceItem> = ({
 					toggleCheckboxes(id)
 				}}
 			/>
-			{recipient ? <Recipient
-				avatar={recipient.avatarPath}
-				name={recipient.name}
-				email={recipient.email}
-			/>
-				: <Recipient
-				avatar={''}
-				name={''}
-				email={''}
-			/>}
+			{recipient ? (
+				<Recipient
+					avatar={recipient.avatarPath}
+					name={recipient.name}
+					email={recipient.email}
+				/>
+			) : (
+				<Recipient avatar={''} name={''} email={''} />
+			)}
 
 			<span className={styles.invoiceNum}>#{id}</span>
 
