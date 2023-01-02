@@ -1,16 +1,11 @@
-import axios from 'axios';
-import { useQuery } from 'react-query';
+import axios from 'axios'
+import { useQuery } from 'react-query'
 
-
-
-import { ILatestInvoice } from '@/shared/types/invoice.types';
-
-
+import { ILatestInvoice } from '@/shared/types/invoice.types'
 
 //import { ILatestInvoice } from '@/screens/invoices/latest-invoices/rows/latest-invoices.interface';
-import { IOverviewInvoice } from '@/screens/invoices/overview-invoices/overview-invoices.interface';
-import { InvoiceService } from '@/services/invoices/invoice.service';
-
+import { IOverviewInvoice } from '@/screens/invoices/overview-invoices/overview-invoices.interface'
+import { InvoiceService } from '@/services/invoices/invoice.service'
 
 export const useInvoices = (currentPage?: number) => {
 	const { isLoading: isLoadingOverviewInvoices, data: overviewInvoices } =
@@ -42,7 +37,7 @@ export const useInvoices = (currentPage?: number) => {
 	// 			select: ({ data }) => data
 	// 		}
 	// 	)
-	
+
 	return {
 		isLoadingOverviewInvoices,
 		overviewInvoices,
