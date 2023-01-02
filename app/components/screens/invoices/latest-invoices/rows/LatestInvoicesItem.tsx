@@ -6,7 +6,6 @@ import { convertDate } from '@/utils/convert-date'
 
 import styles from './LatestInvoicesItem.module.scss'
 import Actions from './actions/Actions'
-//import { ILatestInvoice } from './latest-invoices.interface'
 import Recipient from './recipient/Recipient'
 import Status from './status/Status'
 

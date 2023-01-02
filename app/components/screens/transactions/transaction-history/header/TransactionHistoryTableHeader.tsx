@@ -1,9 +1,6 @@
-import { FC } from 'react';
+import { FC } from 'react'
 
-
-
-import styles from './TransactionHistoryHeader.module.scss';
-
+import styles from './TransactionHistoryHeader.module.scss'
 
 const columnNames = [
 	'Recipient',
@@ -18,7 +15,9 @@ const TransactionHistoryTableHeader: FC = ({}) => {
 	return (
 		<div className={styles.tableHeader}>
 			{columnNames.map(columnName => (
-				<div className={styles[columnName === ''? 'Actions': columnName]}>{columnName}</div>
+				<div className={styles[columnName === '' ? 'Actions' : columnName]}>
+					{columnName}
+				</div>
 			))}
 		</div>
 	)

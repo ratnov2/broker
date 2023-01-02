@@ -1,10 +1,7 @@
-import Image from 'next/image';
-import { FC } from 'react';
+import Image from 'next/image'
+import { FC } from 'react'
 
-
-
-import styles from './Recipient.module.scss';
-
+import styles from './Recipient.module.scss'
 
 interface IRecipient {
 	avatar: string

@@ -1,6 +1,5 @@
 import cn from 'clsx'
 import { FC } from 'react'
-import { BsCheckCircle } from 'react-icons/bs'
 
 import styles from './Status.module.scss'
 

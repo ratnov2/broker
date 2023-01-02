@@ -1,11 +1,8 @@
-import { FC } from 'react';
-import { FiCalendar, FiPhone } from 'react-icons/fi';
-import { TbMail } from 'react-icons/tb';
+import { FC } from 'react'
+import { FiCalendar, FiPhone } from 'react-icons/fi'
+import { TbMail } from 'react-icons/tb'
 
-
-
-import styles from './ContactItem.module.scss';
-
+import styles from './ContactItem.module.scss'
 
 interface IContactItem {
 	text: string
@@ -26,8 +23,6 @@ const switchIcon = (param: string) => {
 }
 
 const ContactItem: FC<IContactItem> = ({ text, type }) => {
-	
-
 	return (
 		<>
 			<div className='flex flex-row  mt-3 items-center'>

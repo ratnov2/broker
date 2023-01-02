@@ -1,4 +1,4 @@
-import { FC, MutableRefObject, useEffect, useRef, useState } from 'react'
+import { FC, useState } from 'react'
 
 import Pagination from '@/ui/pagination/Pagination'
 import Loader from '@/ui/pagination/loader/Loader'

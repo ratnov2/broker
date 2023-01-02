@@ -1,14 +1,8 @@
 import { FC } from 'react';
-import { QueryClient } from 'react-query';
-
-
 
 import Layout from '@/layout/Layout';
 
-
-
 import { useInvoices } from '@/hooks/useInvoices';
-
 
 const Invoices: FC = () => {
 	const { latestInvoices, isLoadingLatestInvoices } = useInvoices()

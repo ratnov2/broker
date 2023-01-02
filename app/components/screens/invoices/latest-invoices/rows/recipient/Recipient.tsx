@@ -1,8 +1,7 @@
-import Image from 'next/image';
-import { FC} from 'react';
+import Image from 'next/image'
+import { FC } from 'react'
 
-import styles from './Recipient.module.scss';
-
+import styles from './Recipient.module.scss'
 
 interface IRecipient {
 	avatar: string
@@ -10,11 +9,7 @@ interface IRecipient {
 	email: string
 }
 
-const Recipient: FC<IRecipient> = ({
-	avatar,
-	name,
-	email,
-}) => {
+const Recipient: FC<IRecipient> = ({ avatar, name, email }) => {
 	return (
 		<>
 			<div className={styles.recipient}>
