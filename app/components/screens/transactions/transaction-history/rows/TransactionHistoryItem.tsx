@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { FC, useState } from 'react'
 
 import { ITransaction } from '@/shared/types/transaction.types'

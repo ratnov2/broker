@@ -1,32 +1,34 @@
 import { FC } from 'react'
 import { BsThreeDots } from 'react-icons/bs'
 
+import { IUserContact } from '@/shared/types/users.types'
+
 import styles from './PaymentSourcesItem.module.scss'
-import { IPaymentContact } from './payment-sources-item.interface'
 import RecipientContact from './recipient-contacts/RecipientContacts'
 import Recipient from './recipient/Recipient'
 
 interface IPaymentSourcesItem {
-	paymentContact: IPaymentContact
+	paymentContact: IUserContact
 }
 const PaymentSourcesItem: FC<IPaymentSourcesItem> = ({ paymentContact }) => {
-
-
-	
 	return (
 		<div className={styles.contactContainer}>
 			<div className={'flex flex-row'}>
-				<Recipient
-					avatar={paymentContact.avatar}
-					name={paymentContact.name}
-					company={paymentContact.company}
-				/>
-				<BsThreeDots className=' text-2xl text-gray'/>
+				{paymentContact ? (
+					<Recipient
+						avatarPath={paymentContact.avatarPath}
+						name={paymentContact.name}
+						email={paymentContact.email}
+					/>
+				) : (
+					<Recipient avatarPath={''} name={''} email={''} />
+				)}
+				<BsThreeDots className=' text-2xl text-gray' />
 			</div>
 			<RecipientContact
-				phone={paymentContact.phone}
+				phone={'+123 456 789'}
 				email={paymentContact.email}
-				paymentDue={paymentContact.paymentDue}
+				paymentDue={paymentContact.updatedAt}
 			/>
 		</div>
 	)

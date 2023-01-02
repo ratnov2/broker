@@ -18,7 +18,6 @@ export const instance = axios.create({
 	baseURL: API_URL,
 	headers: getContentType()
 })
-console.log(API_URL)
 
 instance.interceptors.request.use(config => {
 	const accessToken = Cookies.get('accessToken')

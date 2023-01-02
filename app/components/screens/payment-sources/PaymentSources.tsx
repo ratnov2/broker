@@ -1,29 +1,38 @@
-import { FC, useState } from 'react'
+import { FC, useState } from 'react';
 
-import Layout from '@/layout/Layout'
 
-import Loader from '@/ui/pagination/loader/Loader'
 
-import { usePaymentSources } from '@/hooks/usePaymentSources'
+import Layout from '@/layout/Layout';
 
-import PaymentContact from './payment-sources-item/PaymentSourcesItem'
-import PaymentSourcesTopTitle from './payment-sources-top-title/PaymentSourcesTopTitle'
+
+
+import Loader from '@/ui/pagination/loader/Loader';
+
+
+
+import { usePaymentSources } from '@/hooks/usePaymentSources';
+
+
+
+import PaymentContact from './payment-sources-item/PaymentSourcesItem';
+import PaymentSourcesTopTitle from './payment-sources-top-title/PaymentSourcesTopTitle';
+
 
 const PaymentSources: FC = () => {
 	const [currentFilterOption] = useState('newest')
 
-	const { isLoadingPaymentSources, paymentSources } =
-		usePaymentSources(currentFilterOption)
+	const { isLoadingUserContacts, userContacts } =
+		usePaymentSources()
 
 	return (
 		<Layout title='Payment Sources'>
 			<div className='h-full w-full mt-12'>
 				<PaymentSourcesTopTitle />
-				{isLoadingPaymentSources ? (
+				{isLoadingUserContacts ? (
 					<Loader />
-				) : paymentSources?.length ? (
+				) : userContacts?.length ? (
 					<div className=''>
-						{paymentSources.map(paymentContact => (
+						{userContacts.map(paymentContact => (
 							<PaymentContact paymentContact={paymentContact} />
 						))}
 					</div>

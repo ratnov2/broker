@@ -1,6 +1,5 @@
-import { IInvoice} from './invoice.types'
-import { IUser } from "./user.interface";
-
+import { IInvoice } from './invoice.types'
+import { IUser } from './users.types'
 
 export interface ITransaction {
 	id: number

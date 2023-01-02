@@ -21,7 +21,7 @@ const RecipientContact: FC<IRecipient> = ({ phone, email, paymentDue }) => {
 					<ContactItem text={phone} type={'phone'} />
 				</div>
 				<div className='flex flex-col w-[50%] ml-5'>
-					<span>Payment Due</span>
+					<span>Updated At</span>
 					<ContactItem text={convertDate(paymentDue)[0]} type={'dueDate'} />
 				</div>
 			</div>

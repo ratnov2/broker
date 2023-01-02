@@ -1,22 +1,25 @@
-import Image from 'next/image'
-import { FC } from 'react'
+import Image from 'next/image';
+import { FC } from 'react';
 
-import styles from './Recipient.module.scss'
+
+
+import styles from './Recipient.module.scss';
+
 
 interface IRecipient {
-	avatar: string
+	avatarPath: string | undefined
 	name: string
-	company: string
+	email: string
 }
 
-const Recipient: FC<IRecipient> = ({ avatar, name, company }) => {
+const Recipient: FC<IRecipient> = ({ avatarPath, name, email }) => {
 	return (
 		<>
 			<div className={styles.recipient}>
-				{avatar ? (
+				{avatarPath ? (
 					<Image
 						alt={name}
-						src={avatar}
+						src={avatarPath}
 						width={80}
 						height={80}
 						draggable={false}
@@ -27,7 +30,7 @@ const Recipient: FC<IRecipient> = ({ avatar, name, company }) => {
 				)}
 				<div className='flex-col'>
 					<p>{name}</p>
-					<span>{company}</span>
+					<span>{email}</span>
 				</div>
 			</div>
 		</>
