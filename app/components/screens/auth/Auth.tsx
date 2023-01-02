@@ -7,6 +7,8 @@ import Logo from '@/layout/sidebar/Logo'
 
 import AuthButton from '@/ui/auth-elements/AuthButton'
 
+import { errorCatch } from '@/api/api.helpers'
+
 import styles from './Auth.module.scss'
 import { useAuthMutations } from './useAuthMutations'
 import { useAuthRedirect } from './useAuthRedirect'
@@ -27,7 +29,8 @@ const Auth: FC = () => {
 		mode: 'onChange'
 	})
 
-	const { isLoading, registerSync, loginSync } = useAuthMutations(reset)
+	const { isLoading, registerSync, loginSync, isError, error } =
+		useAuthMutations(reset)
 
 	const onSubmit: SubmitHandler<IAuthInput> = data => {
 		isReg ? registerSync(data) : loginSync(data)
@@ -74,6 +77,11 @@ const Auth: FC = () => {
 								Register
 							</AuthButton>
 						</div>
+						{isError && (
+							<div className='bg-orange text-white text-center font-bold fixed top-0 left-0 right-0 p-2'>
+								{errorCatch(error)}
+							</div>
+						)}
 					</form>
 				</div>
 			</section>
