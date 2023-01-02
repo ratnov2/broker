@@ -18,7 +18,7 @@ const PaginationArrow: FC<IPageArrow> = ({
 }) => {
 	const isButtonDisabled = () =>
 		(type === 'prev' && currentPage === 0) ||
-		(type === 'next' && currentPage === Math.floor(itemsLimit / 5))
+		(type === 'next' && currentPage === Math.ceil(itemsLimit / 5) - 1)
 
 	const onClickArrow = ({
 		type,

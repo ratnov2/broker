@@ -1,5 +1,5 @@
 .menu {
-	@apply relative;
+	@apply relative shrink-0;
 
 	> button {
 		@apply ml-10 flex h-6 w-6 items-center transition-all duration-300;

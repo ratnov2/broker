@@ -1,4 +1,4 @@
-import { Dispatch, FC, SetStateAction, useState } from 'react'
+import { Dispatch, FC, SetStateAction } from 'react'
 
 import styles from './Pagination.module.scss'
 import PaginationArrow from './PaginationArrow/PaginationArrow'
@@ -15,7 +15,7 @@ const Pagination: FC<IPaginationProps> = ({
 	setCurrentPage,
 	itemsLimit
 }) => {
-	const getSlicedArray = (currentPage: number) => {
+	const getPages = (currentPage: number) => {
 		let array = []
 		for (let i = 0; i < Math.ceil((itemsLimit || 0) / 5); i++) {
 			array.push(i)
@@ -28,6 +28,9 @@ const Pagination: FC<IPaginationProps> = ({
 			: array.slice(0, currentPage + 3)
 	}
 
+	const minItemNumberPerPage = 5 * currentPage + 1
+	const maxItemNumberPerPage = 5 * currentPage + 5
+
 	const onChangePage = (id: number) => {
 		setCurrentPage(id)
 	}
@@ -38,7 +41,7 @@ const Pagination: FC<IPaginationProps> = ({
 				<>
 					<p>
 						Showing
-						<span>{` ${5 * currentPage + 1} - ${5 * currentPage + 5} `}</span>
+						<span>{` ${minItemNumberPerPage} - ${maxItemNumberPerPage} `}</span>
 						from <span>{itemsLimit}</span> data
 					</p>
 					<div>
@@ -49,7 +52,7 @@ const Pagination: FC<IPaginationProps> = ({
 							onChangePage={onChangePage}
 						/>
 						{itemsLimit &&
-							getSlicedArray(currentPage).map(item => (
+							getPages(currentPage).map(item => (
 								<PaginationButton
 									key={item}
 									id={item}

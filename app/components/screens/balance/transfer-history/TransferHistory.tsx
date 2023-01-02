@@ -12,13 +12,15 @@ interface ITransferHistoryProps {
 	currentPage: number
 	setCurrentPage: Dispatch<SetStateAction<number>>
 	transfers?: ITransfer[]
+	refetchTransfers: () => void
 }
 
 const TransferHistory: FC<ITransferHistoryProps> = ({
 	isLoading,
 	currentPage,
 	setCurrentPage,
-	transfers
+	transfers,
+	refetchTransfers
 }) => {
 	return (
 		<div className={styles.transferHistory}>
@@ -31,7 +33,11 @@ const TransferHistory: FC<ITransferHistoryProps> = ({
 					{transfers
 						.slice(5 * currentPage, 5 * currentPage + 5)
 						.map(transfer => (
-							<TransferItem key={transfer.id} transfer={transfer} />
+							<TransferItem
+								key={transfer.id}
+								refetchTransfers={refetchTransfers}
+								transfer={transfer}
+							/>
 						))}
 				</div>
 			) : (

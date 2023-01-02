@@ -1,15 +1,20 @@
-import axios from 'axios'
-import { useQuery } from 'react-query'
+import { useQuery } from '@tanstack/react-query'
+
+import { instance } from '@/api/interceptors'
 
 import { IInvoice } from './invoices-sent/invoices.interface'
 import { ITransfer } from './transfer-history/transfer.interface'
 
-export const useBalance = (currentPage: number) => {
-	const { isLoading: isLoadingTransfers, data: transfers } = useQuery(
-		'transferHistory',
+export const useBalance = () => {
+	const {
+		isLoading: isLoadingTransfers,
+		data: transfers,
+		refetch: refetchTransfers
+	} = useQuery(
+		['transferHistory'],
 		() =>
-			axios.get<ITransfer[]>(
-				'https://639b978b31877e43d68f9e9e.mockapi.io/transfers'
+			instance.get<ITransfer[]>(
+				'https://red-project-bank-app.herokuapp.com/api/transactions'
 			),
 		{
 			select: ({ data }) => data
@@ -17,15 +22,21 @@ export const useBalance = (currentPage: number) => {
 	)
 
 	const { isLoading: isLoadingInvoices, data: invoices } = useQuery(
-		'invoicesSent',
+		['invoicesSent'],
 		() =>
-			axios.get<IInvoice[]>(
-				'https://639b978b31877e43d68f9e9e.mockapi.io/invoices'
+			instance.get<IInvoice[]>(
+				'https://red-project-bank-app.herokuapp.com/api/invoices/by-sender'
 			),
 		{
 			select: ({ data }) => data.slice(0, 7)
 		}
 	)
 
-	return { isLoadingTransfers, transfers, isLoadingInvoices, invoices }
+	return {
+		isLoadingTransfers,
+		transfers,
+		isLoadingInvoices,
+		invoices,
+		refetchTransfers
+	}
 }

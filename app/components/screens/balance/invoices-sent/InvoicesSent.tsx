@@ -23,7 +23,7 @@ const InvoicesSent: FC<IInvoicesSentProps> = ({ isLoading, invoices }) => {
 				<>
 					<div className='h-[536px]'>
 						{invoices.map(invoice => (
-							<InvoiceItem key={invoice._id} invoice={invoice} />
+							<InvoiceItem key={invoice.id} invoice={invoice} />
 						))}
 					</div>
 					<Link href={'/invoices'}>

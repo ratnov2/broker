@@ -2,12 +2,18 @@ import cn from 'clsx'
 import { FC, useEffect, useRef, useState } from 'react'
 
 import styles from './Menu.module.scss'
+import { useMenuActions } from './useMenuActions'
 
 type PopupClickOutside = MouseEvent & {
 	path: Node[]
 }
 
-const Menu: FC = () => {
+interface IMenuProps {
+	transferId: number
+	refetchTransfers: () => void
+}
+
+const Menu: FC<IMenuProps> = ({ transferId, refetchTransfers }) => {
 	const menuRef = useRef<HTMLDivElement>(null)
 	const [isActive, setIsActive] = useState<boolean>(false)
 
@@ -24,6 +30,8 @@ const Menu: FC = () => {
 		return () => document.body.removeEventListener('click', handleClickOutside)
 	}, [])
 
+	const { deleteAsync } = useMenuActions()
+
 	return (
 		<div ref={menuRef} className={styles.menu}>
 			<button
@@ -38,23 +46,20 @@ const Menu: FC = () => {
 			</button>
 
 			<div
-				onClick={e => {
-					const _element = e?.target as HTMLDivElement
-					setIsActive(false)
-					alert(
-						_element.innerHTML === 'Delete'
-							? _element.innerHTML + 'd'
-							: _element.innerHTML + 'ed'
-					)
-				}}
+				onClick={() => setIsActive(false)}
 				className={cn(
 					styles.popup,
 					isActive ? 'scale-100' : 'scale-0 opacity-0'
 				)}
 			>
-				<button>Repeat</button>
-				<button>Delete</button>
-				<button>Report</button>
+				<button
+					onClick={async () => {
+						await deleteAsync(transferId)
+						refetchTransfers()
+					}}
+				>
+					Delete
+				</button>
 			</div>
 		</div>
 	)
