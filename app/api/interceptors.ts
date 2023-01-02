@@ -51,4 +51,4 @@ instance.interceptors.response.use(
 	}
 )
 
-export const axiosClassic = instance
+//export const axiosClassic = instance
