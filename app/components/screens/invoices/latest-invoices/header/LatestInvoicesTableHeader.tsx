@@ -27,7 +27,7 @@ const LatestInvoiceTableHeader: FC<IHeader> = ({ toggleCheckboxes }) => {
 				}}
 			/>
 			{columnNames.map(columnName => (
-				<div className={styles[columnName]}>{columnName}</div>
+				<div key={columnName} className={styles[columnName]}>{columnName}</div>
 			))}
 		</div>
 	)
