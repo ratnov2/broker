@@ -4,12 +4,12 @@ import { FC } from 'react'
 import styles from './Recipient.module.scss'
 
 interface IRecipient {
-	avatar: string
+	avatar?: string
 	name: string
 	email: string
 }
 
-const Recipient: FC<IRecipient> = ({ avatar, name, email }) => {
+const Recipient: FC<IRecipient> = ({ avatar= '', name, email }) => {
 	return (
 		<>
 			<div className={styles.recipient}>

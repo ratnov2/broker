@@ -1,6 +1,6 @@
 
 
-export interface ILatestInvoice {
+export interface IInvoice {
 	id: number
 	createdAt: string
 	updatedAt: string

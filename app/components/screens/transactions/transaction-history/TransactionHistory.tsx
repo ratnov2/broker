@@ -35,7 +35,7 @@ const TransactionHistory: FC<ITransactionHistory> = ({
 				<>
 					{currentTransactions.map(transaction => (
 						<TransactionHistoryItem
-							key={transaction._id}
+							key={transaction.id}
 							transaction={transaction}
 						/>
 					))}

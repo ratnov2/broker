@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { ILatestInvoice } from '@/shared/types/invoice.types'
+import { IInvoice } from '@/shared/types/invoice.types'
 
 import { convertDate } from '@/utils/convert-date'
 
@@ -10,7 +10,7 @@ import Recipient from './recipient/Recipient'
 import Status from './status/Status'
 
 interface IInvoiceItem {
-	latestInvoice: ILatestInvoice
+	latestInvoice: IInvoice
 	selectedInvoiceId: number | undefined
 	toggleCheckboxes: (id?: number) => void
 }
