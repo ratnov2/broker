@@ -1,6 +1,8 @@
 import { FC, PropsWithChildren } from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
+import AuthProvider from './auth/AuthProvider'
+
 const queryClient = new QueryClient({
 	defaultOptions: {
 		queries: {
@@ -12,7 +14,7 @@ const queryClient = new QueryClient({
 const MainProvider: FC<PropsWithChildren> = ({ children }) => {
 	return (
 		<QueryClientProvider client={queryClient}>
-			{children}
+			<AuthProvider>{children}</AuthProvider>
 		</QueryClientProvider>
 	)
 }
