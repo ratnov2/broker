@@ -11,7 +11,12 @@ import { AuthService } from '@/services/auth/auth.service'
 export const useAuthMutations = (reset: UseFormReset<IAuthFormData>) => {
 	const { setUser } = useAuth()
 
-	const { isLoading: isLoginLoading, mutate: loginSync } = useMutation(
+	const {
+		isLoading: isLoginLoading,
+		mutate: loginSync,
+		isError,
+		error
+	} = useMutation(
 		['login'],
 		({ email, password }: IAuthFormData) =>
 			AuthService.main('login', email, password),
@@ -39,8 +44,10 @@ export const useAuthMutations = (reset: UseFormReset<IAuthFormData>) => {
 		() => ({
 			loginSync,
 			registerSync,
-			isLoading: isLoginLoading || isRegisterLoading
+			isLoading: isLoginLoading || isRegisterLoading,
+			error,
+			isError
 		}),
-		[isLoginLoading, isRegisterLoading]
+		[isLoginLoading, isRegisterLoading, error, isError]
 	)
 }
