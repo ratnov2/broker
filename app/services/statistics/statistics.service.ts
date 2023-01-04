@@ -7,9 +7,9 @@ import { request } from '@/api/request.api'
 
 import { timeLapsType } from '@/screens/dashboard/middle/overview/overview.interface'
 import {
+	EnumIncomeByDynamicQueryParam,
 	IExpenseCategories,
-	IIncomeByDynamic,
-	IIncomeByDynamicQueryParam
+	IIncomeByDynamic
 } from '@/services/statistics/statistics.interface'
 
 export const StatisticsService = {
@@ -17,7 +17,7 @@ export const StatisticsService = {
 		return await request<IIncomeByDynamic[]>({
 			url: getIncomeByDynamicUrl,
 			params: {
-				type: IIncomeByDynamicQueryParam[type]
+				type: EnumIncomeByDynamicQueryParam[type]
 			}
 		})
 	},

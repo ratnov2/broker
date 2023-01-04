@@ -4,7 +4,7 @@ export interface IIncomeByDynamic {
 	previous_amount: number
 }
 
-export enum IIncomeByDynamicQueryParam {
+export enum EnumIncomeByDynamicQueryParam {
 	'week' = 'day',
 	'year' = 'month'
 }
