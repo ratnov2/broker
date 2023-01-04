@@ -22,8 +22,10 @@ export const instance = axios.create({
 instance.interceptors.request.use(config => {
 	const accessToken = Cookies.get('accessToken')
 
-	if (config.headers && accessToken)
-		config.headers.Authorization = `Bearer ${accessToken}`
+	if (config.headers && accessToken) {
+		// config.headers.Authorization = `Bearer ${accessToken}`
+		config.headers = { Authorization: `Bearer ${accessToken}` }
+	}
 
 	return config
 })
@@ -32,6 +34,13 @@ instance.interceptors.response.use(
 	config => config,
 	async error => {
 		const originalRequest = error.config
+
+		if (
+			error.response.status === 401 &&
+			error.response.statusText === 'Unauthorized'
+		) {
+			throw error
+		}
 
 		if (
 			(error.response.status === 401 ||
@@ -48,5 +57,7 @@ instance.interceptors.response.use(
 				if (errorCatch(error) === 'jwt expired') removeTokensStorage()
 			}
 		}
+
+		throw error
 	}
 )

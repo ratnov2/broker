@@ -11,7 +11,7 @@ export const checkAuth = async (
 ) => {
 	try {
 		const response = await getNewTokens()
-		return response.data
+		return response?.data
 	} catch (error) {
 		if (errorCatch(error) === 'jwt expired') {
 			AuthService.logout()

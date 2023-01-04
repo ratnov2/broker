@@ -9,6 +9,9 @@ import { saveToStorage } from '@/services/auth/auth.helper'
 
 export const getNewTokens = async () => {
 	const refreshToken = Cookies.get('refreshToken')
+
+	if (!refreshToken) return
+
 	const response = await axiosClassic.post(
 		getAuthUrl('/login/access-token'),
 		{ refreshToken },
