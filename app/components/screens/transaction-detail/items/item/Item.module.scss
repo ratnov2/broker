@@ -1,0 +1,20 @@
+.item {
+	@apply flex items-start justify-between text-black font-bold p-3 border-b border-light-gray;
+}
+
+.item_descr {
+	@apply w-3/12;
+}
+
+.duration {
+	@apply w-3/12;
+}
+
+.rate {
+	@apply w-3/12;
+}
+
+.amount {
+	@apply w-1/12 text-end mr-2;
+}
+

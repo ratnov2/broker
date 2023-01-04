@@ -12,7 +12,7 @@ export const mockDataTransactionDetail: ITransactionDetail =
     project: 'Project #1',
     paymentType: 'Paypal',
     note: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
-    payTable: [
+    invTable: [
         { id: 1, date: '2022-12-01', description: 'Wireframing', duration: '64', rate: '60.00', amount: 360 },
         { id: 2, date: '2022-12-01', description: 'App UI Design Phase 1', duration: '441', rate: '35.00', amount: 15435 },
         { id: 3, date: '2022-12-01', description: 'Desgin System', duration: '12', rate: '75.00', amount: 900 },

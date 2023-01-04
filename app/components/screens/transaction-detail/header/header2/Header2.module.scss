@@ -1,0 +1,29 @@
+.tableHeader {
+	@apply mt-1 flex items-start justify-between border-light-gray p-2 text-[16px] text-gray;
+
+	.Payment_type {
+		@apply flex w-6/12;
+	}
+
+	.Item_Description {
+		@apply mr-1 w-6/12;
+	}
+	.Duration {
+		@apply mr-1 w-6/12;
+	}
+	.Rate {
+		@apply w-6/12;
+	}
+
+	.Amount {
+		@apply w-2/12;
+	}
+}
+
+.leftBlock {
+	@apply flex w-5/12;
+}
+
+.tableSize {
+	@apply flex w-7/12;
+}

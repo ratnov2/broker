@@ -1,0 +1,16 @@
+.detail {
+	@apply mt-12 h-full w-full;
+}
+
+.section {
+	@apply mt-6 min-h-[800px] w-[100%] rounded-[40px] bg-white  p-8 flex;
+
+	> h2 {
+		@apply mb-0 px-8 text-[24px] font-bold leading-[120%] text-black;
+	}
+}
+
+.leftarrow {
+
+	@apply text-2xl font-bold ml-3 mr-3
+}

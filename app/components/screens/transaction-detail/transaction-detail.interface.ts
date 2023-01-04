@@ -1,7 +1,7 @@
 export interface ITransactionSelect {
     clientId: string
     project: string
-    date: Date
+    date: string
 }
 
 export interface ITransactionDetail {
@@ -15,7 +15,7 @@ export interface ITransactionDetail {
     project: string
     paymentType: string
     note: string
-    payTable: ITransactionTableDetail[]
+    invTable: ITransactionTableDetail[]
 }
 
 
@@ -28,28 +28,18 @@ export interface ITransactionTableDetail {
     amount: number
 }
 
-
-export const EmptyITransactionDetail = {
-
-    id: 0,
-    recipientAvatar: 'string',
-    recipient: 'string',
-    email: 'string',
-    subtotal: 0,
-    tax: 0,
-    total: 0,
-    project: 'string',
-    paymentType: 'string',
-    note: 'string',
-    payTable: [
-        {
-            id: 0,
-            date: 'string',
-            description: 'string',
-            duration: 'string',
-            rate: 'string',
-            amount: 0
-        }]
-
+export interface IClientData {
+    image: boolean
+    styleH: string
+    description0: string
+    style0: string
+    description1: string
+    style1: string
 }
+
+export interface ICol {
+	name: string
+	desc: string
+}
+
 

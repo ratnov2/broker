@@ -1,0 +1,5 @@
+@import 'app/assets/styles/variables';
+
+.button {
+	@apply flex border-2 rounded-full justify-between items-center w-[120px] h-[60px] hover:bg-[#3d3dcf] p-3 mr-4 text-gray
+	}

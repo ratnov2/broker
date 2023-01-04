@@ -1,0 +1,11 @@
+.tableHeader {
+	@apply flex items-start justify-between text-sm text-[#8E8EA1] mt-2 p-2;
+}
+
+.leftBlock {
+	@apply w-5/12
+}
+
+.tableSize {
+	@apply w-7/12
+}

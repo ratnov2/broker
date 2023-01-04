@@ -1,0 +1,32 @@
+.Subtotal {
+	@apply w-1/3 p-2 text-left mr-3;
+}
+
+.Tax {
+	@apply w-1/3 p-2 text-left mr-3;
+}
+
+.SubtotalDesc {
+	@apply w-1/3 p-2 text-right mr-3;
+}
+
+.TaxDesc {
+	@apply w-1/3 p-2 text-right mr-3;
+}
+
+.Total {
+	@apply w-1/3 p-2 text-left mr-3;
+}
+
+.TotalDesc {
+	@apply w-1/3 p-2 text-right font-bold text-xl text-black mr-3;
+}
+
+.Margin {
+	@apply w-6/12 p-2 text-right;
+}
+
+.Note {
+	@apply text-left p-4 text-sm text-[#8E8EA1] bg-[#ebebee] rounded-2xl;
+}
+
