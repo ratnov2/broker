@@ -2,6 +2,10 @@
 	@apply flex items-center gap-4 text-xl font-medium;
 	> span {
 	}
+
+	&_image {
+		@apply rounded-full;
+	}
 }
 
 .links,
