@@ -1,18 +1,35 @@
-import { FC, SetStateAction, useState } from 'react'
+import { FC, SetStateAction, useState } from 'react';
 
-import Layout from '@/layout/Layout'
 
-import { useInvoices } from '@/hooks/useInvoices'
 
-import LatestInvoices from './latest-invoices/LatestInvoices'
-import OverviewInvoices from './overview-invoices/OverviewInvoices'
+import Layout from '@/layout/Layout';
 
+
+
+import { useInvoices } from '@/hooks/useInvoices';
+
+
+
+import LatestInvoices from './latest-invoices/LatestInvoices';
+import OverviewInvoices from './overview-invoices/OverviewInvoices';
+
+
+const options = [
+	{
+		value: 'desc',
+		label: 'Newest'
+	},
+	{
+		value: 'asc',
+		label: 'Oldest'
+	}
+]
 const Invoices: FC = () => {
-	const [currentPage, setCurrentPage] = useState(1)
+	const [currentPage, setCurrentPage] = useState<number>(1)
 	const { isLoadingOverviewInvoices, overviewInvoices } =
-		useInvoices(currentPage)
+		useInvoices()
 
-	const { latestInvoices, isLoadingLatestInvoices } = useInvoices()
+	const { latestInvoices, isLoadingLatestInvoices } = useInvoices(currentPage)
 
 	return (
 		<Layout title='Invoices'>

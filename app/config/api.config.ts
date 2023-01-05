@@ -5,7 +5,11 @@ export const getUsersUrl = (string: string) => `/users${string}`
 export const getFileUrl = (string: string) => `/files${string}`
 export const getAccountsUrl = (string: string) => `/bank-accounts${string}`
 export const getSavingsUrl = (string: string) => `/savings${string}`
-export const getInvoicesUrl = (string: string) => `/invoices${string}`
+export const getInvoicesUrl = (
+	string?: string,
+	page?: number,
+	perPage?: number
+) => `/invoices${string}?page=${page}&perPage=${perPage}`
 
 export const getTransactionsUrl = (
 	page?: number,

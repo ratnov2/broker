@@ -1,10 +1,16 @@
-import { useQuery } from '@tanstack/react-query'
-import axios from 'axios'
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+import { useState } from 'react';
 
-import { IOverviewInvoice } from '@/screens/invoices/overview-invoices/overview-invoices.interface'
-import { InvoiceService } from '@/services/invoices/invoice.service'
 
-export const useInvoices = (currentPage?: number) => {
+
+import { IOverviewInvoice } from '@/screens/invoices/overview-invoices/overview-invoices.interface';
+import { InvoiceService } from '@/services/invoices/invoice.service';
+
+
+export const useInvoices = (
+	currentPage: number = 1
+) => {
 	const { isLoading: isLoadingOverviewInvoices, data: overviewInvoices } =
 		useQuery(
 			['overviewInvoices'],
@@ -16,10 +22,10 @@ export const useInvoices = (currentPage?: number) => {
 				select: ({ data }) => data
 			}
 		)
-
+	const [itemsPerPage, setItemsPerPage] = useState<number>(5)
 	const { isLoading: isLoadingLatestInvoices, data: latestInvoices } = useQuery(
-		['invoices'],
-		() => InvoiceService.getAll(),
+		['invoices', currentPage, itemsPerPage],
+		() => InvoiceService.getAll(currentPage, itemsPerPage),
 		{
 			select: ({ data }) => data
 		}
