@@ -6,5 +6,8 @@ export const getFileUrl = (string: string) => `/files${string}`
 export const getAccountsUrl = (string: string) => `/bank-accounts${string}`
 export const getSavingsUrl = (string: string) => `/savings${string}`
 export const getInvoicesUrl = (string: string) => `/invoices${string}`
-export const getTransactionsUrl = (string: string) => `/transactions${string}`
+
+export const getTransactionsUrl = (page?: number, perPage?: number) =>
+	`/transactions?page=${page}&perPage=${perPage}`
+
 export const getStatisticsUrl = (string: string) => `/statistics${string}`
