@@ -3,13 +3,15 @@ import { useState } from 'react'
 
 import { TransactionService } from '@/services/transactions/transactions.service'
 
-export const useTransactions = (currentPage: number) => {
-	const [page, setPage] = useState<number>(1)
-	const [perPage, setPerPage] = useState<number>(3)
+export const useTransactions = (
+	currentPage: number = 1,
+	orderBy: string = 'desc'
+) => {
+	const [itemsPerPage, setItemsPerPage] = useState<number>(5)
 
 	const { isLoading: isLoadingTransactions, data: transactions } = useQuery(
-		['transactions', page, perPage],
-		() => TransactionService.getAll(page, perPage),
+		['transactions', currentPage, itemsPerPage, orderBy],
+		() => TransactionService.getAll(currentPage, itemsPerPage, orderBy),
 		{
 			select: ({ data }) => data
 		}

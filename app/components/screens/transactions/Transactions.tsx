@@ -7,14 +7,33 @@ import { useTransactions } from '@/hooks/useTransactions'
 import TransactionHistory from './transaction-history/TransactionHistory'
 import TransactionTopTitle from './transaction-top-title/TransactionTopTitle'
 
+const options = [
+	{
+		value: 'desc',
+		label: 'Newest'
+	},
+	{
+		value: 'asc',
+		label: 'Oldest'
+	}
+]
+
 const Transactions: FC = () => {
-	const [currentPage, setCurrentPage] = useState(1)
-	const { isLoadingTransactions, transactions } = useTransactions(currentPage)
+	const [currentPage, setCurrentPage] = useState<number>(1)
+	const [orderBy, setOrderBy] = useState<string>(options[0].value)
+	const { isLoadingTransactions, transactions } = useTransactions(
+		currentPage,
+		orderBy
+	)
 
 	return (
 		<Layout title='TransactionHistory'>
 			<div className='h-full w-full mt-12'>
-				<TransactionTopTitle />
+				<TransactionTopTitle
+					setOrderBy={setOrderBy}
+					options={options}
+					orderBy={orderBy}
+				/>
 				<TransactionHistory
 					transactions={transactions}
 					isLoading={isLoadingTransactions}

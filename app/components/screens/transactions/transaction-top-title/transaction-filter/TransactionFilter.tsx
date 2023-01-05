@@ -1,31 +1,15 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import Select from 'react-select'
 
-const options = [
-	{
-		value: 'newest',
-		label: 'Newest'
-	},
-	{
-		value: 'amount-up',
-		label: 'Amount up'
-	},
-	{
-		value: 'amount-down',
-		label: 'Amount down'
-	}
-]
+import { IFilter } from './transaction-filter.interface'
 
-const FilterOption: FC = ({}) => {
-	const [currentFilterOption, serCurrentFilterOption] = useState('newest')
+const FilterOption: FC<IFilter> = ({ options, setOrderBy, orderBy }) => {
 	const getValue = () => {
-		return currentFilterOption
-			? options.find(o => o.value === currentFilterOption)
-			: ''
+		return orderBy ? options.find(o => o.value === orderBy) : ''
 	}
 
 	const onChange = (newValue: any) => {
-		serCurrentFilterOption(newValue.value)
+		setOrderBy(newValue.value)
 	}
 
 	return (

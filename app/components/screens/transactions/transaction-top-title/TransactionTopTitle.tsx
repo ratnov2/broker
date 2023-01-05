@@ -1,31 +1,17 @@
-import { FC, useState } from 'react'
-import Select from 'react-select'
+import { FC } from 'react'
 
-import styles from './TransactionTopTitle.module.scss'
 import DownloadAction from './download-action/DownloadAction'
 import FilterOption from './transaction-filter/TransactionFilter'
+import { IFilter } from './transaction-filter/transaction-filter.interface'
 
-const options = [
-	{
-		value: 'newest',
-		label: 'Newest'
-	},
-	{
-		value: 'amount-up',
-		label: 'Amount up'
-	},
-	{
-		value: 'amount-down',
-		label: 'Amount down'
-	}
-]
-
-const TransactionTopTitle: FC = ({}) => {
+const TransactionTopTitle: FC<IFilter> = ({ options, setOrderBy, orderBy }) => {
 	return (
 		<div className='flex justify-between items-center mb-4 flex-wrap'>
 			<h1 className='text-4xl font-bold text-black'>Transaction History</h1>
 			<div className='flex justify-between mb-4'>
-				<FilterOption />
+				<FilterOption
+					options={options}
+					setOrderBy={setOrderBy} orderBy={orderBy}/>
 				<DownloadAction />
 			</div>
 		</div>
