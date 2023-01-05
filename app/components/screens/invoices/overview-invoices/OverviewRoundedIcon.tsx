@@ -1,14 +1,9 @@
-import { FC } from 'react'
-import {
-	AiOutlineCheckCircle,
-	AiOutlineExclamationCircle,
-	AiOutlineFileUnknown,
-	AiOutlineHistory,
-	AiOutlineQuestionCircle
-} from 'react-icons/ai'
+import { FC } from 'react';
+import { AiOutlineCheckCircle, AiOutlineExclamationCircle, AiOutlineFileUnknown, AiOutlineHistory, AiOutlineQuestionCircle } from 'react-icons/ai';
+
 
 interface IRoundedIcon {
-	overviewInvoiceType: string
+	overviewType: string
 }
 
 const getStyle = {
@@ -20,31 +15,31 @@ const getStyle = {
 	color: 'white'
 }
 
-const RoundedIcon: FC<IRoundedIcon> = ({ overviewInvoiceType }) => {
+const RoundedIcon: FC<IRoundedIcon> = ({ overviewType }) => {
 	return (
 		<div>
-			{overviewInvoiceType === 'Invoice Sent' ? (
+			{overviewType === 'sent' ? (
 				<AiOutlineHistory
 					style={{
 						...getStyle,
 						backgroundColor: '#6160dc'
 					}}
 				/>
-			) : overviewInvoiceType === 'Paid Invoice' ? (
+			) : overviewType === 'paid' ? (
 				<AiOutlineCheckCircle
 					style={{
 						...getStyle,
 						backgroundColor: '#54C5EB'
 					}}
 				/>
-			) : overviewInvoiceType === 'Pending Invoice' ? (
+			) : overviewType === 'pending' ? (
 				<AiOutlineQuestionCircle
 					style={{
 						...getStyle,
 						backgroundColor: 'orange'
 					}}
 				/>
-			) : overviewInvoiceType === 'Unpaid Invoice' ? (
+			) : overviewType === 'unpaid' ? (
 				<AiOutlineExclamationCircle
 					style={{
 						...getStyle,
@@ -55,7 +50,7 @@ const RoundedIcon: FC<IRoundedIcon> = ({ overviewInvoiceType }) => {
 				<AiOutlineFileUnknown
 					style={{
 						...getStyle,
-						backgroundColor: 'gray'
+						backgroundColor: 'green'
 					}}
 				/>
 			)}

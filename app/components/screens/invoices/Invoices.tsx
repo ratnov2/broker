@@ -1,11 +1,23 @@
-import { FC, useState } from 'react'
+import { KeyObject } from 'crypto';
+import { FC, useState } from 'react';
 
-import Layout from '@/layout/Layout'
 
-import { useInvoices } from '@/hooks/useInvoices'
 
-import LatestInvoices from './latest-invoices/LatestInvoices'
-import OverviewInvoices from './overview-invoices/OverviewInvoices'
+import Layout from '@/layout/Layout';
+
+
+
+import { IOverviewInvoice } from '@/shared/types/invoice.types';
+
+
+
+import { useInvoices } from '@/hooks/useInvoices';
+
+
+
+import LatestInvoices from './latest-invoices/LatestInvoices';
+import OverviewInvoices from './overview-invoices/OverviewInvoices';
+
 
 const Invoices: FC = () => {
 	const [currentPage, setCurrentPage] = useState<number>(1)
@@ -20,7 +32,6 @@ const Invoices: FC = () => {
 					Invoices
 				</h1>
 				<OverviewInvoices
-					period={'month'}
 					isLoading={isLoadingOverviewInvoices}
 					overviewInvoices={overviewInvoices}
 				/>

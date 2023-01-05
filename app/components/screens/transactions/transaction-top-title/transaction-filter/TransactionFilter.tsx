@@ -20,7 +20,7 @@ const FilterOption: FC<IFilter> = ({ options, setOrderBy, orderBy }) => {
 				value={getValue()}
 				onChange={onChange}
 				styles={{
-					control: styles => ({
+					control: (styles: any) => ({
 						...styles,
 						cursor: 'pointer'
 					})
