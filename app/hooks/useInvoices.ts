@@ -1,16 +1,11 @@
-import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
-import { useState } from 'react';
+import { useQuery } from '@tanstack/react-query'
+import axios from 'axios'
+import { useState } from 'react'
 
+import { IOverviewInvoice } from '@/screens/invoices/overview-invoices/overview-invoices.interface'
+import { InvoiceService } from '@/services/invoices/invoice.service'
 
-
-import { IOverviewInvoice } from '@/screens/invoices/overview-invoices/overview-invoices.interface';
-import { InvoiceService } from '@/services/invoices/invoice.service';
-
-
-export const useInvoices = (
-	currentPage: number = 1
-) => {
+export const useInvoices = (currentPage: number = 1) => {
 	const { isLoading: isLoadingOverviewInvoices, data: overviewInvoices } =
 		useQuery(
 			['overviewInvoices'],
