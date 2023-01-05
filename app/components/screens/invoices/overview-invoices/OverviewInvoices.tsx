@@ -3,16 +3,14 @@ import { FC } from 'react'
 import Loader from '@/ui/pagination/loader/Loader'
 
 import OverviewElement from './OverviewInvoicesElement'
-import { IOverviewInvoice } from './overview-invoices.interface'
+import { IOverviewInvoice } from '@/shared/types/invoice.types'
 
 interface IOverview {
-	period: string
 	isLoading: boolean
 	overviewInvoices?: IOverviewInvoice[]
 }
 
 const OverviewInvoices: FC<IOverview> = ({
-	period,
 	isLoading,
 	overviewInvoices
 }) => {
@@ -26,7 +24,6 @@ const OverviewInvoices: FC<IOverview> = ({
 						<OverviewElement
 							key={overviewInvoice.overviewType}
 							overviewInvoice={overviewInvoice}
-							period={period}
 						/>
 					))}
 				</>

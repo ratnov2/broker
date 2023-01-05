@@ -50,3 +50,9 @@ export interface IOverviewStatistic {
 	pending: number
 	unpaid: number
 }
+
+export interface IOverviewInvoice {
+	id: number
+	overviewType: string
+	amount: number
+}
