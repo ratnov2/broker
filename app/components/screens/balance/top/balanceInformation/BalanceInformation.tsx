@@ -1,17 +1,17 @@
 import { FC } from 'react'
 
-import { IProgressBar } from '@/screens/balance/interfaces/balanceStats.interface'
-import BalanceStats from '@/screens/balance/top/BalanceStats'
-import CardInfoItem from '@/screens/balance/top/CardInfoItem'
-import Progressbar from '@/screens/balance/top/Progressbar'
 import { card, stats } from '@/screens/balance/top/balance.data'
+import BalanceStats from '@/screens/balance/top/balanceInformation/BalanceStats'
+import CardInfoItem from '@/screens/balance/top/balanceInformation/CardInfoItem'
+import Progressbar from '@/screens/balance/top/balanceInformation/Progressbar'
+import { IProgressBar } from '@/screens/balance/top/interfaces/balanceStats.interface'
 
 const BalanceInformation: FC = () => {
 	const balance = 12345789
 	const fixedBalance = balance.toLocaleString()
 
 	const progressBar: IProgressBar = {
-		bgcolor: '#6160DC',
+		bgColor: '#6160DC',
 		completed: 53
 	}
 
@@ -25,7 +25,7 @@ const BalanceInformation: FC = () => {
 			<p className={'text-3xl font-bold mt-1'}>{`$ ${fixedBalance}`}</p>
 
 			<Progressbar
-				bgcolor={progressBar.bgcolor}
+				bgColor={progressBar.bgColor}
 				completed={progressBar.completed}
 			/>
 

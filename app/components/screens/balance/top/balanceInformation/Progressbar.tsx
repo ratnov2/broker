@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { IProgressBar } from '@/screens/balance/interfaces/balanceStats.interface'
+import { IProgressBar } from '@/screens/balance/top/interfaces/balanceStats.interface'
 
 const containerStyles = {
 	height: 16,
@@ -9,11 +9,11 @@ const containerStyles = {
 	borderRadius: 50
 }
 
-const Progressbar: FC<IProgressBar> = ({ bgcolor, completed }) => {
+const Progressbar: FC<IProgressBar> = ({ bgColor, completed }) => {
 	const fillerStyles = {
 		height: '100%',
 		width: `${completed}%`,
-		backgroundColor: bgcolor,
+		backgroundColor: bgColor,
 		borderRadius: 'inherit',
 		textAlign: 'right'
 	}

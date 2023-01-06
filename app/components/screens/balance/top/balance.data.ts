@@ -1,9 +1,9 @@
 import {
-	IBalanceInputs,
+	IBalanceInput,
 	ICard,
-	IRecipients,
+	IRecipient,
 	IStats
-} from '@/screens/balance/interfaces/balanceStats.interface'
+} from '@/screens/balance/top/interfaces/balanceStats.interface'
 
 export const stats: IStats[] = [
 	{
@@ -46,7 +46,7 @@ export const card: ICard = {
 	expireDate: '03/21'
 }
 
-export const recipients: IRecipients[] = [
+export const recipients: IRecipient[] = [
 	{
 		id: 1,
 		name: 'Jordan',
@@ -99,7 +99,7 @@ export const recipients: IRecipients[] = [
 	}
 ]
 
-export const balanceInputs: IBalanceInputs[] = [
+export const balanceInputs: IBalanceInput[] = [
 	{
 		title: 'Recipient',
 		placeholder: 'Insert recipient',

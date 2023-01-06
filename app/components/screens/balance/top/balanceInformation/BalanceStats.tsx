@@ -41,7 +41,7 @@ const BalanceStats: FC<balanceStats> = ({
 							// Text color
 							fill: color,
 							// Text size
-							fontSize: '14px'
+							fontSize: '24px'
 						}
 					}}
 					className={'font-semibold'}

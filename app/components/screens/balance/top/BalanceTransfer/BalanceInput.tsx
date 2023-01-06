@@ -1,9 +1,9 @@
 import { FC } from 'react'
 import { useForm } from 'react-hook-form'
 
-import { IBalanceInputs } from '@/screens/balance/interfaces/balanceStats.interface'
+import { IBalanceInput } from '@/screens/balance/top/interfaces/balanceStats.interface'
 
-const BalanceInput: FC<IBalanceInputs> = ({ title, placeholder, type }) => {
+const BalanceInput: FC<IBalanceInput> = ({ title, placeholder, type }) => {
 	const { register } = useForm()
 
 	return (

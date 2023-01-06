@@ -1,9 +1,9 @@
 export interface IProgressBar {
-	bgcolor: string
+	bgColor: string
 	completed: number
 }
 
-export interface IBalanceInputs {
+export interface IBalanceInput {
 	title: string
 	placeholder: string
 	type: string
@@ -24,7 +24,7 @@ export interface IStats {
 	color: string
 }
 
-export interface IRecipients {
+export interface IRecipient {
 	id: number
 	name: string
 	img: string

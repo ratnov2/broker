@@ -2,8 +2,8 @@ import { FC } from 'react'
 
 import Layout from '@/layout/Layout'
 
-import BalanceInformation from '@/screens/balance/top/BalanceInformation'
-import BalanceTransfer from '@/screens/balance/top/BalanceTransfer'
+import BalanceTransfer from '@/screens/balance/top/BalanceTransfer/BalanceTransfer'
+import BalanceInformation from '@/screens/balance/top/balanceInformation/BalanceInformation'
 
 const Balance: FC = () => {
 	return (

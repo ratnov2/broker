@@ -4,7 +4,7 @@ import { BsArrowRightShort } from 'react-icons/bs'
 
 import Avatar from '@/ui/Avatar'
 
-import BalanceInput from '@/screens/balance/top/BalanceInput'
+import BalanceInput from '@/screens/balance/top/BalanceTransfer/BalanceInput'
 import { balanceInputs, recipients } from '@/screens/balance/top/balance.data'
 
 type Inputs = {
@@ -38,30 +38,9 @@ const BalanceTransfer: FC = () => {
 	return (
 		<div className='balance-card'>
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<div className={'flex items-center justify-between mb-7'}>
-					<h2 className={'text-xl font-bold'}>
-						Transfer & Send Invoice
-					</h2>
-
-					<div
-						className={
-							'rounded-full bg-[#F5F5F5] h-[40px] flex items-center overflow-hidden'
-						}
-					>
-						<button
-							onClick={btn => onBtnClick(btn)}
-							className={'transfer-btn'}
-						>
-							Invoice
-						</button>
-						<button
-							onClick={btn => onBtnClick(btn)}
-							className={'transfer-btn'}
-						>
-							Transfer
-						</button>
-					</div>
-				</div>
+				<h2 className={'text-xl font-bold mb-7'}>
+					Transfer & Send Invoice
+				</h2>
 
 				<div className={'mb-7'}>
 					<h3 className={'balance-card__subtitle'}>
