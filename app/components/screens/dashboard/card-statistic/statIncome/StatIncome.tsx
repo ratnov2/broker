@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { FC, useState } from 'react'
 
 import { useIncomeAll } from '@/hooks/statistics/useIncomeAll'
 
@@ -7,7 +7,7 @@ import LineChart from '../../LineChart'
 
 import styles from './statIncome.module.scss'
 
-function income() {
+const Income: FC = () => {
 	const [userData, setUserData] = useState({
 		labels: UserData.map(data => data.day),
 		datasets: [
@@ -56,4 +56,4 @@ function income() {
 		</div>
 	)
 }
-export default income
+export default Income

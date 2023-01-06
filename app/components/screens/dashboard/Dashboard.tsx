@@ -2,8 +2,8 @@ import { FC } from 'react'
 
 import Layout from '@/layout/Layout'
 
-import StatExpense from './card-statistic/expense/StatExpense'
-import StatIncome from './card-statistic/income/StatIncome'
+import StatExpense from './card-statistic/statExpense/StatExpense'
+import StatIncome from './card-statistic/statIncome/StatIncome'
 import Card from './card/Card'
 import styles from './dashboard.module.scss'
 

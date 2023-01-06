@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { FC, useState } from 'react'
 
 import { useExpenseAll } from '@/hooks/statistics/useExpenseAll'
 
@@ -7,7 +7,7 @@ import LineChart from '../../LineChart'
 
 import styles from './statExpense.module.scss'
 
-function expense() {
+const Expense: FC = () => {
 	const [userData, setUserData] = useState({
 		labels: UserData.map(data => data.day),
 		datasets: [
@@ -44,4 +44,4 @@ function expense() {
 	)
 }
 
-export default expense
+export default Expense

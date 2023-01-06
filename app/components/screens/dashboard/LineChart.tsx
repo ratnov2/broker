@@ -12,7 +12,6 @@ import { FC } from 'react'
 import { Line } from 'react-chartjs-2'
 
 import { IStatisticsAll } from './card-statistic/card-statistics.interface'
-import { IIncomeAll } from './card-statistic/income/stat-income.interface'
 
 ChartJS.register(
 	CategoryScale,
