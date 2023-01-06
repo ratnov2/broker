@@ -11,7 +11,7 @@ const Dashboard: FC = () => {
 	return (
 		<Layout title='Dashboard'>
 			<div className={styles.container}>
-				g<h1 className={styles.dashboard}>Dashboard</h1>
+				<h1 className={styles.dashboard}>Dashboard</h1>
 				<div className={styles.inner}>
 					<Card />
 					<StatIncome />
