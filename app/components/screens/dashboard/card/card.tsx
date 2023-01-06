@@ -23,7 +23,7 @@ function card() {
 						<div className={styles.number}>{cardNumber}</div>
 						<div className={styles.data}>
 							<div className={styles.holder}>
-								<span>Card Holder</span>
+								<span>Card Holder</span>gg
 								<p>{cardHolder}</p>
 							</div>
 							<div className={styles.thru}>
