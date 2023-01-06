@@ -2,15 +2,9 @@ import { FC } from 'react'
 import { CircularProgressbar } from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css'
 
-interface balanceStats {
-	title: string
-	currentNum: number
-	maxNum: number
-	percents: number
-	color: string
-}
+import { IBalanceStats } from '@/screens/balance/top/interfaces/balanceStats.interface'
 
-const BalanceStats: FC<balanceStats> = ({
+const BalanceStats: FC<IBalanceStats> = ({
 	title,
 	currentNum,
 	maxNum,
@@ -26,21 +20,14 @@ const BalanceStats: FC<balanceStats> = ({
 					value={percents}
 					text={`${percents}%`}
 					styles={{
-						// Customize the path, i.e. the "completed progress"
 						path: {
-							// Path color
 							stroke: color
 						},
-						// Customize the circle behind the path, i.e. the "total progress"
 						trail: {
-							// Trail color
 							stroke: '#F5F5F5'
 						},
-						// Customize the text
 						text: {
-							// Text color
 							fill: color,
-							// Text size
 							fontSize: '24px'
 						}
 					}}

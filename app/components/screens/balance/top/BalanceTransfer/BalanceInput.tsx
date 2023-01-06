@@ -17,6 +17,7 @@ const BalanceInput: FC<IBalanceInput> = ({ title, placeholder, type }) => {
 				{...register('exampleRequired', { required: true })}
 				placeholder={placeholder}
 				type={type}
+				min='1'
 			/>
 		</div>
 	)

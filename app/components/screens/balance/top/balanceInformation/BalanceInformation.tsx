@@ -12,7 +12,7 @@ const BalanceInformation: FC = () => {
 
 	const progressBar: IProgressBar = {
 		bgColor: '#6160DC',
-		completed: 53
+		percents: 53
 	}
 
 	const hiddenCardNumber = '•••• •••• ••••' + card.number.slice(14, 19)
@@ -26,7 +26,7 @@ const BalanceInformation: FC = () => {
 
 			<Progressbar
 				bgColor={progressBar.bgColor}
-				completed={progressBar.completed}
+				percents={progressBar.percents}
 			/>
 
 			<div className={'flex items-center gap-[46px] my-11'}>

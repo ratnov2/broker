@@ -1,6 +1,6 @@
 export interface IProgressBar {
 	bgColor: string
-	completed: number
+	percents: number
 }
 
 export interface IBalanceInput {
@@ -28,4 +28,12 @@ export interface IRecipient {
 	id: number
 	name: string
 	img: string
+}
+
+export interface IBalanceStats {
+	title: string
+	currentNum: number
+	maxNum: number
+	percents: number
+	color: string
 }
