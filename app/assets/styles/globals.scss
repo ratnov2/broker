@@ -10,8 +10,9 @@ body {
 
 @layer components {
 	.balance-card {
-		@apply bg-white py-7 px-5;
+		@apply grow bg-white py-7 px-5;
 		flex-basis: 49%;
+		max-width: 50%;
 		border-radius: 40px;
 		box-shadow: 0 20px 50px rgba(191, 21, 108, 0.05);
 	}
@@ -35,6 +36,13 @@ body {
 			background: #6160dc;
 			color: #fff;
 		}
+	}
+
+	.recipient-btn {
+		@apply absolute z-10 flex h-[60px] w-[60px] items-center justify-center rounded-full bg-[#F5F5F5];
+		top: 50%;
+		right: 0;
+		transform: translateY(-50%);
 	}
 }
 

@@ -10,8 +10,7 @@ const Balance: FC = () => {
 		<Layout title='Balance'>
 			<div className=''>
 				<h1 className={'font-bold text-3xl'}>Balance</h1>
-
-				<div className={'flex justify-between mt-5'}>
+				<div className={'flex justify-between mt-5 gap-[40px]'}>
 					<BalanceInformation />
 
 					<BalanceTransfer />
