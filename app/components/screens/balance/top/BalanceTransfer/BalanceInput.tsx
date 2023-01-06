@@ -12,7 +12,7 @@ const BalanceInput: FC<IBalanceInput> = ({ title, placeholder, type }) => {
 
 			<input
 				className={
-					'rounded-full bg-[#F5F5F5] h-[60px] flex items-center text-[#8E8EA1] pl-7 w-full focus:outline-none'
+					'rounded-full bg-[#F5F5F5] h-[60px] flex items-center text-[#8E8EA1] pl-7 w-full focus:outline-none -mt-4'
 				}
 				{...register('exampleRequired', { required: true })}
 				placeholder={placeholder}

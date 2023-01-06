@@ -95,6 +95,7 @@ const BalanceTransfer: FC = () => {
 							className={'test card-checkbox'}
 							id={'card-checkbox'}
 							type='checkbox'
+							checked={isChecked}
 						/>
 						<label
 							onClick={onCheckboxClick}
