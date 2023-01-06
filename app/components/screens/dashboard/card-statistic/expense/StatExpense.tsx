@@ -1,5 +1,7 @@
 import { useState } from 'react'
 
+import { useExpenseAll } from '@/hooks/statistics/useExpenseAll'
+
 import { UserData } from '../../Data'
 import LineChart from '../../LineChart'
 
@@ -18,13 +20,14 @@ function expense() {
 		]
 	})
 
+	const { data: expenseData } = useExpenseAll()
+
 	return (
 		<div className={styles.container}>
 			<div className={styles.inner}>
 				<div className={styles.top}>
 					<div className={styles.total}>
-						<span>Expense</span>
-						$32,123
+						<span>Expense</span>${expenseData?.total}
 					</div>
 					<div className={styles.changes}>
 						-0,5%
@@ -33,7 +36,7 @@ function expense() {
 				</div>
 				<div className={styles.bot}>
 					<div className={styles.chart__container}>
-						<LineChart chartData={userData} />
+						<LineChart statisticsAll={expenseData} chartData={userData} />
 					</div>
 				</div>
 			</div>

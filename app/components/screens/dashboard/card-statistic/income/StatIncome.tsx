@@ -40,8 +40,7 @@ function income() {
 			<div className={styles.income__inner}>
 				<div className={styles.income__top}>
 					<div className={styles.income__total}>
-						<span>Income</span>
-						$45,741
+						<span>Income</span>${incomeData?.total}
 					</div>
 					<div className={styles.income__changes}>
 						+0,5%
@@ -50,7 +49,7 @@ function income() {
 				</div>
 				<div className={styles.income__bot}>
 					<div className={styles.chart__container}>
-						<LineChart incomeAll={incomeData} chartData={userData} />
+						<LineChart statisticsAll={incomeData} chartData={userData} />
 					</div>
 				</div>
 			</div>

@@ -11,6 +11,7 @@ import {
 import { FC } from 'react'
 import { Line } from 'react-chartjs-2'
 
+import { IStatisticsAll } from './card-statistic/card-statistics.interface'
 import { IIncomeAll } from './card-statistic/income/stat-income.interface'
 
 ChartJS.register(
@@ -38,12 +39,14 @@ const options = {
 
 const labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 
-type LineChartProps = { chartData: any; incomeAll?: IIncomeAll }
-const LineChart: FC<LineChartProps> = ({ chartData, incomeAll }) => {
+type LineChartProps = { chartData: any; statisticsAll?: IStatisticsAll }
+const LineChart: FC<LineChartProps> = ({ chartData, statisticsAll }) => {
 	const chartDatasetData: number[] = []
 
 	labels.forEach((day, index) => {
-		const serverDay = incomeAll?.byDay.filter(data => data.day.includes(day))
+		const serverDay = statisticsAll?.byDay.filter(data =>
+			data.day.includes(day)
+		)
 		if (serverDay?.length) {
 			chartDatasetData[index] = serverDay[0].amount
 		} else {

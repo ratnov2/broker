@@ -1,3 +1,3 @@
 import { IStatisticsAll } from '../card-statistics.interface'
 
-export interface IIncomeAll extends IStatisticsAll {}
+export interface IExpenseAll extends IStatisticsAll {}
