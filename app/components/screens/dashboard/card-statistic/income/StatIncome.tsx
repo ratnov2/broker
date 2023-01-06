@@ -1,5 +1,7 @@
 import { useState } from 'react'
 
+import { useIncomeAll } from '@/hooks/statistics/useIncomeAll'
+
 import { UserData } from '../../Data'
 import LineChart from '../../LineChart'
 
@@ -18,6 +20,21 @@ function income() {
 		]
 	})
 
+	const { data: incomeData } = useIncomeAll()
+	// const incomeData = {
+	// 	total: 1500,
+	// 	byDay: [
+	// 		{
+	// 			day: 'Friday   ',
+	// 			amount: 1500
+	// 		},
+	// 		{
+	// 			day: 'Saturday   ',
+	// 			amount: 3500
+	// 		}
+	// 	]
+	// }
+
 	return (
 		<div className={styles.income__container}>
 			<div className={styles.income__inner}>
@@ -33,7 +50,7 @@ function income() {
 				</div>
 				<div className={styles.income__bot}>
 					<div className={styles.chart__container}>
-						<LineChart chartData={userData} />
+						<LineChart incomeAll={incomeData} chartData={userData} />
 					</div>
 				</div>
 			</div>

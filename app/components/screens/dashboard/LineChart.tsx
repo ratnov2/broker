@@ -8,7 +8,10 @@ import {
 	Title,
 	Tooltip
 } from 'chart.js'
+import { FC } from 'react'
 import { Line } from 'react-chartjs-2'
+
+import { IIncomeAll } from './card-statistic/income/stat-income.interface'
 
 ChartJS.register(
 	CategoryScale,
@@ -33,28 +36,32 @@ const options = {
 	}
 }
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July']
+const labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 
-export const data = {
-	labels,
-	datasets: [
-		{
-			label: 'Dataset 1',
-			data: labels.map(() => 100),
-			borderColor: 'rgb(255, 99, 132)',
-			backgroundColor: 'rgba(255, 99, 132, 0.5)'
-		},
-		{
-			label: 'Dataset 2',
-			data: labels.map(() => 10),
-			borderColor: 'rgb(53, 162, 235)',
-			backgroundColor: 'rgba(53, 162, 235, 0.5)'
+type LineChartProps = { chartData: any; incomeAll?: IIncomeAll }
+const LineChart: FC<LineChartProps> = ({ chartData, incomeAll }) => {
+	const chartDatasetData: number[] = []
+
+	labels.forEach((day, index) => {
+		const serverDay = incomeAll?.byDay.filter(data => data.day.includes(day))
+		if (serverDay?.length) {
+			chartDatasetData[index] = serverDay[0].amount
+		} else {
+			chartDatasetData[index] = 0
 		}
-	]
-}
+	})
 
-type LineChartProps = { chartData: any }
-function LineChart({ chartData }: LineChartProps) {
+	const data = {
+		labels,
+		datasets: [
+			{
+				label: 'Dataset 1',
+				data: chartDatasetData,
+				borderColor: 'rgb(255, 99, 132)',
+				backgroundColor: 'rgba(255, 99, 132, 0.5)'
+			}
+		]
+	}
 	return <Line options={options} data={data} />
 }
 
