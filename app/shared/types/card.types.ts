@@ -5,7 +5,7 @@ export interface ICard {
 	createdAt: string
 	updatedAt: string
 	number: string
-	expiredDate: string
+	expireDate: string
 	cvc: number
 	paymentSystem: string
 	type: string
