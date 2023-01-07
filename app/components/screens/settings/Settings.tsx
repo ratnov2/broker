@@ -1,26 +1,34 @@
-import { useMutation } from '@tanstack/react-query'
-import { FC, useState } from 'react'
+import { useMutation } from '@tanstack/react-query';
+import { FC, useState } from 'react';
+
+
 
 //import { SubmitErrorHandler, SubmitHandler } from 'react-hook-form'
-import Layout from '@/layout/Layout'
+import Layout from '@/layout/Layout';
 
-import { ISettingInput } from '@/shared/types/users.types'
 
-import { useUserProfile } from '@/hooks/useUserProfile'
 
-import SettingsForm from './settings-form/SettingsForm'
-import { ISettings } from './settings-form/settings.interface'
-import { UserService } from '@/services/users/users.service'
+import { ISettingInput } from '@/shared/types/users.types';
+
+
+
+import { useUserProfile } from '@/hooks/useUserProfile';
+
+
+
+import SettingsForm from './settings-form/SettingsForm';
+import { ISettings } from './settings-form/settings.interface';
+import { UserService } from '@/services/users/users.service';
+import da from 'date-fns/esm/locale/da/index.js';
+
 
 const Transactions: FC = () => {
 	const onSubmit = async (data: ISettings) => {
-		console.log(123)
-		console.log(data)
-		console.log(321)
 		const updateData: ISettingInput = {
 			name: data.name,
 			email: data.email,
-			address: data.address
+			address: data.address,
+			avatarPath: data.avatarPath
 		}
 		await UserService.updateUser(updateData)
 	}
@@ -36,7 +44,8 @@ const Transactions: FC = () => {
 		email: data?.email || '',
 		pin: 1234,
 		password: '123456',
-		address: data?.address || ''
+		address: data?.address || '',
+		avatarPath: ''
 	}
 	const [settingsData] = useState<ISettings>(SettingsInputs)
 

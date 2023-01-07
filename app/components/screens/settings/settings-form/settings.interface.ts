@@ -1,4 +1,5 @@
-import { SubmitHandler } from 'react-hook-form'
+import { SubmitHandler } from 'react-hook-form';
+
 
 export interface ISettingsForm {
 	onSubmit: SubmitHandler<ISettings>
@@ -16,4 +17,5 @@ export interface ISettings {
 	password: string
 	address: string
 	options?: any
+	avatarPath: string
 }
