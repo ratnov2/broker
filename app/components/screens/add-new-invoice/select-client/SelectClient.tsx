@@ -1,4 +1,4 @@
-import cn from 'classnames'
+import cn from 'clsx'
 import Image from 'next/image'
 import { useState } from 'react'
 
@@ -30,12 +30,8 @@ const SelectClient = () => {
 					className='mr-4'
 				/>
 				<div className='mr-9'>
-					<h2 className='text-xl font-bold mb-1'>
-						{currentClient.name}
-					</h2>
-					<span className='text-sm text-[#8E8EA1]'>
-						{currentClient.type}
-					</span>
+					<h2 className='text-xl font-bold mb-1'>{currentClient.name}</h2>
+					<span className='text-sm text-[#8E8EA1]'>{currentClient.type}</span>
 				</div>
 				<div>
 					<Image
