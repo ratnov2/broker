@@ -4,14 +4,16 @@
 	}
 }
 
-.links {
+.links,
+.buttons {
 	@apply flex flex-wrap items-center gap-5;
+}
 
-	> a {
-		@apply border-gray text-gray flex h-14 w-14 items-center justify-center rounded-full border border-solid text-2xl transition-colors;
+.links > a,
+.buttons > button {
+	@apply flex h-14 w-14 items-center justify-center rounded-full border border-solid border-gray text-2xl text-gray transition-colors;
 
-		&:hover {
-			@apply bg-gray text-white;
-		}
+	&:hover {
+		@apply bg-gray text-white;
 	}
 }
