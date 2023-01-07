@@ -1,4 +1,4 @@
-export interface userContacts {
+export interface IUserContacts {
 	id: number;
 	createdAt: Date;
 	updatedAt: Date;
@@ -10,8 +10,8 @@ export interface userContacts {
 	contactId: number;
 }
 
-export interface userProfile {
-	contacts: userContacts[];
+export interface IUserProfile {
+	contacts: IUserContacts[];
 	email: string;
 	id: number;
 	name: string;

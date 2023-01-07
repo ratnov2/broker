@@ -1,9 +1,9 @@
 import {request} from '@/api/request.api'
-import {getUser} from '@/config/api.config'
-import {userProfile} from "@/services/user/userProfile.interface";
+import {getUserProfile} from '@/config/api.config'
+import {IUserProfile} from "@/services/user/userProfile.interface";
 
-export const GetUserService = {
-	async getUser() {
-		return request<userProfile>({url: getUser('')})
+export const UserService = {
+	async getProfile() {
+		return request<IUserProfile>({url: getUserProfile('')})
 	}
 }
