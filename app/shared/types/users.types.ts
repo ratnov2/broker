@@ -10,6 +10,13 @@ export interface IUser {
 	contacts?: IUserContact[]
 }
 
+export interface ISettingInput {
+	email: string
+	name: string
+	avatarPath?: string
+	address?: string
+}
+
 export interface IUserContact {
 	id: string
 	createdAt: string

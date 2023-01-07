@@ -1,18 +1,28 @@
+import { useMutation } from '@tanstack/react-query'
 import { FC, useState } from 'react'
 
 //import { SubmitErrorHandler, SubmitHandler } from 'react-hook-form'
 import Layout from '@/layout/Layout'
 
+import { ISettingInput } from '@/shared/types/users.types'
+
 import { useUserProfile } from '@/hooks/useUserProfile'
 
 import SettingsForm from './settings-form/SettingsForm'
 import { ISettings } from './settings-form/settings.interface'
+import { UserService } from '@/services/users/users.service'
 
 const Transactions: FC = () => {
-	const onSubmit = (data: ISettings) => {
+	const onSubmit = async (data: ISettings) => {
 		console.log(123)
 		console.log(data)
 		console.log(321)
+		const updateData: ISettingInput = {
+			name: data.name,
+			email: data.email,
+			address: data.address
+		}
+		await UserService.updateUser(updateData)
 	}
 
 	const { data } = useUserProfile()
