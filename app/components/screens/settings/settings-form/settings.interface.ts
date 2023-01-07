@@ -2,6 +2,7 @@ import { SubmitHandler } from 'react-hook-form'
 
 export interface ISettingsForm {
 	onSubmit: SubmitHandler<ISettings>
+	data: ISettings
 }
 
 export interface ISettings {
@@ -10,8 +11,9 @@ export interface ISettings {
 	useFaceID: boolean
 	lightMode: boolean
 	name: string
-	phoneNumber: string
+	email: string
 	pin: number
 	password: string
 	address: string
+	options?: any
 }

@@ -1,13 +1,13 @@
-import { ISettings } from './settings.interface';
+import { ISettings } from './settings.interface'
 
 export const SettingsInputs: ISettings = {
 	notificationOn: true,
 	language: 'English',
 	useFaceID: false,
 	lightMode: true,
-	name: 'Jordan Nico',
-	phoneNumber: '+123456789',
+	name: '',
+	email: '',
 	pin: 1234,
 	password: 'some-password',
-	address: 'Franklin Avenue Street New York, ABC 5562 United State'
+	address: ''
 }
