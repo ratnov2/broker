@@ -15,6 +15,21 @@ export interface ICard {
 	expireDate: string
 }
 
+export interface ICardNew {
+	id: number
+	createdAt: Date
+	updatedAt: Date
+	number: string
+	expireDate: string
+	cvc: number
+	paymentSystem: string
+	type: string
+	bankName: string
+	bankAccountId: number
+	balance: number
+	accountNumber: string
+}
+
 export interface IStats {
 	id: number
 	title: string

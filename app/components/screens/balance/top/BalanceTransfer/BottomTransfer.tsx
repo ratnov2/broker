@@ -8,11 +8,11 @@ const BottomTransfer: FC<{ isChecked: boolean; setIsChecked: any }> = ({
 		<div className={'flex items-center justify-between mt-2'}>
 			<div>
 				<label
-					className={'test text-sm text-[#8E8EA1] cursor-pointer'}
+					className={'getCards text-sm text-[#8E8EA1] cursor-pointer'}
 					htmlFor='card-checkbox'
 				>
 					<input
-						className={'test card-checkbox'}
+						className={'getCards card-checkbox'}
 						id={'card-checkbox'}
 						type='checkbox'
 						checked={isChecked}
