@@ -1,16 +1,4 @@
-@import 'app/assets/styles/variables';
-
-$class_color: (
-	'purple': $purple,
-	'orange': $orange,
-	'green': $green,
-	'black': $black,
-	'red': $red,
-	'gray': $gray,
-	'white': $white,
-	'light-blue': $light-blue,
-	'light-gray': $light-gray
-);
+@import '../ui.module';
 
 @mixin primary_color_classes {
 	@each $class, $color in $class_color {
@@ -48,64 +36,7 @@ $class_color: (
 .primary {
 	color: $white;
 
-	@include primary_color_classes; // <- this mixin generate code like below
-	// &.purple {
-	// 	border-color: $purple;
-	// 	background-color: $purple;
-	// 	&:hover {
-	// 		color: $purple;
-	// 	}
-	// }
-	// &.orange {
-	// 	border-color: $orange;
-	// 	background-color: $orange;
-	// 	&:hover {
-	// 		color: $orange;
-	// 	}
-	// }
-	// &.green {
-	// 	border-color: $green;
-	// 	background-color: $green;
-	// 	&:hover {
-	// 		color: $green;
-	// 	}
-	// }
-	// &.black {
-	// 	border-color: $black;
-	// 	background-color: $black;
-	// 	&:hover {
-	// 		color: $black;
-	// 	}
-	// }
-	// &.red {
-	// 	border-color: $red;
-	// 	background-color: $red;
-	// 	&:hover {
-	// 		color: $red;
-	// 	}
-	// }
-	// &.gray {
-	// 	border-color: $gray;
-	// 	background-color: $gray;
-	// 	&:hover {
-	// 		color: $gray;
-	// 	}
-	// }
-	// &.light-blue {
-	// 	border-color: $light-blue;
-	// 	background-color: $light-blue;
-	// 	&:hover {
-	// 		color: $light-blue;
-	// 	}
-	// }
-	// &.light-gray {
-	// 	border-color: $light-gray;
-	// 	background-color: $light-gray;
-	// 	&:hover {
-	// 		color: $light-gray;
-	// 	}
-	// }
-	// .......
+	@include primary_color_classes;
 
 	&:hover {
 		background-color: $white;
@@ -115,64 +46,7 @@ $class_color: (
 .secondary {
 	background-color: $white;
 
-	@include secondary_color_classes; // <- this mixin generate code like below
-	// &.purple {
-	// 	border-color: $purple;
-	// 	color: $purple;
-	// 	&:hover {
-	// 		background-color: $purple;
-	// 	}
-	// }
-	// &.orange {
-	// 	border-color: $orange;
-	// 	color: $orange;
-	// 	&:hover {
-	// 		background-color: $orange;
-	// 	}
-	// }
-	// &.green {
-	// 	border-color: $green;
-	// 	color: $green;
-	// 	&:hover {
-	// 		background-color: $green;
-	// 	}
-	// }
-	// &.black {
-	// 	border-color: $black;
-	// 	color: $black;
-	// 	&:hover {
-	// 		background-color: $black;
-	// 	}
-	// }
-	// &.red {
-	// 	border-color: $red;
-	// 	color: $red;
-	// 	&:hover {
-	// 		background-color: $red;
-	// 	}
-	// }
-	// &.gray {
-	// 	border-color: $gray;
-	// 	color: $gray;
-	// 	&:hover {
-	// 		background-color: $gray;
-	// 	}
-	// }
-	// &.light-blue {
-	// 	border-color: $light-blue;
-	// 	color: $light-blue;
-	// 	&:hover {
-	// 		background-color: $light-blue;
-	// 	}
-	// }
-	// &.light-gray {
-	// 	border-color: $light-gray;
-	// 	color: $light-gray;
-	// 	&:hover {
-	// 		background-color: $light-gray;
-	// 	}
-	// }
-	// .......
+	@include secondary_color_classes;
 
 	&:hover {
 		color: $white;
@@ -183,53 +57,5 @@ $class_color: (
 	border-color: transparent;
 	background-color: $light-gray;
 
-	@include tertiary_color_classes; // <- this mixin generate code like below
-	// &.purple {
-	// 	color: $purple;
-	// 	&:hover {
-	// 		border-color: $purple;
-	// 	}
-	// }
-	// &.orange {
-	// 	color: $orange;
-	// 	&:hover {
-	// 		border-color: $orange;
-	// 	}
-	// }
-	// &.green {
-	// 	color: $green;
-	// 	&:hover {
-	// 		border-color: $green;
-	// 	}
-	// }
-	// &.black {
-	// 	color: $black;
-	// 	&:hover {
-	// 		border-color: $black;
-	// 	}
-	// }
-	// &.red {
-	// 	color: $red;
-	// 	&:hover {
-	// 		border-color: $red;
-	// 	}
-	// }
-	// &.gray {
-	// 	color: $gray;
-	// 	&:hover {
-	// 		border-color: $gray;
-	// 	}
-	// }
-	// &.light-blue {
-	// 	color: $light-blue;
-	// 	&:hover {
-	// 		border-color: $light-blue;
-	// 	}
-	// }
-	// &.light-gray {
-	// 	&:hover {
-	// 		border-color: $purple;
-	// 	}
-	// }
-	// .......
+	@include tertiary_color_classes;
 }
