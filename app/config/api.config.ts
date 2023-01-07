@@ -22,3 +22,5 @@ export const getTransactionsUrl = (
 ) => `/transactions?page=${page}&perPage=${perPage}&orderBy=${orderBy}`
 
 export const getStatisticsUrl = (string: string) => `/statistics${string}`
+
+export const getUserProfile = (string: string) => `/users/profile`
