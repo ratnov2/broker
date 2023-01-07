@@ -1,6 +1,5 @@
-import { FC } from 'react'
-
 import Layout from '@/layout/Layout'
+import {FC} from 'react'
 
 const Dashboard: FC = () => {
 	return (
