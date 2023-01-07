@@ -1,0 +1,35 @@
+.sortBtn {
+    @apply flex justify-center w-32 rounded-3xl border h-9 text-purple;
+
+    &:hover {
+        @apply bg-purple text-white
+    }
+}
+
+.defaultBtn {
+    @apply w-52 h-9 border text-white border-purple bg-purple rounded-3xl;
+
+    &:hover {
+        @apply bg-white text-purple border-white
+    }
+}
+
+.viewMoreBtn {
+    @apply w-48 h-9 border border-none text-purple bg-gray bg-opacity-10 rounded-3xl;
+
+    &:hover {
+        @apply text-white bg-purple
+    }
+}
+
+.switchBtn {
+    @apply border-none text-3xl text-purple
+}
+
+.addBtn {
+    @apply w-9 h-9 bg-purple rounded-3xl text-2xl text-white flex justify-center;
+
+    &:hover {
+        @apply text-purple bg-white
+    }
+}
