@@ -1,12 +1,20 @@
-import { FC, useState } from 'react'
+import { FC, useState } from 'react';
 
-import Loader from '@/ui/loader/Loader'
-import Pagination from '@/ui/pagination/Pagination'
 
-import { useCards } from '@/hooks/useCards'
 
-import styles from './CardsList.module.scss'
-import CardRow from '@/screens/cards/cards-list/CardRow'
+import Loader from '@/ui/loader/Loader';
+import Pagination from '@/ui/pagination/Pagination';
+
+
+
+import { useCards } from '@/hooks/useCards';
+
+
+
+import styles from './CardsList.module.scss';
+import CardRow from '@/screens/cards/cards-list/CardRow';
+import { useUserProfile } from '@/hooks/useUserProfile';
+
 
 type TypeCards = {
 	type: 'Primary' | 'Secondary'
@@ -72,6 +80,7 @@ const CardList: FC = () => {
 	const [currentPage, setCurrentPage] = useState<number>(1)
 	const [cardsPerPage] = useState(5)
 	const { isLoadingCards, userCards } = useCards(currentPage)
+	const { data } = useUserProfile()
 
 	return (
 		<>
@@ -88,7 +97,7 @@ const CardList: FC = () => {
 				) : userCards?.length ? (
 					<>
 						{userCards.map(card => (
-							<CardRow key={card.id} card={card} />
+							<CardRow key={card.id} card={card} userProfile={data} />
 						))}
 						<Pagination
 							currentPage={currentPage}

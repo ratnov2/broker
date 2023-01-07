@@ -1,17 +1,26 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
-import { ICard } from '@/shared/types/card.types'
 
-import { NormalizeNumberCard } from '@/utils/normalize-number-card'
 
-import Actions from './actions/Actions'
-import CardStatus from '@/screens/cards/cards-list/CardStatus'
+import { ICard } from '@/shared/types/card.types';
+
+
+
+import { NormalizeNumberCard } from '@/utils/normalize-number-card';
+
+
+
+import Actions from './actions/Actions';
+import CardStatus from '@/screens/cards/cards-list/CardStatus';
+import { IUserProfile } from '@/services/user/userProfile.interface';
+
 
 type CardRowPropsType = {
 	card: ICard
+	userProfile?: IUserProfile
 }
 
-const CardRow: FC<CardRowPropsType> = card => {
+const CardRow: FC<CardRowPropsType> = ({ card, userProfile }) => {
 	return (
 		<div
 			className={
@@ -25,30 +34,30 @@ const CardRow: FC<CardRowPropsType> = card => {
 			/>
 			<div className={'my-auto w-[100px]'}>
 				<span className={'block text-sm text-gray'}>Card Type</span>
-				<span className={'block text-lg font-semibold'}>{card.card.type}</span>
+				<span className={'block text-lg font-semibold'}>{card.type}</span>
 			</div>
 			<div className={'my-auto ml-[110px] w-[200px]'}>
 				<span className={'block text-sm text-gray'}>Bank Name</span>
 				<span className={'block text-lg font-semibold'}>
-					{card.card.bankName}
+					{card.bankName}
 				</span>
 			</div>
 			<div className={'my-auto ml-[20px] w-[180px]'}>
 				<span className={'block text-sm text-gray'}>Name</span>
-				<span className={'block text-lg font-semibold'}>testName</span>
+				<span className={'block text-lg font-semibold'}>{userProfile?.name}</span>
 			</div>
 			<div className={'my-auto'}>
 				<span className={'block text-sm text-gray'}>Card Number</span>
 				<span className={'block text-lg font-semibold'}>
-					{'•••• •••• •••• ' + card.card.number.slice(12, 16)}
+					{'•••• •••• •••• ' + card.number.slice(12, 16)}
 				</span>
 			</div>
 			<div className={'my-auto ml-[105px] mr-[142px]'}>
 				<span className={'block text-sm text-gray'}>Valid Thru</span>
 				<span className={'block text-lg font-semibold'}>
-					{card.card.expireDate.length === 4
-						? '0' + card.card.expireDate
-						: card.card.expireDate}
+					{card.expireDate.length === 4
+						? '0' + card.expireDate
+						: card.expireDate}
 				</span>
 			</div>
 			<CardStatus active={true} />
