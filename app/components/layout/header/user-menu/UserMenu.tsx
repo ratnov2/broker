@@ -6,6 +6,8 @@ import Logout from '@/layout/header/user-menu/logout/Logout'
 
 import { useProfile } from '@/hooks/useProfile'
 
+import { avatarPath } from '@/utils/avatarPath'
+
 import styles from './UserMenu.module.scss'
 import UserLinks from './user-links/UserLinks'
 
@@ -19,7 +21,7 @@ const UserMenu: FC = () => {
 			<Link href='/profile' className={styles.profile}>
 				<Image
 					className={styles.profile_image}
-					src={profile?.avatarPath || '/images/avatar-empty.png'}
+					src={avatarPath(profile)}
 					width={56}
 					height={56}
 					alt='profile'
