@@ -3,7 +3,7 @@ import { ISettings } from './settings.interface';
 export const SettingsInputs: ISettings = {
 	notificationOn: true,
 	language: 'English',
-	useFaceID: true,
+	useFaceID: false,
 	lightMode: true,
 	name: 'Jordan Nico',
 	phoneNumber: '+123456789',
