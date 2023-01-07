@@ -1,10 +1,16 @@
-import {FC, useState} from 'react'
+import { FC, useState } from 'react';
 
-import Layout from '@/layout/Layout'
+
+
+import Layout from '@/layout/Layout';
+
+
+
 import CardRow from "@/screens/cards/cards-list/CardRow";
 import Pagination from "@/screens/cards/cards-list/Pagination";
 
-type cardsType = {
+
+type TypeCards = {
     type: 'Primary' | 'Secondary',
     bankName: string,
     holderName: string,
@@ -13,53 +19,55 @@ type cardsType = {
     active: boolean
 }
 
-const cards: cardsType[] = [
-    {
-        type: 'Primary',
-        bankName: 'Bank ABC',
-        holderName: 'Rara Avis',
-        cardNumber: '•••• •••• •••• 1235',
-        validity: '03/21',
-        active: true
-    },
-    {
-        type: 'Secondary',
-        bankName: 'Bank DEF',
-        holderName: 'Rara Avis',
-        cardNumber: '•••• •••• •••• 1236',
-        validity: '03/21',
-        active: false
-    },{
-        type: 'Secondary',
-        bankName: 'Bank HIJ',
-        holderName: 'Rara Avis',
-        cardNumber: '•••• •••• •••• 1237',
-        validity: '03/21',
-        active: true
-    },
-    {
-        type: 'Primary',
-        bankName: 'Bank ABC',
-        holderName: 'Rara Avis',
-        cardNumber: '•••• •••• •••• 1238',
-        validity: '03/21',
-        active: true
-    },
-    {
-        type: 'Secondary',
-        bankName: 'Bank DEF',
-        holderName: 'Rara Avis',
-        cardNumber: '•••• •••• •••• 1239',
-        validity: '03/21',
-        active: false
-    },{
-        type: 'Secondary',
-        bankName: 'Bank HIJ',
-        holderName: 'Rara Avis',
-        cardNumber: '•••• •••• •••• 1224',
-        validity: '03/21',
-        active: true
-    }
+const cards: TypeCards[] = [
+	{
+		type: 'Primary',
+		bankName: 'Bank ABC',
+		holderName: 'Rara Avis',
+		cardNumber: '•••• •••• •••• 1235',
+		validity: '03/21',
+		active: true
+	},
+	{
+		type: 'Secondary',
+		bankName: 'Bank DEF',
+		holderName: 'Rara Avis',
+		cardNumber: '•••• •••• •••• 1236',
+		validity: '03/21',
+		active: false
+	},
+	{
+		type: 'Secondary',
+		bankName: 'Bank HIJ',
+		holderName: 'Rara Avis',
+		cardNumber: '•••• •••• •••• 1237',
+		validity: '03/21',
+		active: true
+	},
+	{
+		type: 'Primary',
+		bankName: 'Bank ABC',
+		holderName: 'Rara Avis',
+		cardNumber: '•••• •••• •••• 1238',
+		validity: '03/21',
+		active: true
+	},
+	{
+		type: 'Secondary',
+		bankName: 'Bank DEF',
+		holderName: 'Rara Avis',
+		cardNumber: '•••• •••• •••• 1239',
+		validity: '03/21',
+		active: false
+	},
+	{
+		type: 'Secondary',
+		bankName: 'Bank HIJ',
+		holderName: 'Rara Avis',
+		cardNumber: '•••• •••• •••• 1224',
+		validity: '03/21',
+		active: true
+	}
 ]
 
 
