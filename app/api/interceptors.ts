@@ -18,6 +18,7 @@ export const instance = axios.create({
 	headers: getContentType()
 })
 
+
 instance.interceptors.request.use(config => {
 	const accessToken = Cookies.get('accessToken')
 

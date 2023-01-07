@@ -1,22 +1,19 @@
-import { FC, useState } from 'react';
+import { FC, useState } from 'react'
 
+import Layout from '@/layout/Layout'
 
-
-import Layout from '@/layout/Layout';
-
-
-
-import CardRow from "@/screens/cards/cards-list/CardRow";
-import Pagination from "@/screens/cards/cards-list/Pagination";
-
+import CardRow from '@/screens/cards/cards-list/CardRow'
+import Pagination from '@/screens/cards/cards-list/Pagination'
+import { useCards } from '@/hooks/useCards'
+import Loader from '@/ui/loader/Loader'
 
 type TypeCards = {
-    type: 'Primary' | 'Secondary',
-    bankName: string,
-    holderName: string,
-    cardNumber: string,
-    validity: string,
-    active: boolean
+	type: 'Primary' | 'Secondary'
+	bankName: string
+	holderName: string
+	cardNumber: string
+	validity: string
+	active: boolean
 }
 
 const cards: TypeCards[] = [
@@ -70,18 +67,39 @@ const cards: TypeCards[] = [
 	}
 ]
 
-
 const CardList: FC = () => {
-    const [activePage, setActivePage] = useState(1)
+	const [currentPage, setCurrentPage] = useState<number>(1)
+	const { isLoadingCards, userCards } = useCards(currentPage)
 
-    return (
-        <div className={'bg-white h-[562px] w-[1477px] pt-[32px] rounded-[40px]'}>
-            <h1 className={'font-[\'Inter\'] font-bold text-1.5xl text-black mb-[44px] pl-[32px]'}>Card List</h1>
-            {cards.slice((activePage-1)*3, (activePage-1)*3+3).map((cardRow) => <CardRow {...cardRow} key={cardRow.cardNumber}/>)}
-            <Pagination length={cards.length} activePage={activePage} setActivePage={setActivePage}/>
-        </div>
-
-    )
+	return (
+		<div className={'bg-white h-[562px] w-full pt-8 rounded-[40px] mt-8'}>
+			<h1
+				className={
+					"font-['Inter'] font-bold text-1.5xl text-black mb-[44px] pl-8"
+				}
+			>
+				Card List
+			</h1>
+			{isLoadingCards ? (
+				<Loader />
+			) : userCards?.length ? (
+				<>
+					{userCards.map(card => (
+						<CardRow card={card} />
+					))}
+					<Pagination
+						length={cards.length}
+						activePage={currentPage}
+						setActivePage={setCurrentPage}
+						/>
+					</>
+				): (
+				<div className='h-[562px] flex items-center justify-center'>
+					No Cards yet
+				</div>
+				)}
+		</div>
+	)
 }
 
 export default CardList
