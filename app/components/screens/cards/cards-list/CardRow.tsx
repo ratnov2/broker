@@ -2,11 +2,12 @@ import { FC } from 'react';
 
 
 
-import CardButton from "@/ui/CardButton";
+import CardStatus from '@/screens/cards/cards-list/CardStatus'
 
 
 
 import { ICard } from '@/shared/types/card.types';
+import Actions from './actions/Actions';
 
 
 type CardRowPropsType = {
@@ -48,7 +49,8 @@ const CardRow: FC<CardRowPropsType> = (card) => {
 					{card.card.expiredDate}
 				</span>
 			</div>
-			<CardButton active={true} />
+			<CardStatus active={true} />
+			<Actions />
 		</div>
 	)
 }

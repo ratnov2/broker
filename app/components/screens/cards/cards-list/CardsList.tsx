@@ -1,11 +1,12 @@
 import { FC, useState } from 'react'
 
-import Layout from '@/layout/Layout'
-
-import CardRow from '@/screens/cards/cards-list/CardRow'
-import Pagination from '@/screens/cards/cards-list/Pagination'
-import { useCards } from '@/hooks/useCards'
 import Loader from '@/ui/loader/Loader'
+import Pagination from '@/ui/pagination/Pagination'
+
+import { useCards } from '@/hooks/useCards'
+
+import styles from './CardsList.module.scss'
+import CardRow from '@/screens/cards/cards-list/CardRow'
 
 type TypeCards = {
 	type: 'Primary' | 'Secondary'
@@ -69,36 +70,40 @@ const cards: TypeCards[] = [
 
 const CardList: FC = () => {
 	const [currentPage, setCurrentPage] = useState<number>(1)
+	const [cardsPerPage] = useState(5)
 	const { isLoadingCards, userCards } = useCards(currentPage)
 
 	return (
-		<div className={'bg-white h-[562px] w-full pt-8 rounded-[40px] mt-8'}>
-			<h1
-				className={
-					"font-['Inter'] font-bold text-1.5xl text-black mb-[44px] pl-8"
-				}
-			>
-				Card List
-			</h1>
-			{isLoadingCards ? (
-				<Loader />
-			) : userCards?.length ? (
-				<>
-					{userCards.map(card => (
-						<CardRow card={card} />
-					))}
-					<Pagination
-						length={cards.length}
-						activePage={currentPage}
-						setActivePage={setCurrentPage}
+		<>
+			<div className={styles.cardsListSection} style={{ position: 'relative' }}>
+				<h1
+					className={
+						"font-['Inter'] font-bold text-1.5xl text-black mb-[44px] pl-8"
+					}
+				>
+					Card List
+				</h1>
+				{isLoadingCards ? (
+					<Loader />
+				) : userCards?.length ? (
+					<>
+						{userCards.map(card => (
+							<CardRow key={card.id} card={card} />
+						))}
+						<Pagination
+							currentPage={currentPage}
+							setCurrentPage={setCurrentPage}
+							maxItems={userCards.length}
+							itemsPerPage={cardsPerPage}
 						/>
 					</>
-				): (
-				<div className='h-[562px] flex items-center justify-center'>
-					No Cards yet
-				</div>
+				) : (
+					<div className='h-[562px] flex items-center justify-center'>
+						No Cards yet
+					</div>
 				)}
-		</div>
+			</div>
+		</>
 	)
 }
 
