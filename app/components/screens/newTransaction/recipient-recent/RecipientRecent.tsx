@@ -5,7 +5,7 @@ import RecipientRibbon from '../recipient-ribbon/RecipientRibbon'
 
 const RecipientRecent: FC = () => {
 	return (
-		<div className='flex flex-col bg-white px-6 py-7 overflow-hidden shadow rounded-xl space-y-4'>
+		<div className='flex flex-col bg-white px-6 py-7 overflow-hidden rounded-3xl space-y-4'>
 			<RecipientRibbon />
 			<RecipientDetails />
 		</div>

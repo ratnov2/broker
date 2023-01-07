@@ -26,7 +26,7 @@ const TransactionForm: FC<ITransactionForm> = ({ onSubmit }) => {
 	return (
 		<form
 			onSubmit={handleSubmit(onSubmit)}
-			className='grid grid-cols-2 w-full gap-8 bg-white p-10'
+			className='grid grid-cols-2 w-full gap-8 bg-white p-10 rounded-3xl '
 		>
 			{TransactionInputs.map(
 				(
