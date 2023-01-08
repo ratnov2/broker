@@ -35,12 +35,15 @@ export const timeRangeData: generateRangeType = (
 	const date = new Date()
 	const dates: timeRangeType[] = []
 
-	const generateDate = (prevDate: number, last = false) =>
-		new Date(
-			date.getFullYear() - (timeLaps === 'year' ? (last ? 1 : 0) : 0),
-			date.getMonth() - (timeLaps === 'year' ? prevDate : 0),
+	const generateDate = (prevDate: number, last = false) => {
+		const isYear = timeLaps === 'year'
+
+		return new Date(
+			date.getFullYear() - (isYear ? (last ? 1 : 0) : 0),
+			date.getMonth() - (isYear ? prevDate : 0),
 			date.getDate() - (timeLaps === 'week' ? prevDate - (last ? 7 : 0) : 0)
 		)
+	}
 
 	for (let prevDate = 0; prevDate < prevDates; prevDate++) {
 		dates[prevDate] = {
