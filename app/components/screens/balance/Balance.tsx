@@ -7,15 +7,10 @@ import TransferHistory from './transfer-history/TransferHistory'
 import { useBalance } from './useBalance'
 
 const Balance: FC = () => {
-	const [currentPage, setCurrentPage] = useState(0)
+	const [currentPage, setCurrentPage] = useState(1)
 
-	const {
-		isLoadingTransfers,
-		transfers,
-		isLoadingInvoices,
-		invoices,
-		refetchTransfers
-	} = useBalance()
+	const { isLoadingTransfers, transfers, isLoadingInvoices, invoices } =
+		useBalance(currentPage)
 
 	return (
 		<Layout title='Balance'>
@@ -26,7 +21,6 @@ const Balance: FC = () => {
 						currentPage={currentPage}
 						setCurrentPage={setCurrentPage}
 						transfers={transfers}
-						refetchTransfers={refetchTransfers}
 					/>
 					<InvoicesSent isLoading={isLoadingInvoices} invoices={invoices} />
 				</div>

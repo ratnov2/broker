@@ -1,3 +1,4 @@
+import { useQueryClient } from '@tanstack/react-query'
 import cn from 'clsx'
 import { FC, useEffect, useRef, useState } from 'react'
 
@@ -8,12 +9,7 @@ type PopupClickOutside = MouseEvent & {
 	path: Node[]
 }
 
-interface IMenuProps {
-	transferId: number
-	refetchTransfers: () => void
-}
-
-const Menu: FC<IMenuProps> = ({ transferId, refetchTransfers }) => {
+const Menu: FC<{ transferId: number }> = ({ transferId }) => {
 	const menuRef = useRef<HTMLDivElement>(null)
 	const [isActive, setIsActive] = useState<boolean>(false)
 
@@ -30,7 +26,8 @@ const Menu: FC<IMenuProps> = ({ transferId, refetchTransfers }) => {
 		return () => document.body.removeEventListener('click', handleClickOutside)
 	}, [])
 
-	const { deleteAsync } = useMenuActions()
+	const { deleteAsync } = useMenuActions(transferId)
+	const queryClient = useQueryClient()
 
 	return (
 		<div ref={menuRef} className={styles.menu}>
@@ -54,8 +51,8 @@ const Menu: FC<IMenuProps> = ({ transferId, refetchTransfers }) => {
 			>
 				<button
 					onClick={async () => {
-						await deleteAsync(transferId)
-						refetchTransfers()
+						await deleteAsync()
+						queryClient.refetchQueries(['get transfer history'])
 					}}
 				>
 					Delete

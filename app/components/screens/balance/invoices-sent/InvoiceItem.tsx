@@ -6,21 +6,15 @@ import { formatDate } from './format-date'
 import InvoiceStatus from './invoice-status/InvoiceStatus'
 import { IInvoice } from './invoices.interface'
 
-const InvoiceItem: FC<{ invoice: IInvoice }> = ({
-	invoice: {
-		recipient: { name, avatarPath },
-		createdAt,
-		status
-	}
-}) => {
+const InvoiceItem: FC<{ invoice: IInvoice }> = ({ invoice }) => {
 	return (
 		<div className={styles.invoice}>
 			<div>
-				{avatarPath ? (
+				{invoice.recipient.avatarPath ? (
 					<div className='w-12 h-12 rounded-[50%] overflow-hidden'>
 						<Image
-							alt={name}
-							src={avatarPath}
+							alt={invoice.recipient.name}
+							src={invoice.recipient.avatarPath}
 							width={48}
 							height={48}
 							draggable={false}
@@ -30,12 +24,12 @@ const InvoiceItem: FC<{ invoice: IInvoice }> = ({
 					<div className='shrink-0 w-12 h-12 bg-gray rounded-[50%]'></div>
 				)}
 				<div>
-					<span>{name}</span>
-					<p>{formatDate(createdAt)}</p>
+					<span>{invoice.recipient.name}</span>
+					<p>{formatDate(invoice.createdAt)}</p>
 				</div>
 			</div>
 
-			{status && <InvoiceStatus status={status} />}
+			{invoice.status && <InvoiceStatus status={invoice.status} />}
 		</div>
 	)
 }

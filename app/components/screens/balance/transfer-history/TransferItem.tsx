@@ -2,36 +2,23 @@ import Image from 'next/image'
 import { FC } from 'react'
 
 import { convertDate } from '@/utils/convert-date'
-import { getUserById } from '@/utils/get-user-by-id'
 
 import styles from './Transfer.module.scss'
 import Menu from './menu/Menu'
 import Status from './status/Status'
-import { ITransfer } from './transfer.interface'
+import { ITransaction } from './transfer.interface'
 
 const TransferItem: FC<{
-	transfer: ITransfer
-	refetchTransfers: () => void
-}> = ({
-	transfer: {
-		id,
-		amount,
-		createdAt: date,
-		status,
-		invoice: { recipientId }
-	},
-	refetchTransfers
-}) => {
-	const recipient = getUserById(recipientId)
-
+	transfer: ITransaction
+}> = ({ transfer }) => {
 	return (
 		<div className={styles.transfer}>
 			<div className={styles.clientInfo}>
-				{recipient?.avatarPath ? (
+				{transfer.invoice.recipient?.avatarPath ? (
 					<div className='shrink-0 w-12 h-12 rounded-[50%] overflow-hidden'>
 						<Image
-							alt={recipient.name}
-							src={recipient.avatarPath}
+							alt={transfer.invoice.recipient.name}
+							src={transfer.invoice.recipient.avatarPath}
 							width={48}
 							height={48}
 							draggable={false}
@@ -40,21 +27,21 @@ const TransferItem: FC<{
 				) : (
 					<div className='shrink-0 w-12 h-12 bg-gray rounded-[50%]'></div>
 				)}
-				<span>{recipient?.name}</span>
+				<span>{transfer.invoice.recipient?.name}</span>
 			</div>
 
-			<span className={styles.transferId}>{`#${id}`}</span>
+			<span className={styles.transferId}>{`#${transfer.id}`}</span>
 
-			<span className={styles.amount}>{`$ ${amount}`}</span>
+			<span className={styles.amount}>{`$ ${transfer.amount}`}</span>
 
 			<div className={styles.date}>
-				<p>{convertDate(date)[0]}</p>
-				<span>{convertDate(date)[1]}</span>
+				<p>{convertDate(transfer.createdAt)[0]}</p>
+				<span>{convertDate(transfer.createdAt)[1]}</span>
 			</div>
 
-			<Status status={status} />
+			<Status status={transfer.status} />
 
-			<Menu transferId={id} refetchTransfers={refetchTransfers} />
+			<Menu transferId={transfer.id} />
 		</div>
 	)
 }

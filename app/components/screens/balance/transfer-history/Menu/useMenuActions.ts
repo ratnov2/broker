@@ -1,14 +1,11 @@
 import { useMutation } from '@tanstack/react-query'
 
-import { instance } from '@/api/interceptors'
+import { TransactionsService } from '@/services/transactions.service'
 
-export const useMenuActions = () => {
+export const useMenuActions = (itemId: number) => {
 	const { mutateAsync: deleteAsync } = useMutation(
-		['delete transter history item'],
-		(itemId: number) =>
-			instance.delete(
-				`https://red-project-bank-app.herokuapp.com/api/transactions/${itemId}`
-			)
+		['delete transter history item', itemId],
+		() => TransactionsService.delete(itemId)
 	)
 
 	return { deleteAsync }

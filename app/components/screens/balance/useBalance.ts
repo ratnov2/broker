@@ -1,32 +1,20 @@
 import { useQuery } from '@tanstack/react-query'
 
-import { instance } from '@/api/interceptors'
+import { InvoicesService } from '@/services/invoices.service'
+import { TransactionsService } from '@/services/transactions.service'
 
-import { IInvoice } from './invoices-sent/invoices.interface'
-import { ITransfer } from './transfer-history/transfer.interface'
-
-export const useBalance = () => {
-	const {
-		isLoading: isLoadingTransfers,
-		data: transfers,
-		refetch: refetchTransfers
-	} = useQuery(
-		['transferHistory'],
-		() =>
-			instance.get<ITransfer[]>(
-				'https://red-project-bank-app.herokuapp.com/api/transactions'
-			),
+export const useBalance = (currentPage: number) => {
+	const { isLoading: isLoadingTransfers, data: transfers } = useQuery(
+		['get transfer history', currentPage],
+		() => TransactionsService.getAll(currentPage),
 		{
 			select: ({ data }) => data
 		}
 	)
 
 	const { isLoading: isLoadingInvoices, data: invoices } = useQuery(
-		['invoicesSent'],
-		() =>
-			instance.get<IInvoice[]>(
-				'https://red-project-bank-app.herokuapp.com/api/invoices/by-sender'
-			),
+		['get invoices by sender'],
+		() => InvoicesService.getBySender(),
 		{
 			select: ({ data }) => data.slice(0, 7)
 		}
@@ -36,7 +24,6 @@ export const useBalance = () => {
 		isLoadingTransfers,
 		transfers,
 		isLoadingInvoices,
-		invoices,
-		refetchTransfers
+		invoices
 	}
 }

@@ -8,17 +8,19 @@ interface IPageArrow {
 	type: 'prev' | 'next'
 	currentPage: number
 	onChangePage: (id: number) => void
+	itemsPerPage?: number
 }
 
 const PaginationArrow: FC<IPageArrow> = ({
 	itemsLimit,
 	type,
 	currentPage,
-	onChangePage
+	onChangePage,
+	itemsPerPage = 5
 }) => {
 	const isButtonDisabled = () =>
-		(type === 'prev' && currentPage === 0) ||
-		(type === 'next' && currentPage === Math.ceil(itemsLimit / 5) - 1)
+		(type === 'prev' && currentPage === 1) ||
+		(type === 'next' && currentPage === Math.ceil(itemsLimit / itemsPerPage))
 
 	const onClickArrow = ({
 		type,
