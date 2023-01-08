@@ -1,3 +1,4 @@
+import { FC } from 'react'
 import { BsArrowRightShort } from 'react-icons/bs'
 import { Navigation } from 'swiper'
 import 'swiper/css'
@@ -6,25 +7,27 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import Avatar from '@/ui/Avatar'
 
-import { recipients } from '@/screens/balance/top/balance.data'
+import { IUserContact } from '@/services/user/userProfile.interface'
 
-const RecipientsSlider = () => {
+const RecipientsSlider: FC<{ userContacts: IUserContact[] }> = ({
+	userContacts
+}) => {
 	return (
 		<div className={'mb-7'}>
 			<h3 className={'balance-card__subtitle'}>Recent Recipient</h3>
 
 			<Swiper
 				spaceBetween={28}
-				slidesPerView={6}
+				slidesPerView={4}
 				className={'max-w-full !pr-[75px] relative'}
 				modules={[Navigation]}
 			>
-				{recipients.map(recipient => (
+				{userContacts.map(recipient => (
 					<SwiperSlide key={recipient.id}>
 						<div className={'flex items-center flex-col'}>
 							<Avatar
 								size={'70px'}
-								img={recipient.img}
+								img={recipient.avatarPath}
 								name={recipient.name}
 							/>
 							<p>{recipient.name}</p>
@@ -34,7 +37,7 @@ const RecipientsSlider = () => {
 
 				<button className={'recipient-btn'}>
 					<BsArrowRightShort
-						className={'text-[#6160DC] w-[26px] h-[26px]'}
+						className={'text-[#6160DC] transition-all w-[26px] h-[26px]'}
 					/>
 				</button>
 			</Swiper>

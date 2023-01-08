@@ -3,12 +3,6 @@ export interface IProgressBar {
 	percents: number
 }
 
-export interface IBalanceInput {
-	title: string
-	placeholder: string
-	type: string
-}
-
 export interface ICard {
 	number: string
 	name: string

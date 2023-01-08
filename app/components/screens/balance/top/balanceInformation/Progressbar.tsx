@@ -4,7 +4,7 @@ import {
 	containerStyles,
 	fillerStyles
 } from '@/screens/balance/top/balanceInformation/ProgressbarStyle'
-import { IProgressBar } from '@/screens/balance/top/interfaces/balanceStats.interface'
+import { IProgressBar } from '@/screens/balance/top/interfaces/balanceTop.interface'
 
 const Progressbar: FC<IProgressBar> = ({ bgColor, percents }) => {
 	return (

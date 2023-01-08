@@ -1,55 +1,95 @@
+import { useMutation } from '@tanstack/react-query'
 import { FC, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
-import BalanceInput from '@/screens/balance/top/BalanceTransfer/BalanceInput'
+import { useUserContacts } from '@/hooks/user/useUserContacts'
+
 import BottomTransfer from '@/screens/balance/top/BalanceTransfer/BottomTransfer'
 import RecipientsSlider from '@/screens/balance/top/BalanceTransfer/RecipientsSlider'
-import { balanceInputs } from '@/screens/balance/top/balance.data'
-
-type Inputs = {
-	example: string
-	exampleRequired: string
-}
+import { ITransferForm } from '@/screens/balance/top/BalanceTransfer/transferForm.intreface'
+import { BankAccountService } from '@/services/bankAccount/bankAccount.service'
+import { IUserContact } from '@/services/user/userProfile.interface'
 
 const BalanceTransfer: FC = () => {
+	const { mutateAsync } = useMutation(
+		['transfer money'],
+		(data: any) => BankAccountService.transfer(data),
+		{
+			onSuccess: () => {
+				alert('success')
+			},
+			onError: error => {
+				alert(error)
+			}
+		}
+	)
+
 	const {
+		register,
 		handleSubmit,
-		watch,
-		formState: { errors }
-	} = useForm<Inputs>()
-	const onSubmit: SubmitHandler<Inputs> = data => console.log(data)
+		formState: { errors },
+		reset
+	} = useForm<ITransferForm>()
+
+	const onSubmit: SubmitHandler<ITransferForm> = async data => {
+		data.amount = Number(data.amount)
+		await mutateAsync(data)
+		reset()
+	}
 
 	const [isChecked, setIsChecked] = useState(false)
-	const [currentBtn, setCurrentBtn] = useState()
 
-	const onBtnClick = (btn: any) => {
-		// @ts-ignore
-		currentBtn && currentBtn.classList.remove('active')
-		btn.target.classList.add('active')
-
-		setCurrentBtn(btn.target)
+	const { data: userContactsData } = useUserContacts()
+	let userContacts = [] as IUserContact[]
+	if (userContactsData) {
+		userContacts = userContactsData
 	}
 
 	return (
 		<div className='balance-card'>
+			<h2 className={'text-xl font-bold mb-7'}>Transfer money</h2>
+
+			<RecipientsSlider userContacts={userContacts} />
+
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<h2 className={'text-xl font-bold mb-7'}>Transfer money</h2>
+				<div className={'mb-7'}>
+					<h3 className={'balance-card__subtitle'}>From</h3>
 
-				<RecipientsSlider />
-
-				{balanceInputs.map(balanceInput => (
-					<BalanceInput
-						key={balanceInput.title}
-						title={balanceInput.title}
-						placeholder={balanceInput.placeholder}
-						type={balanceInput.type}
+					<input
+						{...register('fromAccountId', {
+							required: 'Account number is required'
+						})}
+						className={'balance-input'}
+						placeholder={'Insert account number'}
+						type={'text'}
 					/>
-				))}
+				</div>
 
-				<BottomTransfer
-					isChecked={isChecked}
-					setIsChecked={setIsChecked}
-				/>
+				<div className={'mb-7'}>
+					<h3 className={'balance-card__subtitle'}>Recipient</h3>
+
+					<input
+						{...register('toAccountId', {
+							required: 'Account number is required'
+						})}
+						className={'balance-input'}
+						placeholder={'Insert account number'}
+						type={'text'}
+					/>
+				</div>
+
+				<div className={'mb-7'}>
+					<h3 className={'balance-card__subtitle'}>Amount (usd)</h3>
+
+					<input
+						{...register('amount', { required: 'Amount is required' })}
+						className={'balance-input'}
+						placeholder={'0.00'}
+						type={'number'}
+						min='1'
+					/>
+				</div>
+				<BottomTransfer isChecked={isChecked} setIsChecked={setIsChecked} />
 			</form>
 		</div>
 	)

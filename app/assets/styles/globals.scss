@@ -39,13 +39,47 @@ body {
 	}
 
 	.recipient-btn {
-		@apply absolute z-10 flex h-[60px] w-[60px] items-center justify-center rounded-full bg-[#F5F5F5];
+		@apply absolute z-10 flex h-[60px] w-[60px] items-center justify-center rounded-full bg-[#F5F5F5] transition-all;
 		top: 50%;
 		right: 0;
 		transform: translateY(-50%);
+
+		&:hover {
+			background: #6160dc;
+
+			svg {
+				fill: $white;
+			}
+		}
+	}
+
+	.balance-input {
+		@apply -mt-4 flex h-[60px] w-full items-center rounded-full bg-[#F5F5F5] pl-7 text-[#8E8EA1] focus:outline-none;
 	}
 }
 
 .disabledBtn {
 	cursor: not-allowed;
+	pointer-events: none;
+}
+
+.card-checkbox {
+	width: 20px;
+	height: 20px;
+	background-repeat: no-repeat;
+	background-position: 50%;
+	background-size: contain;
+	background-color: #f5f5f5;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	-webkit-print-color-adjust: exact;
+	margin-right: 11px;
+	cursor: pointer;
+	transition: background 0.3s;
+	vertical-align: middle;
+
+	&:checked {
+		background-color: #54c5eb;
+	}
 }

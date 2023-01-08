@@ -3,39 +3,39 @@ import {
 	ICard,
 	IRecipient,
 	IStats
-} from '@/screens/balance/top/interfaces/balanceStats.interface'
+} from '@/screens/balance/top/interfaces/balanceTop.interface'
 
 export const stats: IStats[] = [
 	{
 		id: 1,
 		title: 'Working Hard',
-		currentNum: 500,
+		currentNum: 521,
 		maxNum: 1000,
-		percents: 50,
+		percents: 52,
 		color: '#6160DC'
 	},
 	{
 		id: 2,
 		title: 'Working Hard',
-		currentNum: 750,
+		currentNum: 616,
 		maxNum: 1000,
-		percents: 75,
+		percents: 62,
 		color: '#54C5EB'
 	},
 	{
 		id: 3,
 		title: 'Working Hard',
-		currentNum: 625,
+		currentNum: 840,
 		maxNum: 1000,
-		percents: 62,
+		percents: 84,
 		color: '#FFB74A'
 	},
 	{
 		id: 4,
 		title: 'Working Hard',
-		currentNum: 250,
+		currentNum: 238,
 		maxNum: 1000,
-		percents: 25,
+		percents: 24,
 		color: '#FF4A55'
 	}
 ]
@@ -106,7 +106,7 @@ export const balanceInputs: IBalanceInput[] = [
 		type: 'text'
 	},
 	{
-		title: 'Amount',
+		title: 'Amount (usd)',
 		placeholder: '0.00',
 		type: 'number'
 	}

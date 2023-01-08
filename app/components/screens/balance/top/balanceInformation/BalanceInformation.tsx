@@ -1,18 +1,22 @@
 import { FC } from 'react'
 
-import { useCards } from '@/hooks/useCards'
+import { useCards } from '@/hooks/bankAccount/useCards'
+import { useUserProfile } from '@/hooks/user/useUserProfile'
 
-import { card, stats } from '@/screens/balance/top/balance.data'
+import { stats } from '@/screens/balance/top/balance.data'
 import BalanceStats from '@/screens/balance/top/balanceInformation/BalanceStats'
 import CardInfoItem from '@/screens/balance/top/balanceInformation/CardInfoItem'
 import Progressbar from '@/screens/balance/top/balanceInformation/Progressbar'
 import {
 	ICardNew,
 	IProgressBar
-} from '@/screens/balance/top/interfaces/balanceStats.interface'
+} from '@/screens/balance/top/interfaces/balanceTop.interface'
+import { IUserProfile } from '@/services/user/userProfile.interface'
 
 const BalanceInformation: FC = () => {
 	const { data: userCardsData } = useCards()
+	const { data: userProfileData } = useUserProfile()
+
 	const primaryCard = userCardsData?.filter(
 		cardData => cardData.type === 'primary'
 	)
@@ -20,11 +24,24 @@ const BalanceInformation: FC = () => {
 	let cardData = {} as ICardNew
 	let fixedBalance = '' as string
 	let hiddenCardNumber = '' as string
+	let expireDate = '' as string
 
 	if (primaryCard?.length) {
 		cardData = primaryCard[0]
 		fixedBalance = cardData.balance.toLocaleString()
 		hiddenCardNumber = '•••• •••• •••• ' + cardData.number.slice(12, 16)
+
+		if (cardData.expireDate.length !== 5) {
+			expireDate = `0${cardData.expireDate}`
+		} else {
+			expireDate = cardData.expireDate
+		}
+	}
+
+	let userProfile = {} as IUserProfile
+
+	if (userProfileData) {
+		userProfile = userProfileData
 	}
 
 	const progressBar: IProgressBar = {
@@ -43,8 +60,8 @@ const BalanceInformation: FC = () => {
 			/>
 
 			<div className={'flex items-center gap-[46px] my-11'}>
-				<CardInfoItem title={'Card Holder'} value={card.name} />
-				<CardInfoItem title={'Valid Thru'} value={cardData.expireDate} />
+				<CardInfoItem title={'Card Holder'} value={userProfile.name} />
+				<CardInfoItem title={'Valid Thru'} value={expireDate} />
 
 				<p className={'text-1.5xl font-bold'}>{hiddenCardNumber}</p>
 			</div>

@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { CircularProgressbar } from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css'
 
-import { IBalanceStats } from '@/screens/balance/top/interfaces/balanceStats.interface'
+import { IBalanceStats } from '@/screens/balance/top/interfaces/balanceTop.interface'
 
 const BalanceStats: FC<IBalanceStats> = ({
 	title,
@@ -38,8 +38,7 @@ const BalanceStats: FC<IBalanceStats> = ({
 			<div className={'ml-3'}>
 				<h4 className={'font-semibold'}>{title}</h4>
 				<p>
-					${currentNum} /{' '}
-					<span style={{ color: color }}>from ${maxNum}</span>
+					${currentNum} / <span style={{ color: color }}>from ${maxNum}</span>
 				</p>
 			</div>
 		</div>
