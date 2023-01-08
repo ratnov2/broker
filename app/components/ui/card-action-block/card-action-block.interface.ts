@@ -9,5 +9,5 @@ export interface PropsCardActionsBlock {
 	accountNumber:string
 	title?: string
 	description?: string
-	operation: 'topUp'| 'withdrawal' | string
+	operation: 'Top Up'| 'Withdraw'
 }

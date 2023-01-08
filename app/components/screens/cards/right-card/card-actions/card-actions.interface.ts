@@ -4,7 +4,7 @@ export interface PropsCardActions {
 
 export type TypesActionsData = {
 	className: string
-	title: string
+	title: 'Top Up' | 'Withdraw'
 	description: string
 	arrowDirection: 'left' | 'right'
 }[]

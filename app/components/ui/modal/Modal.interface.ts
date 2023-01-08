@@ -10,7 +10,7 @@ export interface PropsModal {
 	accountNumber: string
 	title?: string
 	children: ReactNode
-	operation: 'topUp' | 'withdrawal' | string
+	operation: 'Top Up' | 'Withdraw'
 }
 
 export interface PropsUseModalForm {
