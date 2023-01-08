@@ -3,8 +3,6 @@ import { AxiosResponse } from "axios"
 import {UseMutationResult} from 'react-query'
 
 export interface PropsCardActions{
-	topUp:UseMutationResult<AxiosResponse<any, any>, unknown, IOperations, unknown>
-	withdrawal:UseMutationResult<AxiosResponse<any, any>, unknown, IOperations, unknown>
 	accountNumber:string
 }
 

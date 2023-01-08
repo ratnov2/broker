@@ -13,30 +13,18 @@ export const useCardsQuery = () => {
 		() => BankAccount.getAllUserCards(),
 		{
 			select: ({ data }) =>
-				data.map(el => ({
-					...el,
-					number: NormalizeNumberCard(el.number),
-					background: BackgroundColorBank(el.bankName)
+				data.map(card => ({
+					...card,
+					number: NormalizeNumberCard(card.number),
+					background: BackgroundColorBank(card.bankName)
 				}))
 		}
 	)
 	const newCard = useMutation('create-card', () => BankAccount.createCard(), {
 		onSuccess: () => userCards.refetch()
 	})
-	const topUp = useMutation(
-		'top-up',
-		(data: IOperations) => BankAccount.makeTopUp(data),
-		{
-			onSuccess: () => userCards.refetch()
-		}
-	)
-	const withdrawal = useMutation(
-		'withdrawal',
-		(data: IOperations) => BankAccount.makeWithdrawal(data),
-		{
-			onSuccess: () => userCards.refetch()
-		}
-	)
+	
+	
 
-	return { userCards, newCard, topUp, withdrawal }
+	return { userCards, newCard }
 }

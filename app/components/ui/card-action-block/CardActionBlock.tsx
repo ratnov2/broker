@@ -1,6 +1,5 @@
 import cn from 'clsx'
 import Image from 'next/image'
-import Link from 'next/link'
 import { FC, useState } from 'react'
 
 import pointsImg from '@/assets/cardPoints.png'
@@ -44,7 +43,9 @@ const CardActionBlock: FC<PropsCardActionsBlock> = ({
 				operation={operation}
 				accountNumber={accountNumber}
 			>
-				<span>Top up for an account <b>{accountNumber}</b></span>
+				<span>
+					Top up for an account <b>{accountNumber}</b>
+				</span>
 			</Modal>
 		</div>
 	)

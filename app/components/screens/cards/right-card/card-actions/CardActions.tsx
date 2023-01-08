@@ -6,15 +6,7 @@ import style from './CardActions.module.scss'
 import { cardActionsData } from './card-actions.data'
 import { PropsCardActions } from './card-actions.interface'
 
-const CardActions: FC<PropsCardActions> = ({ topUp, withdrawal,accountNumber }) => {
-	const helperFunc = (title: string) => {
-		switch (title) {
-			case 'Top Up':
-				return topUp
-			case 'Withdraw':
-				return withdrawal
-		}
-	}
+const CardActions: FC<PropsCardActions> = ({ accountNumber }) => {
 	return (
 		<div className={style.cardActions}>
 			{cardActionsData.map(el => {
@@ -26,7 +18,7 @@ const CardActions: FC<PropsCardActions> = ({ topUp, withdrawal,accountNumber }) 
 						title={el.title}
 						key={el.title}
 						accountNumber={accountNumber}
-						operation={helperFunc(el.title)}
+						operation={el.title}
 					/>
 				)
 			})}

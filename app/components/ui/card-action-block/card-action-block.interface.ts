@@ -9,10 +9,5 @@ export interface PropsCardActionsBlock {
 	accountNumber:string
 	title?: string
 	description?: string
-	operation?: UseMutationResult<
-		AxiosResponse<any, any>,
-		unknown,
-		IOperations,
-		unknown
-	>
+	operation: 'topUp'| 'withdrawal'
 }

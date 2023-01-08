@@ -6,6 +6,7 @@ import { IOperation } from './field/operation-field.interface'
 
 export const useModalForm = ({
 	accountNumber,
+	operationQuery,
 	operation,
 	onClose
 }: PropsUseModalForm) => {
@@ -18,7 +19,7 @@ export const useModalForm = ({
 	})
 
 	const onSubmit = (data: IOperation) =>
-		operation?.mutate({
+		operationQuery?.mutate({
 			accountNumber: accountNumber,
 			amount: Number(data.amount)
 		})

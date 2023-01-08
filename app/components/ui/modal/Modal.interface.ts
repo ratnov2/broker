@@ -10,21 +10,17 @@ export interface PropsModal {
 	accountNumber: string
 	title?: string
 	children: ReactNode
-	operation?: UseMutationResult<
-		AxiosResponse<any, any>,
-		unknown,
-		IOperations,
-		unknown
-	>
+	operation: 'topUp' | 'withdrawal' | string
 }
 
 export interface PropsUseModalForm {
 	accountNumber: string
-	operation?: UseMutationResult<
+	operationQuery?: UseMutationResult<
 		AxiosResponse<any, any>,
 		unknown,
 		IOperations,
 		unknown
 	>
+	operation: string
 	onClose: () => void
 }
