@@ -14,7 +14,7 @@ const TransferItem: FC<{
 	return (
 		<div className={styles.transfer}>
 			<div className={styles.clientInfo}>
-				{transfer.invoice.recipient?.avatarPath ? (
+				{transfer.invoice?.recipient?.avatarPath ? (
 					<div className='shrink-0 w-12 h-12 rounded-[50%] overflow-hidden'>
 						<Image
 							alt={transfer.invoice.recipient.name}
@@ -27,7 +27,7 @@ const TransferItem: FC<{
 				) : (
 					<div className='shrink-0 w-12 h-12 bg-gray rounded-[50%]'></div>
 				)}
-				<span>{transfer.invoice.recipient?.name}</span>
+				<span>{transfer.invoice?.recipient.name}</span>
 			</div>
 
 			<span className={styles.transferId}>{`#${transfer.id}`}</span>

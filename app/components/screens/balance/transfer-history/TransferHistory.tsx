@@ -1,4 +1,11 @@
-import { Dispatch, FC, SetStateAction, useEffect, useMemo } from 'react'
+import {
+	Dispatch,
+	FC,
+	SetStateAction,
+	useEffect,
+	useMemo,
+	useState
+} from 'react'
 
 import Loader from '@/ui/loader/Loader'
 import Pagination from '@/ui/pagination/Pagination'
@@ -20,6 +27,17 @@ const TransferHistory: FC<ITransferHistoryProps> = ({
 	setCurrentPage,
 	transfers
 }) => {
+	const [itemsLimit, setItemsLimit] = useState<number | null>(null)
+	useEffect(() => {
+		if (!itemsLimit && transfers?.length) {
+			setItemsLimit(transfers.length)
+		}
+
+		if (itemsLimit !== transfers?.length && transfers?.length) {
+			setItemsLimit(transfers?.length)
+		}
+	}, [transfers])
+
 	return (
 		<div className={styles.transferHistory}>
 			<h2>Transfer History</h2>
@@ -38,9 +56,9 @@ const TransferHistory: FC<ITransferHistoryProps> = ({
 				</div>
 			)}
 
-			{transfers?.length && (
+			{itemsLimit && (
 				<Pagination
-					itemsLimit={transfers.length}
+					itemsLimit={itemsLimit}
 					currentPage={currentPage}
 					setCurrentPage={setCurrentPage}
 				/>

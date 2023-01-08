@@ -1,5 +1,7 @@
 import { Dispatch, FC, SetStateAction } from 'react'
 
+import { getPagination } from '@/utils/get-pagination'
+
 import styles from './Pagination.module.scss'
 import PaginationArrow from './PaginationArrow/PaginationArrow'
 import PaginationButton from './PaginationButton/PaginationButton'
@@ -17,23 +19,8 @@ const Pagination: FC<IPaginationProps> = ({
 	itemsLimit,
 	itemsPerPage = 5
 }) => {
-	const getPaginationButtons = (currentPage: number) => {
-		const numberOfPages = Math.ceil((itemsLimit || 0) / itemsPerPage)
-
-		const array = []
-		for (let i = 1; i <= numberOfPages; i++) {
-			array.push(i)
-		}
-
-		return currentPage === numberOfPages
-			? array.slice(currentPage - 3, currentPage)
-			: currentPage === 1
-			? array.slice(0, currentPage + 2)
-			: array.slice(currentPage - 2, currentPage + 1)
-	}
-
-	const minItemNumberPerPage = itemsPerPage * (currentPage - 1) + 1
-	const maxItemNumberPerPage = itemsPerPage * currentPage
+	const { paginationButtons, minItemNumberPerPage, maxItemNumberPerPage } =
+		getPagination(itemsLimit, currentPage, itemsPerPage)
 
 	const onChangePage = (id: number) => {
 		setCurrentPage(id)
@@ -54,7 +41,7 @@ const Pagination: FC<IPaginationProps> = ({
 					onChangePage={onChangePage}
 				/>
 				{itemsLimit &&
-					getPaginationButtons(currentPage).map(item => (
+					paginationButtons.map(item => (
 						<PaginationButton
 							key={item}
 							id={item}

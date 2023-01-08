@@ -4,7 +4,7 @@ import { TransactionsService } from '@/services/transactions.service'
 
 export const useMenuActions = (itemId: number) => {
 	const { mutateAsync: deleteAsync } = useMutation(
-		['delete transter history item', itemId],
+		['delete transfer history item', itemId],
 		() => TransactionsService.delete(itemId)
 	)
 

@@ -2,29 +2,13 @@ import { useQueryClient } from '@tanstack/react-query'
 import cn from 'clsx'
 import { FC, useEffect, useRef, useState } from 'react'
 
+import { useClickOutside } from '@/hooks/useClickOtside'
+
 import styles from './Menu.module.scss'
 import { useMenuActions } from './useMenuActions'
 
-type PopupClickOutside = MouseEvent & {
-	path: Node[]
-}
-
 const Menu: FC<{ transferId: number }> = ({ transferId }) => {
-	const menuRef = useRef<HTMLDivElement>(null)
-	const [isActive, setIsActive] = useState<boolean>(false)
-
-	useEffect(() => {
-		const handleClickOutside = (event: MouseEvent) => {
-			const _event = event as PopupClickOutside
-
-			if (menuRef.current && !_event.path.includes(menuRef.current)) {
-				setIsActive(false)
-			}
-		}
-		document.body.addEventListener('click', handleClickOutside)
-
-		return () => document.body.removeEventListener('click', handleClickOutside)
-	}, [])
+	const { menuRef, isActive, setIsActive } = useClickOutside()
 
 	const { deleteAsync } = useMenuActions(transferId)
 	const queryClient = useQueryClient()
@@ -37,9 +21,9 @@ const Menu: FC<{ transferId: number }> = ({ transferId }) => {
 				}}
 				className={cn(isActive && 'rotate-90')}
 			>
-				<span></span>
-				<span></span>
-				<span></span>
+				<span />
+				<span />
+				<span />
 			</button>
 
 			<div

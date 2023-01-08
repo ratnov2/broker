@@ -14,7 +14,7 @@ export interface ITransaction {
 	invoiceId: number
 	userId: number
 	user: TypeUser
-	invoice: IInvoice
+	invoice: IInvoice | null
 }
 
 export interface ITransfers {
