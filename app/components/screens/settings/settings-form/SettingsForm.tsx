@@ -137,3 +137,5 @@ const SettingsForm: FC<ISettingsForm> = ({ onSubmit, data }) => {
 		</form>
 	)
 }
+
+export default SettingsForm
