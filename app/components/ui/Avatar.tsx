@@ -15,6 +15,7 @@ const Avatar = ({
 				className={'rounded-full object-cover'}
 				fill
 				src={img ? img : '/images/nophoto.png'}
+				sizes={'100%'}
 				alt={name}
 			/>
 		</div>

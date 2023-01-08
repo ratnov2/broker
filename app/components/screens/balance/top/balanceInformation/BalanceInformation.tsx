@@ -7,10 +7,7 @@ import { stats } from '@/screens/balance/top/balance.data'
 import BalanceStats from '@/screens/balance/top/balanceInformation/BalanceStats'
 import CardInfoItem from '@/screens/balance/top/balanceInformation/CardInfoItem'
 import Progressbar from '@/screens/balance/top/balanceInformation/Progressbar'
-import {
-	ICardNew,
-	IProgressBar
-} from '@/screens/balance/top/interfaces/balanceTop.interface'
+import { ICardNew } from '@/screens/balance/top/interfaces/balanceTop.interface'
 import { IUserProfile } from '@/services/user/userProfile.interface'
 
 const BalanceInformation: FC = () => {
@@ -44,20 +41,12 @@ const BalanceInformation: FC = () => {
 		userProfile = userProfileData
 	}
 
-	const progressBar: IProgressBar = {
-		bgColor: '#6160DC',
-		percents: 53
-	}
-
 	return (
 		<div className={'balance-card'}>
 			<h3 className={'font-normal text-1xl text-[#8E8EA1]'}>My Balance</h3>
 			<p className={'text-3xl font-bold mt-1'}>{`$ ${fixedBalance}`}</p>
 
-			<Progressbar
-				bgColor={progressBar.bgColor}
-				percents={progressBar.percents}
-			/>
+			<Progressbar />
 
 			<div className={'flex items-center gap-[46px] my-11'}>
 				<CardInfoItem title={'Card Holder'} value={userProfile.name} />

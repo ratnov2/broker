@@ -26,6 +26,7 @@ const BottomTransfer: FC<{ isChecked: boolean; setIsChecked: any }> = ({
 				className={`${
 					isChecked ? '' : 'disabledBtn'
 				} rounded-full bg-[#6160DC] hover:bg-[#4140e3] transition-all py-[19px] text-white font-semibold w-1/2 h-[60px] flex items-center justify-center`}
+				disabled={!isChecked}
 			>
 				Transfer
 			</button>

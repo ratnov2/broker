@@ -1,8 +1,9 @@
 .layout {
+	min-height: 100vh;
 	@apply flex flex-wrap;
 
 	> main {
-		@apply bg-light-gray w-4/5 py-8 px-10;
+		@apply w-4/5 bg-light-gray py-8 px-10;
 
 		> .content {
 		}

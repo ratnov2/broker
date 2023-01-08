@@ -1,4 +1,4 @@
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { FC, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
@@ -10,13 +10,19 @@ import { ITransferForm } from '@/screens/balance/top/BalanceTransfer/transferFor
 import { BankAccountService } from '@/services/bankAccount/bankAccount.service'
 import { IUserContact } from '@/services/user/userProfile.interface'
 
-const BalanceTransfer: FC = () => {
+const BalanceTransfer: FC<{ setIsModalOpened: any }> = ({
+	setIsModalOpened
+}) => {
+	const queryClient = useQueryClient()
+
 	const { mutateAsync } = useMutation(
 		['transfer money'],
 		(data: any) => BankAccountService.transfer(data),
 		{
 			onSuccess: () => {
-				alert('success')
+				setIsModalOpened(true)
+				document.querySelector('body')?.classList.add('active')
+				queryClient.invalidateQueries({ queryKey: ['getCards'] })
 			},
 			onError: error => {
 				alert(error)
