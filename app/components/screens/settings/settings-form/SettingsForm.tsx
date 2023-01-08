@@ -1,5 +1,6 @@
+import { useQuery } from '@tanstack/react-query'
 import { FC } from 'react'
-import { Controller, UseFormRegister, useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 
 import Select from '@/ui/select/Select'
 import Switch from '@/ui/switch/Switch'
@@ -10,6 +11,7 @@ import InputField from './inputField/InputField'
 import styles from './settings-form.module.scss'
 import { ISettings, ISettingsForm } from './settings.interface'
 import UploadField from './uploadField/UploadField'
+import { UserService } from '@/services/user/user.service'
 
 const selectOptions = [
 	{
@@ -31,9 +33,19 @@ const SettingsForm: FC<ISettingsForm> = ({ onSubmit, data }) => {
 		register,
 		handleSubmit,
 		control,
-		formState: { errors }
+		formState: { errors },
+		setValue
 	} = useForm<ISettings>({
 		defaultValues: data
+	})
+
+	useQuery(['useUserProfile'], UserService.getProfile, {
+		onSuccess: data => {
+			setValue('email', data.email)
+			setValue('name', data.name)
+			setValue('address', data.address)
+			setValue('avatarPath', data.avatarPath)
+		}
 	})
 
 	return (

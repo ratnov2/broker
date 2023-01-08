@@ -30,14 +30,14 @@ instance.interceptors.response.use(
 		const originalRequest = error.config
 
 		if (
-			error.response.status === 401 &&
-			error.response.statusText === 'Unauthorized'
+			error.response?.status === 401 &&
+			error.response?.statusText === 'Unauthorized'
 		) {
 			throw error
 		}
 
 		if (
-			(error.response.status === 401 ||
+			(error.response?.status === 401 ||
 				errorCatch(error) === 'jwt expired' ||
 				errorCatch(error) === 'jwt must be provided') &&
 			error.config &&

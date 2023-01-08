@@ -1,8 +1,7 @@
-import { ChangeEvent, useCallback, useMemo, useState } from 'react'
 import { useMutation } from '@tanstack/react-query'
+import { ChangeEvent, useCallback, useMemo, useState } from 'react'
 
 //import { toastError } from '@/utils/api/withToastrErrorRedux'
-
 import { FileService } from '@/services/file/file.service'
 
 type TypeUpload = (
@@ -20,7 +19,7 @@ export const useUpload: TypeUpload = (onChange, folder) => {
 		(data: FormData) => FileService.upload(data, folder),
 		{
 			onSuccess({ data }) {
-				onChange(data[0].url)
+				onChange(data.url)
 			},
 			onError(error) {
 				alert(error)
@@ -34,7 +33,7 @@ export const useUpload: TypeUpload = (onChange, folder) => {
 			const files = e.target.files
 			if (files?.length) {
 				const formData = new FormData()
-				formData.append('image', files[0])
+				formData.append('file', files[0])
 				await mutateAsync(formData)
 
 				setTimeout(() => {

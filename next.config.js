@@ -21,6 +21,10 @@ const nextConfig = {
 			{
 				source: '/api/:path*',
 				destination: `https://red-project-bank-app.herokuapp.com/api/:path*`
+			},
+			{
+				source: '/uploads/:path*',
+				destination: `https://red-project-bank-app.herokuapp.com/uploads/:path*`
 			}
 		]
 	}
