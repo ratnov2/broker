@@ -8,15 +8,15 @@ const TransactionDetailFooter: FC<ITransactionDetail> = props => {
 	const column: ICol[] = [
 		{
 			name: 'Subtotal',
-			desc: '$'+String(props.subtotal)
+			desc: '$' + String(props.amount)
 		},
 		{
 			name: 'Tax',
-			desc: String(props.tax)+'%'
+			desc: String(0) + '%'
 		},
 		{
 			name: 'Total',
-			desc: '$'+String(props.total)
+			desc: '$' + String(props.amount)
 		}
 	]
 
@@ -27,16 +27,18 @@ const TransactionDetailFooter: FC<ITransactionDetail> = props => {
 			<div className='items-start justify-between border-b  border-light-gray  text-sm text-[#8E8EA1] mt-3 p-1'>
 				{column.map(column => (
 					<div className='flex justify-between font-bold'>
-						<div className={styles.Margin}/>
-                        <div className={styles[column.name]}>{column.name}</div>
-						<div className={styles[column.name+'Desc']}>{column.desc}</div>
+						<div className={styles.Margin} />
+						<div className={styles[column.name]}>{column.name}</div>
+						<div className={styles[column.name + 'Desc']}>
+							{column.desc}
+						</div>
 					</div>
 				))}
 			</div>
 
 			<div className={styles.Note}>
 				<span className='mb-2'>Note:</span>
-				<p className='text-left text-black'>{props.note}</p>
+				<p className='text-left text-black'>{'--'}</p>
 			</div>
 		</>
 	)

@@ -1,10 +1,9 @@
 import React, { FC } from 'react'
 
-import { ITransactionDetail } from '../transaction-detail.interface'
-
 import styles from '@/screens/transaction-detail/items/Items.module.scss'
 import Item from '@/screens/transaction-detail/items/item/Item'
 import LeftBlock from '@/screens/transaction-detail/items/left-block/LeftBlock'
+import { ITransactionDetail } from '@/screens/transaction-detail/transaction-detail.interface'
 
 const TransactionDetailitems: FC<ITransactionDetail> = props => {
 	return (
@@ -13,7 +12,7 @@ const TransactionDetailitems: FC<ITransactionDetail> = props => {
 				<LeftBlock {...props} />
 			</div>
 			<div className={styles.tableSize}>
-				{props.invTable.map(item => (
+				{props.items.map(item => (
 					<Item {...item} key={item.id} />
 				))}
 			</div>

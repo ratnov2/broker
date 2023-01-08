@@ -1,45 +1,54 @@
 export interface ITransactionSelect {
-    clientId: string
-    project: string
-    date: string
+    id: string
 }
 
 export interface ITransactionDetail {
-    id: number
-    recipientAvatar: string
-    recipient: string
-    email: string
-    subtotal: number
-    tax: number
-    total: number
-    project: string
-    paymentType: string
-    note: string
-    invTable: ITransactionTableDetail[]
+    id: number,
+    createdAt: string,
+    updatedAt: string,
+    amount: number,
+    senderId: number,
+    recipientId: number,
+    items: ITransactionDetailItems[]
+    recipient: {
+        email: string,
+        id: number,
+        name: string,
+        avatarPath: string,
+        address: string
+    },
+    sender: {
+        email: string,
+        id: number,
+        name: string,
+        avatarPath: string,
+        address: string
+    }
+
 }
 
-
-export interface ITransactionTableDetail {
-    id: number
-    date: string
-    description: string
-    duration: string
-    rate: string
-    amount: number
+export interface ITransactionDetailItems {
+    id: number,
+    name: string,
+    duration: number,
+    rate: number,
+    amount: number,
+    invoiceId: number
 }
 
 export interface IClientData {
-    image: boolean
+    avatar: boolean
     styleH: string
     description0: string
     style0: string
-    description1: string
-    style1: string
+    description1?: string
+    style1?: string
+    avatarPath?: string
 }
 
 export interface ICol {
-	name: string
-	desc: string
+    name: string
+    desc: string
 }
 
 

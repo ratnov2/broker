@@ -4,18 +4,18 @@ import DownloadAction from '@/screens/transaction-detail/title/download/Download
 import PrintAction from '@/screens/transaction-detail/title/print/Print'
 import { ITransactionDetail } from '@/screens/transaction-detail/transaction-detail.interface'
 
-const Title: FC<ITransactionDetail> = ({ project }) => {
+const Title: FC<ITransactionDetail> = ({ id }) => {
 	return (
-		<div className='flex justify-between items-center mb-4 flex-wrap'>
+		<div className='flex justify-between mb-4'>
 			<div>
-				<div className='flex  items-start'>
+				<div className='flex'>
 					<span className='text-sm text-[#8E8EA1]'>Project name</span>
 				</div>
 				<h1 className='text-top text-4xl font-bold text-black'>
-					{project}
+					{id}
 				</h1>
 			</div>
-			<div className='flex justify-between mb-4'>
+			<div className='flex justify-end mb-4'>
 				<PrintAction />
 				<DownloadAction />
 			</div>

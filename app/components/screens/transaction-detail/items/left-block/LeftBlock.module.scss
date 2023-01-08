@@ -1,3 +1,18 @@
 .leftBlock {
-	@apply w-3/12;
+	@apply w-5/12;
+}
+
+.paymentType {
+	@apply mb-3 font-bold text-black;
+}
+
+.dueDate {
+	@apply mb-3 mt-5;
+}
+
+.createdAt {
+	@apply mb-3 font-bold;
+	&__control {
+		background-color: #6160dc !important;
+	}
 }
