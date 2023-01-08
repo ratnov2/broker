@@ -4,13 +4,8 @@
     <list default="true" id="84fadd52-d4f0-45ec-9b6e-4ed9aefdf95e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/assets/styles/globals.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/styles/globals.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/layout/Layout.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/layout/Layout.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/screens/balance/Balance.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/screens/balance/Balance.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/screens/balance/top/BalanceTransfer/BalanceTransfer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/screens/balance/top/BalanceTransfer/BalanceTransfer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/screens/balance/top/BalanceTransfer/BottomTransfer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/screens/balance/top/BalanceTransfer/BottomTransfer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/screens/balance/top/balanceInformation/BalanceInformation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/screens/balance/top/balanceInformation/BalanceInformation.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/screens/balance/top/balanceInformation/Progressbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/screens/balance/top/balanceInformation/Progressbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/ui/Avatar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/Avatar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/hooks/bankAccount/useTransfer.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +100,7 @@
       <workItem from="1672973672719" duration="23328000" />
       <workItem from="1673061961127" duration="8885000" />
       <workItem from="1673080483860" duration="2653000" />
-      <workItem from="1673084102047" duration="32303000" />
+      <workItem from="1673084102047" duration="33962000" />
     </task>
     <servers />
   </component>

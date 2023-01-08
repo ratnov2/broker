@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { BsCheckLg } from 'react-icons/bs'
 
 const BottomTransfer: FC<{ isChecked: boolean; setIsChecked: any }> = ({
 	isChecked,
@@ -8,7 +9,7 @@ const BottomTransfer: FC<{ isChecked: boolean; setIsChecked: any }> = ({
 		<div className={'flex items-center justify-between mt-2'}>
 			<div>
 				<label
-					className={'text-sm text-[#8E8EA1] cursor-pointer align-middle'}
+					className={'text-sm text-[#8E8EA1] cursor-pointer flex items-center'}
 					htmlFor='card-checkbox'
 				>
 					<input
@@ -18,7 +19,14 @@ const BottomTransfer: FC<{ isChecked: boolean; setIsChecked: any }> = ({
 						checked={isChecked}
 						onChange={() => setIsChecked(!isChecked)}
 					/>
-					I accept privacy policy
+					<div
+						className={`w-[20px] h-[20px] bg-[#f5f5f5] mr-[11px] flex items-center justify-center rounded-[4px] ${
+							isChecked ? 'bg-[#54c5eb]' : ''
+						}`}
+					>
+						{isChecked && <BsCheckLg className={'text-white'} />}
+					</div>
+					<span>I accept privacy policy</span>
 				</label>
 			</div>
 
