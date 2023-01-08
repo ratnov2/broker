@@ -3,7 +3,7 @@ import { IUserCard } from '@/shared/types/bank-accounts.interface'
 import { Dispatch, SetStateAction } from 'react'
 
 export interface PropsSlider {
-	userCards: TypeUserCardAndStyle[]
+	userCards: IUserCard[]
 	setIndex: Dispatch<SetStateAction<number>>
 	sliderPerView: number
 	initialIndex: number
@@ -11,7 +11,7 @@ export interface PropsSlider {
 	setVisibleNumberCard: Dispatch<SetStateAction<boolean>>
 }
 export interface PropsUseSlider {
-	setIndex?: Dispatch<SetStateAction<number>>
+	setIndex: Dispatch<SetStateAction<number>>
 }
 
 export type TypeStyleCard = {

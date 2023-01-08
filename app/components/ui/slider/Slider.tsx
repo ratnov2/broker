@@ -1,9 +1,11 @@
-import { useGetProfile } from '@/hooks/useGetProfile'
 import cn from 'clsx'
 import { FC } from 'react'
 import { EffectCoverflow } from 'swiper'
 import { Swiper } from 'swiper/react'
 import { SwiperSlide } from 'swiper/react'
+
+import { BackgroundColorBank } from '@/utils/background-color-bank'
+import { NormalizeNumberCard } from '@/utils/normalize-number-card'
 
 import Arrow from '../arrow/Arrow'
 import Card from '../card/Card'
@@ -26,7 +28,12 @@ const Slider: FC<PropsSlider> = ({
 }) => {
 	const { sliderRef, handleNext, handlePrev } = useSlider({ setIndex })
 
-	
+	const userCardsStyle = userCards.map(card => ({
+		...card,
+		number: NormalizeNumberCard(card.number),
+		background: BackgroundColorBank(card.bankName)
+	}))
+
 	return (
 		<div className='relative'>
 			<Swiper
@@ -44,34 +51,24 @@ const Slider: FC<PropsSlider> = ({
 				}}
 				modules={[EffectCoverflow]}
 			>
-				{userCards.map((el, key) => {
+				{userCardsStyle.map((card, key) => {
 					return (
-						<SwiperSlide key={el.number}>
+						<SwiperSlide key={card.number}>
 							{({ isActive, isNext, isPrev }) => {
 								return (
 									<Card
 										className={cn(
 											isActive &&
-												initialStyleTransformIsActive[
-													sliderPerView - 1
-												],
-											isPrev &&
-												initialStyleTransformIsPrev[
-													sliderPerView - 1
-												],
-											isNext &&
-												initialStyleTransformIsNext[
-													sliderPerView - 1
-												],
-											`${userCards[key].background}`
+												initialStyleTransformIsActive[sliderPerView - 1],
+											isPrev && initialStyleTransformIsPrev[sliderPerView - 1],
+											isNext && initialStyleTransformIsNext[sliderPerView - 1],
+											`${userCardsStyle[key].background}`
 										)}
 										widthCard={sliderPerView * 88.8}
-										userCard={el}
+										userCard={card}
 										styleFigure={!isActive}
 										visibleNumberCard={visibleNumberCard}
-										setVisibleNumberCard={
-											setVisibleNumberCard
-										}
+										setVisibleNumberCard={setVisibleNumberCard}
 									/>
 								)
 							}}
@@ -80,14 +77,10 @@ const Slider: FC<PropsSlider> = ({
 				})}
 			</Swiper>
 
-			
-			{!sliderRef.current?.swiper.isEnd  && (
-				<Arrow
-					className='-right-4 top-32 absolute z-50'
-					onClick={handleNext}
-				/>
+			{!sliderRef.current?.swiper.isEnd && (
+				<Arrow className='-right-4 top-32 absolute z-50' onClick={handleNext} />
 			)}
-			{!sliderRef.current?.swiper.isBeginning &&  (
+			{!sliderRef.current?.swiper.isBeginning && (
 				<Arrow
 					className='rotate-180 -left-4 top-32 absolute z-50'
 					onClick={handlePrev}

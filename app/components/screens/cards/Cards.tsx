@@ -8,9 +8,11 @@ import Operations from './right-card/card-actions/CardActions'
 import Description from './right-card/description/Description'
 import { useCardsQuery } from './useCardsQuery'
 import { useInitializeSliderCard } from './useInitializeSliderCards'
+import LimitCard from './left-card/limit-card/LimitCard'
 
 const Cards: FC = () => {
 	const { newCard, userCards } = useCardsQuery()
+
 	const {
 		setIndex,
 		sliderPerView,
@@ -40,7 +42,7 @@ const Cards: FC = () => {
 								/>
 							}
 							<div className={style.bottomPlace}>
-								{/* <LimitCard limit={LimitData} /> */}
+								<LimitCard/>
 								<div>
 									<AddNewCard createCard={newCard} />
 								</div>

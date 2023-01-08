@@ -1,19 +1,16 @@
 import { useEffect, useState } from 'react'
 
-import { TypeUserCardAndStyle } from '@/ui/slider/slider.interface'
+import { IUserCard } from '@/shared/types/bank-accounts.interface'
 
 import { SliderInitialIdx } from '@/utils/slider/slider-initial-index'
 import { SliderPerView } from '@/utils/slider/slider-per-view'
 
-
-export const useInitializeSliderCard = (
-	cards: TypeUserCardAndStyle[] | undefined
-) => {
+export const useInitializeSliderCard = (cards?: IUserCard[]) => {
 	const [sliderPerView, setSliderPerView] = useState<number>(1)
 	const [initialIndex, setInitialIndex] = useState<number>(1)
 
 	const [index, setIndex] = useState<number>(0)
-	const [currentCard, setCurrentCard] = useState<TypeUserCardAndStyle>()
+	const [currentCard, setCurrentCard] = useState<IUserCard>()
 	const [visibleNumberCard, setVisibleNumberCard] = useState<boolean>(false)
 
 	useEffect(() => {

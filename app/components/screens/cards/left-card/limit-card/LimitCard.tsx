@@ -1,12 +1,13 @@
 import { FC } from 'react'
 
-
 import { convertMoneyToNormalize } from '@/utils/convert-money-to-normalize'
 
-import { PropsLimitCard } from './limit-card.interface'
-
-const LimitCard: FC<PropsLimitCard> = ({ limit }) => {
-	const { all, now } = limit
+const LimitCard: FC = () => {
+	//Fake Data
+	const { all, now } = {
+		all: 40000,
+		now: 25000
+	}
 
 	return (
 		<div>

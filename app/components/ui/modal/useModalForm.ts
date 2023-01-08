@@ -7,12 +7,12 @@ import { IOperation } from './field/operation-field.interface'
 export const useModalForm = ({
 	accountNumber,
 	operationQuery,
-	operation,
 	onClose
 }: PropsUseModalForm) => {
 	const {
 		register: registerInput,
 		handleSubmit,
+		reset,
 		formState
 	} = useForm<IOperation>({
 		mode: 'onChange'
@@ -28,5 +28,5 @@ export const useModalForm = ({
 		e.preventDefault()
 		onClose()
 	}
-	return { onSubmit, handleCloseClick, registerInput, handleSubmit, formState }
+	return { onSubmit, handleCloseClick, registerInput, handleSubmit, formState,reset }
 }

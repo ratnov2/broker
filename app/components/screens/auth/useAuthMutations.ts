@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { UseFormReset } from 'react-hook-form'
-import { useMutation } from 'react-query'
+import { useMutation } from '@tanstack/react-query'
 
 import { IAuthFormData } from '@/shared/types/auth.interface'
 

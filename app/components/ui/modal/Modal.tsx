@@ -1,6 +1,6 @@
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { FC, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { useMutation } from 'react-query'
 
 import { IOperations } from '@/shared/types/bank-accounts.interface'
 
@@ -10,7 +10,6 @@ import { PropsModal } from './Modal.interface'
 import style from './Modal.module.scss'
 import OperationFields from './field/OperationFields'
 import { useModalForm } from './useModalForm'
-import { useCardsQuery } from '@/screens/cards/useCardsQuery'
 import { BankAccountService } from '@/services/card/bank-account.service'
 
 const Modal: FC<PropsModal> = ({
@@ -21,24 +20,30 @@ const Modal: FC<PropsModal> = ({
 	accountNumber,
 	operation
 }) => {
-	const { userCards } = useCardsQuery()
+	const queryClient = useQueryClient()
 
 	const operationQuery = useMutation(
-		'make-operation',
+		['make-operation'],
 		(data: IOperations) => BankAccountService.makeOperation(operation, data),
 		{
 			onSuccess() {
-				userCards.refetch()
+				queryClient.invalidateQueries(['get-user-cards'])
+				onClose()
+				reset({})
 			}
 		}
 	)
-	const { handleSubmit, onSubmit, registerInput, formState, handleCloseClick } =
-		//@ts-ignore
-		useModalForm({ onClose, accountNumber, operationQuery, operation })
+	const {
+		handleSubmit,
+		onSubmit,
+		registerInput,
+		formState,
+		handleCloseClick,
+		reset
+	} = useModalForm({ onClose, accountNumber, operationQuery })
+
 	const [isBrowser, setIsBrowser] = useState(false)
-	useEffect(() => {
-		if (operationQuery?.isSuccess) onClose()
-	}, [operation])
+
 	useEffect(() => {
 		setIsBrowser(true)
 	}, [])

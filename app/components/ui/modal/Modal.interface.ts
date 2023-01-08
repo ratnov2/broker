@@ -1,6 +1,6 @@
+import { UseMutationResult } from '@tanstack/react-query'
 import { AxiosResponse } from 'axios'
 import { ReactNode } from 'react'
-import { UseMutationResult } from 'react-query'
 
 import { IOperations } from '@/shared/types/bank-accounts.interface'
 
@@ -16,11 +16,10 @@ export interface PropsModal {
 export interface PropsUseModalForm {
 	accountNumber: string
 	operationQuery?: UseMutationResult<
-		AxiosResponse<any, any>,
+		AxiosResponse<any, any> | undefined,
 		unknown,
 		IOperations,
 		unknown
 	>
-	operation: string
 	onClose: () => void
 }

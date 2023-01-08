@@ -11,7 +11,7 @@ export interface IUserCard {
   expireDate: string,
   cvc: 0,
   paymentSystem: string,
-  type: string,
+  type: 'primary'| 'secondary',
   bankName: string,
   bankAccountId: string
 }
