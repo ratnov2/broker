@@ -12,7 +12,7 @@ const Title: FC<ITransactionDetail> = ({ id }) => {
 					<span className='text-sm text-[#8E8EA1]'>Project name</span>
 				</div>
 				<h1 className='text-top text-4xl font-bold text-black'>
-					{id}
+				#{id}
 				</h1>
 			</div>
 			<div className='flex justify-end mb-4'>
