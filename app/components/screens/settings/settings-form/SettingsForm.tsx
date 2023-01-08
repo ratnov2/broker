@@ -1,14 +1,15 @@
 import { FC } from 'react'
-import { UseFormRegister, useForm } from 'react-hook-form'
+import { Controller, UseFormRegister, useForm } from 'react-hook-form'
 
 import Select from '@/ui/select/Select'
 import Switch from '@/ui/switch/Switch'
 
 import packageJson from '../../../../../package.json'
 
-import styles from './SettingsForm.module.scss'
 import InputField from './inputField/InputField'
+import styles from './settings-form.module.scss'
 import { ISettings, ISettingsForm } from './settings.interface'
+import UploadField from './uploadField/UploadField'
 
 const selectOptions = [
 	{
@@ -29,6 +30,7 @@ const SettingsForm: FC<ISettingsForm> = ({ onSubmit, data }) => {
 	const {
 		register,
 		handleSubmit,
+		control,
 		formState: { errors }
 	} = useForm<ISettings>({
 		defaultValues: data
@@ -94,14 +96,22 @@ const SettingsForm: FC<ISettingsForm> = ({ onSubmit, data }) => {
 						placeholder={'Email'}
 						type={'email'}
 					/>
-					<InputField
-						register={register}
-						errors={errors}
-						title={'Pin'}
-						fieldId={'pin'}
-						errorMsg={'Pin is required'}
-						placeholder={'Phone number'}
-						type={'password'}
+					<Controller
+						name='avatarPath'
+						defaultValue=''
+						control={control}
+						render={({ field: { value, onChange }, fieldState: { error } }) => (
+							<UploadField
+								placeholder='Avatar'
+								error={error}
+								folder='avatar'
+								image={value}
+								onChange={onChange}
+							/>
+						)}
+						rules={{
+							required: 'Avatar is required!'
+						}}
 					/>
 					<InputField
 						register={register}
