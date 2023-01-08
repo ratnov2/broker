@@ -1,26 +1,14 @@
-import { useMutation } from '@tanstack/react-query';
-import { FC, useState } from 'react';
+import { FC, useState } from 'react'
 
+import Layout from '@/layout/Layout'
 
+import { ISettingInput } from '@/shared/types/users.types'
 
-//import { SubmitErrorHandler, SubmitHandler } from 'react-hook-form'
-import Layout from '@/layout/Layout';
+import { useUserProfile } from '@/hooks/useUserProfile'
 
-
-
-import { ISettingInput } from '@/shared/types/users.types';
-
-
-
-import { useUserProfile } from '@/hooks/useUserProfile';
-
-
-
-import SettingsForm from './settings-form/SettingsForm';
-import { ISettings } from './settings-form/settings.interface';
-import { UserService } from '@/services/users/users.service';
-import da from 'date-fns/esm/locale/da/index.js';
-
+import SettingsForm from './settings-form/SettingsForm'
+import { ISettings } from './settings-form/settings.interface'
+import { UserService } from '@/services/users/users.service'
 
 const Transactions: FC = () => {
 	const onSubmit = async (data: ISettings) => {

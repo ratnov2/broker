@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { useForm } from 'react-hook-form'
+import { UseFormRegister, useForm } from 'react-hook-form'
 
 import Select from '@/ui/select/Select'
 import Switch from '@/ui/switch/Switch'
@@ -7,7 +7,7 @@ import Switch from '@/ui/switch/Switch'
 import packageJson from '../../../../../package.json'
 
 import styles from './SettingsForm.module.scss'
-import { SettingsInputs } from './settings.data'
+import InputField from './inputField/InputField'
 import { ISettings, ISettingsForm } from './settings.interface'
 
 const selectOptions = [
@@ -44,10 +44,7 @@ const SettingsForm: FC<ISettingsForm> = ({ onSubmit, data }) => {
 				<div className='w-3/4 pl-10 text-xl font-bold text-black '>Account</div>
 			</div>
 			<div className='flex'>
-				<div
-					id='left'
-					className='flex mt-10 w-1/4 flex-col border-r-[1px] border-gray'
-				>
+				<div className={styles.leftContainer}>
 					<div className='flex w-full flex-col space-y-2 col-span-1'>
 						<label className='text-gray font-thin'>Notification</label>
 						<Switch
@@ -56,7 +53,7 @@ const SettingsForm: FC<ISettingsForm> = ({ onSubmit, data }) => {
 							{...register('notificationOn')}
 						/>
 					</div>
-					<div className='flex w-full mt-20 flex-col space-y-2 col-span-1'>
+					<div className='flex w-full flex-col space-y-2 col-span-1 mt-20 '>
 						<label className='text-gray font-thin'>Language</label>
 						<Select
 							options={selectOptions}
@@ -67,63 +64,56 @@ const SettingsForm: FC<ISettingsForm> = ({ onSubmit, data }) => {
 							defaultValue={selectOptions[0]}
 						/>
 					</div>
-					<div className='flex w-full mt-16 pt-2 flex-col space-y-2 col-span-1'>
+					<div className='flex w-full flex-col space-y-2 col-span-1 mt-16 pt-2 '>
 						<label className='text-gray font-thin'>Face ID Login</label>
 						<Switch key={'xl'} dimension={'xl'} {...register('useFaceID')} />
 					</div>
-					<div className='flex w-full  mt-16 pt-2 flex-col space-y-2 col-span-1'>
+					<div className='flex w-full flex-col space-y-2 col-span-1  mt-16 pt-2 '>
 						<label className='text-gray font-thin'>
 							Ligth Mode / Dark Mode
 						</label>
 						<Switch key={'xl'} dimension={'xl'} {...register('lightMode')} />
 					</div>
 				</div>
-				<div
-					id='right'
-					className='grid grid-cols-2 gap-8 bg-white p-10 rounded-3xl w-3/4'
-				>
-					<div className='flex flex-col space-y-2 col-span-1'>
-						<label className='text-gray font-thin'>ID</label>
-						<input
-							{...register('name', { required: "Name is required" })}
-							className={styles['settings-input']}
-							type={'text'}
-							placeholder={'Name'}
-						/>
-						{errors && <p>{errors['name']?.message}</p>}
-					</div>
-					<div className='flex flex-col space-y-2 col-span-1'>
-						<label className='text-gray font-thin'>Email</label>
-						<input
-							{...register('email', { required: "Email is required" })}
-							className={styles['settings-input']}
-							type={'email'}
-							placeholder={'email'}
-						/>
-						{errors && <p>{errors['email']?.message}</p>}
-					</div>
-					<div className='flex flex-col space-y-2 col-span-1'>
-						<label className='text-gray font-thin'>Pin</label>
-						<input
-							{...register('pin', { required: "Pin is required" })}
-							className={styles['settings-input']}
-							type={'password'}
-							placeholder={'Phone number'}
-						/>
-						{errors && <p>{errors['pin']?.message}</p>}
-					</div>
-					<div className='flex flex-col space-y-2 col-span-1'>
-						<label className='text-gray font-thin'>Password</label>
-						<input
-							{...register('password', { required: "Password is required" })}
-							className={styles['settings-input']}
-							type={'password'}
-							placeholder={'Phone number'}
-						/>
-						{errors && <p>{errors['password']?.message}</p>}
-					</div>
-					<div className='flex flex-col space-y-2 col-span-1'>
-						<label className='text-gray font-thin'>Address</label>
+				<div className={styles.rightContainer}>
+					<InputField
+						register={register}
+						errors={errors}
+						title={'ID'}
+						fieldId={'name'}
+						errorMsg={'Name is required'}
+						placeholder={'Name'}
+						type={'text'}
+					/>
+					<InputField
+						register={register}
+						errors={errors}
+						title={'Email'}
+						fieldId={'email'}
+						errorMsg={'Email is required'}
+						placeholder={'Email'}
+						type={'email'}
+					/>
+					<InputField
+						register={register}
+						errors={errors}
+						title={'Pin'}
+						fieldId={'pin'}
+						errorMsg={'Pin is required'}
+						placeholder={'Phone number'}
+						type={'password'}
+					/>
+					<InputField
+						register={register}
+						errors={errors}
+						title={'Password'}
+						fieldId={'password'}
+						errorMsg={'Password is required'}
+						placeholder={'Password'}
+						type={'password'}
+					/>
+					<div className={styles.accountField}>
+						<label className={styles.fieldTitle}>Address</label>
 						<textarea
 							{...register('address')}
 							className={'rounded-3xl border border-gray px-4 py-3 font-bold'}
@@ -131,8 +121,8 @@ const SettingsForm: FC<ISettingsForm> = ({ onSubmit, data }) => {
 							rows={5}
 						/>
 					</div>
-					<div className='flex flex-col space-y-2 col-span-1'>
-						<label className='text-gray font-thin'>App Version</label>
+					<div className={styles.accountField}>
+						<label className={styles.fieldTitle}>App Version</label>
 						<p className='font-bold'>V{packageJson.version}</p>
 					</div>
 				</div>
@@ -147,5 +137,3 @@ const SettingsForm: FC<ISettingsForm> = ({ onSubmit, data }) => {
 		</form>
 	)
 }
-
-export default SettingsForm
