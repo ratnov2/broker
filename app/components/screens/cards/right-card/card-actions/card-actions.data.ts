@@ -1,4 +1,4 @@
-import { TypesActionsData } from "./card-actions.interface";
+import { TypesActionsData } from './card-actions.interface'
 
 export const cardActionsData: TypesActionsData = [
 	{
@@ -14,4 +14,3 @@ export const cardActionsData: TypesActionsData = [
 		arrowDirection: 'right'
 	}
 ]
-

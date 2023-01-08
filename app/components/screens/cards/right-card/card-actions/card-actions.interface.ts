@@ -1,9 +1,5 @@
-import { IOperations } from "@/shared/types/bank-accounts.interface"
-import { AxiosResponse } from "axios"
-import {UseMutationResult} from 'react-query'
-
-export interface PropsCardActions{
-	accountNumber:string
+export interface PropsCardActions {
+	accountNumber: string
 }
 
 export type TypesActionsData = {
@@ -12,4 +8,3 @@ export type TypesActionsData = {
 	description: string
 	arrowDirection: 'left' | 'right'
 }[]
-

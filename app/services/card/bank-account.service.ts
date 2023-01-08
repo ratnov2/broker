@@ -1,10 +1,10 @@
 import { IOperations, IUserCard } from '@/shared/types/bank-accounts.interface'
 
-import { getAccountsUrl } from '@/config/api.config'
+import { getAccountsUrl,getUsersUrl } from '@/config/api.config'
 
 import { instance } from '@/api/interceptors'
 
-export const BankAccount = {
+export const BankAccountService = {
 	async getAllBankAccounts() {
 		return instance.get(getAccountsUrl(''))
 	},
@@ -23,4 +23,9 @@ export const BankAccount = {
 		if (type === 'Withdraw')
 			return instance.patch(getAccountsUrl('/balance/withdrawal'), data)
 	}
+}
+export const ProfileService={
+	async getProfile() {
+		return instance.get(getUsersUrl('/profile'))
+	},
 }

@@ -11,7 +11,7 @@ import style from './Modal.module.scss'
 import OperationFields from './field/OperationFields'
 import { useModalForm } from './useModalForm'
 import { useCardsQuery } from '@/screens/cards/useCardsQuery'
-import { BankAccount } from '@/services/card/bank-account.service'
+import { BankAccountService } from '@/services/card/bank-account.service'
 
 const Modal: FC<PropsModal> = ({
 	show,
@@ -22,9 +22,10 @@ const Modal: FC<PropsModal> = ({
 	operation
 }) => {
 	const { userCards } = useCardsQuery()
+
 	const operationQuery = useMutation(
 		'make-operation',
-		(data: IOperations) => BankAccount.makeOperation(operation, data),
+		(data: IOperations) => BankAccountService.makeOperation(operation, data),
 		{
 			onSuccess() {
 				userCards.refetch()

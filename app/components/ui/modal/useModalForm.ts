@@ -1,4 +1,4 @@
-import { MouseEvent, MouseEventHandler } from 'react'
+import { MouseEvent } from 'react'
 import { useForm } from 'react-hook-form'
 
 import { PropsUseModalForm } from './Modal.interface'

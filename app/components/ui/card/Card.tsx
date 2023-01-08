@@ -7,6 +7,7 @@ import { convertToHiddenNumber } from '@/utils/get-hidden-card'
 import style from './Card.module.scss'
 import { PropsCard } from './card.interface'
 import CommonCardStyle from './common-style-card/CommonCardStyle'
+import { useGetProfile } from '@/hooks/useGetProfile'
 
 const Card: FC<PropsCard> = ({
 	userCard,
@@ -16,6 +17,7 @@ const Card: FC<PropsCard> = ({
 	visibleNumberCard,
 	setVisibleNumberCard
 }) => {
+	const user = useGetProfile()
 	const { background, balance, expireDate, number } = userCard
 	return (
 		<div
@@ -41,7 +43,7 @@ const Card: FC<PropsCard> = ({
 						</div>
 						<div className={style.holder}>
 							<h3>holder</h3>
-							<p>Holder</p>
+							<p>{user || 'loading'}</p>
 						</div>
 						<div className={style.valid}>
 							<h3>Valid Thru</h3>

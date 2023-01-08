@@ -1,16 +1,14 @@
 import { useMutation, useQuery } from 'react-query'
 
-import { IOperations } from '@/shared/types/bank-accounts.interface'
-
 import { BackgroundColorBank } from '@/utils/background-color-bank'
 import { NormalizeNumberCard } from '@/utils/normalize-number-card'
 
-import { BankAccount } from '@/services/card/bank-account.service'
+import { BankAccountService } from '@/services/card/bank-account.service'
 
 export const useCardsQuery = () => {
 	const userCards = useQuery(
 		'get-user-cards',
-		() => BankAccount.getAllUserCards(),
+		() => BankAccountService.getAllUserCards(),
 		{
 			select: ({ data }) =>
 				data.map(card => ({
@@ -20,11 +18,13 @@ export const useCardsQuery = () => {
 				}))
 		}
 	)
-	const newCard = useMutation('create-card', () => BankAccount.createCard(), {
-		onSuccess: () => userCards.refetch()
-	})
-	
-	
+	const newCard = useMutation(
+		'create-card',
+		() => BankAccountService.createCard(),
+		{
+			onSuccess: () => userCards.refetch()
+		}
+	)
 
 	return { userCards, newCard }
 }

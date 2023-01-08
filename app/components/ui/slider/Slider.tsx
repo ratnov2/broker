@@ -1,3 +1,4 @@
+import { useGetProfile } from '@/hooks/useGetProfile'
 import cn from 'clsx'
 import { FC } from 'react'
 import { EffectCoverflow } from 'swiper'
@@ -25,6 +26,7 @@ const Slider: FC<PropsSlider> = ({
 }) => {
 	const { sliderRef, handleNext, handlePrev } = useSlider({ setIndex })
 
+	
 	return (
 		<div className='relative'>
 			<Swiper
