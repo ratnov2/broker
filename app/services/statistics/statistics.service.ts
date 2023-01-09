@@ -14,7 +14,7 @@ import {
 
 export const StatisticsService = {
 	async getIncomeByDynamic(type: timeLapsType) {
-		return await request<IIncomeByDynamic[]>({
+		return request<IIncomeByDynamic[]>({
 			url: getIncomeByDynamicUrl,
 			params: {
 				type: EnumIncomeByDynamicQueryParam[type]
@@ -23,7 +23,7 @@ export const StatisticsService = {
 	},
 
 	async getExpenseCategories() {
-		return await request<IExpenseCategories>({
+		return request<IExpenseCategories>({
 			url: getExpenseCategoriesUrl
 		})
 	}

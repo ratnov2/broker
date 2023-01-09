@@ -20,26 +20,27 @@ const chartBarData = defaultChartBarData
 export const useOverview = () => {
 	const [timeLaps, setTimeLaps] = useState<timeLapsType>('week')
 
-	const { data: queryData } = useQuery(
-		['middle-dashboard-section-overview', timeLaps],
-		StatisticsService.getIncomeByDynamic.bind(null, timeLaps)
-	)
-
 	const timeRange = timeRangeData(timeLaps)
 
-	if (queryData) {
-		timeRange.forEach((period, index) => {
-			const filteredQueryData = queryData
-				.filter(item => item.date.includes(period.localeShortDate))
-				.at(-1)
+	useQuery(
+		['middle-dashboard-section-overview', timeLaps],
+		StatisticsService.getIncomeByDynamic.bind(null, timeLaps),
+		{
+			onSuccess(queryData) {
+				timeRange.forEach((period, index) => {
+					const filteredQueryData = queryData
+						.filter(item => item.date.includes(period.localeShortDate))
+						.at(-1)
 
-			chartBarData.labels[index] = period.localeShortDate
-			chartBarData.rightBar[index] = filteredQueryData?.amount || 0
-			chartBarData.leftBar[index] = filteredQueryData?.previous_amount || 0
-		})
+					chartBarData.labels[index] = period.localeShortDate
+					chartBarData.rightBar[index] = filteredQueryData?.amount || 0
+					chartBarData.leftBar[index] = filteredQueryData?.previous_amount || 0
+				})
 
-		getKeys(chartBarData).forEach(key => chartBarData[key].reverse())
-	}
+				getKeys(chartBarData).forEach(key => chartBarData[key].reverse())
+			}
+		}
+	)
 
 	const changeData: ISelectOnChange = newValue => {
 		const value = newValue as ISelectSingleValue

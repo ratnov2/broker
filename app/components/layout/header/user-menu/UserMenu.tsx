@@ -6,28 +6,30 @@ import Logout from '@/layout/header/user-menu/logout/Logout'
 
 import { useProfile } from '@/hooks/useProfile'
 
-import { avatarPath } from '@/utils/avatarPath'
-
 import styles from './UserMenu.module.scss'
 import UserLinks from './user-links/UserLinks'
 
 const UserMenu: FC = () => {
-	const { data: profile } = useProfile()
+	const { profile } = useProfile()
 
 	return (
 		<nav>
 			<Logout />
 			<UserLinks />
-			<Link href='/profile' className={styles.profile}>
-				<Image
-					className={styles.profile_image}
-					src={avatarPath(profile)}
-					width={56}
-					height={56}
-					alt='profile'
-				/>
-				<span>{profile?.name}</span>
-			</Link>
+			{profile ? (
+				<Link href='/profile' className={styles.profile}>
+					<Image
+						className={styles.profile_image}
+						src={profile.avatarPath}
+						width={56}
+						height={56}
+						alt='profile'
+					/>
+					<span>{profile?.name}</span>
+				</Link>
+			) : (
+				<div>Loading ...</div>
+			)}
 		</nav>
 	)
 }
