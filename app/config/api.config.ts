@@ -4,9 +4,3 @@ export const API_URL = process.env.NEXT_PUBLIC_API_URL
 export const API_SERVER_URL = `${process.env.APP_SERVER_URL}/api`
 
 export const getAuthUrl = (string: string) => `/auth${string}`
-
-export const getCards = (string: string) => `/bank-accounts/get-user-cards`
-export const transfer = () => `/bank-accounts/transfer-money`
-
-export const getUserProfile = (string: string) => `/users/profile`
-export const getUserContacts = (string: string) => `/users/contacts`

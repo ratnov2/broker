@@ -1,7 +1,7 @@
 export interface IUserContacts {
 	id: number
-	createdAt: Date
-	updatedAt: Date
+	createdAt: string
+	updatedAt: string
 	email: string
 	password: string
 	name: string

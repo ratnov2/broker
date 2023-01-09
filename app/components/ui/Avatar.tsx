@@ -10,7 +10,10 @@ const Avatar = ({
 	name: string
 }) => {
 	return (
-		<div className={'relative'} style={{ width: size, height: size }}>
+		<div
+			className={'relative pointer-events-none'}
+			style={{ width: size, height: size }}
+		>
 			<Image
 				className={'rounded-full object-cover'}
 				fill

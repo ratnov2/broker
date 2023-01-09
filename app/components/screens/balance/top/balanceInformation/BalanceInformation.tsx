@@ -7,8 +7,8 @@ import { stats } from '@/screens/balance/top/balance.data'
 import BalanceStats from '@/screens/balance/top/balanceInformation/BalanceStats'
 import CardInfoItem from '@/screens/balance/top/balanceInformation/CardInfoItem'
 import Progressbar from '@/screens/balance/top/balanceInformation/Progressbar'
-import { ICardNew } from '@/screens/balance/top/interfaces/balanceTop.interface'
-import { IUserProfile } from '@/services/user/userProfile.interface'
+import { ICard } from '@/screens/balance/top/interfaces/balance-top.interface'
+import { IUserProfile } from '@/services/user/user-profile.interface'
 
 const BalanceInformation: FC = () => {
 	const { data: userCardsData } = useCards()
@@ -18,10 +18,10 @@ const BalanceInformation: FC = () => {
 		cardData => cardData.type === 'primary'
 	)
 
-	let cardData = {} as ICardNew
-	let fixedBalance = '' as string
-	let hiddenCardNumber = '' as string
-	let expireDate = '' as string
+	let cardData = {} as ICard
+	let fixedBalance = ''
+	let hiddenCardNumber = ''
+	let expireDate = ''
 
 	if (primaryCard?.length) {
 		cardData = primaryCard[0]

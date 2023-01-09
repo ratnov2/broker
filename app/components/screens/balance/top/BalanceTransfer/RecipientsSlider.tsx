@@ -7,11 +7,28 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import Avatar from '@/ui/Avatar'
 
-import { IUserContact } from '@/services/user/userProfile.interface'
+import { useUserContacts } from '@/hooks/user/useUserContacts'
 
-const RecipientsSlider: FC<{ userContacts: IUserContact[] }> = ({
-	userContacts
+import { IUserContact } from '@/services/user/user-profile.interface'
+
+const RecipientsSlider: FC<{ setSenderInput: any; setRecipientInput: any }> = ({
+	setSenderInput,
+	setRecipientInput
 }) => {
+	const { data: userContactsData } = useUserContacts()
+	let userContacts = [] as IUserContact[]
+	if (userContactsData) {
+		userContacts = userContactsData
+	}
+
+	const onContactClick = (e: any) => {
+		const filteredContact = userContacts.filter(
+			contact => contact.id === Number(e.target.dataset.id)
+		)
+
+		setRecipientInput(filteredContact[0].id)
+	}
+
 	return (
 		<div className={'mb-7'}>
 			<h3 className={'balance-card__subtitle'}>Recent Recipient</h3>
@@ -24,13 +41,17 @@ const RecipientsSlider: FC<{ userContacts: IUserContact[] }> = ({
 			>
 				{userContacts.map(recipient => (
 					<SwiperSlide key={recipient.id}>
-						<div className={'flex items-center flex-col'}>
+						<div
+							onClick={e => onContactClick(e)}
+							className={'cursor-pointer flex items-center flex-col'}
+							data-id={recipient.id}
+						>
 							<Avatar
 								size={'70px'}
 								img={recipient.avatarPath}
 								name={recipient.name}
 							/>
-							<p>{recipient.name}</p>
+							<p className={'pointer-events-none'}>{recipient.name}</p>
 						</div>
 					</SwiperSlide>
 				))}

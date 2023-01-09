@@ -1,9 +1,4 @@
-import {
-	IBalanceInput,
-	ICard,
-	IRecipient,
-	IStats
-} from '@/screens/balance/top/interfaces/balanceTop.interface'
+import { IStats } from '@/screens/balance/top/interfaces/balance-top.interface'
 
 export const stats: IStats[] = [
 	{
@@ -37,77 +32,5 @@ export const stats: IStats[] = [
 		maxNum: 1000,
 		percents: 24,
 		color: '#FF4A55'
-	}
-]
-
-export const card: ICard = {
-	number: '2134 3241 5315 1511',
-	name: 'Rara Avis',
-	expireDate: '03/21'
-}
-
-export const recipients: IRecipient[] = [
-	{
-		id: 1,
-		name: 'Jordan',
-		img: ''
-	},
-	{
-		id: 2,
-		name: 'Tony',
-		img: ''
-	},
-	{
-		id: 3,
-		name: 'Karen',
-		img: ''
-	},
-	{
-		id: 4,
-		name: 'Jordan',
-		img: ''
-	},
-	{
-		id: 5,
-		name: 'Sariel',
-		img: ''
-	},
-	{
-		id: 6,
-		name: 'John',
-		img: ''
-	},
-	{
-		id: 7,
-		name: 'Sara',
-		img: ''
-	},
-	{
-		id: 8,
-		name: 'Keyfol',
-		img: ''
-	},
-	{
-		id: 9,
-		name: 'Karen',
-		img: ''
-	},
-	{
-		id: 10,
-		name: 'Mishel',
-		img: ''
-	}
-]
-
-export const balanceInputs: IBalanceInput[] = [
-	{
-		title: 'Recipient',
-		placeholder: 'Insert recipient',
-		type: 'text'
-	},
-	{
-		title: 'Amount (usd)',
-		placeholder: '0.00',
-		type: 'number'
 	}
 ]

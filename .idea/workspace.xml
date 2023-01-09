@@ -2,10 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84fadd52-d4f0-45ec-9b6e-4ed9aefdf95e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/components/ui/Buttons.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/ui/_ui.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/ui/button/Button.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/ui/button/Button.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/ui/button/button.interface.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/ui/select/Select.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/ui/select/Select.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/ui/select/select.class-names.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/ui/select/select.interface.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/ui/switch/Switch.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/ui/switch/Switch.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/ui/switch/switch.interface.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/ui/ui.data.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/components/ui/ui.interface.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/utils/object.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/ui/buttons.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/styles/globals.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/styles/globals.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/screens/balance/top/BalanceTransfer/BalanceTransfer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/screens/balance/top/BalanceTransfer/BalanceTransfer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/components/screens/balance/top/BalanceTransfer/BottomTransfer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/screens/balance/top/BalanceTransfer/BottomTransfer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/hooks/bankAccount/useTransfer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/screens/balance/top/BalanceTransfer/RecipientsSlider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/screens/balance/top/BalanceTransfer/RecipientsSlider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/screens/balance/top/BalanceTransfer/transferForm.intreface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/screens/balance/top/BalanceTransfer/transfer-form.interface.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/screens/balance/top/balance.data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/screens/balance/top/balance.data.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/screens/balance/top/balanceInformation/BalanceInformation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/screens/balance/top/balanceInformation/BalanceInformation.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/screens/balance/top/balanceInformation/BalanceStats.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/screens/balance/top/balanceInformation/BalanceStats.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/screens/balance/top/balanceInformation/Progressbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/screens/balance/top/balanceInformation/Progressbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/screens/balance/top/balanceInformation/ProgressbarStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/screens/balance/top/balanceInformation/progressbar.style.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/screens/balance/top/interfaces/balanceTop.interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/screens/balance/top/interfaces/balance-top.interface.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ui/Avatar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ui/Avatar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/api.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/api.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/hooks/bankAccount/useCards.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/hooks/bankAccount/useCards.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/bankAccount/bankAccount.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/bank-account/bank-account.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/user/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/user/user.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/user/userProfile.interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/user/user-profile.interface.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,14 +75,14 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Imron/Desktop/bank-app",
+    "last_opened_file_path": "C:/Users/Imron/Desktop/stablo-1.0.0",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.standard": "",
     "nodejs_package_manager_path": "yarn",
     "prettierjs.PrettierConfiguration.Package": "C:\\Users\\Imron\\Desktop\\bank-app\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "ts.external.directory.path": "C:\\Users\\Imron\\Desktop\\bank-app\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -101,6 +132,8 @@
       <workItem from="1673061961127" duration="8885000" />
       <workItem from="1673080483860" duration="2653000" />
       <workItem from="1673084102047" duration="33962000" />
+      <workItem from="1673194937568" duration="639000" />
+      <workItem from="1673237155548" duration="15951000" />
     </task>
     <servers />
   </component>

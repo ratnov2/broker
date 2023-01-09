@@ -1,8 +1,8 @@
 import {
 	containerStyles,
 	fillerStyles
-} from '@/screens/balance/top/balanceInformation/ProgressbarStyle'
-import { IProgressBar } from '@/screens/balance/top/interfaces/balanceTop.interface'
+} from '@/screens/balance/top/balanceInformation/progressbar.style'
+import { IProgressBar } from '@/screens/balance/top/interfaces/balance-top.interface'
 
 const progressBar: IProgressBar = {
 	bgColor: '#6160DC',

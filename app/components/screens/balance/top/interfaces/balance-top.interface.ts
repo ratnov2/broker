@@ -4,15 +4,9 @@ export interface IProgressBar {
 }
 
 export interface ICard {
-	number: string
-	name: string
-	expireDate: string
-}
-
-export interface ICardNew {
 	id: number
-	createdAt: Date
-	updatedAt: Date
+	createdAt: string
+	updatedAt: string
 	number: string
 	expireDate: string
 	cvc: number
@@ -31,12 +25,6 @@ export interface IStats {
 	maxNum: number
 	percents: number
 	color: string
-}
-
-export interface IRecipient {
-	id: number
-	name: string
-	img: string
 }
 
 export interface IBalanceStats {

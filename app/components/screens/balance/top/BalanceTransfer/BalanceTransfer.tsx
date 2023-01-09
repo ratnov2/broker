@@ -2,13 +2,10 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { FC, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
-import { useUserContacts } from '@/hooks/user/useUserContacts'
-
 import BottomTransfer from '@/screens/balance/top/BalanceTransfer/BottomTransfer'
 import RecipientsSlider from '@/screens/balance/top/BalanceTransfer/RecipientsSlider'
-import { ITransferForm } from '@/screens/balance/top/BalanceTransfer/transferForm.intreface'
-import { BankAccountService } from '@/services/bankAccount/bankAccount.service'
-import { IUserContact } from '@/services/user/userProfile.interface'
+import { ITransferForm } from '@/screens/balance/top/BalanceTransfer/transfer-form.interface'
+import { BankAccountService } from '@/services/bank-account/bank-account.service'
 
 const BalanceTransfer: FC<{ setIsModalOpened: any }> = ({
 	setIsModalOpened
@@ -45,17 +42,17 @@ const BalanceTransfer: FC<{ setIsModalOpened: any }> = ({
 
 	const [isChecked, setIsChecked] = useState(false)
 
-	const { data: userContactsData } = useUserContacts()
-	let userContacts = [] as IUserContact[]
-	if (userContactsData) {
-		userContacts = userContactsData
-	}
+	const [senderInput, setSenderInput] = useState('')
+	const [recipientInput, setRecipientInput] = useState('')
 
 	return (
 		<div className='balance-card'>
 			<h2 className={'text-xl font-bold mb-7'}>Transfer money</h2>
 
-			<RecipientsSlider userContacts={userContacts} />
+			<RecipientsSlider
+				setSenderInput={setSenderInput}
+				setRecipientInput={setRecipientInput}
+			/>
 
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<div className={'mb-7'}>
@@ -68,6 +65,8 @@ const BalanceTransfer: FC<{ setIsModalOpened: any }> = ({
 						className={'balance-input'}
 						placeholder={'Insert account number'}
 						type={'text'}
+						value={senderInput}
+						onChange={e => setSenderInput(e.target.value)}
 					/>
 				</div>
 
@@ -81,6 +80,8 @@ const BalanceTransfer: FC<{ setIsModalOpened: any }> = ({
 						className={'balance-input'}
 						placeholder={'Insert account number'}
 						type={'text'}
+						value={recipientInput}
+						onChange={e => setRecipientInput(e.target.value)}
 					/>
 				</div>
 

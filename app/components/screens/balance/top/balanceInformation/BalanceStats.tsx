@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { CircularProgressbar } from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css'
 
-import { IBalanceStats } from '@/screens/balance/top/interfaces/balanceTop.interface'
+import { IBalanceStats } from '@/screens/balance/top/interfaces/balance-top.interface'
 
 const BalanceStats: FC<IBalanceStats> = ({
 	title,
