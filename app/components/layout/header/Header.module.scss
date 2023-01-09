@@ -1,5 +1,5 @@
 .header {
-	@apply flex w-full justify-end;
+	@apply fixed right-0 flex h-16 w-full items-center justify-end pr-10;
 
 	> nav {
 		@apply flex items-center gap-5;
