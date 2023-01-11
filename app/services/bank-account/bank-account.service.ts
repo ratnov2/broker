@@ -25,9 +25,6 @@ export const BankAccountService = {
 	},
 
 	async getBankAccount(id: number) {
-		return request<IBankAccount>({
-			url: getBankAccountUrl(id),
-			method: 'GET'
-		})
+		return request<IBankAccount>({ url: getBankAccountUrl(id) })
 	}
 }

@@ -7,14 +7,12 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import Avatar from '@/ui/Avatar'
 
+import { useBankAccount } from '@/hooks/bankAccount/useBankAccount'
 import { useUserContacts } from '@/hooks/user/useUserContacts'
 
 import { IUserContact } from '@/services/user/user-profile.interface'
 
-const RecipientsSlider: FC<{ setSenderInput: any; setRecipientInput: any }> = ({
-	setSenderInput,
-	setRecipientInput
-}) => {
+const RecipientsSlider: FC<{ changeAddress: any }> = ({ changeAddress }) => {
 	const { data: userContactsData } = useUserContacts()
 	let userContacts = [] as IUserContact[]
 	if (userContactsData) {
@@ -26,7 +24,8 @@ const RecipientsSlider: FC<{ setSenderInput: any; setRecipientInput: any }> = ({
 			contact => contact.id === Number(e.target.dataset.id)
 		)
 
-		setRecipientInput(filteredContact[0].id)
+		const { data: userBankAccount } = useBankAccount(filteredContact[0].id)
+		changeAddress(userBankAccount?.number)
 	}
 
 	return (

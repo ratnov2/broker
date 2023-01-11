@@ -1,17 +1,15 @@
 import { FC } from 'react'
 
-import { useCards } from '@/hooks/bankAccount/useCards'
 import { useUserProfile } from '@/hooks/user/useUserProfile'
 
+import BalanceStats from '@/screens/balance/top/balance-information/BalanceStats'
+import CardInfoItem from '@/screens/balance/top/balance-information/CardInfoItem'
+import Progressbar from '@/screens/balance/top/balance-information/Progressbar'
 import { stats } from '@/screens/balance/top/balance.data'
-import BalanceStats from '@/screens/balance/top/balanceInformation/BalanceStats'
-import CardInfoItem from '@/screens/balance/top/balanceInformation/CardInfoItem'
-import Progressbar from '@/screens/balance/top/balanceInformation/Progressbar'
 import { ICard } from '@/screens/balance/top/interfaces/balance-top.interface'
 import { IUserProfile } from '@/services/user/user-profile.interface'
 
-const BalanceInformation: FC = () => {
-	const { data: userCardsData } = useCards()
+const BalanceInformation: FC<{ userCardsData: any }> = ({ userCardsData }) => {
 	const { data: userProfileData } = useUserProfile()
 
 	const primaryCard = userCardsData?.filter(

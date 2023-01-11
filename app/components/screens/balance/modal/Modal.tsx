@@ -1,18 +1,18 @@
 import Image from 'next/image'
-import { FC } from 'react'
+import { Dispatch, FC, MouseEvent, SetStateAction } from 'react'
 import { IoCloseSharp } from 'react-icons/io5'
 
-const Modal: FC<{ isModalOpened: boolean; setIsModalOpened: any }> = ({
-	isModalOpened,
-	setIsModalOpened
-}) => {
+const Modal: FC<{
+	isModalOpened: boolean
+	setIsModalOpened: Dispatch<SetStateAction<boolean>>
+}> = ({ isModalOpened, setIsModalOpened }) => {
 	const onCloseButtonClick = () => {
 		setIsModalOpened(false)
 		document.querySelector('body')?.classList.remove('active')
 	}
 
-	const onModalClick = (e: any) => {
-		if (e.target.classList.contains('modal')) {
+	const onModalClick = (e: MouseEvent<HTMLDivElement>) => {
+		if (e.currentTarget.classList.contains('modal')) {
 			onCloseButtonClick()
 		}
 	}

@@ -2,12 +2,15 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { FC, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
-import BottomTransfer from '@/screens/balance/top/BalanceTransfer/BottomTransfer'
-import RecipientsSlider from '@/screens/balance/top/BalanceTransfer/RecipientsSlider'
-import { ITransferForm } from '@/screens/balance/top/BalanceTransfer/transfer-form.interface'
+import Select from '@/ui/select/Select'
+
+import BottomTransfer from '@/screens/balance/top/balance-transfer/BottomTransfer'
+import RecipientsSlider from '@/screens/balance/top/balance-transfer/RecipientsSlider'
+import { ITransferForm } from '@/screens/balance/top/balance-transfer/transfer-form.interface'
 import { BankAccountService } from '@/services/bank-account/bank-account.service'
 
-const BalanceTransfer: FC<{ setIsModalOpened: any }> = ({
+const BalanceTransfer: FC<{ userCardsData: any; setIsModalOpened: any }> = ({
+	userCardsData,
 	setIsModalOpened
 }) => {
 	const queryClient = useQueryClient()
@@ -31,7 +34,8 @@ const BalanceTransfer: FC<{ setIsModalOpened: any }> = ({
 		register,
 		handleSubmit,
 		formState: { errors },
-		reset
+		reset,
+		setValue
 	} = useForm<ITransferForm>()
 
 	const onSubmit: SubmitHandler<ITransferForm> = async data => {
@@ -40,33 +44,45 @@ const BalanceTransfer: FC<{ setIsModalOpened: any }> = ({
 		reset()
 	}
 
+	const changeAddress = () => {
+		setValue('toAccountId', 'hello')
+	}
+
 	const [isChecked, setIsChecked] = useState(false)
 
-	const [senderInput, setSenderInput] = useState('')
-	const [recipientInput, setRecipientInput] = useState('')
+	const options = userCardsData?.map((card: any) => {
+		return {
+			value: card.accountNumber,
+			label: card.accountNumber
+		}
+	})
 
 	return (
 		<div className='balance-card'>
 			<h2 className={'text-xl font-bold mb-7'}>Transfer money</h2>
 
-			<RecipientsSlider
-				setSenderInput={setSenderInput}
-				setRecipientInput={setRecipientInput}
-			/>
+			<RecipientsSlider changeAddress={changeAddress} />
 
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<div className={'mb-7'}>
-					<h3 className={'balance-card__subtitle'}>From</h3>
+					<h3 className={'balance-card__subtitle'}>From Account</h3>
 
-					<input
-						{...register('fromAccountId', {
-							required: 'Account number is required'
-						})}
-						className={'balance-input'}
-						placeholder={'Insert account number'}
-						type={'text'}
-						value={senderInput}
-						onChange={e => setSenderInput(e.target.value)}
+					{/*<input*/}
+					{/*	{...register('fromAccountId', {*/}
+					{/*		required: 'Account number is required'*/}
+					{/*	})}*/}
+					{/*	className={'balance-input'}*/}
+					{/*	placeholder={'Insert account number'}*/}
+					{/*	type={'text'}*/}
+					{/*	value={senderInput}*/}
+					{/*	onChange={e => setSenderInput(e.target.value)}*/}
+					{/*/>*/}
+
+					<Select
+						className={'-mt-4'}
+						size={'xl'}
+						color={'light-gray'}
+						options={options}
 					/>
 				</div>
 
@@ -80,8 +96,6 @@ const BalanceTransfer: FC<{ setIsModalOpened: any }> = ({
 						className={'balance-input'}
 						placeholder={'Insert account number'}
 						type={'text'}
-						value={recipientInput}
-						onChange={e => setRecipientInput(e.target.value)}
 					/>
 				</div>
 

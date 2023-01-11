@@ -1,7 +1,7 @@
 import {
 	containerStyles,
 	fillerStyles
-} from '@/screens/balance/top/balanceInformation/progressbar.style'
+} from '@/screens/balance/top/balance-information/progressbar.style'
 import { IProgressBar } from '@/screens/balance/top/interfaces/balance-top.interface'
 
 const progressBar: IProgressBar = {
