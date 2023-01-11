@@ -38,7 +38,7 @@ export const useUpload: TypeUpload = (onChange, folder) => {
 
 				setTimeout(() => {
 					setIsLoading(false)
-				}, 1000)
+				}, 500)
 			}
 		},
 		[mutateAsync]

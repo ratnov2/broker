@@ -1,8 +1,9 @@
-import { axiosClassic } from '@/api/interceptors'
+import { instance } from '@/api/interceptors'
+
 
 export const FileService = {
 	async upload(file: FormData, folder?: string) {
-		return axiosClassic.post<{ url: string; name: string }>('/files', file, {
+		return instance.post<{ url: string; name: string }>('/files', file, {
 			params: {
 				folder
 			},

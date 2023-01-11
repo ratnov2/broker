@@ -1,8 +1,8 @@
+import { ISettings } from '@/screens/settings/settings-form/settings.interface'
 import { FC } from 'react'
 import { UseFormRegister } from 'react-hook-form'
 
-import styles from '../settings-form.module.scss'
-import { ISettings } from '../settings.interface'
+import styles from './InputField.module.scss'
 
 interface IInputField {
 	register: UseFormRegister<ISettings>

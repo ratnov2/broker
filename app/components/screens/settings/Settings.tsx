@@ -18,7 +18,7 @@ const Transactions: FC = () => {
 			address: data.address,
 			avatarPath: data.avatarPath
 		}
-		await UserService.updateUser(updateData)
+		await UserService.updateUser(updateData).finally(() => { alert('Settings saved') })
 	}
 
 	const { data } = useUserProfile()
