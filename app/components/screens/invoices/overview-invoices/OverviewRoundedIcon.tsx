@@ -1,6 +1,11 @@
-import { FC } from 'react';
-import { AiOutlineCheckCircle, AiOutlineExclamationCircle, AiOutlineFileUnknown, AiOutlineHistory, AiOutlineQuestionCircle } from 'react-icons/ai';
-
+import { FC } from 'react'
+import {
+	AiOutlineCheckCircle,
+	AiOutlineExclamationCircle,
+	AiOutlineFileUnknown,
+	AiOutlineHistory,
+	AiOutlineQuestionCircle
+} from 'react-icons/ai'
 
 interface IRoundedIcon {
 	overviewType: string

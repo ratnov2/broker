@@ -10,8 +10,6 @@ import PaymentContact from './payment-sources-item/PaymentSourcesItem'
 import PaymentSourcesTopTitle from './payment-sources-top-title/PaymentSourcesTopTitle'
 
 const PaymentSources: FC = () => {
-	const [currentFilterOption] = useState('newest')
-
 	const { isLoadingUserContacts, userContacts } = usePaymentSources()
 
 	return (

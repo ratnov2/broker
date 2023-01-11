@@ -16,55 +16,49 @@ interface IInvoiceItem {
 }
 
 const InvoiceItem: FC<IInvoiceItem> = ({
-	latestInvoice: { id, recipient, service, updatedAt },
+	latestInvoice,
 	selectedInvoiceId,
 	toggleCheckboxes
 }) => {
-	return (
-		<div
-			id={id.toString()}
-			className={styles.latestInvoiceRow}
-			style={
-				selectedInvoiceId?.toString() === id.toString()
+		return (
+			<div
+				id={latestInvoice.id.toString()}
+				className={styles.latestInvoiceRow}
+				style={selectedInvoiceId?.toString() === latestInvoice.id.toString()
 					? { borderLeft: '4px solid blue' }
-					: { borderLeft: '4px solid white' }
-			}
-		>
-			<input
-				key={id}
-				type='checkbox'
-				className='invoiceNum'
-				style={{ height: '20px', width: '20px' }}
-				checked={selectedInvoiceId?.toString() === id.toString()}
-				onChange={() => {
-					toggleCheckboxes(id)
-				}}
-			/>
-			{recipient ? (
-				<Recipient
-					avatar={recipient.avatarPath}
-					name={recipient.name}
-					email={recipient.email}
-				/>
-			) : (
-				<Recipient avatar={''} name={''} email={''} />
-			)}
-
-			<span className={styles.invoiceNum}>#{id}</span>
-
-			<Status status={'Undefined'} />
-
-			<div className={styles.date}>
-				<span>{convertDate(updatedAt)[0]}</span>
+					: { borderLeft: '4px solid white' }}
+			>
+				<input
+					key={latestInvoice.id}
+					type='checkbox'
+					className='invoiceNum'
+					style={{ height: '20px', width: '20px' }}
+					checked={selectedInvoiceId?.toString() === latestInvoice.id.toString()}
+					onChange={() => {
+						toggleCheckboxes(latestInvoice.id)
+					} } />
+				{latestInvoice.recipient ? (
+					<Recipient
+						avatar={latestInvoice.recipient.avatarPath}
+						name={latestInvoice.recipient.name}
+						email={latestInvoice.recipient.email} />
+				) : (
+					<Recipient avatar={''} name={''} email={''} />
+				)}
+				<span className={styles.invoiceNum}>#{latestInvoice.id}</span>
+				<Status status={latestInvoice.transactions[0]?.status} />
+				<div className={styles.date}>
+					<span>{convertDate(latestInvoice.updatedAt)[0]}</span>
+				</div>
+				<span className={styles.service}>
+					{latestInvoice.items === undefined
+						? 'Service undefined'
+						: latestInvoice.items.map(
+							(item, index) => ((index !== latestInvoice.items.length - 1) ? item.name + ', ' : item.name))}
+				</span>
+				<Actions />
 			</div>
-
-			<span className={styles.service}>
-				{service === undefined ? 'Service undefined' : service}
-			</span>
-
-			<Actions />
-		</div>
-	)
-}
+		)
+	}
 
 export default InvoiceItem

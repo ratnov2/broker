@@ -1,15 +1,9 @@
-import { FC } from 'react';
-import { AiFillCaretDown, AiFillCaretUp, AiOutlineCheckCircle, AiOutlineExclamationCircle, AiOutlineFileUnknown, AiOutlineHistory, AiOutlineQuestionCircle } from 'react-icons/ai';
+import { FC } from 'react'
 
+import { IOverviewInvoice } from '@/shared/types/invoice.types'
 
-
-import { IOverviewInvoice } from '@/shared/types/invoice.types';
-
-
-
-import styles from './OverviewInvoices.module.scss';
-import RoundedIcon from './OverviewRoundedIcon';
-
+import styles from './OverviewInvoices.module.scss'
+import RoundedIcon from './OverviewRoundedIcon'
 
 interface IOverviewElement {
 	overviewInvoice: IOverviewInvoice

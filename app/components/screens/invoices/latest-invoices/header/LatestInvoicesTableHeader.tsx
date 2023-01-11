@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import styles from './LatestInvoicesHeader.module.scss'
+import styles from './LatestInvoicesTableHeader.module.scss'
 
 interface IHeader {
 	toggleCheckboxes: (id?: number) => void
@@ -27,7 +27,9 @@ const LatestInvoiceTableHeader: FC<IHeader> = ({ toggleCheckboxes }) => {
 				}}
 			/>
 			{columnNames.map(columnName => (
-				<div key={columnName} className={styles[columnName]}>{columnName}</div>
+				<div key={columnName} className={styles[columnName]}>
+					{columnName}
+				</div>
 			))}
 		</div>
 	)

@@ -10,16 +10,16 @@ const GetIcon: FC<{ status: string }> = ({ status }) => {
 		<BsCheckCircle size='24px' />
 	) : status === 'Unpaid' ? (
 		<BsExclamationCircle size='24px' />
-	) : status === 'Paid' ? (
+	) : status === 'Complete' ? (
 		<BsCheckCircle size='24px' />
-	) : status === 'Pending' ? (
+	) : status === 'New' ? (
 		<AiOutlineQuestionCircle size='24px' />
 	) : (
 		<BsExclamationCircle size='24px' />
 	)
 }
 
-const Status: FC<{ status: string }> = ({ status }) => {
+const Status: FC<{ status: string }> = ({ status = 'New' }) => {
 	return (
 		<div
 			className={cn(
@@ -28,9 +28,9 @@ const Status: FC<{ status: string }> = ({ status }) => {
 					? 'bg-purple text-white'
 					: status === 'Unpaid'
 					? 'bg-red text-white'
-					: status === 'Paid'
+					: status === 'Complete'
 					? 'bg-light-blue text-white'
-					: status === 'Pending'
+					: status === 'New'
 					? 'bg-orange text-white'
 					: 'bg-red text-white'
 			)}

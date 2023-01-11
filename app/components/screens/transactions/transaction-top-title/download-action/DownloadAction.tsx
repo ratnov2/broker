@@ -1,6 +1,5 @@
-import { FC} from 'react';
-import Select from 'react-select';
-
+import { FC } from 'react'
+import Select from 'react-select'
 
 const options = [
 	{
@@ -22,9 +21,8 @@ const options = [
 ]
 
 const DownloadAction: FC = ({}) => {
-
 	const onChange = (newValue: any) => {
-		alert("Downloaded as " + newValue.label)
+		alert('Downloaded as ' + newValue.label)
 	}
 
 	return (
@@ -36,9 +34,9 @@ const DownloadAction: FC = ({}) => {
 				onChange={onChange}
 				hideSelectedOptions={true}
 				styles={{
-					control: (styles) => ({
+					control: styles => ({
 						...styles,
-						cursor: 'pointer',
+						cursor: 'pointer'
 					})
 				}}
 			/>

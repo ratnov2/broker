@@ -1,6 +1,6 @@
-import { ITransaction } from '@/shared/types/transaction.types';
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction } from 'react'
 
+import { ITransaction } from '@/shared/types/transaction.types'
 
 export interface ITransactionHistory {
 	transactions?: ITransaction[]

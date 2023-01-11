@@ -12,17 +12,18 @@ const LatestInvoices: FC<ILatestInvoices> = ({
 	latestInvoices,
 	isLoading,
 	currentPage,
-	setCurrentPage
+	setCurrentPage,
+	maxItems = 0
 }) => {
 	const [invoicesPerPage] = useState(5)
 
-	//Get Current invoices on Page
-	const indexOfLastInvoice = currentPage * invoicesPerPage
-	const indexOfFirstInvoice = indexOfLastInvoice - invoicesPerPage
-	const currentInvoices = latestInvoices?.slice(
-		indexOfFirstInvoice,
-		indexOfLastInvoice
-	)
+	// //Get Current invoices on Page
+	// const indexOfLastInvoice = currentPage * invoicesPerPage
+	// const indexOfFirstInvoice = indexOfLastInvoice - invoicesPerPage
+	// const currentInvoices = latestInvoices?.slice(
+	// 	indexOfFirstInvoice,
+	// 	indexOfLastInvoice
+	// )
 
 	const [selectedInvoicesId, setSelectedInvoicesId] = useState<number[]>([])
 	const [isCheckedHeader, setIsCheckedHeader] = useState(false)
@@ -55,9 +56,9 @@ const LatestInvoices: FC<ILatestInvoices> = ({
 			<LatestInvoiceTableHeader toggleCheckboxes={toggleCheckboxes} />
 			{isLoading ? (
 				<Loader />
-			) : currentInvoices?.length ? (
+			) : latestInvoices?.length ? (
 				<>
-					{currentInvoices.map(latestInvoice => (
+					{latestInvoices.map(latestInvoice => (
 						<LatestInvoicesItem
 							key={latestInvoice.id}
 							latestInvoice={latestInvoice}
@@ -71,7 +72,7 @@ const LatestInvoices: FC<ILatestInvoices> = ({
 						<Pagination
 							currentPage={currentPage}
 							setCurrentPage={setCurrentPage}
-							maxItems={latestInvoices.length}
+							maxItems={maxItems}
 							itemsPerPage={invoicesPerPage}
 						/>
 					)}

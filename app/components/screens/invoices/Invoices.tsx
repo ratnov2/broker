@@ -1,13 +1,8 @@
-import { KeyObject } from 'crypto';
 import { FC, useState } from 'react';
 
 
 
 import Layout from '@/layout/Layout';
-
-
-
-import { IOverviewInvoice } from '@/shared/types/invoice.types';
 
 
 
@@ -21,7 +16,8 @@ import OverviewInvoices from './overview-invoices/OverviewInvoices';
 
 const Invoices: FC = () => {
 	const [currentPage, setCurrentPage] = useState<number>(1)
-	const { isLoadingOverviewInvoices, overviewInvoices } = useInvoices()
+	const { isLoadingOverviewInvoices, overviewInvoices } =
+		useInvoices(currentPage)
 
 	const { latestInvoices, isLoadingLatestInvoices } = useInvoices(currentPage)
 
@@ -36,11 +32,10 @@ const Invoices: FC = () => {
 					overviewInvoices={overviewInvoices}
 				/>
 				<LatestInvoices
-					latestInvoices={latestInvoices}
+					latestInvoices={latestInvoices?.invoices}
 					isLoading={isLoadingLatestInvoices}
 					currentPage={currentPage}
-					setCurrentPage={setCurrentPage}
-				/>
+					setCurrentPage={setCurrentPage} maxItems={latestInvoices?.length}				/>
 			</div>
 		</Layout>
 	)

@@ -1,16 +1,11 @@
-import { axiosClassic } from 'api/interceptors';
+import { instance } from 'api/interceptors'
 
+import { IUserContact } from '@/shared/types/users.types'
 
-
-import { IUserContact } from '@/shared/types/users.types';
-
-
-
-import { getUsersUrl } from '@/config/api.config';
-
+import { getUsersUrl } from '@/config/api.config'
 
 export const UserService = {
 	async getUserContacts() {
-		return axiosClassic.get<IUserContact[]>(getUsersUrl(`/contacts`))
+		return instance.get<IUserContact[]>(getUsersUrl(`/contacts`))
 	}
 }
