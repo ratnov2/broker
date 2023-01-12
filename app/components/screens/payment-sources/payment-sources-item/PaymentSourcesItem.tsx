@@ -28,7 +28,7 @@ const PaymentSourcesItem: FC<IPaymentSourcesItem> = ({ paymentContact }) => {
 			<RecipientContact
 				phone={'+123 456 789'}
 				email={paymentContact.email}
-				paymentDue={paymentContact.updatedAt}
+				paymentDue={'2023-01-04T11:26:10.838Z'}
 			/>
 		</div>
 	)

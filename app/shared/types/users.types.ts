@@ -12,8 +12,6 @@ export interface IUser {
 
 export interface IUserContact {
 	id: string
-	createdAt: string
-	updatedAt: string
 	email: string
 	name: string
 	avatarPath?: string
