@@ -5,7 +5,7 @@ import {
 	HiOutlinePhone
 } from 'react-icons/hi'
 
-const RecipientDetails = () => {
+const RecipientDetails: FC = () => {
 	return (
 		<div>
 			<div className='text-sm text-gray font-thin mb-4'>

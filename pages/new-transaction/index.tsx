@@ -1,4 +1,4 @@
-import NewTransaction from '@/screens/newTransaction/NewTransaction'
+import NewTransaction from '@/screens/new-transaction/NewTransaction'
 
 
 export default function Home() {

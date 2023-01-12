@@ -2,21 +2,19 @@ import { FC } from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
 import { useForm } from 'react-hook-form'
 
-import { TransactionType } from '../transaction-type/TransactionType'
+import { ITransaction } from '../new-transaction.interface'
 
-import { ITransactionForm } from './ITransactionForm'
-import {
-	TransactionInputType,
-	TransactionInputs
-} from './TransactioinInputType'
 import styles from './TransactionForm.module.scss'
+import { ITransactionForm } from './transaction-form.interface'
+import { TransactionInputs } from './transaction-input.data'
+import { ITransactionInput } from './transaction-input.interface'
 
 const TransactionForm: FC<ITransactionForm> = ({ onSubmit }) => {
 	const {
 		register,
 		handleSubmit,
 		formState: { errors }
-	} = useForm<TransactionType>({
+	} = useForm<ITransaction>({
 		defaultValues: TransactionInputs.reduce(
 			(a, v) => ({ ...a, [v.name]: v.options.value || '' }),
 			{}
@@ -30,24 +28,11 @@ const TransactionForm: FC<ITransactionForm> = ({ onSubmit }) => {
 		>
 			{TransactionInputs.map(
 				(
-					{
-						placeholder,
-						name,
-						options,
-						title,
-						type
-					}: TransactionInputType,
+					{ placeholder, name, options, title, type }: ITransactionInput,
 					index: number
 				) => (
-					<div
-						className='flex flex-col space-y-2 col-span-1'
-						key={index}
-					>
-						{title && (
-							<label className='text-gray font-thin'>
-								{title}
-							</label>
-						)}
+					<div className='flex flex-col space-y-2 col-span-1' key={index}>
+						{title && <label className='text-gray font-thin'>{title}</label>}
 						<input
 							{...register(name, options)}
 							className={styles['transaction-input']}

@@ -1,20 +1,6 @@
-export type TransactionInputType = {
-	title?: string
-	name:
-		| 'number'
-		| 'date'
-		| 'recipient'
-		| 'email'
-		| 'amount'
-		| 'dueDate'
-		| 'services'
-		| 'pin'
-	options?: any
-	placeholder?: string
-	type?: string
-}
+import { ITransactionInput } from './transaction-input.interface'
 
-export const TransactionInputs: TransactionInputType[] = [
+export const TransactionInputs: ITransactionInput[] = [
 	{
 		title: 'Transaction number',
 		name: 'number',

@@ -1,4 +1,4 @@
-export type TransactionType = {
+export interface ITransaction {
 	number: string
 	date: string
 	recipient: string

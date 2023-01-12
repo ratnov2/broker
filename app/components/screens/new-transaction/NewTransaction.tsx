@@ -1,14 +1,13 @@
 import { FC } from 'react'
 
-//import { SubmitErrorHandler, SubmitHandler } from 'react-hook-form'
 import Layout from '@/layout/Layout'
 
+import { ITransaction } from './new-transaction.interface'
 import RecipientRecent from './recipient-recent/RecipientRecent'
 import TransactionForm from './transaction-form/TransactionForm'
-import { TransactionType } from './transaction-type/TransactionType'
 
 const Transactions: FC = () => {
-	const onSubmit = (data: TransactionType) => {
+	const onSubmit = (data: ITransaction) => {
 		console.log(123)
 		console.log(data)
 		console.log(321)
