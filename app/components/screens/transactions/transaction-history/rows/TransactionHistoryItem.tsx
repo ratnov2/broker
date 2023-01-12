@@ -15,13 +15,13 @@ interface IInvoiceItem {
 }
 
 const TransactionHistoryItem: FC<IInvoiceItem> = ({
-	transaction: { id, user, updatedAt, amount, status }
+	transaction
 }) => {
 	const [isChecked, setIsChecked] = useState(false)
 
 	return (
 		<div
-			id={id.toString()}
+			id={transaction.id.toString()}
 			className={styles.transactionHistoryRow}
 			style={
 				isChecked
@@ -30,7 +30,7 @@ const TransactionHistoryItem: FC<IInvoiceItem> = ({
 			}
 		>
 			<input
-				key={id}
+				key={transaction.id}
 				type='checkbox'
 				className='invoiceNum'
 				style={{ height: '20px', width: '20px' }}
@@ -39,24 +39,24 @@ const TransactionHistoryItem: FC<IInvoiceItem> = ({
 					setIsChecked(!isChecked)
 				}}
 			/>
-			{user ? (
+			{transaction.invoice.recipient ? (
 				<Recipient
-					avatar={user.avatarPath}
-					name={user.name}
-					email={user.email}
+					avatar={transaction.invoice.recipient.avatarPath}
+					name={transaction.invoice.recipient.name}
+					email={transaction.invoice.recipient.email}
 				/>
 			) : (
 				<Recipient avatar={''} name={''} email={''} />
 			)}
 
-			<span className={styles.invoiceNum}>#{id}</span>
+			<span className={styles.invoiceNum}>#{transaction.id}</span>
 
 			<div className={styles.date}>
-				<span>{convertDate(updatedAt)[0]}</span>
+				<span>{convertDate(transaction.updatedAt)[0]}</span>
 			</div>
-			<span className={styles.amount}>{amount}</span>
-			<span className={styles.location}>{'Undefined'}</span>
-			<Status status={status} />
+			<span className={styles.amount}>{transaction.amount}</span>
+			<span className={styles.location}>{transaction.invoice.recipient.address}</span>
+			<Status status={transaction.status} />
 			<Actions />
 		</div>
 	)

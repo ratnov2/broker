@@ -1,9 +1,9 @@
 import { Dispatch, SetStateAction } from 'react'
 
-import { ITransaction } from '@/shared/types/transaction.types'
+import { ITransactions } from '@/shared/types/transaction.types'
 
 export interface ITransactionHistory {
-	transactions?: ITransaction[]
+	transactions?: ITransactions
 	isLoading: boolean
 	currentPage: number
 	setCurrentPage: Dispatch<SetStateAction<number>>

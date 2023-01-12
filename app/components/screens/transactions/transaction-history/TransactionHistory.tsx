@@ -16,13 +16,13 @@ const TransactionHistory: FC<ITransactionHistory> = ({
 }) => {
 	const [transactionsPerPage] = useState(5)
 
-	//Get Current invoices on Page
-	const indexOfLastTransactions = transactionsPerPage //currentPage * transactionsPerPage
-	const indexOfFirstTransactions = indexOfLastTransactions - transactionsPerPage
-	const currentTransactions = transactions?.slice(
-		indexOfFirstTransactions,
-		indexOfLastTransactions
-	)
+	// //Get Current invoices on Page
+	// const indexOfLastTransactions = transactionsPerPage //currentPage * transactionsPerPage
+	// const indexOfFirstTransactions = indexOfLastTransactions - transactionsPerPage
+	// const currentTransactions = transactions?.slice(
+	// 	indexOfFirstTransactions,
+	// 	indexOfLastTransactions
+	// )
 
 	return (
 		<div
@@ -33,9 +33,9 @@ const TransactionHistory: FC<ITransactionHistory> = ({
 			<TransactionHistoryTableHeader />
 			{isLoading ? (
 				<Loader />
-			) : currentTransactions?.length ? (
+			) : transactions?.transactions.length ? (
 				<>
-					{currentTransactions.map(transaction => (
+					{transactions.transactions.map(transaction => (
 						<TransactionHistoryItem
 							key={transaction.id}
 							transaction={transaction}

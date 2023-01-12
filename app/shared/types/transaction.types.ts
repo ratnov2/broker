@@ -1,5 +1,6 @@
-import { IInvoice } from './invoice.types'
-import { IUser } from './users.types'
+import { IInvoice } from './invoice.types';
+import { IUser } from './users.types';
+
 
 export interface ITransaction {
 	id: number
@@ -12,6 +13,9 @@ export interface ITransaction {
 	userId: number
 	user: IUser
 	invoice: IInvoice
-	date: string
-	location: string
+}
+
+export interface ITransactions {
+	transactions: ITransaction[]
+	length: number
 }
