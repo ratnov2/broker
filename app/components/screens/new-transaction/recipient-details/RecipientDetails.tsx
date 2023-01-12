@@ -44,7 +44,7 @@ const RecipientDetails: FC = () => {
 						className='bg-purple rounded-full w-11 h-11 min-w-11 min-h-11 p-2'
 					/>
 					<div>
-						<div>Ebigwindadmin@mail.com</div>
+						<div>Email</div>
 						<div>bigwindadmin@mail.com</div>
 					</div>
 				</div>
