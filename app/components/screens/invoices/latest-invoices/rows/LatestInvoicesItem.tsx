@@ -1,13 +1,20 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
-import { IInvoice } from '@/shared/types/invoice.types'
 
-import { convertDate } from '@/utils/convert-date'
 
-import styles from './LatestInvoicesItem.module.scss'
-import Actions from './actions/Actions'
-import Recipient from './recipient/Recipient'
-import Status from './status/Status'
+import { IInvoice } from '@/shared/types/invoice.types';
+
+
+
+import { convertDate } from '@/utils/convert-date';
+
+
+
+import styles from './LatestInvoicesItem.module.scss';
+import Actions from './actions/Actions';
+import Recipient from './recipient/Recipient';
+import Status from './status/Status';
+
 
 interface IInvoiceItem {
 	latestInvoice: IInvoice
@@ -20,6 +27,9 @@ const InvoiceItem: FC<IInvoiceItem> = ({
 	selectedInvoiceId,
 	toggleCheckboxes
 }) => {
+	{
+		console.log(JSON.stringify(latestInvoice.recipient.avatarPath))
+	}
 		return (
 			<div
 				id={latestInvoice.id.toString()}

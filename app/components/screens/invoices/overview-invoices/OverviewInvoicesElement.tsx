@@ -12,9 +12,6 @@ interface IOverviewElement {
 const OverviewElement: FC<IOverviewElement> = ({
 	overviewInvoice: { overviewType, amount }
 }) => {
-	{
-		console.log(overviewType)
-	}
 	return (
 		<div className={styles.divContainer}>
 			<div className='flex justify-between'>
