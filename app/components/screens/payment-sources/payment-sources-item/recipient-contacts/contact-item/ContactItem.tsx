@@ -1,8 +1,10 @@
-import { FC } from 'react'
-import { FiCalendar, FiPhone } from 'react-icons/fi'
-import { TbMail } from 'react-icons/tb'
+import { FC } from 'react';
+import { HiOutlineCalendar, HiOutlineMail, HiOutlinePhone } from 'react-icons/hi'
 
-import styles from './ContactItem.module.scss'
+
+
+import styles from './ContactItem.module.scss';
+
 
 interface IContactItem {
 	text: string
@@ -12,11 +14,11 @@ interface IContactItem {
 const switchIcon = (param: string) => {
 	switch (param) {
 		case 'email':
-			return <TbMail className={styles.icon} />
+			return <HiOutlineMail size={32} className={styles.icon} color='white' />
 		case 'phone':
-			return <FiPhone className={styles.icon} />
+			return <HiOutlinePhone size={32} className={styles.icon} color='white' />
 		case 'dueDate':
-			return <FiCalendar className={styles.icon} />
+			return <HiOutlineCalendar size={32} className={styles.icon} color='white' />
 		default:
 			return <div className={styles.icon} />
 	}
