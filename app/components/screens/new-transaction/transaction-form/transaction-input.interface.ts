@@ -1,15 +1,24 @@
+import { UseFormRegister } from 'react-hook-form'
+
+import { ITransaction } from '../new-transaction.interface'
+
 export interface ITransactionInput {
 	title?: string
-	name:
+	errors?: any
+	fieldId:
 		| 'number'
 		| 'date'
 		| 'recipient'
-		| 'email'
-		| 'amount'
-		| 'dueDate'
-		| 'services'
+		| 'invoice'
 		| 'pin'
-	options?: any
-	placeholder?: string
-	type?: string
+		| 'amount'
+		| 'service'
+		| 'dueDate'
+		| 'options'
+		| `options.${string}`
+	errorMsg?: string
+	type?: 'password' | 'email' | 'text'
+	placeholder: string
+	register: UseFormRegister<ITransaction>
+	isDisabled: boolean
 }

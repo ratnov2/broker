@@ -4,8 +4,14 @@ export interface ITransaction {
 	recipient: string
 	email: string
 	amount: number
-	services: string
+	service: string
 	dueDate: string
 	pin: string
 	agreement: boolean
+	invoice: number
+	options?: any
+}
+
+export interface IDBTransaction {
+	invoice: number
 }
