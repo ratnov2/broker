@@ -6,27 +6,20 @@ const Avatar = ({
 	avatarPath,
 	name
 }: {
-	size: string
+	size: number
 	avatarPath?: string
-	name: string
+	name?: string
 }) => {
 	return (
 		<div
 			className={'relative pointer-events-none'}
 			style={{ width: size, height: size }}
 		>
-			{/* <Image
-				className={'rounded-full object-cover'}
-				fill
-				src={img ? img : '/images/nophoto.png'}
-				sizes={'100%'}
-				alt={name}
-			/> */}
 			<Image
-				alt={name}
-				src={avatarPath? avatarPath : '/images/nophoto.png'}
-				width={48}
-				height={48}
+				alt={name? name : 'NoName'}
+				src={avatarPath? avatarPath : '/images/avatar-empty.png'}
+				width={size}
+				height={size}
 				draggable={false}
 				style={{ borderRadius: '50px' }}
 			/>

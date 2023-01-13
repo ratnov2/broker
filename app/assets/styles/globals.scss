@@ -18,18 +18,18 @@ body {
 
 @layer components {
 
-	.recipient-btn {
-		@apply absolute z-10 flex h-[60px] w-[60px] items-center justify-center rounded-full bg-[#F5F5F5] transition-all;
-		top: 50%;
+	.recipient-right-btn {
+		@apply absolute z-10 flex h-[60px] w-[60px] items-center justify-center rounded-full bg-purple transition-all text-white;
+		top: 33%;
 		right: 0;
 		transform: translateY(-50%);
-
-		&:hover {
-			background: #6160dc;
-
-			svg {
+		svg {
 				fill: $white;
 			}
+
+		&:hover {
+			background: #8282fd;
+
 		}
 	}
 

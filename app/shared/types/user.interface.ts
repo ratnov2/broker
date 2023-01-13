@@ -7,7 +7,7 @@ export interface IUser {
 }
 
 export interface IUserContact {
-	id: string
+	id: number
 	email: string
 	name: string
 	avatarPath?: string
