@@ -4,6 +4,37 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'app/assets/styles/variables';
+
 body {
 	@apply text-base text-black;
+	
+	min-height: 100vh;
+
+	&.active {
+		overflow: hidden;
+	}
+}
+
+@layer components {
+
+	.recipient-btn {
+		@apply absolute z-10 flex h-[60px] w-[60px] items-center justify-center rounded-full bg-[#F5F5F5] transition-all;
+		top: 50%;
+		right: 0;
+		transform: translateY(-50%);
+
+		&:hover {
+			background: #6160dc;
+
+			svg {
+				fill: $white;
+			}
+		}
+	}
+
+}
+
+.disabledBtn {
+	cursor: not-allowed;
 }

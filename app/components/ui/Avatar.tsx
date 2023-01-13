@@ -1,12 +1,13 @@
-import Image from 'next/image'
+import Image from 'next/image';
+
 
 const Avatar = ({
 	size,
-	img,
+	avatarPath,
 	name
 }: {
 	size: string
-	img?: string
+	avatarPath?: string
 	name: string
 }) => {
 	return (
@@ -14,12 +15,20 @@ const Avatar = ({
 			className={'relative pointer-events-none'}
 			style={{ width: size, height: size }}
 		>
-			<Image
+			{/* <Image
 				className={'rounded-full object-cover'}
 				fill
 				src={img ? img : '/images/nophoto.png'}
 				sizes={'100%'}
 				alt={name}
+			/> */}
+			<Image
+				alt={name}
+				src={avatarPath? avatarPath : '/images/nophoto.png'}
+				width={48}
+				height={48}
+				draggable={false}
+				style={{ borderRadius: '50px' }}
 			/>
 		</div>
 	)

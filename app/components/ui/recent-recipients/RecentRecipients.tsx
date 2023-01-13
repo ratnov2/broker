@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { FC } from 'react'
 import { BsArrowRightShort } from 'react-icons/bs'
 import { Navigation } from 'swiper'
@@ -8,6 +9,8 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import Avatar from '@/ui/Avatar'
 
 import { IUserContact } from '@/shared/types/user.interface'
+
+import styles from './RecentRecipients.module.scss'
 
 interface IRecentRecipients {
 	slidesPerView: number
@@ -48,27 +51,22 @@ const RecentRecipients: FC<IRecentRecipients> = ({
 					modules={[Navigation]}
 				>
 					{userContacts &&
-						userContacts.map(
-							recipient => (
-								console.log(recipient.avatarPath),
-								(
-									<SwiperSlide key={recipient.id}>
-										<div
-											// onClick={e => onContactClick(e)}
-											className={'cursor-pointer flex items-center flex-col'}
-											data-id={recipient.id}
-										>
-											<Avatar
-												size={'70px'}
-												img={recipient.avatarPath}
-												name={recipient.name}
-											/>
-											<p className={'pointer-events-none'}>{recipient.name}</p>
-										</div>
-									</SwiperSlide>
-								)
-							)
-						)}
+						userContacts.map(recipient => (
+							<SwiperSlide key={recipient.id}>
+								<div
+									// onClick={e => onContactClick(e)}
+									className={'cursor-pointer flex items-center flex-col'}
+									data-id={recipient.id}
+								>
+									<Avatar
+										size={'70px'}
+										avatarPath={recipient.avatarPath}
+										name={recipient.name}
+									/>
+									<p className={'pointer-events-none'}>{recipient.name[0]}</p>
+								</div>
+							</SwiperSlide>
+						))}
 					<button className={'recipient-btn'}>
 						<BsArrowRightShort
 							className={'text-[#6160DC] transition-all w-[26px] h-[26px]'}
