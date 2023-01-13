@@ -22,6 +22,10 @@ const NewTransaction: FC = () => {
 		console.log(321)
 	}
 
+	const selectedRecipient = userContacts?.find(
+		contact => contact.id === selectedRecipientId
+	)
+
 	return (
 		<Layout title='Transactions'>
 			<div className='mt-10 sm:mt-0 w-full h-screen'>
@@ -29,24 +33,17 @@ const NewTransaction: FC = () => {
 					<h1 className='text-2xl font-bold text-black mb-4'>
 						Add New Transaction
 					</h1>
-
 					<div className='flex space-x-10'>
-						<div className='w-2/3'>
-							<TransactionForm onSubmit={onSubmit} />
-						</div>
-						<div className='w-1/3 gap-8 bg-white p-10 rounded-3xl'>
-							<RecipientsSwiper
-								slidesPerView={3}
-								userContacts={userContacts}
-								isLoading={isLoadingUserContacts}
-								setSelectedRecipientId={setSelectedRecipientId}
-							/>
-							<RecipientDetails
-								selectedRecipient={userContacts?.find(
-									contact => contact.id === selectedRecipientId
-								)}
-							/>
-						</div>
+						<TransactionForm
+							onSubmit={onSubmit}
+							selectedRecipient={selectedRecipient}
+						/>
+						<RecipientDetails
+							selectedRecipient={selectedRecipient}
+							userContacts={userContacts}
+							isLoading={isLoadingUserContacts}
+							setSelectedRecipientId={setSelectedRecipientId}
+						/>
 					</div>
 				</div>
 			</div>

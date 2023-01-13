@@ -1,6 +1,7 @@
-import { FC } from 'react'
+import { Dispatch, FC, SetStateAction } from 'react'
 
 import Avatar from '@/ui/Avatar'
+import RecipientsSwiper from '@/ui/recipients-swiper/RecipientsSwiper'
 
 import { IUserContact } from '@/shared/types/user.interface'
 
@@ -8,11 +9,25 @@ import ContactItems from './contact-items/ContactItems'
 
 interface IRecipientDetails {
 	selectedRecipient?: IUserContact
+	userContacts?: IUserContact[]
+	isLoading: boolean
+	setSelectedRecipientId: Dispatch<SetStateAction<Number | undefined>>
 }
 
-const RecipientDetails: FC<IRecipientDetails> = ({ selectedRecipient }) => {
+const RecipientDetails: FC<IRecipientDetails> = ({
+	selectedRecipient,
+	userContacts,
+	isLoading,
+	setSelectedRecipientId
+}) => {
 	return (
-		<>
+		<div className='w-1/3 gap-8 bg-white p-10 rounded-3xl'>
+			<RecipientsSwiper
+				slidesPerView={3}
+				userContacts={userContacts}
+				isLoading={isLoading}
+				setSelectedRecipientId={setSelectedRecipientId}
+			/>
 			<div>
 				<div className='text-sm text-gray font-thin mb-4'>Client Details</div>
 				{selectedRecipient ? (
@@ -42,11 +57,7 @@ const RecipientDetails: FC<IRecipientDetails> = ({ selectedRecipient }) => {
 							value={selectedRecipient?.email}
 							type={'email'}
 						/>
-						<ContactItems
-							title={'Telephone'}
-							value={''}
-							type={'phone'}
-						/>
+						<ContactItems title={'Telephone'} value={''} type={'phone'} />
 					</div>
 				) : (
 					<div className='text-xl text-black font-thin mb-4'>
@@ -54,7 +65,7 @@ const RecipientDetails: FC<IRecipientDetails> = ({ selectedRecipient }) => {
 					</div>
 				)}
 			</div>
-		</>
+		</div>
 	)
 }
 
