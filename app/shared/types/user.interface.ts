@@ -5,3 +5,11 @@ export interface IUser {
 	isAdmin?: boolean
 	createdAt?: string
 }
+
+export interface IUserContact {
+	id: string
+	email: string
+	name: string
+	avatarPath?: string
+	address?: string
+}

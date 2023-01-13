@@ -2,11 +2,15 @@ import { FC } from 'react'
 
 import Layout from '@/layout/Layout'
 
+import RecentRecipients from '@/ui/recent-recipients/RecentRecipients'
+
+import { usePUserContacts } from '@/hooks/useUserContacts'
+
 import { ITransaction } from './new-transaction.interface'
-import RecipientRecent from './recipient-recent/RecipientRecent'
 import TransactionForm from './transaction-form/TransactionForm'
 
-const Transactions: FC = () => {
+const NewTransaction: FC = () => {
+	const { userContacts, isLoadingUserContacts } = usePUserContacts()
 	const onSubmit = (data: ITransaction) => {
 		console.log(123)
 		console.log(data)
@@ -25,7 +29,11 @@ const Transactions: FC = () => {
 							<TransactionForm onSubmit={onSubmit} />
 						</div>
 						<div className='w-1/3'>
-							<RecipientRecent />
+							<RecentRecipients
+								slidesPerView={3}
+								userContacts={userContacts}
+								isLoading={isLoadingUserContacts}
+							/>
 						</div>
 					</div>
 				</div>
@@ -33,4 +41,4 @@ const Transactions: FC = () => {
 		</Layout>
 	)
 }
-export default Transactions
+export default NewTransaction
