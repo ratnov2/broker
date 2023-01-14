@@ -1,7 +1,10 @@
-import { useQuery } from '@tanstack/react-query'
-import { useState } from 'react'
+import { useQuery } from '@tanstack/react-query';
+import { useState } from 'react';
 
-import { InvoiceService } from '@/services/invoices/invoice.service'
+
+
+import { InvoiceService } from '@/services/invoices/invoice.service';
+
 
 export const useInvoices = (currentPage: number = 1) => {
 	const [itemsPerPage, setItemsPerPage] = useState<number>(5)
@@ -26,15 +29,24 @@ export const useInvoices = (currentPage: number = 1) => {
 					item.id = i + 1
 				})
 
-				console.log(result)
 				return result
 			}
 		})
+	
+	const { isLoading: isLoadingSenderInvoices, data: senderInvoices } = useQuery(
+		['invoices'],
+		() => InvoiceService.getBySender(),
+		{
+			select: ({ data }) => data
+		}
+	)
 
 	return {
 		isLoadingOverviewInvoices,
 		overviewInvoices,
 		isLoadingLatestInvoices,
-		latestInvoices
+		latestInvoices,
+		senderInvoices,
+		isLoadingSenderInvoices
 	}
 }

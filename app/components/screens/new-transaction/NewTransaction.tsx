@@ -1,14 +1,23 @@
-import { FC, useState } from 'react'
+import { FC, useState } from 'react';
 
-import Layout from '@/layout/Layout'
 
-import { useUserContacts } from '@/hooks/useUserContacts'
 
-import { convertDate } from '@/utils/convert-date'
+import Layout from '@/layout/Layout';
 
-import { IDBTransaction, ITransaction } from './new-transaction.interface'
-import RecipientDetails from './recipient-details/RecipientDetails'
-import TransactionForm from './transaction-form/TransactionForm'
+
+
+import { useUserContacts } from '@/hooks/useUserContacts';
+
+
+
+import { convertDate } from '@/utils/convert-date';
+
+
+
+import { IDBTransaction, ITransaction } from './new-transaction.interface';
+import RecipientDetails from './recipient-details/RecipientDetails';
+import TransactionForm from './transaction-form/TransactionForm';
+
 
 const NewTransaction: FC = () => {
 	const { userContacts, isLoadingUserContacts } = useUserContacts()
@@ -19,10 +28,10 @@ const NewTransaction: FC = () => {
 	const onSubmit = (data: ITransaction) => {
 		if (data.agreement && data.amount > 0) {
 			const updateData: IDBTransaction = {
-				invoice: data.invoice
+				invoiceNumber: data.invoiceId
 			}
 			//await TransactionService.createTransaction(updateData).finally(() => { alert(`Transaction for invoice #${updateData.invoice} created`) })
-			alert(`Transaction for invoice #${updateData.invoice} created`)
+			alert(`Transaction for invoice #${updateData.invoiceNumber} created`)
 		}
 	}
 
@@ -31,8 +40,9 @@ const NewTransaction: FC = () => {
 	)
 
 	const NewTransactionInputs: ITransaction = {
-		number: '123456',
-		date: convertDate('2023-01-05T12:43:06.777Z')[0],
+		id: 123456,
+		createdAt: convertDate('2023-01-05T12:43:06.777Z')[0],
+		sender: '',
 		recipient: selectedRecipient?.name || '',
 		email: selectedRecipient?.email || '',
 		amount: 0,
@@ -40,7 +50,7 @@ const NewTransaction: FC = () => {
 		dueDate: convertDate('2023-01-05T12:43:06.777Z')[0],
 		pin: '1234',
 		agreement: false,
-		invoice: 0
+		invoiceId: 0
 	}
 	const [newTransactionData] = useState<ITransaction>(NewTransactionInputs)
 
@@ -54,7 +64,6 @@ const NewTransaction: FC = () => {
 					<div className='flex space-x-10'>
 						<TransactionForm
 							onSubmit={onSubmit}
-							selectedRecipient={selectedRecipient}
 							data={newTransactionData}
 						/>
 						<RecipientDetails

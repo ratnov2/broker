@@ -1,27 +1,26 @@
 import { FC } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
+import { MultiValue, SingleValue } from 'react-select'
 
+import Button from '@/ui/button/Button'
 import Select from '@/ui/select/Select'
-
-import { IUserContact } from '@/shared/types/users.types'
+import { ISelectOption } from '@/ui/select/select.interface'
 
 import { useInvoices } from '@/hooks/useInvoices'
 
+import { isMultiValue } from '@/utils/check-select-type'
+
 import { ITransaction } from '../new-transaction.interface'
 import Input from '../ui/input'
+import AcceptSection from './accept-section/AcceptSection'
 
 interface ITransactionForm {
 	onSubmit: SubmitHandler<ITransaction>
-	selectedRecipient?: IUserContact
 	data: ITransaction
 }
 
-const TransactionForm: FC<ITransactionForm> = ({
-	onSubmit,
-	selectedRecipient,
-	data,
-}) => {
-	const { latestInvoices, isLoadingLatestInvoices } = useInvoices()
+const TransactionForm: FC<ITransactionForm> = ({ onSubmit, data }) => {
+	const { senderInvoices, isLoadingSenderInvoices } = useInvoices()
 	const {
 		register,
 		handleSubmit,
@@ -29,24 +28,48 @@ const TransactionForm: FC<ITransactionForm> = ({
 		setValue
 	} = useForm<ITransaction>({ defaultValues: data })
 
-	function updateFormField(fieldName: any, value: IUserContact | undefined) {
+	function updateFormField(fieldName: any, value?: string | number) {
 		if (value) {
-			setValue(fieldName, value.name)
+			setValue(fieldName, value)
 		}
 	}
 
-	updateFormField('recipient', selectedRecipient)
-
-	function findRecipient(value: string | null) {
-		return latestInvoices?.invoices?.find(
-			invoice => value === invoice.id.toString()
-		)?.recipient
+	function updateFields(
+		value: SingleValue<ISelectOption> | MultiValue<ISelectOption>
+	) {
+		if (value) {
+			updateFormField('recipient', getInvoice(value)?.recipient.name)
+			updateFormField('amount', getInvoice(value)?.amount)
+			updateFormField('sender', getInvoice(value)?.sender.name)
+		}
+	}
+	function getInvoice(
+		value: SingleValue<ISelectOption> | MultiValue<ISelectOption>
+	) {
+		return senderInvoices?.find(
+			invoice => !isMultiValue(value) && value?.value === invoice.id.toString()
+		)
 	}
 
-	const selectOptions = latestInvoices?.invoices?.map(invoice => ({
-		label: 'Invoice #' + invoice.id.toString(),
+	const selectInvoices = senderInvoices?.map(invoice => ({
+		label: 'Invoice #' + invoice.id.toString() + ' ' + invoice.recipient.name,
 		value: invoice.id.toString()
 	}))
+
+	const selectService = [
+		{
+			label: 'Web Development',
+			value: 'web-development'
+		},
+		{
+			label: 'Cleaning Service',
+			value: 'cleaning-service'
+		},
+		{
+			label: 'Server Maintenance',
+			value: 'server-maintenance'
+		}
+	]
 
 	return (
 		<div className='w-2/3  bg-white p-10 rounded-3xl'>
@@ -57,10 +80,10 @@ const TransactionForm: FC<ITransactionForm> = ({
 			>
 				<Input
 					register={register}
-					title={'Transcation Number'}
+					title={'Transaction Number'}
 					errors={errors}
 					placeholder={'#123-456789'}
-					fieldId={'number'}
+					fieldId={'id'}
 					isDisabled={true}
 				/>
 				<Input
@@ -68,51 +91,45 @@ const TransactionForm: FC<ITransactionForm> = ({
 					title={'Date'}
 					errors={errors}
 					placeholder={'Transaction date'}
-					fieldId={'date'}
+					fieldId={'createdAt'}
 					isDisabled={true}
 				/>
-				{latestInvoices?.invoices && (
+				{selectInvoices && (
 					<div className='flex flex-col space-y-2 col-span-1'>
 						<label className='text-gray font-thin'>Invoice</label>
 						<Select
-							{...register}
+							{...register('invoice')} //, { required: `Invoice required` } -- not working
 							className={`w-full h-[52px]`}
 							placeholder={'Select invoice..'}
-							options={selectOptions}
+							options={selectInvoices}
 							variant='secondary'
 							size={'xl'}
 							color={'black'}
-							onChange={value => {
-								updateFormField('recipient', findRecipient('32'))
+							onChange={selectedOption => {
+								updateFields(selectedOption)
 							}}
 						/>
 						{errors && <p>{errors[`recipient`]?.message}</p>}
 					</div>
 				)}
-				<Input
-					register={register}
-					title={'Recipient'}
-					errors={errors}
-					placeholder={'Select Recipient..'}
-					fieldId={'recipient'}
-					isDisabled={false}
-				/>
-				<Input
-					register={register}
-					title={'Amount'}
-					errors={errors}
-					placeholder={'Transaction amount'}
-					fieldId={'amount'}
-					isDisabled={false}
-				/>
-				<Input
-					register={register}
-					title={'Services'}
-					errors={errors}
-					placeholder={'Select service..'}
-					fieldId={'service'}
-					isDisabled={false}
-				/>
+				{selectService && (
+					<div className='flex flex-col space-y-2 col-span-1'>
+						<label className='text-gray font-thin'>Service</label>
+						<Select
+							{...register('service')} //, { required: `Service required` } -- not working
+							className={`w-full h-[52px]`}
+							placeholder={'Select service..'}
+							options={selectService}
+							variant='secondary'
+							size={'xl'}
+							color={'black'}
+							onChange={selectedOption => {
+								updateFields(selectedOption)
+							}}
+						/>
+						{errors && <p>{errors[`service`]?.message}</p>}
+					</div>
+				)}
 				<Input
 					register={register}
 					title={'Due Date'}
@@ -123,31 +140,29 @@ const TransactionForm: FC<ITransactionForm> = ({
 				/>
 				<Input
 					register={register}
-					title={'Pin'}
+					title={'Amount'}
 					errors={errors}
-					placeholder={'Your Pin'}
-					fieldId={'pin'}
-					isDisabled={false}
-					type={'password'}
+					placeholder={'Transaction amount'}
+					fieldId={'amount'}
+					isDisabled={true}
 				/>
-				<div className='flex justify-end gap-2 col-span-2'>
-					<div className='flex items-start space-x-2 max-w-[30%]'>
-						<input
-							className='mt-2 cursor-pointer'
-							id='agreement'
-							type='checkbox'
-							{...register('agreement')}
-						/>
-						<label className='cursor-pointer' htmlFor='agreement'>
-							Lorem ipsum dolor sit amet consectetur, adipisicing elit
-						</label>
-					</div>
-					<input
-						type='submit'
-						value='Send'
-						className='px-10 py-3 bg-purple rounded-full text-white font-semibold w-[40%]'
-					/>
-				</div>
+				<Input
+					register={register}
+					title={'Sender'}
+					errors={errors}
+					placeholder={''}
+					fieldId={'sender'}
+					isDisabled={true}
+				/>
+				<Input
+					register={register}
+					title={'Recipient'}
+					errors={errors}
+					placeholder={''}
+					fieldId={'recipient'}
+					isDisabled={true}
+				/>
+				<AcceptSection register={register} />
 			</form>
 		</div>
 	)

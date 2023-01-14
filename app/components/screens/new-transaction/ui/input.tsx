@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { ITransactionInput } from '../transaction-form/transaction-from.interface'
+import { ITransactionInput } from './transaction-from.interface'
 
 const Input: FC<ITransactionInput> = ({
 	register,
@@ -10,7 +10,7 @@ const Input: FC<ITransactionInput> = ({
 	errorMsg,
 	type,
 	placeholder,
-	isDisabled
+	isDisabled,
 }) => {
 	return (
 		<div className='flex flex-col space-y-2 col-span-1'>

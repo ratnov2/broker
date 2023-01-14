@@ -1,17 +1,25 @@
+import { IInvoice } from "@/shared/types/invoice.types";
+
+
 export interface ITransaction {
-	number: string
-	date: string
+	id: number
+	createdAt: string
+	updatedAt?: string
+	status?: string
+	amount: number
+	type?: string
+	invoiceId: number
+	sender: string
 	recipient: string
 	email: string
-	amount: number
 	service: string
 	dueDate: string
 	pin: string
 	agreement: boolean
-	invoice: number
+	invoice?: IInvoice
 	options?: any
 }
 
 export interface IDBTransaction {
-	invoice: number
+	invoiceNumber: number
 }
