@@ -14,9 +14,7 @@ interface IInvoiceItem {
 	transaction: ITransaction
 }
 
-const TransactionHistoryItem: FC<IInvoiceItem> = ({
-	transaction
-}) => {
+const TransactionHistoryItem: FC<IInvoiceItem> = ({ transaction }) => {
 	const [isChecked, setIsChecked] = useState(false)
 
 	return (
@@ -55,7 +53,9 @@ const TransactionHistoryItem: FC<IInvoiceItem> = ({
 				<span>{convertDate(transaction.updatedAt)[0]}</span>
 			</div>
 			<span className={styles.amount}>{transaction.amount}</span>
-			<span className={styles.location}>{transaction.invoice?.recipient.address}</span>
+			<span className={styles.location}>
+				{transaction.invoice?.recipient.address}
+			</span>
 			<Status status={transaction.status} />
 			<Actions />
 		</div>

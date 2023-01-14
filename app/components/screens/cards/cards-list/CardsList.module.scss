@@ -1,0 +1,8 @@
+.cardsListSection {
+	@apply mt-6 w-[100%] rounded-[40px] bg-white py-4  min-h-[560px] max-w-[1578px];
+
+	> h1 {
+		@apply mb-12 mt-8 px-8 text-[24px] font-bold leading-[120%] text-black;
+	}
+}
+

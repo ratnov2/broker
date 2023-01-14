@@ -4,7 +4,6 @@ import { CSSProperties, FC } from 'react'
 import { FieldError } from 'react-hook-form'
 
 import styles from './UploadField.module.scss'
-
 import { useUpload } from './useUpload'
 
 interface IUploadField {
@@ -41,7 +40,7 @@ const UploadField: FC<IUploadField> = ({
 						{isLoading ? (
 							<div>Loading...</div>
 						) : (
-								image && <Image src={image} alt='' fill={true} unoptimized />
+							image && <Image src={image} alt='' fill={true} unoptimized />
 						)}
 					</div>
 				)}
