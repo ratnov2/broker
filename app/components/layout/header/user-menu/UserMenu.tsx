@@ -20,7 +20,7 @@ const UserMenu: FC = () => {
 				<Link href='/profile' className={styles.profile}>
 					<Image
 						className={styles.profile_image}
-						src={profile.avatarPath}
+						src={profile.avatarPath? profile.avatarPath : '/images/avatar-empty.png'} 
 						width={56}
 						height={56}
 						alt='profile'

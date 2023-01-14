@@ -18,7 +18,7 @@ export interface ISettingInput {
 }
 
 export interface IUserContact {
-	id: string
+	id: number
 	createdAt: string
 	updatedAt: string
 	email: string
