@@ -3,8 +3,8 @@ import Cookies from 'js-cookie'
 
 import { getNewTokens } from '@/providers/auth/helper.auth'
 
-import { API_SERVER_URL, API_URL } from '@/config/api.config'
-import { IS_PRODUCTION } from '@/config/constants'
+import { API_URL, API_SERVER_URL } from '@/config/api.config'
+import {IS_PRODUCTION } from '@/config/constants'
 
 import { errorCatch, getContentType } from './api.helpers'
 import { removeTokensStorage } from '@/services/auth/auth.helper'
@@ -35,14 +35,14 @@ instance.interceptors.response.use(
 		const originalRequest = error.config
 
 		if (
-			error.response.status === 401 &&
-			error.response.statusText === 'Unauthorized'
+			error.response?.status === 401 &&
+			error.response?.statusText === 'Unauthorized'
 		) {
 			throw error
 		}
 
 		if (
-			(error.response.status === 401 ||
+			(error.response?.status === 401 ||
 				errorCatch(error) === 'jwt expired' ||
 				errorCatch(error) === 'jwt must be provided') &&
 			error.config &&

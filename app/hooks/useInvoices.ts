@@ -26,7 +26,6 @@ export const useInvoices = (currentPage: number = 1) => {
 					item.id = i + 1
 				})
 
-				console.log(result)
 				return result
 			}
 		})

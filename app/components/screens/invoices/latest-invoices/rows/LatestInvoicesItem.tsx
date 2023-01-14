@@ -27,9 +27,6 @@ const InvoiceItem: FC<IInvoiceItem> = ({
 	selectedInvoiceId,
 	toggleCheckboxes
 }) => {
-	{
-		console.log(JSON.stringify(latestInvoice.recipient.avatarPath))
-	}
 		return (
 			<div
 				id={latestInvoice.id.toString()}
