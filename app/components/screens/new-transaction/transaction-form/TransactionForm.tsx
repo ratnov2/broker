@@ -1,36 +1,43 @@
-import { FC } from 'react'
-import 'react-datepicker/dist/react-datepicker.css'
-import { SubmitHandler, useForm } from 'react-hook-form'
+import { FC } from 'react';
+import 'react-datepicker/dist/react-datepicker.css';
+import { SubmitHandler, useForm } from 'react-hook-form';
 
-import { IUserContact } from '@/shared/types/user.interface'
 
-import { ITransaction } from '../new-transaction.interface'
-import Input from '../ui/input'
+
+import { IUserContact } from '@/shared/types/user.interface';
+
+
+
+import { ITransaction } from '../new-transaction.interface';
+import Input from '../ui/input';
+
+
+
+import { ITransactionInput, ITransactionInputs } from './transaction-from.interface';
+
 
 interface ITransactionForm {
 	onSubmit: SubmitHandler<ITransaction>
 	selectedRecipient?: IUserContact
 	data: ITransaction
+	userContacts?: IUserContact[]
 }
+
 const TransactionForm: FC<ITransactionForm> = ({
 	onSubmit,
 	selectedRecipient,
-	data
+	data,
+	userContacts
 }) => {
-	const {
-		register,
-		handleSubmit,
-		formState: { errors },
-		setValue
-	} = useForm<ITransaction>({
-		defaultValues: data
-	})
+
+	const { register, handleSubmit, formState: { errors }, setValue } = useForm<ITransaction>({ defaultValues: data })
 
 	function fillData(data: IUserContact | undefined) {
 		if (data) {
 			setValue('recipient', data.name)
 		}
 	}
+
 	fillData(selectedRecipient)
 
 	return (
@@ -40,6 +47,17 @@ const TransactionForm: FC<ITransactionForm> = ({
 				onSubmit={handleSubmit(onSubmit)}
 				className='grid grid-cols-2 w-full gap-8'
 			>
+				{/* {ITransactionInputs.map(input => (
+					<Input
+						register={register}
+						title={input.title}
+						errors={errors}
+						placeholder={input.placeholder}
+						fieldId={input.fieldId}
+						isDisabled={input.isDisabled}
+						type={input.type}
+					/>
+				))} */}
 				<Input
 					register={register}
 					title={'Transcation Number'}
@@ -68,7 +86,7 @@ const TransactionForm: FC<ITransactionForm> = ({
 					register={register}
 					title={'Invoice'}
 					errors={errors}
-					placeholder={'Select invoice'}
+					placeholder={'Select invoice..'}
 					fieldId={'invoice'}
 					isDisabled={false}
 				/>

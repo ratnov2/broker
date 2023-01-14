@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { ITransactionInput } from '../transaction-form/transaction-input.interface'
+import { ITransactionInput } from '../transaction-form/transaction-from.interface'
 
 const Input: FC<ITransactionInput> = ({
 	register,
