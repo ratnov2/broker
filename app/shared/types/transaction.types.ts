@@ -19,3 +19,7 @@ export interface ITransactions {
 	transactions: ITransaction[]
 	length: number
 }
+
+export interface ITransactionData {
+	invoice: number
+}

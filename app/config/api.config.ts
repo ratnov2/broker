@@ -10,3 +10,9 @@ export const getInvoicesUrl = (
 	page?: number,
 	perPage?: number
 ) => `/invoices${string}?page=${page}&perPage=${perPage}`
+
+export const getTransactionsUrl = (
+	page?: number,
+	perPage?: number,
+	orderBy?: string
+) => `/transactions?page=${page}&perPage=${perPage}&orderBy=${orderBy}`

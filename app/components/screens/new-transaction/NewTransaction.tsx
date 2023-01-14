@@ -6,6 +6,10 @@ import Layout from '@/layout/Layout';
 
 
 
+import { ITransactionData } from '@/shared/types/transaction.types';
+
+
+
 import { useUserContacts } from '@/hooks/useUserContacts';
 
 
@@ -14,9 +18,10 @@ import { convertDate } from '@/utils/convert-date';
 
 
 
-import { IDBTransaction, ITransaction } from './new-transaction.interface';
+import { ITransaction } from './new-transaction.interface';
 import RecipientDetails from './recipient-details/RecipientDetails';
 import TransactionForm from './transaction-form/TransactionForm';
+import { TransactionService } from '@/services/transactions/transactions.service';
 
 
 const NewTransaction: FC = () => {
@@ -25,13 +30,14 @@ const NewTransaction: FC = () => {
 		Number | undefined
 	>(userContacts && userContacts[0].id)
 
-	const onSubmit = (data: ITransaction) => {
+	const onSubmit = async (data: ITransaction) => {
 		if (data.agreement && data.amount > 0) {
-			const updateData: IDBTransaction = {
-				invoiceNumber: data.invoiceId
+			const updateData: ITransactionData = {
+				invoice: data.invoiceId
 			}
-			//await TransactionService.createTransaction(updateData).finally(() => { alert(`Transaction for invoice #${updateData.invoice} created`) })
-			alert(`Transaction for invoice #${updateData.invoiceNumber} created`)
+			await TransactionService.createTransaction(updateData).finally(() => {
+				alert(`Transaction for invoice #${updateData.invoice} created`)
+			})
 		}
 	}
 
@@ -41,13 +47,13 @@ const NewTransaction: FC = () => {
 
 	const NewTransactionInputs: ITransaction = {
 		id: 123456,
-		createdAt: convertDate('2023-01-05T12:43:06.777Z')[0],
+		createdAt: convertDate(new Date().toISOString())[0],
 		sender: '',
 		recipient: selectedRecipient?.name || '',
 		email: selectedRecipient?.email || '',
 		amount: 0,
 		service: 'Web Development',
-		dueDate: convertDate('2023-01-05T12:43:06.777Z')[0],
+		dueDate: convertDate(new Date().toISOString())[0],
 		pin: '1234',
 		agreement: false,
 		invoiceId: 0
@@ -62,10 +68,7 @@ const NewTransaction: FC = () => {
 						Add New Transaction
 					</h1>
 					<div className='flex space-x-10'>
-						<TransactionForm
-							onSubmit={onSubmit}
-							data={newTransactionData}
-						/>
+						<TransactionForm onSubmit={onSubmit} data={newTransactionData} />
 						<RecipientDetails
 							selectedRecipient={selectedRecipient}
 							userContacts={userContacts}

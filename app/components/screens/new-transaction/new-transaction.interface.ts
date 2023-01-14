@@ -19,7 +19,3 @@ export interface ITransaction {
 	invoice?: IInvoice
 	options?: any
 }
-
-export interface IDBTransaction {
-	invoiceNumber: number
-}

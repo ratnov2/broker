@@ -27,7 +27,7 @@ const RecipientsSwiper: FC<IRecentRecipients> = ({
 
 	return (
 		<div className={'mb-7'}>
-			<h3 className={'mb-7 font-semibold text-2xl'}>Recent Recipient</h3>
+			<h3 className={'mb-7 font-bold text-2xl'}>Recent Recipient</h3>
 
 			{isLoading ? (
 				<div>Loading...</div>
