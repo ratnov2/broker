@@ -1,5 +1,9 @@
 .header {
-	@apply fixed right-0 flex h-16 w-full items-center justify-end pr-10;
+	@apply fixed right-0 top-0 z-20 flex h-16 w-full items-center justify-end py-12 px-10 transition-all;
+
+	&.scroll {
+		@apply bg-white shadow-sm;
+	}
 
 	> nav {
 		@apply flex items-center gap-5;

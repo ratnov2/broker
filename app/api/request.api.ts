@@ -7,5 +7,5 @@ export const request = async <T>(config: AxiosRequestConfig) => {
 
 	const onError = (error: AxiosError<T>) => Promise.reject(error)
 
-	return instance(config).then(onSuccess).catch(onError)
+	return instance(config).then(onSuccess, onError) //.catch(onError)
 }

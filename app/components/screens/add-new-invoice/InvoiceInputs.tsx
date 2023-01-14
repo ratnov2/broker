@@ -1,18 +1,25 @@
-const InvoiceInputs = () => {
+import { FC } from 'react'
+
+import { invoiceNumber } from '@/utils/invoiceNumber'
+
+type TypeInvoiceInputs = {
+	totalAmount: any
+	invoiceId?: number | 'create'
+}
+
+const InvoiceInputs: FC<TypeInvoiceInputs> = ({ totalAmount, invoiceId }) => {
 	return (
 		<div className='flex justify-between mb-8'>
 			<div>
 				<span className='text-gray text-xs text-right'>INVOICE NO</span>
 				<div className='mt-4 border py-5 px-7 w-[300px] rounded-[40px]'>
-					#INV-0001234
+					{invoiceNumber(invoiceId) || <div>Loading ...</div>}
 				</div>
 			</div>
 			<div>
-				<span className='text-gray text-xs text-right'>
-					AMOUNT (USD)
-				</span>
+				<span className='text-gray text-xs text-right'>TOTAL AMOUNT (USD)</span>
 				<div className='mt-4 border py-5 px-7 w-[300px] rounded-[40px] border-purple'>
-					5,000.00
+					{totalAmount}
 				</div>
 			</div>
 		</div>

@@ -1,38 +1,26 @@
 import { FC } from 'react'
-import { FormState, UseFormRegister } from 'react-hook-form'
 
 import AuthField from '@/ui/auth-elements/AuthField'
 
 import { validEmail } from '@/shared/regex'
+import { IInputHookFormProps } from '@/shared/types/field.interface'
 
 import { IAuthInput } from './auth.interface'
 
-type TypeAuthFieldsProps = {
-	register: UseFormRegister<any>
-	formState: FormState<IAuthInput>
-	isPasswordRequired?: boolean
-}
-
-const AuthFields: FC<TypeAuthFieldsProps> = ({
+const AuthFields: FC<IInputHookFormProps<IAuthInput>> = ({
 	register,
-	formState: { errors },
-	isPasswordRequired = false
+	formState: { errors }
 }) => {
 	return (
 		<>
 			<AuthField
-				{...register(
-					'email',
-					isPasswordRequired
-						? {
-								required: 'Email is required',
-								pattern: {
-									value: validEmail,
-									message: 'Please enter a valid email address'
-								}
-						  }
-						: {}
-				)}
+				{...register('email', {
+					required: 'Email is required',
+					pattern: {
+						value: validEmail,
+						message: 'Please enter a valid email address'
+					}
+				})}
 				label='e-mail'
 				placeholder='Insert e-mail'
 				error={errors.email}
