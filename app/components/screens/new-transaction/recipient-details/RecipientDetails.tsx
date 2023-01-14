@@ -3,7 +3,7 @@ import { Dispatch, FC, SetStateAction } from 'react'
 import Avatar from '@/ui/Avatar'
 import RecipientsSwiper from '@/ui/recipients-swiper/RecipientsSwiper'
 
-import { IUserContact } from '@/shared/types/user.interface'
+import { IUserContact } from '@/shared/types/users.types'
 
 import ContactItems from './contact-items/ContactItems'
 

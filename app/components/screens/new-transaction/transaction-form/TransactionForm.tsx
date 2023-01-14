@@ -1,44 +1,52 @@
-import { FC } from 'react';
-import 'react-datepicker/dist/react-datepicker.css';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { FC } from 'react'
+import { SubmitHandler, useForm } from 'react-hook-form'
 
+import Select from '@/ui/select/Select'
 
+import { IUserContact } from '@/shared/types/users.types'
 
-import { IUserContact } from '@/shared/types/user.interface';
+import { useInvoices } from '@/hooks/useInvoices'
 
-
-
-import { ITransaction } from '../new-transaction.interface';
-import Input from '../ui/input';
-
-
-
-import { ITransactionInput, ITransactionInputs } from './transaction-from.interface';
-
+import { ITransaction } from '../new-transaction.interface'
+import Input from '../ui/input'
 
 interface ITransactionForm {
 	onSubmit: SubmitHandler<ITransaction>
 	selectedRecipient?: IUserContact
 	data: ITransaction
-	userContacts?: IUserContact[]
 }
 
 const TransactionForm: FC<ITransactionForm> = ({
 	onSubmit,
 	selectedRecipient,
 	data,
-	userContacts
 }) => {
+	const { latestInvoices, isLoadingLatestInvoices } = useInvoices()
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+		setValue
+	} = useForm<ITransaction>({ defaultValues: data })
 
-	const { register, handleSubmit, formState: { errors }, setValue } = useForm<ITransaction>({ defaultValues: data })
-
-	function fillData(data: IUserContact | undefined) {
-		if (data) {
-			setValue('recipient', data.name)
+	function updateFormField(fieldName: any, value: IUserContact | undefined) {
+		if (value) {
+			setValue(fieldName, value.name)
 		}
 	}
 
-	fillData(selectedRecipient)
+	updateFormField('recipient', selectedRecipient)
+
+	function findRecipient(value: string | null) {
+		return latestInvoices?.invoices?.find(
+			invoice => value === invoice.id.toString()
+		)?.recipient
+	}
+
+	const selectOptions = latestInvoices?.invoices?.map(invoice => ({
+		label: 'Invoice #' + invoice.id.toString(),
+		value: invoice.id.toString()
+	}))
 
 	return (
 		<div className='w-2/3  bg-white p-10 rounded-3xl'>
@@ -47,17 +55,6 @@ const TransactionForm: FC<ITransactionForm> = ({
 				onSubmit={handleSubmit(onSubmit)}
 				className='grid grid-cols-2 w-full gap-8'
 			>
-				{/* {ITransactionInputs.map(input => (
-					<Input
-						register={register}
-						title={input.title}
-						errors={errors}
-						placeholder={input.placeholder}
-						fieldId={input.fieldId}
-						isDisabled={input.isDisabled}
-						type={input.type}
-					/>
-				))} */}
 				<Input
 					register={register}
 					title={'Transcation Number'}
@@ -74,20 +71,30 @@ const TransactionForm: FC<ITransactionForm> = ({
 					fieldId={'date'}
 					isDisabled={true}
 				/>
+				{latestInvoices?.invoices && (
+					<div className='flex flex-col space-y-2 col-span-1'>
+						<label className='text-gray font-thin'>Invoice</label>
+						<Select
+							{...register}
+							className={`w-full h-[52px]`}
+							placeholder={'Select invoice..'}
+							options={selectOptions}
+							variant='secondary'
+							size={'xl'}
+							color={'black'}
+							onChange={value => {
+								updateFormField('recipient', findRecipient('32'))
+							}}
+						/>
+						{errors && <p>{errors[`recipient`]?.message}</p>}
+					</div>
+				)}
 				<Input
 					register={register}
 					title={'Recipient'}
 					errors={errors}
 					placeholder={'Select Recipient..'}
 					fieldId={'recipient'}
-					isDisabled={false}
-				/>
-				<Input
-					register={register}
-					title={'Invoice'}
-					errors={errors}
-					placeholder={'Select invoice..'}
-					fieldId={'invoice'}
 					isDisabled={false}
 				/>
 				<Input

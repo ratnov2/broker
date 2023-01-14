@@ -5,7 +5,7 @@ import {
 	HiOutlinePhone
 } from 'react-icons/hi'
 
-import { IUserContact } from '@/shared/types/user.interface'
+import { IUserContact } from '@/shared/types/users.types'
 
 import styles from './ContactItems.module.scss'
 

@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import Avatar from '@/ui/Avatar'
 
-import { IUserContact } from '@/shared/types/user.interface'
+import { IUserContact } from '@/shared/types/users.types'
 
 interface IRecentRecipients {
 	slidesPerView: number | 'auto' | undefined

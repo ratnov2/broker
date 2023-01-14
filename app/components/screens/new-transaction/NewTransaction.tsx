@@ -1,23 +1,14 @@
-import { FC, useState } from 'react';
+import { FC, useState } from 'react'
 
+import Layout from '@/layout/Layout'
 
+import { useUserContacts } from '@/hooks/useUserContacts'
 
-import Layout from '@/layout/Layout';
+import { convertDate } from '@/utils/convert-date'
 
-
-
-import { useUserContacts } from '@/hooks/useUserContacts';
-
-
-
-import { convertDate } from '@/utils/convert-date';
-
-
-
-import { IDBTransaction, ITransaction } from './new-transaction.interface';
-import RecipientDetails from './recipient-details/RecipientDetails';
-import TransactionForm from './transaction-form/TransactionForm';
-
+import { IDBTransaction, ITransaction } from './new-transaction.interface'
+import RecipientDetails from './recipient-details/RecipientDetails'
+import TransactionForm from './transaction-form/TransactionForm'
 
 const NewTransaction: FC = () => {
 	const { userContacts, isLoadingUserContacts } = useUserContacts()

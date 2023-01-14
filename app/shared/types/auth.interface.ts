@@ -1,4 +1,4 @@
-import { IUser } from './user.interface'
+import { IUser } from './users.types'
 
 export interface IAuthFormData extends Pick<IUser, 'email' | 'password'> {}
 

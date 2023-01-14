@@ -1,6 +1,6 @@
 import { instance } from 'api/interceptors'
 
-import { IUserContact } from '@/shared/types/user.interface'
+import { IUserContact } from '@/shared/types/users.types'
 
 import { getUsersUrl } from '@/config/api.config'
 

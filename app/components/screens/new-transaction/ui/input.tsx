@@ -17,7 +17,7 @@ const Input: FC<ITransactionInput> = ({
 			{title && <label className='text-gray font-thin'>{title}</label>}
 			<input
 				{...register(`${fieldId}`, { required: `${errorMsg}` })}
-				className={`px-4 py-3 border-gray rounded-3xl font-bold ${
+				className={`px-4 py-2.5 border-gray rounded-3xl font-bold ${
 					isDisabled ? 'border-none text-gray' : 'border'
 				}`}
 				type={type}
