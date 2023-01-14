@@ -1,6 +1,14 @@
-import {request} from '@/api/request.api'
-import {getUserProfile} from '@/config/api.config'
-import {IUserProfile} from "@/services/user/userProfile.interface";
+import { instance } from 'api/interceptors'
+
+import { IUserContact } from '@/shared/types/users.types'
+
+import { getUsersUrl } from '@/config/api.config'
+
+export const UserService = {
+	async getUserContacts() {
+		return instance.get<IUserContact[]>(getUsersUrl(`/contacts`))
+	}
+}
 
 export const UserService = {
 	async getProfile() {

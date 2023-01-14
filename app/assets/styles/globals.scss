@@ -5,8 +5,39 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'app/assets/styles/variables';
+
 body {
 	@apply text-base text-black;
+	
+	min-height: 100vh;
+
+	&.active {
+		overflow: hidden;
+	}
+}
+
+@layer components {
+
+	.recipient-right-btn {
+		@apply absolute z-10 flex h-[60px] w-[60px] items-center justify-center rounded-full bg-purple transition-all text-white;
+		top: 33%;
+		right: 0;
+		transform: translateY(-50%);
+		svg {
+				fill: $white;
+			}
+
+		&:hover {
+			background: #8282fd;
+
+		}
+	}
+
+}
+
+.disabledBtn {
+	cursor: not-allowed;
 }
 
 @import 'app/components/screens/transactions/transaction-top-title/transaction-filter/FilterOption.module.scss';

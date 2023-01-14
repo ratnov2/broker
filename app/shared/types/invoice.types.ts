@@ -1,4 +1,4 @@
-import { ITransaction } from "./transaction.types"
+import { ITransaction } from './transaction.types'
 
 export interface IInvoice {
 	id: number
@@ -12,7 +12,6 @@ export interface IInvoice {
 	recipient: IRecipient
 	sender: IRecipient
 	transactions: ITransaction[]
-
 }
 
 export interface IInvoices {

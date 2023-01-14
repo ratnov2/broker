@@ -26,3 +26,11 @@ export interface IUserContact {
 	avatarPath?: string
 	address?: string
 }
+
+export interface IUserContact {
+	id: number
+	email: string
+	name: string
+	avatarPath?: string
+	address?: string
+}
