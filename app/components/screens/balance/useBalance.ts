@@ -1,12 +1,12 @@
 import { useQuery } from '@tanstack/react-query'
 
-import { InvoicesService } from '@/services/invoices.service'
-import { TransactionsService } from '@/services/transactions.service'
+import { InvoiceService } from '@/services/invoices/invoice.service'
+import { TransactionService } from '@/services/transactions/transactions.service'
 
 export const useBalance = (currentPage: number) => {
 	const { isLoading: isLoadingTransfers, data: transfers } = useQuery(
 		['get transfer history', currentPage],
-		() => TransactionsService.getAll(currentPage),
+		() => TransactionService.getAll(currentPage),
 		{
 			select: ({ data }) => data
 		}
@@ -14,7 +14,7 @@ export const useBalance = (currentPage: number) => {
 
 	const { isLoading: isLoadingInvoices, data: invoices } = useQuery(
 		['get invoices by sender'],
-		() => InvoicesService.getBySender(),
+		() => InvoiceService.getBySender(),
 		{
 			select: ({ data }) => data.slice(0, 7)
 		}

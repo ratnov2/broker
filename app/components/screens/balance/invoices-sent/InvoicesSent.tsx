@@ -5,7 +5,7 @@ import Loader from '@/ui/loader/Loader'
 
 import InvoiceItem from './InvoiceItem'
 import styles from './Invoices.module.scss'
-import { IInvoice } from './invoices.interface'
+import { IInvoice } from '@/shared/types/invoice.types'
 
 interface IInvoicesSentProps {
 	isLoading: boolean

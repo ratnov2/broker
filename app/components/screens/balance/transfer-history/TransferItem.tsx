@@ -6,7 +6,7 @@ import { convertDate } from '@/utils/convert-date'
 import styles from './Transfer.module.scss'
 import Menu from './menu/Menu'
 import Status from './status/Status'
-import { ITransaction } from './transfer.interface'
+import { ITransaction } from '@/shared/types/transaction.types'
 
 const TransferItem: FC<{
 	transfer: ITransaction

@@ -1,4 +1,4 @@
-import { STATISTICS_EXPENSE, STATISTICS_INCOME } from '@/config/constants';
+import { STATISTICS_EXPENSE, STATISTICS_INCOME } from '@/config/constants'
 
 export const API_URL =
 	process.env.NEXT_PUBLIC_API_URL ||
@@ -24,12 +24,9 @@ export const getInvoicesUrl = (
 	perPage?: number
 ) => `/invoices${string}?page=${page}&perPage=${perPage}`
 
-export const getTransactionsUrl = (
-	string?: string,
-	page?: number,
-	perPage?: number,
-	orderBy?: string
-) => `/transactions${string}?page=${page}&perPage=${perPage}&orderBy=${orderBy}`
+export const getTransactionsUrl = (string?: string) => `/transactions${string}`
+
+//export const getTransactionsUrl = (string: string) => `/transactions${string}`
 
 export const getStatisticsUrl = (string: string) => `/statistics${string}`
 export const getUserProfile = (string?: string) => `/users/profile${string}`

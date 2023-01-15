@@ -1,4 +1,9 @@
-import { ITransaction } from './transaction.types'
+import { TypeUser } from '@/shared/types/user.type';
+
+
+
+import { ITransaction } from './transaction.types';
+
 
 export interface IInvoice {
 	id: number
@@ -12,7 +17,23 @@ export interface IInvoice {
 	recipient: IRecipient
 	sender: IRecipient
 	transactions: ITransaction[]
+	status?: string
 }
+
+// export interface IInvoice {
+// 	id: number
+// 	createdAt: string
+// 	updatedAt: string
+// 	amount: number
+// 	senderId: number
+// 	recipientId: number
+// 	items: TypeItems[]
+// 	files: TypeFiles[]
+// 	recipient: TypeUser
+// 	sender: TypeUser
+// 	transactions: ITransaction[]
+// 	status?: string
+// }
 
 export interface IInvoices {
 	invoices: IInvoice[]
@@ -60,3 +81,26 @@ export interface IOverviewInvoice {
 	overviewType: string
 	amount: number
 }
+
+type TypeItems = {
+	id: number
+	createdAt: string
+	updatedAt: string
+	name: string
+	duration: number
+	rate: number
+	amount: number
+	invoiceId: number
+}
+
+type TypeFiles = {
+	id: number
+	createdAt: string
+	updatedAt: string
+	name: string
+	size: string
+	url: string
+	invoiceId: number
+}
+
+//export type TypeStatus = 'Pending' | 'Complete' | 'Canceled'

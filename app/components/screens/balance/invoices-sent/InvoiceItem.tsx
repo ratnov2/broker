@@ -4,7 +4,7 @@ import { FC } from 'react'
 import styles from './Invoices.module.scss'
 import { formatDate } from './format-date'
 import InvoiceStatus from './invoice-status/InvoiceStatus'
-import { IInvoice } from './invoices.interface'
+import { IInvoice } from '@/shared/types/invoice.types'
 
 const InvoiceItem: FC<{ invoice: IInvoice }> = ({ invoice }) => {
 	return (

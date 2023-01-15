@@ -3,7 +3,6 @@ import {
 	FC,
 	SetStateAction,
 	useEffect,
-	useMemo,
 	useState
 } from 'react'
 
@@ -12,7 +11,7 @@ import Pagination from '@/ui/pagination/Pagination'
 
 import styles from './Transfer.module.scss'
 import TransferItem from './TransferItem'
-import { ITransfers } from './transfer.interface'
+import { ITransfers } from '@/shared/types/transaction.types'
 
 interface ITransferHistoryProps {
 	isLoading: boolean
@@ -58,9 +57,10 @@ const TransferHistory: FC<ITransferHistoryProps> = ({
 
 			{itemsLimit && (
 				<Pagination
-					itemsLimit={itemsLimit}
+					maxItems={itemsLimit}
 					currentPage={currentPage}
 					setCurrentPage={setCurrentPage}
+					itemsPerPage={5}
 				/>
 			)}
 		</div>

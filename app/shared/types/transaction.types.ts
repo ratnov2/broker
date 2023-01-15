@@ -1,6 +1,5 @@
-import { IInvoice } from './invoice.types';
-import { IUser } from './users.types';
-
+import { IInvoice } from './invoice.types'
+import { IUser } from './users.types'
 
 export interface ITransaction {
 	id: number
@@ -18,6 +17,11 @@ export interface ITransaction {
 }
 
 export interface ITransactions {
+	transactions: ITransaction[]
+	length: number
+}
+
+export interface ITransfers {
 	transactions: ITransaction[]
 	length: number
 }

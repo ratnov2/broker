@@ -1,13 +1,12 @@
 import { getTransactionsUrl } from '@/config/api.config'
 
 import { instance } from '@/api/interceptors'
-
-import { ITransfers } from '@/screens/balance/transfer-history/transfer.interface'
+import { ITransfers } from '@/shared/types/transaction.types'
 
 export const TransactionsService = {
 	async getAll(currentPage: number, perPage = 5) {
 		return instance.get<ITransfers>(
-			getTransactionsUrl(`?perPage=${perPage}&page=${currentPage}`)
+			getTransactionsUrl(`/?perPage=${perPage}&page=${currentPage}`)
 		)
 	},
 

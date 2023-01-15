@@ -6,11 +6,10 @@ import {
 	AiOutlineQuestionCircle
 } from 'react-icons/ai'
 
-import { TypeStatus } from '../invoices.interface'
 
 import styles from './InvoiceStatus.module.scss'
 
-const InvoiceStatus: FC<{ status: TypeStatus }> = ({ status }) => {
+const InvoiceStatus: FC<{ status: string }> = ({ status }) => {
 	return (
 		<div className={cn(styles.status, styles[status])}>
 			{status === 'Pending' ? (
