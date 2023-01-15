@@ -3,10 +3,10 @@ import { UseFormRegister } from 'react-hook-form'
 
 import Button from '@/ui/button/Button'
 
-import { ITransaction } from '../../new-transaction.interface'
+import { ITransactionForm } from '../../new-transaction.interface'
 
 interface IAcceptSection {
-	register: UseFormRegister<ITransaction>
+	register: UseFormRegister<ITransactionForm>
 }
 
 const AcceptSection: FC<IAcceptSection> = ({ register }) => {

@@ -1,23 +1,25 @@
 import { FC } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
-import { ITransaction } from '../new-transaction.interface'
+import { INewTransaction, ITransaction } from '@/shared/types/transaction.types'
+
+import { ITransactionForm } from '../new-transaction.interface'
 
 import AcceptSection from './accept-section/AcceptSection'
 import InputsSection from './inputs-section/InputsSection'
 
-interface ITransactionForm {
-	onSubmit: SubmitHandler<ITransaction>
-	data: ITransaction
+interface ITransactionFormSubmit {
+	onSubmit: SubmitHandler<ITransactionForm>
+	data: ITransactionForm
 }
 
-const TransactionForm: FC<ITransactionForm> = ({ onSubmit, data }) => {
+const TransactionForm: FC<ITransactionFormSubmit> = ({ onSubmit, data }) => {
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 		setValue
-	} = useForm<ITransaction>({ defaultValues: data })
+	} = useForm<ITransactionForm>({ defaultValues: data })
 
 	return (
 		<div className='w-2/3  bg-white p-10 rounded-3xl'>

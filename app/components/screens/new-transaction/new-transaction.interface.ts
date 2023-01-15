@@ -1,7 +1,6 @@
-import { IInvoice } from "@/shared/types/invoice.types";
+import { IInvoice } from '@/shared/types/invoice.types'
 
-
-export interface ITransaction {
+export interface ITransactionForm {
 	id: number
 	createdAt: string
 	updatedAt?: string

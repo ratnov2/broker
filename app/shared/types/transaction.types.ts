@@ -13,9 +13,15 @@ export interface ITransaction {
 	userId: number
 	user: IUser
 	invoice: IInvoice
+	sender: ''
+	agreement: boolean
 }
 
 export interface ITransactions {
 	transactions: ITransaction[]
 	length: number
+}
+
+export interface INewTransaction {
+	invoice: number
 }

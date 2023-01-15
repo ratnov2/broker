@@ -16,14 +16,6 @@ const TransactionHistory: FC<ITransactionHistory> = ({
 }) => {
 	const [transactionsPerPage] = useState(5)
 
-	// //Get Current invoices on Page
-	// const indexOfLastTransactions = transactionsPerPage //currentPage * transactionsPerPage
-	// const indexOfFirstTransactions = indexOfLastTransactions - transactionsPerPage
-	// const currentTransactions = transactions?.slice(
-	// 	indexOfFirstTransactions,
-	// 	indexOfLastTransactions
-	// )
-
 	return (
 		<div
 			className={styles.transactionHistorySection}

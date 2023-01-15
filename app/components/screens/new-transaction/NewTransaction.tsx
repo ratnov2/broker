@@ -6,7 +6,7 @@ import Layout from '@/layout/Layout';
 
 
 
-import { ITransactionData } from '@/shared/types/transaction.types';
+import { INewTransaction, ITransaction } from '@/shared/types/transaction.types';
 
 
 
@@ -18,7 +18,7 @@ import { convertDate } from '@/utils/convert-date';
 
 
 
-import { ITransaction } from './new-transaction.interface';
+import { ITransactionForm } from './new-transaction.interface';
 import RecipientDetails from './recipient-details/RecipientDetails';
 import TransactionForm from './transaction-form/TransactionForm';
 import { TransactionService } from '@/services/transactions/transactions.service';
@@ -30,9 +30,9 @@ const NewTransaction: FC = () => {
 		Number | undefined
 	>(userContacts && userContacts[0].id)
 
-	const onSubmit = async (data: ITransaction) => {
+	const onSubmit = async (data: ITransactionForm) => {
 		if (data.agreement && data.amount > 0) {
-			const updateData: ITransactionData = {
+			const updateData: INewTransaction = {
 				invoice: data.invoiceId
 			}
 			await TransactionService.createTransaction(updateData).finally(() => {
@@ -45,7 +45,7 @@ const NewTransaction: FC = () => {
 		contact => contact.id === selectedRecipientId
 	)
 
-	const NewTransactionInputs: ITransaction = {
+	const NewTransactionInputs: ITransactionForm = {
 		id: 123456,
 		createdAt: convertDate(new Date().toISOString())[0],
 		sender: '',
@@ -58,7 +58,8 @@ const NewTransaction: FC = () => {
 		agreement: false,
 		invoiceId: 0
 	}
-	const [newTransactionData] = useState<ITransaction>(NewTransactionInputs)
+	const [newTransactionData] =
+		useState<ITransactionForm>(NewTransactionInputs)
 
 	return (
 		<Layout title='Transactions'>

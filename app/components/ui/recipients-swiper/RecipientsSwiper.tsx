@@ -1,6 +1,5 @@
-import Image from 'next/image'
 import { Dispatch, FC, SetStateAction, useRef } from 'react'
-import { BsArrowLeftShort, BsArrowRightShort } from 'react-icons/bs'
+import { BsArrowRightShort } from 'react-icons/bs'
 import { Navigation, Pagination, Swiper as SwiperType } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/navigation'

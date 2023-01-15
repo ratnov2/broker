@@ -1,6 +1,6 @@
 import { UseFormRegister } from 'react-hook-form'
 
-import { ITransaction } from '../new-transaction.interface'
+import { ITransactionForm } from '../new-transaction.interface'
 
 export interface ITransactionInput {
 	title?: string
@@ -18,7 +18,7 @@ export interface ITransactionInput {
 	errorMsg?: string
 	type?: 'password' | 'email' | 'text'
 	placeholder: string
-	register: UseFormRegister<ITransaction>
+	register: UseFormRegister<ITransactionForm>
 	isDisabled: boolean
 }
 

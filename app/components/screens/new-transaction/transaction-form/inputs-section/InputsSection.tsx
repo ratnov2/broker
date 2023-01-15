@@ -11,15 +11,15 @@ import { useInvoices } from '@/hooks/useInvoices'
 
 import { isMultiValue } from '@/utils/check-select-type'
 
-import { ITransaction } from '../../new-transaction.interface'
+import { ITransactionForm } from '../../new-transaction.interface'
 import Input from '../../ui/input'
 
 import { selectService } from './inputs-section.data'
 
 interface IAcceptSection {
-	register: UseFormRegister<ITransaction>
+	register: UseFormRegister<ITransactionForm>
 	errors?: any
-	setValue: UseFormSetValue<ITransaction>
+	setValue: UseFormSetValue<ITransactionForm>
 }
 
 const InputsSection: FC<IAcceptSection> = ({ register, setValue, errors }) => {
@@ -37,7 +37,7 @@ const InputsSection: FC<IAcceptSection> = ({ register, setValue, errors }) => {
 		if (value) {
 			updateFormField(
 				'recipient',
-				findInvoice(value, senderInvoices)?.recipient.name
+				findInvoice(value, senderInvoices)?.recipient?.name
 			)
 			updateFormField('amount', findInvoice(value, senderInvoices)?.amount)
 			updateFormField('sender', findInvoice(value, senderInvoices)?.sender.name)
@@ -55,7 +55,7 @@ const InputsSection: FC<IAcceptSection> = ({ register, setValue, errors }) => {
 	}
 
 	const selectInvoices = senderInvoices?.map(invoice => ({
-		label: 'Invoice #' + invoice.id.toString() + ' ' + invoice.recipient.name,
+		label: 'Invoice #' + invoice.id.toString() + ' ' + invoice.recipient?.name,
 		value: invoice.id.toString()
 	}))
 
@@ -77,29 +77,28 @@ const InputsSection: FC<IAcceptSection> = ({ register, setValue, errors }) => {
 				fieldId={'createdAt'}
 				isDisabled={true}
 			/>
-			{(selectInvoices ||
-				isLoadingSenderInvoices) && (
-					<div className='flex flex-col space-y-2 col-span-1'>
-						<label className='text-gray font-thin'>Invoice</label>
-						<Select
-							{...register('invoice')} //, { required: `Invoice required` } -- not working
-							className={`w-full h-[52px]`}
-							placeholder={
-								isLoadingSenderInvoices
-									? 'Loading invoices..'
-									: 'Select invoice..'
-							}
-							options={selectInvoices ? selectInvoices : undefined}
-							variant='secondary'
-							size={'xl'}
-							color={'black'}
-							onChange={selectedOption => {
-								updateFields(selectedOption)
-							}}
-						/>
-						{errors && <p>{errors[`recipient`]?.message}</p>}
-					</div>
-				)}
+			{(selectInvoices || isLoadingSenderInvoices) && (
+				<div className='flex flex-col space-y-2 col-span-1'>
+					<label className='text-gray font-thin'>Invoice</label>
+					<Select
+						{...register('invoice')} //, { required: `Invoice required` } -- not working
+						className={`w-full h-[52px]`}
+						placeholder={
+							isLoadingSenderInvoices
+								? 'Loading invoices..'
+								: 'Select invoice..'
+						}
+						options={selectInvoices ? selectInvoices : undefined}
+						variant='secondary'
+						size={'xl'}
+						color={'black'}
+						onChange={selectedOption => {
+							updateFields(selectedOption)
+						}}
+					/>
+					{errors && <p>{errors[`recipient`]?.message}</p>}
+				</div>
+			)}
 			{selectService && (
 				<div className='flex flex-col space-y-2 col-span-1'>
 					<label className='text-gray font-thin'>Service</label>

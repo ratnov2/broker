@@ -1,19 +1,10 @@
-import { FC } from 'react';
+import { FC } from 'react'
 
+import { ICard } from '@/shared/types/card.types'
 
-
-import { ICard } from '@/shared/types/card.types';
-
-
-
-import { NormalizeNumberCard } from '@/utils/normalize-number-card';
-
-
-
-import Actions from './actions/Actions';
-import CardStatus from '@/screens/cards/cards-list/CardStatus';
-import { IUserProfile } from '@/services/user/userProfile.interface';
-
+import Actions from './actions/Actions'
+import CardStatus from '@/screens/cards/cards-list/CardStatus'
+import { IUserProfile } from '@/services/user/userProfile.interface'
 
 type CardRowPropsType = {
 	card: ICard
@@ -38,13 +29,13 @@ const CardRow: FC<CardRowPropsType> = ({ card, userProfile }) => {
 			</div>
 			<div className={'my-auto ml-[110px] w-[200px]'}>
 				<span className={'block text-sm text-gray'}>Bank Name</span>
-				<span className={'block text-lg font-semibold'}>
-					{card.bankName}
-				</span>
+				<span className={'block text-lg font-semibold'}>{card.bankName}</span>
 			</div>
 			<div className={'my-auto ml-[20px] w-[180px]'}>
 				<span className={'block text-sm text-gray'}>Name</span>
-				<span className={'block text-lg font-semibold'}>{userProfile?.name}</span>
+				<span className={'block text-lg font-semibold'}>
+					{userProfile?.name}
+				</span>
 			</div>
 			<div className={'my-auto'}>
 				<span className={'block text-sm text-gray'}>Card Number</span>

@@ -1,4 +1,4 @@
-import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
+import { Dispatch, FC, SetStateAction } from 'react'
 
 import styles from './Pagination.module.scss'
 import PaginationArrow from './pagination-arrow/PaginationArrow'

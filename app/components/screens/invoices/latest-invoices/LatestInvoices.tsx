@@ -17,14 +17,6 @@ const LatestInvoices: FC<ILatestInvoices> = ({
 }) => {
 	const [invoicesPerPage] = useState(5)
 
-	// //Get Current invoices on Page
-	// const indexOfLastInvoice = currentPage * invoicesPerPage
-	// const indexOfFirstInvoice = indexOfLastInvoice - invoicesPerPage
-	// const currentInvoices = latestInvoices?.slice(
-	// 	indexOfFirstInvoice,
-	// 	indexOfLastInvoice
-	// )
-
 	const [selectedInvoicesId, setSelectedInvoicesId] = useState<number[]>([])
 	const [isCheckedHeader, setIsCheckedHeader] = useState(false)
 

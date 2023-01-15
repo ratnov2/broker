@@ -1,19 +1,12 @@
-import { FC } from 'react';
-import { UseFormRegister } from 'react-hook-form';
+import { FC } from 'react'
+import { UseFormRegister } from 'react-hook-form'
 
+import Select from '@/ui/select/Select'
+import Switch from '@/ui/switch/Switch'
 
+import { ISettings } from '../settings.interface'
 
-import Select from '@/ui/select/Select';
-import Switch from '@/ui/switch/Switch';
-
-
-
-import { ISettings } from '../settings.interface';
-
-
-
-import styles from './LeftSideSettings.module.scss';
-
+import styles from './LeftSideSettings.module.scss'
 
 interface ILeftSideSettings {
 	register: UseFormRegister<ISettings>

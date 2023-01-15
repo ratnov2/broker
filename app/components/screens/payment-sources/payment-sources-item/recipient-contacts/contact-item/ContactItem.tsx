@@ -1,10 +1,11 @@
-import { FC } from 'react';
-import { HiOutlineCalendar, HiOutlineMail, HiOutlinePhone } from 'react-icons/hi'
+import { FC } from 'react'
+import {
+	HiOutlineCalendar,
+	HiOutlineMail,
+	HiOutlinePhone
+} from 'react-icons/hi'
 
-
-
-import styles from './ContactItem.module.scss';
-
+import styles from './ContactItem.module.scss'
 
 interface IContactItem {
 	text: string
@@ -18,7 +19,9 @@ const switchIcon = (param: string) => {
 		case 'phone':
 			return <HiOutlinePhone size={32} className={styles.icon} color='white' />
 		case 'dueDate':
-			return <HiOutlineCalendar size={32} className={styles.icon} color='white' />
+			return (
+				<HiOutlineCalendar size={32} className={styles.icon} color='white' />
+			)
 		default:
 			return <div className={styles.icon} />
 	}

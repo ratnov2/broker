@@ -20,7 +20,6 @@ interface IInputField {
 		| 'address'
 		| 'options'
 		| 'avatarPath'
-		| `options.${string}`
 	errorMsg?: string
 	type?: 'password' | 'email' | 'text'
 	placeholder: string

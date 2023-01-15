@@ -1,5 +1,4 @@
-import Image from 'next/image';
-
+import Image from 'next/image'
 
 const Avatar = ({
 	size,
@@ -16,8 +15,8 @@ const Avatar = ({
 			style={{ width: size, height: size }}
 		>
 			<Image
-				alt={name? name : 'NoName'}
-				src={avatarPath? avatarPath : '/images/avatar-empty.png'}
+				alt={name ? name : 'NoName'}
+				src={avatarPath ? avatarPath : '/images/avatar-empty.png'}
 				width={size}
 				height={size}
 				draggable={false}

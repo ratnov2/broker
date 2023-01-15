@@ -1,6 +1,9 @@
 import { instance } from 'api/interceptors'
 
-import { ITransactionData, ITransactions } from '@/shared/types/transaction.types'
+import {
+	INewTransaction,
+	ITransactions
+} from '@/shared/types/transaction.types'
 
 import { getTransactionsUrl } from '@/config/api.config'
 
@@ -10,7 +13,7 @@ export const TransactionService = {
 			getTransactionsUrl(page, perPage, orderBy)
 		)
 	},
-	async createTransaction(data: ITransactionData) {
+	async createTransaction(data: INewTransaction) {
 		return instance.post<string>(getTransactionsUrl(), data)
 	}
 }

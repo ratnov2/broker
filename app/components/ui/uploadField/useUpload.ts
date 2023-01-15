@@ -1,7 +1,6 @@
 import { useMutation } from '@tanstack/react-query'
 import { ChangeEvent, useCallback, useMemo, useState } from 'react'
 
-//import { toastError } from '@/utils/api/withToastrErrorRedux'
 import { FileService } from '@/services/file/file.service'
 
 type TypeUpload = (

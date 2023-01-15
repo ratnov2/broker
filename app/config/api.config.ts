@@ -1,5 +1,4 @@
-import { STATISTICS_EXPENSE, STATISTICS_INCOME } from '@/config/constants';
-
+import { STATISTICS_EXPENSE, STATISTICS_INCOME } from '@/config/constants'
 
 export const API_URL =
 	process.env.NEXT_PUBLIC_API_URL ||
