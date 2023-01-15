@@ -10,7 +10,7 @@ const InvoiceItem: FC<{ invoice: IInvoice }> = ({ invoice }) => {
 	return (
 		<div className={styles.invoice}>
 			<div>
-				{invoice.recipient.avatarPath ? (
+				{invoice.recipient?.avatarPath ? (
 					<div className='w-12 h-12 rounded-[50%] overflow-hidden'>
 						<Image
 							alt={invoice.recipient.name}
@@ -24,7 +24,7 @@ const InvoiceItem: FC<{ invoice: IInvoice }> = ({ invoice }) => {
 					<div className='shrink-0 w-12 h-12 bg-gray rounded-[50%]'></div>
 				)}
 				<div>
-					<span>{invoice.recipient.name}</span>
+					<span>{invoice.recipient?.name}</span>
 					<p>{formatDate(invoice.createdAt)}</p>
 				</div>
 			</div>
