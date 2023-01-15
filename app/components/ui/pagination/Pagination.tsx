@@ -1,5 +1,7 @@
 import { Dispatch, FC, SetStateAction } from 'react'
 
+import { getPagination } from '@/utils/get-pagination'
+
 import styles from './Pagination.module.scss'
 import PaginationArrow from './pagination-arrow/PaginationArrow'
 import PaginationButton from './pagination-button/PaginationButton'
@@ -8,7 +10,6 @@ interface IPaginationProps {
 	maxItems: number
 	currentPage: number
 	setCurrentPage: Dispatch<SetStateAction<number>>
-	itemsPerPage: number
 }
 
 const Pagination: FC<IPaginationProps> = ({
@@ -44,6 +45,8 @@ const Pagination: FC<IPaginationProps> = ({
 			: currentPage * itemsPerPage
 
 	const showingMin = currentPage * itemsPerPage - (itemsPerPage - 1)
+	const { paginationButtons, minItemNumberPerPage, maxItemNumberPerPage } =
+		getPagination(itemsLimit, currentPage, itemsPerPage)
 
 	const onChangePage = (id: number) => {
 		setCurrentPage(id)
@@ -51,45 +54,35 @@ const Pagination: FC<IPaginationProps> = ({
 
 	return (
 		<div className={styles.pagination}>
-				{maxItems && (
-					<>
-						<div className={styles.showing}>
-							<p>
-								Showing
-								<span>
-									{' '}
-									{showingMin} - {showingMax}
-								</span>{' '}
-								from <span>{maxItems}</span> data
-							</p>
-						</div>
-						<div className={styles.pages}>
-							<PaginationArrow
-								itemsLimit={maxItems}
-								type='prev'
-								currentPage={currentPage}
-								onChangePage={onChangePage}
-								itemsPerPage={itemsPerPage}
-							/>
-							{getPageNumbers(currentPage).map(number => (
-								<PaginationButton
-									key={number}
-									id={number}
-									currentPage={currentPage}
-									onChangePage={onChangePage}
-								/>
-							))}
-							<PaginationArrow
-								itemsLimit={maxItems}
-								type='next'
-								currentPage={currentPage}
-								onChangePage={onChangePage}
-								itemsPerPage={itemsPerPage}
-							/>
-						</div>
-					</>
-				)}
+			<p>
+				Showing
+				<span>{` ${minItemNumberPerPage} - ${maxItemNumberPerPage} `}</span>
+				from <span>{itemsLimit}</span> data
+			</p>
+			<div>
+				<PaginationArrow
+					itemsLimit={itemsLimit}
+					type='prev'
+					currentPage={currentPage}
+					onChangePage={onChangePage}
+				/>
+				{itemsLimit &&
+					paginationButtons.map(item => (
+						<PaginationButton
+							key={item}
+							id={item}
+							currentPage={currentPage}
+							onChangePage={onChangePage}
+						/>
+					))}
+				<PaginationArrow
+					itemsLimit={itemsLimit}
+					type='next'
+					currentPage={currentPage}
+					onChangePage={onChangePage}
+				/>
 			</div>
+		</div>
 	)
 }
 

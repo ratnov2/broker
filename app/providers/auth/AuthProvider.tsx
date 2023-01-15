@@ -13,6 +13,7 @@ import { IContext, TypeUserState } from './auth-provider.interface'
 import { checkAuth } from './check-auth'
 import { getUserFromStorage } from '@/services/auth/auth.helper'
 import { AuthService } from '@/services/auth/auth.service'
+import { getUserFromStorage } from '@/services/auth/auth.helper'
 
 const DynamicCheckRole = dynamic(() => import('./CheckRole'), {
 	ssr: false
