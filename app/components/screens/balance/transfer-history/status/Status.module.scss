@@ -1,0 +1,15 @@
+.status {
+	@apply w-[124px] shrink-0 rounded-[20px] py-2.5 text-center text-[14px];
+
+	&.Pending {
+		@apply bg-gray/[0.25] text-gray;
+	}
+
+	&.Complete {
+		@apply bg-green/[0.1] text-green;
+	}
+
+	&.Canceled {
+		@apply bg-red/[0.1] text-red;
+	}
+}

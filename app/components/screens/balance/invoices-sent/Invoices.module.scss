@@ -1,0 +1,31 @@
+.invoicesSent {
+	@apply flex h-[725px] flex-grow flex-col rounded-[40px] bg-white p-8;
+
+	> h2 {
+		@apply mb-8 text-[24px] font-bold leading-[120%] text-black;
+	}
+
+	button {
+		@apply mt-auto w-full rounded-[40px] bg-gray-2 py-5 text-[18px] font-semibold leading-[120%] text-purple hover:bg-purple/[0.1];
+	}
+}
+
+.invoice {
+	@apply mb-6 flex items-center justify-between last:mb-0;
+
+	> div {
+		@apply flex space-x-[18px];
+
+		> div {
+			@apply flex flex-col;
+
+			> span {
+				@apply mb-1 text-[18px] font-bold leading-[120%] text-black;
+			}
+
+			> p {
+				@apply text-[14px] leading-[120%] text-gray;
+			}
+		}
+	}
+}

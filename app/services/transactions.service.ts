@@ -7,7 +7,7 @@ import { ITransfers } from '@/screens/balance/transfer-history/transfer.interfac
 export const TransactionsService = {
 	async getAll(currentPage: number, perPage = 5) {
 		return instance.get<ITransfers>(
-			getTransactionsUrl(`/?perPage=${perPage}&page=${currentPage}`)
+			getTransactionsUrl(`?perPage=${perPage}&page=${currentPage}`)
 		)
 	},
 
