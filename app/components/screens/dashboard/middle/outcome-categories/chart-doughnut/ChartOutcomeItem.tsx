@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
 import { onlyText } from '@/utils/clear-text'
-import { tailwindColorsFiltered } from '@/utils/tailwindColors'
+import { tailwindColorsFiltered } from '@/utils/tailwind-colors'
 
 import { categoriesDataType } from '@/screens/dashboard/middle/outcome-categories/outcome-categories.interface'
 

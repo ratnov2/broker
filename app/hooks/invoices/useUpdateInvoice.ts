@@ -5,7 +5,7 @@ import { useUsers } from '@/hooks/users/useUsers'
 
 import { IUpdateNewInvoice } from '@/services/invoices/invoices.interface'
 import { InvoicesService } from '@/services/invoices/invoices.service'
-import { IUserProfile } from '@/services/user/userProfile.interface'
+import { IUserProfile } from '@/services/user/user-profile.interface'
 
 export const useUpdateInvoice = () => {
 	const { users } = useUsers()

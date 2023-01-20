@@ -2,7 +2,7 @@ import { ArcElement, ChartData, Chart as ChartJS, Tooltip } from 'chart.js'
 import { FC } from 'react'
 import { Doughnut } from 'react-chartjs-2'
 
-import { tailwindColors } from '@/utils/tailwindColors'
+import { tailwindColors } from '@/utils/tailwind-colors'
 
 import ChartOutcomeItem from '@/screens/dashboard/middle/outcome-categories/chart-doughnut/ChartOutcomeItem'
 import { categoriesDataType } from '@/screens/dashboard/middle/outcome-categories/outcome-categories.interface'

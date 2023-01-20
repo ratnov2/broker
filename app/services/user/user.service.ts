@@ -6,7 +6,7 @@ import { getUserProfile, getUserUrl } from '@/config/api.config'
 
 import { request } from '@/api/request.api'
 
-import { IUserProfile } from './userProfile.interface'
+import { IUserProfile } from './user-profile.interface'
 
 export const UserService = {
 	async getUserContacts() {

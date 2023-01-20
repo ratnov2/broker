@@ -1,8 +1,8 @@
+import { IInvoice } from '@/shared/types/invoice.types'
+
 import { getInvoicesUrl } from '@/config/api.config'
 
 import { instance } from '@/api/interceptors'
-
-import { IInvoice } from '@/screens/balance/invoices-sent/invoices.interface'
 
 export const InvoicesService = {
 	async getBySender() {

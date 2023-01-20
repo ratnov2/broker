@@ -1,4 +1,4 @@
-import { ITailwindColorsFiltered } from '@/utils/tailwindColors'
+import { ITailwindColorsFiltered } from '@/utils/tailwind-colors'
 
 export interface categoriesDataType {
 	_id: string

@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { FC } from 'react'
 
-import { IUserProfile } from '@/services/user/userProfile.interface'
+import { IUserProfile } from '@/services/user/user-profile.interface'
 
 type TypeClientContact = {
 	currentUser: IUserProfile

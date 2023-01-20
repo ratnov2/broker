@@ -5,13 +5,13 @@ const nextConfig = {
 			{
 				protocol: 'https',
 				hostname: 'cloudflare-ipfs.com',
-				port: '',
+				// port: '443',
 				pathname: '/ipfs/**'
 			},
 			{
 				protocol: 'https',
 				hostname: 'red-project-bank-app.herokuapp.com',
-				port: '',
+				// port: '443',
 				pathname: '/uploads/**'
 			}
 		]

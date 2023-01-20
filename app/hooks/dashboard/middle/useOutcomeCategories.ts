@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 
-import { loopColors } from '@/utils/loopColors'
+import { loopColors } from '@/utils/loop-colors'
 
 import { categoriesDataType } from '@/screens/dashboard/middle/outcome-categories/outcome-categories.interface'
 import { StatisticsService } from '@/services/statistics/statistics.service'

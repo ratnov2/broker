@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { invoiceNumber } from '@/utils/invoiceNumber'
+import { invoiceNumber } from '@/utils/invoice-number'
 
 type TypeInvoiceInputs = {
 	totalAmount: any

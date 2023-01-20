@@ -2,10 +2,10 @@ import cn from 'clsx'
 import Image from 'next/image'
 import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 
-import { avatarPath } from '@/utils/avatarPath'
+import { avatarPath } from '@/utils/avatar-path'
 
 import style from './SelectClient.module.scss'
-import { IUserProfile } from '@/services/user/userProfile.interface'
+import { IUserProfile } from '@/services/user/user-profile.interface'
 
 type TypeSelectClient = {
 	users: IUserProfile[]

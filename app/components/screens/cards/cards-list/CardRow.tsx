@@ -4,7 +4,7 @@ import { ICard } from '@/shared/types/card.types'
 
 import Actions from './actions/Actions'
 import CardStatus from '@/screens/cards/cards-list/CardStatus'
-import { IUserProfile } from '@/services/user/userProfile.interface'
+import { IUserProfile } from '@/services/user/user-profile.interface'
 
 type CardRowPropsType = {
 	card: ICard

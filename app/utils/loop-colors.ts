@@ -2,7 +2,7 @@ import { getKeys } from '@/utils/object'
 import {
 	ITailwindColorsFiltered,
 	tailwindColorsFiltered
-} from '@/utils/tailwindColors'
+} from '@/utils/tailwind-colors'
 
 export const loopColors = (object: {
 	[key: string]: any
