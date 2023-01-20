@@ -2,10 +2,10 @@ import { FC, useState } from 'react'
 
 import { useIncomeAll } from '@/hooks/statistics/useIncomeAll'
 
-import { UserData } from '../../Data'
 import LineChart from '../../LineChart'
+import { UserData } from '../../data'
 
-import styles from './statIncome.module.scss'
+import styles from './StatIncome.module.scss'
 
 const Income: FC = () => {
 	const [userData, setUserData] = useState({

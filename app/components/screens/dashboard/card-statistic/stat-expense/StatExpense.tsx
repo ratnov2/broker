@@ -2,10 +2,10 @@ import { FC, useState } from 'react'
 
 import { useExpenseAll } from '@/hooks/statistics/useExpenseAll'
 
-import { UserData } from '../../Data'
 import LineChart from '../../LineChart'
+import { UserData } from '../../data'
 
-import styles from './statExpense.module.scss'
+import styles from './StatExpense.module.scss'
 
 const Expense: FC = () => {
 	const [userData, setUserData] = useState({

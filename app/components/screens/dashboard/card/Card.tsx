@@ -2,9 +2,9 @@ import { FC } from 'react'
 
 import { useUserCards } from '@/hooks/bank-account/useUserCards'
 
+import styles from './Card.module.scss'
 import { fakeCardData } from './card.data'
 import { IUserCard } from './card.interface'
-import styles from './card.module.scss'
 
 const Card: FC = () => {
 	const { data: userCardsData } = useUserCards()

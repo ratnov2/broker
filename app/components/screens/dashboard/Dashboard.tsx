@@ -2,10 +2,10 @@ import { FC } from 'react'
 
 import Layout from '@/layout/Layout'
 
-import StatExpense from './card-statistic/statExpense/StatExpense'
-import StatIncome from './card-statistic/statIncome/StatIncome'
+import styles from './Dashboard.module.scss'
+import StatExpense from './card-statistic/stat-expense/StatExpense'
+import StatIncome from './card-statistic/stat-income/StatIncome'
 import Card from './card/Card'
-import styles from './dashboard.module.scss'
 
 const Dashboard: FC = () => {
 	return (
