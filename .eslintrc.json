@@ -1,6 +1,5 @@
 {
 	"extends": ["airbnb", "airbnb-typescript", "plugin:@next/next/recommended"],
-	"parser": "@typescript-eslint/parser",
 	"overrides": [
 		{
 			"files": ["*.ts", "*.tsx"],
@@ -9,6 +8,7 @@
 			}
 		}
 	],
+	"parser": "@typescript-eslint/parser",
 	"rules": {
 		"@typescript-eslint/semi": "off",
 		"react/react-in-jsx-scope": "off",
@@ -24,6 +24,21 @@
 		"no-trailing-spaces": "off",
 		"indent": "off",
 		"no-debugger": "off",
-		"padded-blocks": "off"
+		"padded-blocks": "off",
+		"react/jsx-props-no-spreading": "off",
+		"import/extensions": [
+			"error",
+			"ignorePackages",
+			{
+				"": "never"
+			}
+		],
+		"react/function-component-definition": [
+			0,
+			{
+				"namedComponents": "arrow-function",
+				"unnamedComponents": "arrow-function"
+			}
+		]
 	}
 }

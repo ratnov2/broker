@@ -1,0 +1,11 @@
+.recipient {
+	@apply flex w-1/6 items-center space-x-4;
+
+	p {
+		@apply text-[18px] font-semibold leading-[120%];
+	}
+
+	span {
+		@apply text-[14px] leading-[120%] text-gray;
+	}
+}

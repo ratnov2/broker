@@ -1,0 +1,25 @@
+.tableHeader {
+	@apply flex ml-12 items-center justify-between  border-b  border-light-gray  py-4 px-9 text-[20px] font-semibold text-black;
+
+	.Recipient {
+		@apply flex w-1/6 items-center;
+	}
+	.Invoice {
+		@apply w-1/6 text-[18px] font-semibold leading-[120%];
+	}
+	.Date {
+		@apply flex w-1/6 ;
+	}
+	.Amount {
+		@apply w-1/6 text-[18px] font-semibold leading-[120%];
+	}
+	.Location {
+		@apply w-1/6 text-[18px] font-semibold leading-[120%];
+	}
+	.Status {
+		@apply flex w-[124px] justify-center rounded-[20px] py-5 text-[18px];
+	}
+	.Actions {
+		@apply ml-3 flex h-6 w-6 items-center transition-all duration-300;
+	}
+}

@@ -1,0 +1,77 @@
+@import 'app/assets/styles/variables';
+@keyframes scaleIn {
+	0% {
+		opacity: 0;
+		transform: scale(0.9);
+	}
+	50% {
+		opacity: 0.3;
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+.custom-select {
+	&__control {
+		background-color: transparent !important;
+		border: 2px solid #6160dc !important;
+		border-radius: 50px !important;
+		box-shadow: none !important;
+		text-align: center !important;
+		width: 200px !important;
+
+		caret-color: transparent !important;
+		height: 60px !important;
+
+		&--menu-is-open {
+			border-color: #6160dc !important;
+		}
+	}
+	&__single-value {
+		color: #6160dc !important;
+	}
+	&__value-container {
+		padding: 0 !important;
+	}
+	&__indicator-separator {
+		display: none !important;
+	}
+	&__indicator {
+		margin-right: 20px !important;
+		color: #6160dc !important;
+	}
+	&__menu {
+		background-color: #f5f5f5 !important;
+		border-radius: 20px !important;
+		color: #6160dc !important;
+		width: 200px !important;
+		animation: scaleIn 0.25s ease-in-out;
+	}
+	&__option {
+		cursor: pointer !important;
+		padding-top: 16px !important;
+		padding-bottom: 16px !important;
+
+		&--is-selected {
+			background-color: transparent !important;
+			color: #6160dc !important;
+			font-weight: bold !important;
+		}
+
+		&--is-focused {
+			background-color: #e7e7e7 !important;
+		}
+
+		&:first-child {
+			border-radius: 20px 20px 0px 0px;
+		}
+
+		&:last-child {
+			border-radius: 0px 0px 20px 20px;
+		}
+	}
+	&__menu-list {
+		padding: 0 !important;
+	}
+}

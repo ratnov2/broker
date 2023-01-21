@@ -6,6 +6,7 @@ import styles from './Dashboard.module.scss'
 import StatExpense from './card-statistic/stat-expense/StatExpense'
 import StatIncome from './card-statistic/stat-income/StatIncome'
 import Card from './card/Card'
+import MiddleDashboard from '@/screens/dashboard/middle/MiddleDashboard'
 
 const Dashboard: FC = () => {
 	return (
@@ -17,6 +18,7 @@ const Dashboard: FC = () => {
 					<StatIncome />
 					<StatExpense />
 				</div>
+				<MiddleDashboard />
 			</div>
 		</Layout>
 	)

@@ -1,0 +1,39 @@
+.transferHistory {
+	@apply h-[725px] w-[74.3%] rounded-[40px] bg-white py-8 relative;
+
+	> h2 {
+		@apply mb-8 px-8 text-[24px] font-bold leading-[120%] text-black;
+	}
+}
+
+.transfer {
+	@apply flex items-center justify-between py-7 px-8 odd:bg-gray-2 even:bg-white;
+
+	.clientInfo {
+		@apply flex w-1/6 items-center space-x-4;
+
+		> span {
+			@apply text-[18px] font-semibold leading-[120%] text-black;
+		}
+	}
+
+	.transferId {
+		@apply w-1/6 text-center text-[18px] font-semibold leading-[120%] text-purple;
+	}
+
+	.amount {
+		@apply w-1/6 text-[18px] font-semibold leading-[120%] text-black;
+	}
+
+	.date {
+		@apply flex w-1/6 flex-col;
+
+		p {
+			@apply mb-1 text-[18px] font-semibold leading-[120%] text-black;
+		}
+
+		span {
+			@apply text-[14px] leading-[120%] text-gray;
+		}
+	}
+}

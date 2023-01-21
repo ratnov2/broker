@@ -53,11 +53,7 @@ const Auth: FC = () => {
 						className='flex flex-col w-full'
 					>
 						{/* fields */}
-						<AuthFields
-							formState={formState}
-							register={registerInput}
-							isPasswordRequired={true}
-						/>
+						<AuthFields formState={formState} register={registerInput} />
 						{/* buttons */}
 						<div className='self-center mt-6 gap-y-6'>
 							<AuthButton

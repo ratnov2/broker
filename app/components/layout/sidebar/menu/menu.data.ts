@@ -1,6 +1,7 @@
 import {
 	AiOutlineCopy,
 	AiOutlineCreditCard,
+	AiOutlineFileAdd,
 	AiOutlineHome,
 	AiOutlineMoneyCollect,
 	AiOutlineTransaction
@@ -24,6 +25,11 @@ export const menu: IMenuItem[] = [
 		name: 'Invoices',
 		icon: AiOutlineCopy,
 		link: '/invoices'
+	},
+	{
+		name: 'Create Invoice',
+		icon: AiOutlineFileAdd,
+		link: '/add-new-invoice'
 	},
 	{
 		name: 'Cards',

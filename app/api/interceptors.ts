@@ -16,15 +16,14 @@ export const axiosClassic = axios.create({
 
 export const instance = axios.create({
 	baseURL: API_URL,
-	headers: getContentType()
+	headers: { common: getContentType() }
 })
 
 instance.interceptors.request.use(config => {
 	const accessToken = Cookies.get('accessToken')
 
 	if (config.headers && accessToken) {
-		// config.headers.Authorization = `Bearer ${accessToken}`
-		config.headers = { Authorization: `Bearer ${accessToken}` }
+		config.headers['Authorization'] = `Bearer ${accessToken}`
 	}
 
 	return config
@@ -36,14 +35,14 @@ instance.interceptors.response.use(
 		const originalRequest = error.config
 
 		if (
-			error.response.status === 401 &&
-			error.response.statusText === 'Unauthorized'
+			error.response?.status === 401 &&
+			error.response?.statusText === 'Unauthorized'
 		) {
 			throw error
 		}
 
 		if (
-			(error.response.status === 401 ||
+			(error.response?.status === 401 ||
 				errorCatch(error) === 'jwt expired' ||
 				errorCatch(error) === 'jwt must be provided') &&
 			error.config &&

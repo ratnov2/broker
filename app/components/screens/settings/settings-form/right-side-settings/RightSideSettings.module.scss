@@ -1,0 +1,87 @@
+.settingsInput {
+	@apply rounded-3xl border border-gray px-4 py-3 font-bold;
+	&[disabled] {
+		@apply border-transparent;
+	}
+	&:focus-visible {
+		@apply border-transparent outline outline-2 outline-offset-0 outline-purple;
+	}
+	&::-webkit-calendar-picker-indicator {
+		display: none;
+	}
+	&:not(:focus)::after {
+		content: '';
+		margin-top: 3px;
+		border-left: 10px solid transparent;
+		border-right: 10px solid transparent;
+		border-top: 10px solid #d9d9d9;
+	}
+}
+
+.accountField {
+	@apply flex flex-col space-y-2 col-span-1;
+
+	> fieldTitle {
+		@apply text-gray font-thin
+	}
+}
+.leftContainer {
+	@apply flex mt-10 w-1/4 flex-col border-r-[1px] border-gray
+}
+.rightContainer {
+	@apply grid grid-cols-2 gap-8 bg-white p-10 rounded-3xl w-3/4
+}
+
+.field {
+	@apply text-left mb-8;
+
+	input {
+		@apply border-none focus:ring-0 bg-transparent text-gray w-full m-0 px-0;
+	}
+}
+
+.uploadField {
+	@apply relative;
+	.uploadFlex {
+		@apply flex;
+
+		> .uploadImageContainer {
+			@apply shrink-0 relative w-24 h-24;
+
+			img {
+				@apply rounded-md;
+			}
+
+			> span {
+				@apply font-normal;
+			}
+		}
+
+		> label {
+			@apply block mr-6;
+
+			.error {
+				@apply relative -bottom-3;
+			}
+
+			> span {
+				@apply  text-black block mb-3;
+			}
+
+			> input {
+				@apply block w-full text-sm text-gray file:mr-4 file:py-4 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-purple opacity-70 file:text-white transition-opacity;
+			}
+
+			&:hover > input {
+				@apply opacity-100;
+			}
+		}
+	}
+}
+
+.error {
+	@apply absolute -bottom-6 left-0 text-sm w-full text-base;
+}
+
+// .transaction-input[type='date']::-webkit-inner-spin-button,
+// .transaction-input[type='date']

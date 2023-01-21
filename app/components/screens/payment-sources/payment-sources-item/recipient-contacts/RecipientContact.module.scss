@@ -1,0 +1,7 @@
+.recipientContact {
+	@apply flex w-full items-start space-x-4 justify-between flex-row mt-8;
+
+	span {
+		@apply text-[17px] leading-[120%] text-gray;
+	}
+}

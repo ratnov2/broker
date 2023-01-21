@@ -1,0 +1,19 @@
+.tableHeader {
+	@apply flex  items-center  justify-between border-b  border-light-gray mt-10 py-4 px-9 text-[20px] font-semibold text-black;
+
+	.Status {
+		@apply w-[124px];
+	}
+	.Recipient {
+		@apply w-1/6;
+	}
+	.Invoice {
+		@apply w-1/6;
+	}
+	.Service {
+		@apply w-1/6;
+	}
+	.Date {
+		@apply w-1/6 pl-20;
+	}
+}

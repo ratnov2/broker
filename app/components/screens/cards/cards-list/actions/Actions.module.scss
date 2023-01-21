@@ -1,0 +1,19 @@
+.menu {
+	@apply relative flex;
+
+	> button {
+		@apply ml-24 flex h-6 w-6 items-center transition-all duration-300;
+
+		span {
+			@apply mr-[3px] h-[6px] w-[6px] shrink-0 grow-0 rounded-[50%] bg-gray last:mr-0;
+		}
+	}
+
+	.popup {
+		@apply absolute right-6 top-3 z-[1] flex w-max flex-col rounded-xl bg-white py-2 shadow-[0_7px_16px_rgba(0,0,0,0.14)] duration-300;
+
+		> button {
+			@apply px-10 py-2 text-lg font-medium hover:bg-purple/[0.1];
+		}
+	}
+}
