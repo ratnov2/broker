@@ -2,18 +2,22 @@ import { FC, useCallback, useRef, useState } from 'react'
 import { SwiperRef } from 'swiper/react'
 
 import { PropsUseSlider } from './slider.interface'
+import { ISliderInit } from '@/screens/cards/cards-hooks/slider.interface'
 
-export const useSlider = ({ setIndex }: PropsUseSlider) => {
-	
+export const useSlider = ({ setSlider }: PropsUseSlider) => {
+
+	const setSliderIndex = (index: number) =>
+		setSlider((prev: ISliderInit) => ({ ...prev,index }))
+
 	const sliderRef = useRef<SwiperRef>(null)
 
 	const handlePrev = useCallback(() => {
-		sliderRef.current && setIndex(sliderRef.current?.swiper.activeIndex - 1)
+		sliderRef.current && setSliderIndex(sliderRef.current?.swiper.activeIndex - 1)
 		sliderRef.current?.swiper.slidePrev()
 	}, [])
 
 	const handleNext = useCallback(() => {
-		sliderRef.current && setIndex(sliderRef.current?.swiper.activeIndex + 1)
+		sliderRef.current && setSliderIndex(sliderRef.current?.swiper.activeIndex + 1)
 		sliderRef.current?.swiper.slideNext()
 	}, [])
 

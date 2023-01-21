@@ -18,14 +18,14 @@ const CardActionBlock: FC<PropsCardActionsBlock> = ({
 	accountNumber,
 	operation
 }) => {
-	const [showModal, setShowModal] = useState(false)
+	const [isShowModal, setIsShowModal] = useState(false)
 	return (
 		<div className={cn(style.cardAction, className)}>
 			<Image src={pointsImg} alt='points' width={30} height={30} />
 			<div id='modal-root'></div>
 			<h1>{title}</h1>
 			<p>{description}</p>
-			<button onClick={() => setShowModal(true)}>
+			<button onClick={() => setIsShowModal(true)}>
 				<Arrow
 					className={
 						arrowDirection === 'left'
@@ -38,8 +38,8 @@ const CardActionBlock: FC<PropsCardActionsBlock> = ({
 			</button>
 			<Modal
 				title={title}
-				onClose={() => setShowModal(false)}
-				show={showModal}
+				onClose={() => setIsShowModal(false)}
+				show={isShowModal}
 				operation={operation}
 				accountNumber={accountNumber}
 			>

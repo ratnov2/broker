@@ -1,24 +1,31 @@
 import cn from 'clsx'
 import { FC } from 'react'
 
+import { useGetProfile } from '@/hooks/useGetProfile'
+
+import { BackgroundColorBank } from '@/utils/background-color-bank'
 import { convertMoneyToNormalize } from '@/utils/convert-money-to-normalize'
 import { convertToHiddenNumber } from '@/utils/get-hidden-card'
 
 import style from './Card.module.scss'
 import { PropsCard } from './card.interface'
 import CommonCardStyle from './common-style-card/CommonCardStyle'
-import { useGetProfile } from '@/hooks/useGetProfile'
+import { NormalizeNumberCard } from '@/utils/normalize-number-card'
 
 const Card: FC<PropsCard> = ({
 	userCard,
 	styleFigure,
 	className,
 	widthCard,
-	visibleNumberCard,
-	setVisibleNumberCard
+	slider,
+	setSlider
 }) => {
-	const user = useGetProfile()
-	const { background, balance, expireDate, number } = userCard
+	const user = useGetProfile()?.name
+	const { balance, expireDate, number, bankName } = userCard
+	const background = BackgroundColorBank(bankName)
+	const hiddenCard = convertToHiddenNumber(number)
+	const numberCardNormalize = NormalizeNumberCard(number)
+	
 	return (
 		<div
 			className={cn(
@@ -28,7 +35,7 @@ const Card: FC<PropsCard> = ({
 			)}
 			style={{ width: `calc(${widthCard}%)` }}
 		>
-			<div className={cn(style.card)} style={{ background: background }}>
+			<div className={cn(style.card)} style={{ background }}>
 				{!styleFigure && (
 					<>
 						<CommonCardStyle />
@@ -37,8 +44,15 @@ const Card: FC<PropsCard> = ({
 							<p>${convertMoneyToNormalize(balance)}</p>
 						</div>
 						<div className={style.number}>
-							<p onClick={() => setVisibleNumberCard(!visibleNumberCard)}>
-								{!visibleNumberCard ? number : convertToHiddenNumber(number)}
+							<p
+								onClick={() =>
+									setSlider(prev => ({
+										...prev,
+										visibleNumberCard: !slider.visibleNumberCard
+									}))
+								}
+							>
+								{!slider.visibleNumberCard ? numberCardNormalize : hiddenCard}
 							</p>
 						</div>
 						<div className={style.holder}>

@@ -5,7 +5,6 @@ import { Swiper } from 'swiper/react'
 import { SwiperSlide } from 'swiper/react'
 
 import { BackgroundColorBank } from '@/utils/background-color-bank'
-import { NormalizeNumberCard } from '@/utils/normalize-number-card'
 
 import Arrow from '../arrow/Arrow'
 import Card from '../card/Card'
@@ -18,29 +17,16 @@ import {
 import { PropsSlider } from './slider.interface'
 import { useSlider } from './useSlider'
 
-const Slider: FC<PropsSlider> = ({
-	userCards,
-	setIndex,
-	sliderPerView,
-	initialIndex,
-	visibleNumberCard,
-	setVisibleNumberCard
-}) => {
-	const { sliderRef, handleNext, handlePrev } = useSlider({ setIndex })
-
-	const userCardsStyle = userCards.map(card => ({
-		...card,
-		number: NormalizeNumberCard(card.number),
-		background: BackgroundColorBank(card.bankName)
-	}))
+const Slider: FC<PropsSlider> = ({ userCards, slider, setSlider }) => {
+	const { sliderRef, handleNext, handlePrev } = useSlider({ setSlider })
 
 	return (
 		<div className='relative'>
 			<Swiper
 				ref={sliderRef}
 				centeredSlides={true}
-				slidesPerView={sliderPerView}
-				initialSlide={initialIndex}
+				slidesPerView={slider.sliderPerView}
+				initialSlide={slider.initialIndex}
 				simulateTouch={false}
 				effect={'coverflow'}
 				coverflowEffect={{
@@ -51,7 +37,7 @@ const Slider: FC<PropsSlider> = ({
 				}}
 				modules={[EffectCoverflow]}
 			>
-				{userCardsStyle.map((card, key) => {
+				{userCards.map((card, key) => {
 					return (
 						<SwiperSlide key={card.number}>
 							{({ isActive, isNext, isPrev }) => {
@@ -59,16 +45,18 @@ const Slider: FC<PropsSlider> = ({
 									<Card
 										className={cn(
 											isActive &&
-												initialStyleTransformIsActive[sliderPerView - 1],
-											isPrev && initialStyleTransformIsPrev[sliderPerView - 1],
-											isNext && initialStyleTransformIsNext[sliderPerView - 1],
-											`${userCardsStyle[key].background}`
+												initialStyleTransformIsActive[slider.sliderPerView - 1],
+											isPrev &&
+												initialStyleTransformIsPrev[slider.sliderPerView - 1],
+											isNext &&
+												initialStyleTransformIsNext[slider.sliderPerView - 1],
+											`${BackgroundColorBank(card.bankName)}`
 										)}
-										widthCard={sliderPerView * 88.8}
+										widthCard={slider.sliderPerView * 88.8}
 										userCard={card}
 										styleFigure={!isActive}
-										visibleNumberCard={visibleNumberCard}
-										setVisibleNumberCard={setVisibleNumberCard}
+										slider={slider}
+										setSlider={setSlider}
 									/>
 								)
 							}}

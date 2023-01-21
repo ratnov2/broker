@@ -3,24 +3,17 @@ import { FC } from 'react'
 import Slider from '@/ui/slider/Slider'
 
 import style from './Cards.module.scss'
+import { useCardsQuery } from './cards-hooks/useCardsQuery'
+import { useInitializeSliderCard } from './cards-hooks/useInitializeSliderCards'
 import AddNewCard from './left-card/add-new-card/AddNewCard'
+import LimitCard from './left-card/limit-card/LimitCard'
 import Operations from './right-card/card-actions/CardActions'
 import Description from './right-card/description/Description'
-import { useCardsQuery } from './useCardsQuery'
-import { useInitializeSliderCard } from './useInitializeSliderCards'
-import LimitCard from './left-card/limit-card/LimitCard'
 
 const Cards: FC = () => {
 	const { newCard, userCards } = useCardsQuery()
 
-	const {
-		setIndex,
-		sliderPerView,
-		initialIndex,
-		visibleNumberCard,
-		setVisibleNumberCard,
-		currentCard
-	} = useInitializeSliderCard(userCards.data)
+	const { slider,setSlider } = useInitializeSliderCard(userCards.data)
 
 	if (userCards.isLoading) return <span>Loading</span>
 
@@ -34,27 +27,24 @@ const Cards: FC = () => {
 							{
 								<Slider
 									userCards={userCards.data}
-									setIndex={setIndex}
-									sliderPerView={sliderPerView}
-									initialIndex={initialIndex}
-									visibleNumberCard={visibleNumberCard}
-									setVisibleNumberCard={setVisibleNumberCard}
+									slider={slider}
+									setSlider={setSlider}
 								/>
 							}
 							<div className={style.bottomPlace}>
-								<LimitCard/>
+								<LimitCard />
 								<div>
 									<AddNewCard createCard={newCard} />
 								</div>
 							</div>
 						</div>
 						<div className={style.rightCardList}>
-							{currentCard && (
+							{slider.currentCard && (
 								<>
-									<Operations accountNumber={currentCard.accountNumber} />
+									<Operations accountNumber={slider.currentCard.accountNumber} />
 									<Description
-										userCard={currentCard}
-										visibleNumberCard={visibleNumberCard}
+										userCard={slider.currentCard}
+										visibleNumberCard={slider.visibleNumberCard}
 									/>
 								</>
 							)}

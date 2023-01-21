@@ -2,6 +2,7 @@ import { AxiosResponse } from 'axios'
 import { UseMutationResult } from 'react-query'
 
 import { IOperations } from '@/shared/types/bank-accounts.interface'
+import { TypeMakeOperation } from '@/services/card/bank-account.type'
 
 export interface PropsCardActionsBlock {
 	className?: string
@@ -9,5 +10,5 @@ export interface PropsCardActionsBlock {
 	accountNumber:string
 	title?: string
 	description?: string
-	operation: 'Top Up'| 'Withdraw'
+	operation: TypeMakeOperation
 }

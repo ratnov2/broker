@@ -4,6 +4,7 @@ import { convertToHiddenNumber } from '@/utils/get-hidden-card'
 
 import { PropsDescription } from './description-data.interface'
 import style from './Description.module.scss'
+import { NormalizeNumberCard } from '@/utils/normalize-number-card'
 
 const Description: FC<PropsDescription> = ({
 	userCard,
@@ -11,6 +12,8 @@ const Description: FC<PropsDescription> = ({
 }) => {
 	
 	const {bankName,expireDate,number,type} = userCard
+	const numberCardNormalize = NormalizeNumberCard(number)
+
 	return (
 		<div className={style.description}>
 			<h2>Card Information</h2>
@@ -23,7 +26,7 @@ const Description: FC<PropsDescription> = ({
 					<h3>Card Number</h3>
 					<p>
 						{!visibleNumberCard
-							? number
+							? numberCardNormalize
 							: convertToHiddenNumber(number)}
 					</p>
 				</div>

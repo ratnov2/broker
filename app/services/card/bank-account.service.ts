@@ -1,9 +1,9 @@
 import { IOperations, IUserCard } from '@/shared/types/bank-accounts.interface'
 
-import { getAccountsUrl,getUsersUrl } from '@/config/api.config'
+import { getAccountsUrl } from '@/config/api.config'
 
 import { instance } from '@/api/interceptors'
-import { IProfile } from '@/shared/types/profile.interface'
+import { TypeMakeOperation } from './bank-account.type'
 
 export const BankAccountService = {
 	async getAllBankAccounts() {
@@ -18,15 +18,11 @@ export const BankAccountService = {
 	async createCard() {
 		return instance.post(getAccountsUrl('/create-card'))
 	},
-	async makeOperation(type: 'Top Up' | 'Withdraw' , data: IOperations) {
+	async makeOperation(type: TypeMakeOperation, data: IOperations) {
 		if (type === 'Top Up')
 			return instance.patch(getAccountsUrl('/balance/top-up'), data)
 		if (type === 'Withdraw')
 			return instance.patch(getAccountsUrl('/balance/withdrawal'), data)
 	}
 }
-export const ProfileService={
-	async getProfile() {
-		return instance.get<IProfile>(getUsersUrl('/profile'))
-	},
-}
+

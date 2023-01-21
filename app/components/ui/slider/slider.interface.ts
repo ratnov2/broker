@@ -1,17 +1,16 @@
+import { Dispatch, SetStateAction } from 'react'
 
 import { IUserCard } from '@/shared/types/bank-accounts.interface'
-import { Dispatch, SetStateAction } from 'react'
+
+import { ISliderInit } from '@/screens/cards/cards-hooks/slider.interface'
 
 export interface PropsSlider {
 	userCards: IUserCard[]
-	setIndex: Dispatch<SetStateAction<number>>
-	sliderPerView: number
-	initialIndex: number
-	visibleNumberCard: boolean
-	setVisibleNumberCard: Dispatch<SetStateAction<boolean>>
+	slider: ISliderInit
+	setSlider: Dispatch<SetStateAction<ISliderInit>>
 }
 export interface PropsUseSlider {
-	setIndex: Dispatch<SetStateAction<number>>
+	setSlider: Dispatch<SetStateAction<ISliderInit>>
 }
 
 export type TypeStyleCard = {
