@@ -1,5 +1,6 @@
 import cn from 'clsx'
 import Image from 'next/image'
+import Link from 'next/link'
 import { FC } from 'react'
 import {
 	SubmitHandler,
@@ -92,7 +93,9 @@ const AddNewInvoice: FC = () => {
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<div className='bg-white rounded-[40px] p-[32px]'>
 						<div className='flex items-center mb-10'>
-							<FiArrowLeft className='text-2xl font-bold' />
+							<Link href='/invoices'>
+								<FiArrowLeft className='text-2xl font-bold' />
+							</Link>
 							<h3 className='text-xl font-bold ml-8'>New Invoices</h3>
 						</div>
 

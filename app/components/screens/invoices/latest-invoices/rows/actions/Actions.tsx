@@ -16,14 +16,13 @@ const Menu: FC = () => {
 		const handleClickOutside = (event: MouseEvent) => {
 			const _event = event as PopupClickOutside
 
-			if (menuRef.current && !_event.path.includes(menuRef.current)) {
+			if (menuRef.current && !_event.path?.includes(menuRef.current)) {
 				setIsActive(false)
 			}
 		}
 		document.body.addEventListener('click', handleClickOutside)
 
-		return () =>
-			document.body.removeEventListener('click', handleClickOutside)
+		return () => document.body.removeEventListener('click', handleClickOutside)
 	}, [])
 
 	return (
