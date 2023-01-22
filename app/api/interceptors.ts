@@ -3,8 +3,8 @@ import Cookies from 'js-cookie'
 
 import { getNewTokens } from '@/providers/auth/helper.auth'
 
-import { API_URL, API_SERVER_URL } from '@/config/api.config'
-import {IS_PRODUCTION } from '@/config/constants'
+import { API_SERVER_URL, API_URL } from '@/config/api.config'
+import { IS_PRODUCTION } from '@/config/constants'
 
 import { errorCatch, getContentType } from './api.helpers'
 import { removeTokensStorage } from '@/services/auth/auth.helper'
@@ -16,14 +16,14 @@ export const axiosClassic = axios.create({
 
 export const instance = axios.create({
 	baseURL: API_URL,
-	headers: getContentType()
+	headers: { common: getContentType() }
 })
 
 instance.interceptors.request.use(config => {
 	const accessToken = Cookies.get('accessToken')
 
 	if (config.headers && accessToken) {
-		config.headers = { Authorization: `Bearer ${accessToken}` }
+		config.headers['Authorization'] = `Bearer ${accessToken}`
 	}
 
 	return config

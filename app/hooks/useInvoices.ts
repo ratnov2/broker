@@ -13,7 +13,9 @@ export const useInvoices = (currentPage: number = 1) => {
 				const filteredInvoices = data.invoices.filter(
 					invoice => invoice.recipientId !== null
 				)
+
 				const filteredData = { ...data, invoices: filteredInvoices }
+
 				return filteredData
 			}
 		}
