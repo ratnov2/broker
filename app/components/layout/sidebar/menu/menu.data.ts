@@ -1,14 +1,10 @@
-import {
-	AiOutlineCopy,
-	AiOutlineCreditCard,
-	AiOutlineFileAdd,
-	AiOutlineHome,
-	AiOutlineMoneyCollect,
-	AiOutlineTransaction
-} from 'react-icons/ai'
-import { AiOutlineSetting } from 'react-icons/ai'
+import { AiOutlineCopy, AiOutlineCreditCard, AiOutlineFileAdd, AiOutlineHome, AiOutlineMoneyCollect, AiOutlineTransaction, AiOutlineUsergroupAdd } from 'react-icons/ai';
+import { AiOutlineSetting } from 'react-icons/ai';
 
-import { IMenuItem } from './menu.interface'
+
+
+import { IMenuItem } from './menu.interface';
+
 
 export const menu: IMenuItem[] = [
 	{
@@ -40,6 +36,11 @@ export const menu: IMenuItem[] = [
 		name: 'Transactions',
 		icon: AiOutlineTransaction,
 		link: '/transactions'
+	},
+	{
+		name: 'Payment Sources',
+		icon: AiOutlineUsergroupAdd,
+		link: '/payment-sources'
 	},
 	{
 		name: 'Settings',
