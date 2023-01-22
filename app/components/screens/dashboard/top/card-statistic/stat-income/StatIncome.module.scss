@@ -2,10 +2,11 @@
 
 .income {
 	&__container {
-		width: 448px;
-		height: 329px;
 		background: $white;
 		border-radius: 40px;
+		padding-bottom: 1rem;
+		flex: 1;
+		align-self: flex-end;
 	}
 
 	&__inner {
@@ -84,9 +85,4 @@
 			background-position: center;
 		}
 	}
-}
-.chart__container {
-	margin: 0px auto;
-	max-height: 180px;
-	width: 400px;
 }

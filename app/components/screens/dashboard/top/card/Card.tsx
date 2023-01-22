@@ -26,7 +26,8 @@ const Card: FC = () => {
 	}
 
 	return (
-		<div>
+		<div className='flex flex-col gap-y-8 justify-between'>
+			<h1 className='font-bold text-4xl'>Dashboard</h1>
 			<section key={cardData.id} className={styles.card__container}>
 				<h1 className={styles.title}>
 					<span>My Balance</span>

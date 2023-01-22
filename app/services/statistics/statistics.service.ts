@@ -6,9 +6,9 @@ import {
 
 import { request } from '@/api/request.api'
 
-import { IExpenseAll } from '@/screens/dashboard/card-statistic/stat-expense/stat-expense.interface'
-import { IIncomeAll } from '@/screens/dashboard/card-statistic/stat-income/stat-income.interface'
 import { timeLapsType } from '@/screens/dashboard/middle/overview/overview.interface'
+import { IExpenseAll } from '@/screens/dashboard/top/card-statistic/stat-expense/stat-expense.interface'
+import { IIncomeAll } from '@/screens/dashboard/top/card-statistic/stat-income/stat-income.interface'
 import {
 	EnumIncomeByDynamicQueryParam,
 	IExpenseCategories,
