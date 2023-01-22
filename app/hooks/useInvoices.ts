@@ -9,7 +9,13 @@ export const useInvoices = (currentPage: number = 1) => {
 		['invoices', currentPage, itemsPerPage],
 		() => InvoiceService.getAll(currentPage, itemsPerPage),
 		{
-			select: ({ data }) => data
+			select: ({ data }) => {
+				const filteredInvoices = data.invoices.filter(
+					invoice => invoice.recipientId !== null
+				)
+				const filteredData = { ...data, invoices: filteredInvoices }
+				return filteredData
+			}
 		}
 	)
 
