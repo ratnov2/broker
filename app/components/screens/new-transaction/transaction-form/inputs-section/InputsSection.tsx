@@ -54,10 +54,13 @@ const InputsSection: FC<IAcceptSection> = ({ register, setValue, errors }) => {
 		)
 	}
 
-	const selectInvoices = senderInvoices?.map(invoice => ({
-		label: 'Invoice #' + invoice.id.toString() + ' ' + invoice.recipient?.name,
-		value: invoice.id.toString()
-	}))
+	const selectInvoices = senderInvoices
+		?.filter(invoice => invoice.recipientId !== null)
+		.map(invoice => ({
+			label:
+				'Invoice #' + invoice.id.toString() + ' ' + invoice.recipient?.name,
+			value: invoice.id.toString()
+		}))
 
 	return (
 		<>

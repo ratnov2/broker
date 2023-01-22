@@ -1,7 +1,10 @@
-import { useQuery } from '@tanstack/react-query'
-import { useState } from 'react'
+import { useQuery } from '@tanstack/react-query';
+import { useState } from 'react';
 
-import { InvoiceService } from '@/services/invoices/invoice.service'
+
+
+import { InvoiceService } from '@/services/invoices/invoice.service';
+
 
 export const useInvoices = (currentPage: number = 1) => {
 	const [itemsPerPage, setItemsPerPage] = useState<number>(5)
