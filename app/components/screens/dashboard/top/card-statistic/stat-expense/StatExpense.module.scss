@@ -1,0 +1,87 @@
+@import 'app/assets/styles/variables';
+
+.container {
+	padding-top: 2rem;
+	padding-bottom: 1rem;
+	background: $white;
+	border-radius: 40px;
+	flex: 1;
+	align-self: flex-end;
+}
+
+.inner {
+	display: flex;
+	flex-direction: column;
+	padding-right: 2rem;
+
+	gap: 50px;
+}
+
+.top {
+	padding-left: 129px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.total {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: relative;
+
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 36px;
+	line-height: 44px;
+	color: #22242c;
+	span {
+		font-weight: 400;
+		font-size: 18px;
+		line-height: 22px;
+		color: $gray;
+	}
+	&::before {
+		position: absolute;
+		content: '';
+		left: -98px;
+		width: 80px;
+		height: 80px;
+		background-image: url('./img/expense.svg');
+		background-repeat: no-repeat;
+		background-position: center;
+		background-color: #54c5eb;
+		border-radius: 40px;
+	}
+}
+.changes {
+	position: relative;
+	padding-top: 15px;
+
+	align-self: center;
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 22px;
+	text-align: right;
+	color: $red;
+	span {
+		display: block;
+		font-weight: 400;
+		font-size: 18px;
+		line-height: 22px;
+		text-align: right;
+		color: $gray;
+	}
+	&::before {
+		position: absolute;
+		content: '';
+		top: -5px;
+		right: 20px;
+		width: 24px;
+		height: 24px;
+		background-image: url('./img/changes.svg');
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+}

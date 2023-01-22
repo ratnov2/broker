@@ -38,3 +38,8 @@ export const getProfileUrl = `/users/profile`
 export const updateNewInvoiceUrl = 'invoices/'
 export const getAllInvoicesUrl = 'invoices'
 export const fileUrl = 'files/'
+
+export const getIncomeAllUrl = '/statistics/income/all'
+export const getExpenseAllUrl = '/statistics/expense/all'
+
+export const getUserCardsUrl = '/bank-accounts/get-user-cards'

@@ -1,3 +1,4 @@
+import { getExpenseAllUrl, getIncomeAllUrl } from '@/config/api.config'
 import {
 	getExpenseCategoriesUrl,
 	getIncomeByDynamicUrl
@@ -6,6 +7,8 @@ import {
 import { request } from '@/api/request.api'
 
 import { timeLapsType } from '@/screens/dashboard/middle/overview/overview.interface'
+import { IExpenseAll } from '@/screens/dashboard/top/card-statistic/stat-expense/stat-expense.interface'
+import { IIncomeAll } from '@/screens/dashboard/top/card-statistic/stat-income/stat-income.interface'
 import {
 	EnumIncomeByDynamicQueryParam,
 	IExpenseCategories,
@@ -13,6 +16,13 @@ import {
 } from '@/services/statistics/statistics.interface'
 
 export const StatisticsService = {
+	async getIncomeAll() {
+		return request<IIncomeAll>({ url: getIncomeAllUrl })
+	},
+	async getExpenseAll() {
+		return request<IExpenseAll>({ url: getExpenseAllUrl })
+	},
+
 	async getIncomeByDynamic(type: timeLapsType) {
 		return request<IIncomeByDynamic[]>({
 			url: getIncomeByDynamicUrl,

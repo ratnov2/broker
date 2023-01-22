@@ -13,7 +13,7 @@ export const AuthService = {
 			method: 'POST',
 			data: { email, password }
 		})
-
+		
 		if (response.accessToken) {
 			saveToStorage(response)
 		}

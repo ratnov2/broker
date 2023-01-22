@@ -1,5 +1,13 @@
+import 'swiper/css/bundle'
+
+import Layout from '@/layout/Layout'
+
 import Cards from '@/screens/cards/Cards'
 
 export default function CardPage() {
-	return <Cards />
+	return (
+		<Layout title='Cards'>
+			<Cards />
+		</Layout>
+	)
 }

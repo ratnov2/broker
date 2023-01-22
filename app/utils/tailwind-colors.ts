@@ -10,8 +10,6 @@ export const tailwindColors = {
 	'light-gray': '#F5F5F5'
 }
 
-export type tailwindColorsType = keyof typeof tailwindColors
-
 export const tailwindColorsFiltered = {
 	purple: '#6160DC',
 	'light-blue': '#03DAF2',
@@ -23,3 +21,5 @@ export const tailwindColorsFiltered = {
 }
 
 export type ITailwindColorsFiltered = keyof typeof tailwindColorsFiltered
+
+export type tailwindColorsType = keyof typeof tailwindColors

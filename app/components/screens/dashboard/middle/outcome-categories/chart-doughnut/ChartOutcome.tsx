@@ -1,4 +1,10 @@
-import { ArcElement, ChartData, Chart as ChartJS, Tooltip } from 'chart.js'
+import {
+	ArcElement,
+	ChartData,
+	Chart as ChartJS,
+	ChartOptions,
+	Tooltip
+} from 'chart.js'
 import { FC } from 'react'
 import { Doughnut } from 'react-chartjs-2'
 
@@ -8,6 +14,15 @@ import ChartOutcomeItem from '@/screens/dashboard/middle/outcome-categories/char
 import { categoriesDataType } from '@/screens/dashboard/middle/outcome-categories/outcome-categories.interface'
 
 ChartJS.register(ArcElement, Tooltip)
+
+const options: ChartOptions<'doughnut'> = {
+	responsive: true,
+	plugins: {
+		legend: {
+			display: false
+		}
+	}
+}
 
 type ChartOutcomeProps = {
 	categoriesData: categoriesDataType[]
@@ -34,7 +49,7 @@ const ChartOutcome: FC<ChartOutcomeProps> = ({ categoriesData }) => {
 		<div className='grid grid-cols-2'>
 			{/* chart */}
 			<div>
-				<Doughnut data={chartData} />
+				<Doughnut options={options} data={chartData} />
 			</div>
 			{/* legend data */}
 			<div className='flex'>
