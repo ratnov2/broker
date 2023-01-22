@@ -1,3 +1,5 @@
+import 'swiper/css/bundle'
+
 import Layout from '@/layout/Layout'
 
 import Cards from '@/screens/cards/Cards'
