@@ -6,6 +6,7 @@ import { useInvoices } from '@/hooks/useInvoices'
 
 import LatestInvoices from './latest-invoices/LatestInvoices'
 import OverviewInvoices from './overview-invoices/OverviewInvoices'
+import InvoicesTopTitle from './invoices-top-title/invoices-top-title'
 
 const Invoices: FC = () => {
 	const [currentPage, setCurrentPage] = useState<number>(1)
@@ -17,9 +18,8 @@ const Invoices: FC = () => {
 	return (
 		<Layout title='Invoices'>
 			<div className='h-full w-full mt-12'>
-				<h1 className='text-top text-4xl font-bold text-black mb-10'>
-					Invoices
-				</h1>
+				<InvoicesTopTitle />
+
 				<OverviewInvoices
 					isLoading={isLoadingOverviewInvoices}
 					overviewInvoices={overviewInvoices}

@@ -1,6 +1,8 @@
+import Link from 'next/dist/client/link'
 import { FC } from 'react'
 
-import DownloadAction from './download-action/DownloadAction'
+import Button from '@/ui/button/Button'
+
 import FilterOption from './transaction-filter/TransactionFilter'
 import { IFilter } from './transaction-filter/transaction-filter.interface'
 
@@ -11,8 +13,19 @@ const TransactionTopTitle: FC<IFilter> = ({ options, setOrderBy, orderBy }) => {
 			<div className='flex justify-between mb-4'>
 				<FilterOption
 					options={options}
-					setOrderBy={setOrderBy} orderBy={orderBy}/>
-				<DownloadAction />
+					setOrderBy={setOrderBy}
+					orderBy={orderBy}
+				/>
+				<Button
+					variant='primary'
+					size={'xl'}
+					type='submit'
+					className='px-10 py-3 bg-purple rounded-full text-white font-semibold w-[250px]'
+				>
+					<Link href={'/transactions/new-transaction'}>
+						<span>Add new transaction</span>
+					</Link>
+				</Button>
 			</div>
 		</div>
 	)
