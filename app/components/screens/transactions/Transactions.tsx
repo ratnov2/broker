@@ -28,7 +28,7 @@ const Transactions: FC = () => {
 
 	return (
 		<Layout title='TransactionHistory'>
-			<div className='h-full w-full mt-12'>
+			<div className='w-full mt-12'>
 				<TransactionTopTitle
 					setOrderBy={setOrderBy}
 					options={options}

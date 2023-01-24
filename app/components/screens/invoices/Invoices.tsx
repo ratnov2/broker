@@ -4,9 +4,9 @@ import Layout from '@/layout/Layout'
 
 import { useInvoices } from '@/hooks/useInvoices'
 
+import InvoicesTopTitle from './invoices-top-title/invoices-top-title'
 import LatestInvoices from './latest-invoices/LatestInvoices'
 import OverviewInvoices from './overview-invoices/OverviewInvoices'
-import InvoicesTopTitle from './invoices-top-title/invoices-top-title'
 
 const Invoices: FC = () => {
 	const [currentPage, setCurrentPage] = useState<number>(1)
@@ -17,7 +17,7 @@ const Invoices: FC = () => {
 
 	return (
 		<Layout title='Invoices'>
-			<div className='h-full w-full mt-12'>
+			<div className='w-full mt-12'>
 				<InvoicesTopTitle />
 
 				<OverviewInvoices

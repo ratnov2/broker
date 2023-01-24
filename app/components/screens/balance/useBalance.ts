@@ -16,7 +16,9 @@ export const useBalance = (currentPage: number) => {
 		['get invoices by sender'],
 		() => InvoiceService.getBySender(),
 		{
-			select: ({ data }) => data.slice(0, 7)
+			select: ({ data }) => {
+				return data.filter(invoice => invoice.recipientId !== null).slice(0, 7)
+			}
 		}
 	)
 

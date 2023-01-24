@@ -14,7 +14,7 @@ const Balance: FC = () => {
 
 	return (
 		<Layout title='Balance'>
-			<div className='h-screen w-full'>
+			<div className='w-full'>
 				<div className='flex space-x-10 mt-10'>
 					<TransferHistory
 						isLoading={isLoadingTransfers}

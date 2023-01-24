@@ -60,7 +60,7 @@ const Cards: FC = () => {
 					<AddNewCard createCard={newCard} />
 				</div>
 			)}
-			<div className='h-full w-full mt-12'>
+			<div className='w-full mt-12'>
 				<CardsList />
 			</div>
 		</>

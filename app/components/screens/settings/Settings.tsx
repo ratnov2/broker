@@ -39,7 +39,7 @@ const Transactions: FC = () => {
 
 	return (
 		<Layout title='Settings'>
-			<div className='mt-10 sm:mt-0 w-full h-screen flex flex-col'>
+			<div className='mt-10 sm:mt-0 w-full flex flex-col'>
 				<h1 className='text-2xl font-bold text-black mb-4'>Settings</h1>
 				<div className='flex space-x-10 w-full'>
 					<SettingsForm onSubmit={onSubmit} data={settingsData} />

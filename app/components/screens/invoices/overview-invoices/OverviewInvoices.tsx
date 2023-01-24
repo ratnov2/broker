@@ -15,7 +15,7 @@ const OverviewInvoices: FC<IOverview> = ({
 	overviewInvoices
 }) => {
 	return (
-		<div className='flex justify-between'>
+		<div className='flex justify-between gap-[40px]'>
 			{isLoading ? (
 				<Loader />
 			) : overviewInvoices?.length ? (
