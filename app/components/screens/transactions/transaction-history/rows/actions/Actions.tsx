@@ -15,7 +15,7 @@ const Menu: FC = () => {
 		const handleClickOutside = (event: MouseEvent) => {
 			const _event = event as PopupClickOutside
 
-			if (menuRef.current && !_event.path.includes(menuRef.current)) {
+			if (menuRef.current && !_event.path?.includes(menuRef.current)) {
 				setIsActive(false)
 			}
 		}

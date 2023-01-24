@@ -1,28 +1,19 @@
-import { FC, useState } from 'react';
+import Link from 'next/link'
+import { FC, useState } from 'react'
+import { FiArrowLeft } from 'react-icons/fi'
 
+import Layout from '@/layout/Layout'
 
+import { INewTransaction } from '@/shared/types/transaction.types'
 
-import Layout from '@/layout/Layout';
+import { useUserContacts } from '@/hooks/useUserContacts'
 
+import { convertDate } from '@/utils/convert-date'
 
-
-import { INewTransaction, ITransaction } from '@/shared/types/transaction.types';
-
-
-
-import { useUserContacts } from '@/hooks/useUserContacts';
-
-
-
-import { convertDate } from '@/utils/convert-date';
-
-
-
-import { ITransactionForm } from './new-transaction.interface';
-import RecipientDetails from './recipient-details/RecipientDetails';
-import TransactionForm from './transaction-form/TransactionForm';
-import { TransactionService } from '@/services/transactions/transactions.service';
-
+import { ITransactionForm } from './new-transaction.interface'
+import RecipientDetails from './recipient-details/RecipientDetails'
+import TransactionForm from './transaction-form/TransactionForm'
+import { TransactionService } from '@/services/transactions/transactions.service'
 
 const NewTransaction: FC = () => {
 	const { userContacts, isLoadingUserContacts } = useUserContacts()
@@ -58,8 +49,7 @@ const NewTransaction: FC = () => {
 		agreement: false,
 		invoiceId: 0
 	}
-	const [newTransactionData] =
-		useState<ITransactionForm>(NewTransactionInputs)
+	const [newTransactionData] = useState<ITransactionForm>(NewTransactionInputs)
 
 	return (
 		<Layout title='Transactions'>
