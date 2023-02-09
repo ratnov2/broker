@@ -1,0 +1,27 @@
+.wrap {
+  position: relative;
+  //margin-top: 100px;
+  width: 10px;
+  height: 10px;
+}
+
+.checkSign {
+  position: absolute;
+  background: rgb(226, 4, 4);
+  border-radius: 2px;
+}
+
+.checkPart1 {
+  width: 10px;
+  height: 4px;    
+  transform:rotate(45deg);	
+}
+
+.checkPart2 {
+  width: 20px;
+  height: 4px;    
+  transform: rotate(-45deg);
+  left: 4px;
+  top: -5px;
+
+}

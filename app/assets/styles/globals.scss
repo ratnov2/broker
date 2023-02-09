@@ -4,6 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "swiper/css";
+@import "swiper/css/effect-fade";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+
 body {
-	@apply text-base text-black;
+	@apply text-base text-[$text-color];
 }

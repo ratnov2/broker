@@ -1,0 +1,14 @@
+
+.brokerSecurity{
+  @apply flex mt-20;
+  
+  h2{
+    @apply text-3xl;
+  }
+  .elements{
+    @apply grid grid-cols-3 gap-4;
+    h5{
+      @apply text-3xl;
+    }
+  }
+}

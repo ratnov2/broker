@@ -1,0 +1,23 @@
+@import '@/assets/styles/variables.scss';
+
+.tradingTechnology{
+	@apply flex mt-20;
+	
+	img{
+		@apply w-2/5 p-5;
+	}
+	.content{
+		h2{
+			@apply text-3xl;
+		}
+		h5{
+			color: $color-red;
+		}
+		.elements{
+			@apply grid gap-4 grid-cols-2;
+		}
+		.element:first-child{
+			@apply col-start-1 col-span-2
+		}
+	}
+}

@@ -1,0 +1,19 @@
+
+.awardWinning{
+  @apply mt-20;
+  h2{
+    @apply text-center
+  }
+  .container{
+    @apply flex text-center mt-20 text-xs;
+    .element{
+      @apply w-1/5 px-10;
+      .img{
+        @apply h-64;
+        img{
+          @apply block text-center;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+
+.AboutCourse{
+  @apply flex mt-28 mb-28;
+  h2{
+    @apply text-3xl mb-5
+  }
+  img{
+    @apply w-2/5 ml-8 ;
+  }
+}

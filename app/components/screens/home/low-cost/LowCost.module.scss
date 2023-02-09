@@ -1,0 +1,26 @@
+@import '@/assets/styles/variables.scss';
+
+.lowCost{
+  @apply flex mt-20;
+  
+  img{
+    @apply w-2/5;
+  }
+  .content{
+    @apply ml-10;
+    h2{
+      @apply text-3xl
+    }
+    ul{
+      li{
+        @apply text-xs py-5 flex;
+        color:$default-color;
+
+        svg{
+          @apply text-lg text-red mr-2;
+        }
+      }
+
+    }
+  }
+}

@@ -1,0 +1,23 @@
+@import '@/assets/styles/variables.scss';
+
+.footer {
+  @apply p-10 text-center text-white; 
+  background-color: $color-footer;
+  svg{
+    @apply text-white;
+  }
+  .svg1{
+    svg{
+      @apply text-[60px]
+    }
+  }
+  h2{
+    @apply text-3xl font-bold my-5;
+  }
+  .description {
+    @apply text-left w-[600px] m-auto;
+    h3{
+      @apply text-xl mb-5 font-light;
+    }
+  }
+}

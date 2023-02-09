@@ -1,0 +1,18 @@
+.sidebar {
+	@apply fixed z-10 bg-white p-7;
+	box-shadow: 0px 0px 4px 0.5px #616160;
+	width: 100%;
+	.navigate {
+		@apply m-auto flex max-w-7xl justify-between;
+		.logo {
+			@apply flex;
+			img {
+				width: 50px;
+				height: 50px;
+			}
+			span {
+				@apply text-3xl;
+			}
+		}
+	}
+}
