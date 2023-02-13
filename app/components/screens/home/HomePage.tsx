@@ -16,9 +16,8 @@ import AboutCourse from './about-course/AboutCourse'
 
 const HomePage = () => {
 	return (
-		<Layout title='homePage]'>
+		<Layout title='homePage'>
 			<div className='m-auto '>
-				<div className='h-[108px]'></div>
 				<Slider />
 				<div className='w-[1200px] m-auto'>
 					<DropLinks />

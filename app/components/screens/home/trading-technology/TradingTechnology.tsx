@@ -18,7 +18,7 @@ const TradingTechnology = () => {
 				<h2>Powerful Trading Platforms to help you succeed</h2>
 				<div className={style.elements}>
 					{TradingTechnologyData.map((el, key) => (
-						<div className={style.element}>
+						<div className={style.element} key={key}>
 							<h5>{el.head}</h5>
 							<p>{el.title}</p>
 						</div>

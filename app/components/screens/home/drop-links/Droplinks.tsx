@@ -7,9 +7,9 @@ const DropLinks = () => {
 	return (
 		<div className={style.dropLinks}>
 			{DropLinksData.map(el => (
-				<div className={style.element}>
+				<div className={style.element} key={el.head}>
 					<Image src={el.img} width={70} height={70} alt='img1' />
-					<div key={el.head}>
+					<div>
 						<h5>{el.head}</h5>
 						<p>{el.title}</p>
 					</div>

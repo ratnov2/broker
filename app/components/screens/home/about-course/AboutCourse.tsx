@@ -3,11 +3,12 @@ import Image from 'next/image'
 import courseImg from '@/assets/images/course_mark.jpeg'
 
 import style from './AboutCourse.module.scss'
+import cn from 'clsx'
 
-const AboutCourse = () => {
+const AboutCourse = ({customStyle}) => {
 	return (
-		<div className={style.AboutCourse}>
-			<div>
+		<div className={cn(style.AboutCourse,customStyle)}>
+			<div >
 				<h2>ABOUT the COURSE</h2>
 				<h6>
 					The course is 3 weeks long, 15 hours, 1 hour a day, Monday

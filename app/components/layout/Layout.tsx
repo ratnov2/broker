@@ -14,8 +14,8 @@ const Layout: FC<PropsWithChildren<ILayout>> = ({ children, ...rest }) => {
 			<Meta {...rest} />
 			<div className={styles.layout}>
 				<Sidebar />
+				<div className='h-[108px]'></div>
 				<main>
-				
 					<section className={styles.content}>{children}</section>
 				</main>
 			</div>

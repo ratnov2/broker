@@ -1,0 +1,9 @@
+.account{
+  @apply text-center ;
+
+  .content{
+    @apply w-[1200px] m-auto grid grid-cols-3 grid-flow-col gap-4;
+    
+  }
+ //height: calc(100vh - 110px);
+}
