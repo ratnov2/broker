@@ -30,8 +30,6 @@ export const useAuthMutations = (reset: UseFormReset<IAuthFormData>) => {
 		}
 	)
 	useEffect(()=>{
-			
-			
 		if(error && !isLoginLoading)
 		toast.error('Incorrectly email or password',{
 			toastId: 'success1',
@@ -44,7 +42,7 @@ export const useAuthMutations = (reset: UseFormReset<IAuthFormData>) => {
 		{
 			onSuccess(data) {
 				reset()
-				setUser(data.user)
+				router.replace('/')
 			}
 		}
 	)
