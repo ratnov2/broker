@@ -10,27 +10,27 @@ const LowCost = () => {
 		<div className={style.lowCost}>
 			<Image width={470} height={370} alt='low-cost' src={imgLowCost} />
 			<div className={style.content}>
-				<h2>Experience the Lowest Costs in the Industry2</h2>
+				<h2>Experience the Lowest Costs in the Industry</h2>
 				<ul>
 					<li>
 						<AiOutlineCheck />
-						Low commissions starting at $04 with no added spreads,
+						Low commissions starting at $0 with no added spreads,
 						ticket charges, platform fees, or account minimums.
 					</li>
 					<li>
 						<AiOutlineCheck />
-						IB SmartRoutingSM helps support best execution by
+						IB SmartRouting helps support best execution by
 						searching for the best available prices for stocks,
 						options and combinations across exchanges and dark
 						pools.
 					</li>
 					<li>
 						<AiOutlineCheck />
-						Margin rates up to 50% lower than the industry.6
+						Margin rates up to 50% lower than the industry.
 					</li>
 					<li>
 						<AiOutlineCheck />
-						Earn interest of up to USD 4.08% on uninvested cash.1
+						Earn interest of up to USD 4.08% on uninvested cash.
 					</li>
 					<li>
 						<AiOutlineCheck />

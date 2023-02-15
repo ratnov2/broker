@@ -3,14 +3,14 @@ import { useRouter } from 'next/router'
 import { FC, PropsWithChildren } from 'react'
 
 import { onlyText } from '@/utils/clear-text'
-
+import logo from '@/assets/images/logo-2.png'
 import { siteName, titleMerge } from './meta.config'
 import { ISeo } from './meta.interface'
 
 const Meta: FC<PropsWithChildren<ISeo>> = ({
 	title,
 	description,
-	image = '/images/logo.png',
+	image = logo.src,
 	children,
 	type = 'website'
 }) => {

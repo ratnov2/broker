@@ -1,14 +1,14 @@
 
 
 .account{
-  @apply h-[100%] pt-20 ;
+  @apply h-[100%] pt-20 relative;
   box-shadow:4px 0px 4px -0.5px #616160;
   img{
     @apply m-auto  mb-10;
 
   }
   .pay{
-    @apply border-t-[1px] mt-6;
+    @apply border-t-[1px] mt-6 pt-20;
     p{
       @apply text-2xl
     }

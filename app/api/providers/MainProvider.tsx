@@ -1,7 +1,10 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { FC, PropsWithChildren } from 'react'
+import { FC } from 'react'
 
-import AuthProvider from './auth/AuthProvider'
+import AuthProvider from './AuthProvider/AuthProvider'
+import HeadProvider from './head-provider/HeadProvider'
+import { TypeRoles } from '@/../pages/_app'
+import ToastrCustom from '@/ui/toastr/ToastrCustom'
 
 const queryClient = new QueryClient({
 	defaultOptions: {
@@ -11,11 +14,17 @@ const queryClient = new QueryClient({
 	}
 })
 
-const MainProvider: FC<PropsWithChildren> = ({ children }) => {
+const MainProvider: FC<{ children: React.ReactNode; Component: TypeRoles }> = ({
+	children,
+	Component
+}) => {
 	return (
-		<QueryClientProvider client={queryClient}>
-			{children}
-		</QueryClientProvider>
+		<HeadProvider>
+			<QueryClientProvider client={queryClient}>
+				<ToastrCustom />
+				<AuthProvider Component={Component}>{children}</AuthProvider>
+			</QueryClientProvider>
+		</HeadProvider>
 	)
 }
 

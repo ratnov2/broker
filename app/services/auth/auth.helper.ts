@@ -1,6 +1,7 @@
 import Cookies from 'js-cookie'
 
 import { IAuthResponse, ITokens } from '@/shared/types/auth.interface'
+import { authApi } from './auth.service'
 
 export const getAccessToken = () => {
 	const accessToken = Cookies.get('accessToken')
@@ -29,3 +30,12 @@ export const saveToStorage = (data: IAuthResponse) => {
 	saveTokensStorage(data)
 	localStorage.setItem('user', JSON.stringify(data.user))
 }
+
+// export const checkAuth = ()=>{
+// 			const response = await authApi.getNewTokens()
+// 			return response.data
+		
+// 			//return thunkAPI.rejectWithValue(error)
+// 		}
+// 	}
+//)

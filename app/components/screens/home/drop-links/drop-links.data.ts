@@ -6,7 +6,7 @@ export const DropLinksData = [
 	{
 		img: img1,
 		head: 'Lowest Costs',
-		title: 'Our transparent, low commissions, starting at $04, and low financing rates minimize costs to maximize returns.5'
+		title: 'Our transparent, low commissions, starting at $0, and low financing rates minimize costs to maximize returns.'
 	},
   {
 		img: img2,

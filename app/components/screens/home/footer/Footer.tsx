@@ -31,8 +31,8 @@ const Footer = () => {
 					</div>
 					<div className='flex mb-3'>
 						<HiOutlineMailOpen />
-						<h5 className='block ml-2'>
-							Email: <span>mnicolsrealty@gmail.com</span>
+						<h5 className={style.email}>
+						<a href="mailto:mnicolsrealty@gmail.com">Email: <span>mnicolsrealty@gmail.com</span></a>
 						</h5>
 					</div>
 				</div>

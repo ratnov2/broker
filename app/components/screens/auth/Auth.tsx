@@ -4,15 +4,16 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 
 import Meta from '@/layout/meta/Meta'
 
+import AuthButton from '@/ui/auth-elements/AuthButton'
+import ToastrCustom from '@/ui/toastr/ToastrCustom'
+import { ToastrCustomHelper } from '@/ui/toastr/ToastrCustomHelper'
 
-
+import { useAuthRedirect } from '@/hooks/useAuthRedirect'
 
 import styles from './Auth.module.scss'
 import { useAuthMutations } from './useAuthMutations'
-import { useAuthRedirect } from './useAuthRedirect'
 import AuthFields from '@/screens/auth/AuthFields'
 import { IAuthInput } from '@/screens/auth/auth.interface'
-import AuthButton from '@/ui/auth-elements/AuthButton'
 
 const Auth: FC = () => {
 	useAuthRedirect()
@@ -36,6 +37,7 @@ const Auth: FC = () => {
 
 	return (
 		<Meta title='Auth'>
+			<ToastrCustom />
 			<section
 				className={cn(
 					styles.wrapper,

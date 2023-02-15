@@ -1,9 +1,11 @@
 import Image from 'next/image'
+import { Element } from 'react-scroll'
 
-import trendingImg from '@/assets/images/home-tech-full.jpeg'
 
 import style from './BrokerSecurity.module.scss'
 import { BrokerSecurityData } from './broker-security.data'
+
+import homeSecurityImg from '@/assets/images/home-security.jpeg'
 
 const BrokerSecurity = () => {
 	return (
@@ -25,12 +27,13 @@ const BrokerSecurity = () => {
 						</div>
 					))}
 				</div>
+				<Element name='About_Mark' className='element'></Element>
 			</div>
 			<Image
 				width={900}
 				height={600}
 				alt='trending-technology'
-				src={trendingImg}
+				src={homeSecurityImg}
 			/>
 		</div>
 	)

@@ -20,4 +20,16 @@
       @apply text-xl mb-5 font-light;
     }
   }
+  .email{
+    @apply block ml-2 transition-all duration-500;
+    span{
+      @apply transition-all duration-200;
+    }
+    &:hover{
+      span{
+        @apply text-[rgb(198,180,180)]
+      }
+    }
+   
+  }
 }

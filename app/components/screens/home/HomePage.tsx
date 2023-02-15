@@ -15,8 +15,10 @@ import AboutPerson from './about-person/AboutPerson'
 import AboutCourse from './about-course/AboutCourse'
 
 const HomePage = () => {
+
+
 	return (
-		<Layout title='homePage'>
+		<Layout title='Home' >
 			<div className='m-auto '>
 				<Slider />
 				<div className='w-[1200px] m-auto'>

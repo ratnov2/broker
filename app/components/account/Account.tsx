@@ -18,36 +18,47 @@ const Account = () => {
 
 	const user = useGetProfile()
 
+	const infoPayment = useMutation(['info-payment'], () =>
+		PaymentService.getInfoPayment()
+	)
+
+	useEffect(() => {
+		let data = user.data?.data
+		if (data) {
+			if (!data.isPayment) {
+				infoPayment.mutate()
+			}
+		}
+	}, [user.data?.data])
+
 	const payment = useMutation(
 		['post-payment'],
 		() => PaymentService.createPayment(),
 		{}
 	)
-	
+
 	useEffect(() => {
-		
 		if (payment.data?.data) {
 			push(payment.data.data.confirmation.confirmation_url)
 		}
 	}, [payment.data])
 
-	const paymentHandler = ()=>payment.mutate()
-	
+	const paymentHandler = () => payment.mutate()
+
 	return (
-		<Layout title='homePage'>
-			<div
-				className={style.account}
-				//style={{backgroundImage: `url(${bgImg.src})`}}
-			>
+		<Layout title='Personal'>
+			<div className={style.account}>
 				<div className={style.content}>
 					<div className='col-span-1'>
-						<AccountContainer user={user} paymentHandler={paymentHandler}/>
+						<AccountContainer
+							user={user}
+							paymentHandler={paymentHandler}
+						/>
 					</div>
 					<div className='col-span-2'>
 						<AccountInfo />
 					</div>
 				</div>
-
 			</div>
 			<Footer />
 		</Layout>
