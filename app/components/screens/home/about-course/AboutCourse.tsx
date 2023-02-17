@@ -4,8 +4,10 @@ import courseImg from '@/assets/images/course_mark.jpeg'
 
 import style from './AboutCourse.module.scss'
 import cn from 'clsx'
+import { FC } from 'react'
+import { PropsAboutCourse } from './about-course.interface'
 
-const AboutCourse = ({customStyle}) => {
+const AboutCourse:FC<PropsAboutCourse> = ({customStyle}) => {
 	return (
 		<div className={cn(style.AboutCourse,customStyle)}>
 			<div >
