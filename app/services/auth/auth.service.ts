@@ -12,18 +12,19 @@ import { toast } from 'react-toastify'
 
 export const AuthService = {
 	async main(variant: 'reg' | 'login', email: string, password: string) {
-		const response = await request<IAuthResponse>({
-			url: getAuthUrl(`/${variant === 'reg' ? 'register' : 'login'}`),
-			method: 'POST',
-			data: { email, password }
-		})
+		// const response = await request<IAuthResponse>({
+		// 	url: getAuthUrl(`/${variant === 'reg' ? 'register' : 'login'}`),
+		// 	method: 'POST',
+		// 	data: { email, password }
+		// })
+    const body = {email,password}
+    const response = await axiosClassic.put(variant,body)
+    
 		if (!response) {
-      console.log('wefew');
-      
       throw new Error('Что-то пошло не так');
     }
-		if (response.accessToken) {
-			saveToStorage(response)
+		if (response.data.accessToken) {
+			saveToStorage(response.data.response)
 		}
 
 		return response
