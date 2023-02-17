@@ -18,13 +18,13 @@ export const AuthService = {
 		// 	data: { email, password }
 		// })
     const body = {email,password}
-    const response = await axiosClassic.put(variant,body)
+    const response = await axiosClassic.post(`auth/${variant}`,body)
     
 		if (!response) {
       throw new Error('Что-то пошло не так');
     }
 		if (response.data.accessToken) {
-			saveToStorage(response.data.response)
+			saveToStorage(response.data)
 		}
 
 		return response

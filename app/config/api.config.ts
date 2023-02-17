@@ -1,6 +1,7 @@
 export const API_URL = process.env.NEXT_PUBLIC_API_URL
 	? process.env.NEXT_PUBLIC_API_URL
 	: 'https://server-broke2.vercel.app/api'
+	//'https://server-broke2.vercel.app/api'
 export const API_SERVER_URL = `${process.env.APP_SERVER_URL}/api`
 
 export const getAuthUrl = (string: string) => `/auth${string}`
