@@ -1,5 +1,6 @@
 export const getContentType = () => ({
-	'Content-Type': 'application/json'
+	'Content-Type': 'application/json',
+	// 'Authorization': 'Client-ID 5unjKQT2GwrriTcCixzfIASi'
 })
 
 export const errorCatch = (error: any): string =>
