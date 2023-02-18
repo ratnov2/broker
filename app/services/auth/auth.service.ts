@@ -20,6 +20,7 @@ export const AuthService = {
     const body = {email,password}
     const response = await axiosClassic.post(`auth/${variant}`,body)
     
+    
 		if (!response) {
       throw new Error('Что-то пошло не так');
     }
