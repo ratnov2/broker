@@ -1,6 +1,6 @@
 export const API_URL = process.env.NEXT_PUBLIC_API_URL
 	? process.env.NEXT_PUBLIC_API_URL
-	: 'http://localhost:4200/api'
+	: 'http://80.251.156.84:4200/api'
 	
 	//'http://localhost:4200/api'
 	//'https://server-broke2.vercel.app/api'
