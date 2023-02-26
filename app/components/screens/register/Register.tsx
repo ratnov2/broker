@@ -5,19 +5,19 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import Meta from '@/layout/meta/Meta'
 
 import AuthButton from '@/ui/auth-elements/AuthButton'
-import ToastrCustom from '@/ui/toastr/ToastrCustom'
-import { ToastrCustomHelper } from '@/ui/toastr/ToastrCustomHelper'
 
 import { useAuthRedirect } from '@/hooks/useAuthRedirect'
 
-import styles from './Auth.module.scss'
-import { useAuthMutations } from './useAuthMutations'
-import AuthFields from '@/screens/auth/AuthFields'
-import { IAuthInput } from '@/screens/auth/auth.interface'
-import { ToastContainer } from 'react-toastify'
+import styles from './Register.module.scss'
+import { useAuthMutations } from './useRegisterMutations'
 
-const Auth: FC = () => {
-	useAuthRedirect()
+import { IAuthInput } from '@/screens/auth/auth.interface'
+import RegisterFields from './RegisterFields'
+import { IRegisterInput } from './register.interface'
+import Link from 'next/link'
+
+const Register: FC = () => {
+	//useAuthRedirect()
 
 	const [isReg, setIsReg] = useState(false)
 
@@ -26,18 +26,18 @@ const Auth: FC = () => {
 		handleSubmit,
 		formState,
 		reset
-	} = useForm<IAuthInput>({
+	} = useForm<IRegisterInput>({
 		mode: 'onChange'
 	})
 
-	const { isLoading, registerSync, loginSync } = useAuthMutations(reset)
+	const { isLoading, registerSync } = useAuthMutations(reset)
 
-	const onSubmit: SubmitHandler<IAuthInput> = data => {
-		isReg ? registerSync(data) : loginSync(data)
+	const onSubmit: SubmitHandler<IRegisterInput> = data => {
+		registerSync(data)
 	}
 
 	return (
-		<Meta title='Auth'>
+		<Meta title='Login'>
 			<section
 				className={cn(
 					styles.wrapper,
@@ -45,29 +45,18 @@ const Auth: FC = () => {
 				)}
 			>
 				<div className='bg-white text-black shadow-sm rounded-2xl p-16 w-full max-w-xl flex flex-col items-center'>
-					<div className='mb-10 pointer-events-none'>
-						{/* <Logo /> */}
-					</div>
 					<form
 						onSubmit={handleSubmit(onSubmit)}
 						className='flex flex-col w-full'
 					>
 						{/* fields */}
-						<AuthFields
+						<RegisterFields
 							formState={formState}
 							register={registerInput}
 							isPasswordRequired={true}
 						/>
 						{/* buttons */}
 						<div className='self-center mt-6 gap-y-6'>
-							<AuthButton
-								type='submit'
-								onClick={() => setIsReg(false)}
-								disabled={isLoading}
-								baseStyle='primary'
-							>
-								Login
-							</AuthButton>
 							<AuthButton
 								type='submit'
 								onClick={() => setIsReg(true)}
@@ -77,6 +66,9 @@ const Auth: FC = () => {
 								Register
 							</AuthButton>
 						</div>
+						<div className={styles.register}>
+							Have an account? <Link href='login'>Login</Link>
+						</div>
 					</form>
 				</div>
 			</section>
@@ -84,4 +76,4 @@ const Auth: FC = () => {
 	)
 }
 
-export default Auth
+export default Register

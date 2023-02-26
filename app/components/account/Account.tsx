@@ -1,6 +1,5 @@
 import { useMutation } from '@tanstack/react-query'
-import { log } from 'console'
-import { Router, useRouter } from 'next/router'
+import {  useRouter } from 'next/router'
 import { useEffect } from 'react'
 
 import Layout from '@/layout/Layout'

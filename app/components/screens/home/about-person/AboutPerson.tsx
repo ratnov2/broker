@@ -8,6 +8,7 @@ import style from './AboutPerson.module.scss'
 const AboutPerson = () => {
 	return (
 		<>
+			<Element name='About_Person' className='element'></Element>
 			<div className={style.aboutPerson}>
 				<div>
 					<h2>ABOUT MARK</h2>
@@ -33,14 +34,7 @@ const AboutPerson = () => {
 						calculations based on Strategy.
 					</p>
 				</div>
-				<Image
-					width={900}
-					height={600}
-					alt='trending-technology'
-					src={broker}
-				/>
 			</div>
-			<Element name='About_Course' className='element'></Element>
 		</>
 	)
 }

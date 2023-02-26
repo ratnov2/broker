@@ -1,10 +1,12 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { FC } from 'react'
+import { ToastContainer } from 'react-toastify'
+
+import ToastrCustom from '@/ui/toastr/ToastrCustom'
 
 import AuthProvider from './AuthProvider/AuthProvider'
 import HeadProvider from './head-provider/HeadProvider'
 import { TypeRoles } from '@/../pages/_app'
-import ToastrCustom from '@/ui/toastr/ToastrCustom'
 
 const queryClient = new QueryClient({
 	defaultOptions: {

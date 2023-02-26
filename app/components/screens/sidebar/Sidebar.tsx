@@ -1,19 +1,17 @@
 import { log } from 'console'
 import Image from 'next/image'
 import Link from 'next/link'
-import { createRef, useRef } from 'react'
 
 import Button from '@/ui/button/Button'
 
-import logo from '@/assets/images/logoBr.png'
 import logo2 from '@/assets/images/logo-2.png'
 import { useGetProfile } from '@/hooks/useGetProfile'
-
+import SkeletonLoader from '@/components/ui/skeleton-loader/SkeletonLoader'
 import style from './Sidebar.module.scss'
 
 const Sidebar = () => {
 	const user = useGetProfile()
-	console.log(user.isLoading);
+	console.log(user.data?.data);
 	
 	return (
 		<div className={style.sidebar}>
@@ -25,8 +23,9 @@ const Sidebar = () => {
 					</div>
 				</Link>
 				{user.isLoading ? (
-					<div>Loading</div>
+					<SkeletonLoader count={1} width={200} height={40} className='h-5 w-3/5' />
 				) : user.data?.data ? (
+					<div className='ml-5'>
 					<Link href='account'>
 						<div>
 							<Button className='bg-[rgb(205,0,28)] text-white px-5 py-2 text-lg font-light transition-all duration-200 hover:bg-[rgb(155,0,0)]'>
@@ -34,14 +33,15 @@ const Sidebar = () => {
 							</Button>
 						</div>
 					</Link>
+					</div>
 				) : (
-					<div className='flex'>
-						<Link href='auth'>
+					<div className='flex ml-5'>
+						<Link href='login'>
 							<Button className='mr-4 white text-red border-[1px] px-5 py-1 text-lg font-light transition-all duration-200 hover:border-[rgb(205,0,28)] hover:text-[rgb(205,0,28)]'>
 								Log In
 							</Button>
 						</Link>
-						<Link href='auth'>
+						<Link href='register'>
 							<Button className='bg-[rgb(205,0,28)] border-[1px] border-[rgb(205,0,28)] text-white px-5 py-1 text-lg font-light transition-all duration-200 hover:bg-[rgb(155,0,0)]'>
 								Create Account
 							</Button>

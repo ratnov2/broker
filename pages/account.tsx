@@ -4,7 +4,6 @@ import Account from '@/components/account/Account'
 
 import { useGetProfile } from '@/hooks/useGetProfile'
 
-
 const AccountPage = () => {
 	const router = useRouter()
 	const user = useGetProfile()

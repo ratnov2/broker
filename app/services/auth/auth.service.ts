@@ -11,17 +11,20 @@ import { getContentType } from '@/api/api.helpers'
 import { toast } from 'react-toastify'
 
 export const AuthService = {
-	async main(variant: 'reg' | 'login', email: string, password: string) {
+	async main(variant: 'register' | 'login', email: string, password: string) {
 		// const response = await request<IAuthResponse>({
 		// 	url: getAuthUrl(`/${variant === 'reg' ? 'register' : 'login'}`),
 		// 	method: 'POST',
 		// 	data: { email, password }
 		// })
     const body = {email,password}
+    
+    
     const response = await axiosClassic.post(`auth/${variant}`,body)
     
     
-		if (!response) {
+    
+		if (!response.data) {
       throw new Error('Что-то пошло не так');
     }
 		if (response.data.accessToken) {
@@ -39,11 +42,25 @@ export const AuthService = {
 export const authApi = {
   async login(body:any) {
     const response = await axiosClassic.post('auth/login', body)
-    return response
+    if (!response.data) {
+      throw new Error('Incorrectly');
+    }
+		if (response.data.accessToken) {
+			saveToStorage(response.data)
+		}
+
+		return response
   },
   async register(body:any) {
     const response = await axiosClassic.post('auth/register', body)
-    return response
+    if (!response.data) {
+      throw new Error('Incorrectly');
+    }
+		if (response.data.accessToken) {
+			saveToStorage(response.data)
+		}
+
+		return response 
   },
   async getNewTokens() {
     const refreshToken = Cookies.get('refreshToken')

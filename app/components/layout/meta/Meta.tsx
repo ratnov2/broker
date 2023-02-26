@@ -23,6 +23,7 @@ const Meta: FC<PropsWithChildren<ISeo>> = ({
 				<title itemProp='headline'>{titleMerge(title)}</title>
 				{description ? (
 					<>
+					<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" /> 
 						<meta
 							itemProp='description'
 							name='description'
@@ -41,7 +42,10 @@ const Meta: FC<PropsWithChildren<ISeo>> = ({
 						/>
 					</>
 				) : (
+					<>
+					<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" /> 
 					<meta name='robots' content='noindex, nofollow' />
+					</>
 				)}
 			</Head>
 			{children}

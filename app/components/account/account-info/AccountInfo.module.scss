@@ -1,7 +1,7 @@
 
 .person{
-  @apply block;
+  @apply flex-wrap;
   img{
-    @apply w-full ml-0
+    @apply w-full ml-0 mr-5;
   }
 }

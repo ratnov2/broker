@@ -1,0 +1,13 @@
+.wrapper {
+	background: linear-gradient(
+		210deg,
+		#6160dc -42.86%,
+		rgba(97, 96, 220, 0) 100%
+	);
+}
+.login{
+	@apply text-center text-sm mt-5;
+	a{
+		@apply text-red transition-all duration-100 hover:text-[rgb(194,65,65)] font-bold;
+	}
+}

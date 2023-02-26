@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import Skeleton, { SkeletonProps } from 'react-loading-skeleton'
 import cn from 'clsx'
 
+
 const SkeletonLoader:FC<SkeletonProps> = ({className, ...rest}) => {
   return (
     <Skeleton

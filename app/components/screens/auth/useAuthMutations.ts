@@ -8,14 +8,20 @@ import { IAuthFormData } from '@/shared/types/auth.interface'
 
 import { useAuth } from '@/hooks/useAuth'
 
-import { AuthService } from '@/services/auth/auth.service'
+import { AuthService, authApi } from '@/services/auth/auth.service'
+import { ToastrCustomHelper } from '@/ui/toastr/ToastrCustomHelper'
 
 export const useAuthMutations = (reset: UseFormReset<IAuthFormData>) => {
-	let process = false
 	
+	let process = false
+	let id = 1
 	const { setUser } = useAuth()
 	const router = useRouter()
-	const { isLoading: isLoginLoading, mutate: loginSync,error } = useMutation(
+	const {
+		isLoading: isLoginLoading,
+		mutate: loginSync,
+		error: loginError
+	} = useMutation(
 		['login'],
 		({ email, password }: IAuthFormData) =>
 			AuthService.main('login', email, password),
@@ -26,29 +32,52 @@ export const useAuthMutations = (reset: UseFormReset<IAuthFormData>) => {
 				})
 				reset()
 				router.replace('/')
-			},		
+			}
 		}
 	)
-	useEffect(()=>{
-		if(error && !isLoginLoading)
-		toast.error('Incorrectly email or password',{
-			toastId: 'success1',
-		})
-	},[error])
-	const { mutate: registerSync, isLoading: isRegisterLoading } = useMutation(
+
+	const {
+		mutate: registerSync,
+		isLoading: isRegisterLoading,
+		error: registerError
+	} = useMutation(
 		['register'],
 		({ email, password }: IAuthFormData) =>
-			AuthService.main('reg', email, password),
+			AuthService.main('register', email, password),
 		{
 			onSuccess(data) {
 				reset()
 				router.replace('/')
+			},
+			onError(data) {
+				// console.log('ewrwerwerre')
+				// toast('WOW22',{
+				// 	toastId:'12'
+				// })
 			}
 		}
 	)
- return {loginSync,
-	registerSync,
-	isLoading: isLoginLoading || isRegisterLoading}
+	useEffect(() => {
+		if (loginError && !isLoginLoading)
+			toast.error('Incorrectly email or password', {
+				toastId: 'success1'
+			})
+	}, [loginError])
+
+	useEffect(() => {
+		id++
+		if (registerError){
+		toast.error(registerError?.response?.data.message,{
+			toastId: id,
+		})
+	}
+	}, [registerError])
+
+	return {
+		loginSync,
+		registerSync,
+		isLoading: isLoginLoading || isRegisterLoading
+	}
 	return useMemo(
 		() => ({
 			loginSync,

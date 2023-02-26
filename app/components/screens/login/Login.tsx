@@ -5,18 +5,18 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import Meta from '@/layout/meta/Meta'
 
 import AuthButton from '@/ui/auth-elements/AuthButton'
-import ToastrCustom from '@/ui/toastr/ToastrCustom'
-import { ToastrCustomHelper } from '@/ui/toastr/ToastrCustomHelper'
 
 import { useAuthRedirect } from '@/hooks/useAuthRedirect'
 
-import styles from './Auth.module.scss'
-import { useAuthMutations } from './useAuthMutations'
-import AuthFields from '@/screens/auth/AuthFields'
-import { IAuthInput } from '@/screens/auth/auth.interface'
-import { ToastContainer } from 'react-toastify'
+import styles from './Login.module.scss'
+import { useAuthMutations } from './useLoginMutations'
 
-const Auth: FC = () => {
+import { IAuthInput } from '@/screens/auth/auth.interface'
+import LoginFields from './LoginFields'
+import { ILoginInput } from './login.interface'
+import Link from 'next/link'
+
+const Login: FC = () => {
 	useAuthRedirect()
 
 	const [isReg, setIsReg] = useState(false)
@@ -26,18 +26,21 @@ const Auth: FC = () => {
 		handleSubmit,
 		formState,
 		reset
-	} = useForm<IAuthInput>({
+	} = useForm<ILoginInput>({
 		mode: 'onChange'
 	})
 
-	const { isLoading, registerSync, loginSync } = useAuthMutations(reset)
+	const { isLoading, loginSync } = useAuthMutations(reset)
 
 	const onSubmit: SubmitHandler<IAuthInput> = data => {
-		isReg ? registerSync(data) : loginSync(data)
+		const data2 = {
+			...data,
+		}
+		loginSync(data2)
 	}
 
 	return (
-		<Meta title='Auth'>
+		<Meta title='Login'>
 			<section
 				className={cn(
 					styles.wrapper,
@@ -53,7 +56,7 @@ const Auth: FC = () => {
 						className='flex flex-col w-full'
 					>
 						{/* fields */}
-						<AuthFields
+						<LoginFields
 							formState={formState}
 							register={registerInput}
 							isPasswordRequired={true}
@@ -68,14 +71,9 @@ const Auth: FC = () => {
 							>
 								Login
 							</AuthButton>
-							<AuthButton
-								type='submit'
-								onClick={() => setIsReg(true)}
-								disabled={isLoading}
-								baseStyle='secondary'
-							>
-								Register
-							</AuthButton>
+						</div>
+						<div className={styles.login}>
+						 No account? <Link href='register'>Register</Link>
 						</div>
 					</form>
 				</div>
@@ -84,4 +82,4 @@ const Auth: FC = () => {
 	)
 }
 
-export default Auth
+export default Login

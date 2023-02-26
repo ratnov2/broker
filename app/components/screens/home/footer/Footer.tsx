@@ -3,8 +3,6 @@ import { AiOutlineHome, AiOutlinePhone } from 'react-icons/ai'
 import { BsFillGeoAltFill } from 'react-icons/bs'
 import { HiOutlineMailOpen } from 'react-icons/hi'
 
-import contactImg from '@/assets/images/office.svg'
-
 import style from './Footer.module.scss'
 
 const Footer = () => {
@@ -13,26 +11,16 @@ const Footer = () => {
 			<h2>Contact Us</h2>
 			<div>
 				<div className={style.description}>
-					<div className={style.svg1}>
-						<AiOutlineHome />
-					</div>
-					<h3>Office Location</h3>
-					<div className='flex mb-3'>
-						<BsFillGeoAltFill />
-						<p className='block ml-2'>
-							201-2010 E 48th Ave, Vancouver, BC V5P 1R8
-						</p>
-					</div>
 					<div className='flex mb-3'>
 						<AiOutlinePhone />
 						<h5 className='block ml-2'>
-							Phone: <span>778-709-6853</span>
+							Phone: <span>+1 778 980 9933</span>
 						</h5>
 					</div>
 					<div className='flex mb-3'>
 						<HiOutlineMailOpen />
 						<h5 className={style.email}>
-						<a href="mailto:mnicolsrealty@gmail.com">Email: <span>mnicolsrealty@gmail.com</span></a>
+						<a href="mailto:mariaoptions3@gmail.com">Email: <span>mariaoptions3@gmail.com</span></a>
 						</h5>
 					</div>
 				</div>

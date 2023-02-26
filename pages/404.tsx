@@ -1,7 +1,5 @@
 import Layout from '@/layout/Layout'
 
-import style from './404.module.scss'
-
 const PageNotFound = () => {
 	return (
 		<>
