@@ -11,27 +11,24 @@ const AboutPerson = () => {
 			<Element name='About_Person' className='element'></Element>
 			<div className={style.aboutPerson}>
 				<div>
-					<h2>ABOUT MARK</h2>
+					<h2>UNIQUE OPTION TRADING STRATEGY</h2>
 					<p>
-						Mark Kushnir is active trader with over 15 years
-						experience exactly in Option trading. He traded Options
-						15 years ago, when option trading looked pretty
-						different. He, as many traders, lost a lot of money
-						during the first period of trading. And the main and
-						most important idea for the Strategy became SAFETY of
-						the DEPOSIT. So - th e main idea, that Mark was keeping
-						in mind for about two years, while he was developing his
-						strategy was to develop the Strategy that allow you to
-						keep you money as safe as possible. Offcouse you should
-						understand that it is impossible to 100% safe at stock
-						market. No matter what you trade - futures, stocks, etfs
-						or options. The Strategy that has been developed by Mark
-						allow you to reduce risk with every step that you do. It
-						allows you to know upfront the price points that gonna
-						be reached and total amount of cash that you gonna spend
-						for the combination. You don't need to predict where
-						market goes, it is all about historical data and right
-						calculations based on Strategy.
+						The Strategy is based on neutral trading approach. I do
+						not try to determine where exact stock going to move
+						next day, I choose stock that going to show the most
+						move in the nearest future. Such situation on the market
+						are connected to news, economic events and historic
+						volatility of exact options. When all conditions are got
+						into consideration, options combinations have good
+						opportunity to generate profit. Basic condition for
+						making any other step in the Strategy – is the reducing
+						risk for the combination. The strategy gives you
+						opportunity to get profit on both directions of the
+						market – Bear and Bull. You not going to afraid of
+						crisis downs in the market, instead – you are going to
+						gain profits on it. You are not going to be tied to
+						analytical forecasts that are not very precise and
+						accurate.
 					</p>
 				</div>
 			</div>

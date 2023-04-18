@@ -5,6 +5,7 @@ import Footer from './footer/Footer'
 import AboutPerson from './about-person/AboutPerson'
 import AboutCourse from './about-course/AboutCourse'
 import style from './HomePage.module.scss'
+import DuringCourse from './during-course/DuringCourse'
 
 const HomePage = () => {
 	return (
@@ -14,6 +15,7 @@ const HomePage = () => {
 				<div className={style.home}>
 					<AboutPerson />
 					<AboutCourse />
+					<DuringCourse />
 				</div>
 				<Footer />
 			</div>

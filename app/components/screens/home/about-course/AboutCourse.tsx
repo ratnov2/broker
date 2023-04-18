@@ -14,26 +14,27 @@ const AboutCourse: FC<PropsAboutCourse> = ({ customStyle }) => {
 			<Element name='About_Course' className='element'></Element>
 			<div className={cn(style.AboutCourse, customStyle)}>
 				<div>
-					<h2>ABOUT the COURSE</h2>
+					<h2>
+						Individual option trading course in Theory and Practice
+					</h2>
 					<h6>
-						The course is 3 weeks long, 15 hours, 1 hour a day,
-						Monday to Friday. The first week is about options basics
-						- time and intrinsic values, how you determine intrinsic
-						value, how time value changes during time, what Delta is
-						and how it changes. What mean In the Money, Out the
-						Money and At the Money. All knowledge that you are
-						getting is very practical. You really learn all basics.
-						The second week is mostly about the Strategy itself. How
-						to calculate combination, how to understand number of
-						contracts, what are basic rules for the Strategy and
-						why. The third week is about the Software, also
-						developed by Mark. It is also about how to calculate
-						price points that you expect and why these calculations
-						are correct. It is about how you choose the right stock
-						at right time. You lean how to compare different stocks
-						between each other to understand which one is better for
-						the moment. You learn how to work with Software and
-						understand and analyze the Data it provides.
+						Full trading course that is offered, does not have
+						analogs. In full course that includes theoretical and
+						practical part (you trade on your own account with
+						supervision) you have opportunity in individual training
+						learn my over 20 years PRACTICAL experience in trading
+						options. In 3 weeks of theory plus 4 month of practice
+						you will learn how to earn 10-20% per months without
+						putting your deposit under the risk. In this 4 months
+						real time trading learning experience you will learn how
+						to have stable income with risks of loosing your money
+						in all possible markets. As usually during 4 month you
+						can see up, down and flat. You also will save time and
+						money. You also will save 10 years, that I spent,
+						developing this strategy and 300k that I lost, using
+						different schemes of work that actually didn't work.
+						Welcome to the course, that is UNIQUE, SAFE and
+						developed for mid range investor and trader.
 						<p className='mt-5'>
 							Fees and Conditions Fees for the Course is 1500USD,
 							that paid in three parts at the beginning of each

@@ -8,12 +8,12 @@ import { errorCatch, getContentType } from './api.helpers'
 import { removeTokensStorage } from '@/services/auth/auth.helper'
 
 export const axiosClassic = axios.create({
-	baseURL: IS_PRODUCTION ? API_SERVER_URL : API_URL,
+	baseURL: API_SERVER_URL,
 	headers: getContentType()
 })
 
 export const instance = axios.create({
-	baseURL: IS_PRODUCTION ? API_SERVER_URL : API_URL,
+	baseURL: API_SERVER_URL,
 	headers: getContentType()
 })
 
