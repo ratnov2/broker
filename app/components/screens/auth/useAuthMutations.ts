@@ -67,6 +67,7 @@ export const useAuthMutations = (reset: UseFormReset<IAuthFormData>) => {
 	useEffect(() => {
 		id++
 		if (registerError){
+			//@ts-ignore
 		toast.error(registerError?.response?.data.message,{
 			toastId: id,
 		})

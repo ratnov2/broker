@@ -34,6 +34,7 @@ export const useAuthMutations = (reset: UseFormReset<IRegisterInput>) => {
 				router.replace('/')
 			},
 			onError(data) {
+				//@ts-ignore
 				toast.error(data.response.data.message, {
 					position: toast.POSITION.TOP_RIGHT
 				})
