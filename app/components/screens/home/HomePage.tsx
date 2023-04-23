@@ -6,6 +6,7 @@ import AboutPerson from './about-person/AboutPerson'
 import AboutCourse from './about-course/AboutCourse'
 import style from './HomePage.module.scss'
 import DuringCourse from './during-course/DuringCourse'
+import ActiveCourse from './active-course/ActiveCourse'
 
 const HomePage = () => {
 	return (
@@ -16,6 +17,7 @@ const HomePage = () => {
 					<AboutPerson />
 					<AboutCourse />
 					<DuringCourse />
+					<ActiveCourse />
 				</div>
 				<Footer />
 			</div>

@@ -1,0 +1,13 @@
+.portal {
+	@apply fixed top-0 left-0 z-[999999] h-[100%] w-[100%];
+	.share {
+		@apply fixed h-[100%] w-[100%] bg-orange opacity-40;
+	}
+	.content {
+		@apply absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col justify-center bg-white p-20 text-center rounded-xl;
+		// h2{
+		// 	@apply text-2xl;
+		// }
+		
+	}
+}

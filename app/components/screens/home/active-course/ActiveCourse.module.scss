@@ -1,0 +1,44 @@
+.activeCourse {
+	@apply mb-60 flex;
+	.theory {
+		@apply mr-5 bg-[#FA8B24];
+		button {
+			&:hover {
+				@apply border-transparent bg-white text-[#FA8B24];
+			}
+		}
+	}
+	.practice {
+		@apply ml-5  bg-[#201141];
+		button {
+			&:hover {
+				@apply border-transparent bg-white text-[#201141];
+			}
+		}
+	}
+	.theory,
+	.practice {
+		@apply w-1/2 rounded-2xl p-10 text-center;
+		.img {
+			@apply mx-auto w-fit;
+			img {
+				@apply w-24 transition-all delay-100 ease-out;
+				&:hover {
+					@apply scale-110;
+				}
+			}
+		}
+		button {
+			@apply mx-auto mt-10 rounded-lg border-[1px] bg-transparent px-20 py-3 font-bold text-white;
+		}
+	}
+}
+.theoryPortalH2 {
+	@apply text-4xl font-bold;
+}
+.theoryPortalH3 {
+	@apply text-xl font-medium text-black/75;
+}
+.theoryPortalSpan {
+	@apply inline-block my-6 ml-5;
+}

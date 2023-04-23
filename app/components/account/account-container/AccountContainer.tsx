@@ -86,7 +86,7 @@ const AccountContainer: FC<PropsAccountInfo> = ({ user, paymentHandler }) => {
 						<h2 className='text-3xl'>Read a file</h2>
 						<a
 							className='text-red text-xl hover:text-[rgb(155,0,0)]'
-							href='http://localhost:4200/uploads/tutoring_contract.docx'
+							href='https://server.option-trading.ca/uploads/tutoring_contract.docx'
 							download
 						>
 							download file

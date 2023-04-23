@@ -1,9 +1,10 @@
 const development = true
+const production = false
 export const API_URL = process.env.NEXT_PUBLIC_API_URL
 	? process.env.NEXT_PUBLIC_API_URL
 	: 'http://localhost:4200/api'
 	
-export const API_SERVER_URL = !development ? `https://vercel.com/ratnov2/server-broke-zzev` : `https://server.option-trading.ca/api`
+export const API_SERVER_URL = production ? `https://server-broke.onrender.com/api` : development ? `https://server.option-trading.ca/api` : `http://localhost:4200/api`
 
 export const getAuthUrl = (string: string) => `/auth${string}`
 export const getPaymentUrl = (url:string)=> `/payment/${url}`
