@@ -1,4 +1,3 @@
-import dynamic from 'next/dynamic'
 import { Dispatch, FC, MouseEvent, SetStateAction, useRef } from 'react'
 import ReactDOM from 'react-dom'
 

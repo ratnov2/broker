@@ -1,14 +1,14 @@
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useRef, useState } from 'react'
+import {  useState } from 'react'
 
 import Button from '@/ui/button/Button'
-import PortalDynamic from '@/ui/portal/Portal'
+
 
 import practiceImg from '@/assets/images/practice.png'
 import theoryImg from '@/assets/images/theory.png'
-import contract from '@/assets/public/contract.pdf'
+
 
 import style from './ActiveCourse.module.scss'
 
