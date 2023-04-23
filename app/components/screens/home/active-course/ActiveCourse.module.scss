@@ -38,7 +38,20 @@
 }
 .theoryPortalH3 {
 	@apply text-xl font-medium text-black/75;
+	a {
+		@apply border-b-[2px] border-red text-red;
+		&:hover {
+			@apply border-[#c74343] text-[#c74343];
+		}
+	}
 }
 .theoryPortalSpan {
-	@apply inline-block my-6 ml-5;
+	@apply my-6 ml-5 inline-block;
+}
+
+.theoryPortalHaveAccount {
+	@apply mt-2 text-black/75 text-sm;
+	a{
+		@apply text-red font-medium hover:underline;
+	}
 }

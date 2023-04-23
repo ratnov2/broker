@@ -1,20 +1,26 @@
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import Link from 'next/link'
-import {  useState } from 'react'
+import { useContext, useState } from 'react'
 
 import Button from '@/ui/button/Button'
-
 
 import practiceImg from '@/assets/images/practice.png'
 import theoryImg from '@/assets/images/theory.png'
 
-
 import style from './ActiveCourse.module.scss'
+import { CheckDocumentContext } from '@/api/providers/MainProvider'
 
 const DynamicPortal = dynamic(() => import('@/ui/portal/Portal'), {
 	ssr: false
 })
+
+//@ts-ignore
+const context = useContext(CheckDocumentContext)
+console.log(CheckDocumentContext);
+
+// console.log(context);
+
 
 const ActiveCourse = () => {
 	const [isPortal, setIsPortal] = useState(false)
@@ -46,15 +52,23 @@ const ActiveCourse = () => {
 										checked={check}
 										onChange={() => setCheck(!check)}
 									/>
-									<span className={style.theoryPortalSpan}>Ознакомлен</span>
+									<span className={style.theoryPortalSpan}>
+										Ознакомлен
+									</span>
 								</div>
 								<Link href='register'>
 									<Button
 										className={`mr-4 white text-red border-[1px] px-5 py-1 text-lg font-light transition-all duration-200 hover:border-[rgb(205,0,28)] hover:text-[rgb(205,0,28)]`}
 									>
-										Log In
+										Create account
 									</Button>
 								</Link>
+								<div
+									className={style.theoryPortalHaveAccount}
+								>
+									Уже есть аккаунт?&#160;
+									<Link href={'login'}>Log In</Link>
+								</div>
 							</>
 						</DynamicPortal>
 					</div>

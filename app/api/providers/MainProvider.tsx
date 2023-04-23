@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { FC } from 'react'
+import { FC, createContext, useState } from 'react'
 import { ToastContainer } from 'react-toastify'
 
 import ToastrCustom from '@/ui/toastr/ToastrCustom'
@@ -16,18 +16,37 @@ const queryClient = new QueryClient({
 	}
 })
 
+export const CheckDocumentContext = createContext<ContextDocument>({
+	checkDocument: false
+})
+
 const MainProvider: FC<{ children: React.ReactNode; Component: TypeRoles }> = ({
 	children,
 	Component
 }) => {
+	const [checkDocument, setCheckDocument] = useState(false)
+	function handleCheckDocument() {
+		setCheckDocument(check => !check)
+	}
 	return (
 		<HeadProvider>
-			<QueryClientProvider client={queryClient}>
-				<ToastrCustom />
-				<AuthProvider Component={Component}>{children}</AuthProvider>
-			</QueryClientProvider>
+			<CheckDocumentContext.Provider
+				value={{ checkDocument, handleCheckDocument }}
+			>
+				<QueryClientProvider client={queryClient}>
+					<ToastrCustom />
+					<AuthProvider Component={Component}>
+						{children}
+					</AuthProvider>
+				</QueryClientProvider>
+			</CheckDocumentContext.Provider>
 		</HeadProvider>
 	)
 }
 
 export default MainProvider
+
+type ContextDocument = {
+	checkDocument: boolean
+	handleCheckDocument?(): void
+} | null
